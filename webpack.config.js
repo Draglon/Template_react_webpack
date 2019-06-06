@@ -1,4 +1,5 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   mode: 'development',
@@ -46,17 +47,22 @@ module.exports = {
           },
         ],
       },
-      { // Загрузчик для css файлов
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!autoprefixer-loader',
-        exclude: [/node_modules/, /public/]
-      },
       { // Загрузчик для scss файлов
         test: /\.scss$/,
         exclude: [/node_modules/, /public/],
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  browsers: ['ie >= 8', 'last 4 version'],
+                }),
+              ],
+            },
+          },
           { loader: 'sass-loader' },
         ],
       },
