@@ -1,0 +1,60 @@
+input[type=submit], button, .btn {
+  border-radius: $btn-border-radius;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $btn-font-size;
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding;
+  letter-spacing: .4px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color .5s, border .5s, color .5s;
+
+  &[disabled] {
+    border: none;
+    cursor: no-drop;
+  }
+}
+input[type=submit]:hover, button:hover, button:focus {
+  cursor: pointer;
+}
+.btn--small {
+  font-size: $font-size13;
+  line-height: $btn-height-sm;
+  height: $btn-height-sm; 
+}
+.btn--middle {
+  font-size: $font-size15;
+  line-height: $btn-height-md;
+  height: $btn-height-md;
+}
+.btn--large {
+  font-size: $font-size19;
+  line-height: $btn-height-lg;
+  height: $btn-height-lg; 
+}
+.btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger, .btn-dark {
+  color: $btn-color;
+}
+// Button Primary
+.btn-primary {
+  background-color: $btn-primary-bg;
+  border: $btn-primary-border-color;
+  color: $white;
+  height: $btn-height-md;
+  
+  &:hover {
+    background-color: $btn-primary-bg-hover;
+    border: $btn-primary-border-color-hover;
+    color: $gray; 
+  }
+
+  &[disabled] {
+    background-color: rgba($btn-primary-bg, .5);
+    border: 1px solid rgba($btn-primary-bg, 0);
+    color: $gray; 
+  }
+}

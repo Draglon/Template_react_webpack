@@ -1,0 +1,117 @@
+// ==================== COLORS =====================
+// White
+$white: #fff;
+$white_75: rgba($white, .75); // rgba(225, 255, 255, .75);
+$white_50: rgba($white, .5); // rgba(225, 255, 255, .5);
+$white_20: rgba($white, .2); // rgba(225, 255, 255, .2);
+$white_10: rgba($white, .1); // rgba(225, 255, 255, .1);
+$white_00: rgba($white, 0); // rgba(225, 255, 255, 0);
+
+// Black
+$black: #000;
+$black_85: rgba($black, .85); // rgba(0, 0, 0, .85);
+$black_75: rgba($black, .75); // rgba(0, 0, 0, .75);
+$black_50: rgba($black, .5); // rgba(0, 0, 0, .5);
+$black_20: rgba($black, .2); // rgba(0, 0, 0, .2);
+$black_10: rgba($black, .1); // rgba(0, 0, 0, .1);
+$black_00: rgba($black, 0); // rgba(0, 0, 0, 0);
+
+// Gray
+$gray: #323232;
+$gray-light: #666;
+$gray-lighter:#e9e9e9;
+$gray-lightest:#f5f5f5;
+
+// Blue
+$blue: #004a7c;
+$blue_25: rgba($blue, .25); // rgba(0, 74, 124, .25);
+$blue_10: rgba($blue, .1); // rgba(0, 74, 124, .10);
+
+// Red
+$red: #ed3c39;
+
+// ==================== TEXT COLORS ====================
+$text-color-base: $gray;
+
+// Link style
+$link-color: $white;
+$link-color-hover: $white;
+$link-color-active: $white;
+
+// ==================== BACKGROUND ======================
+$bg-base: $gray-lightest;
+
+// ==================== FONT FAMILY ===================
+$font-serif: serif;
+$font-sans-serif: sans-serif;
+$font-family-roboto: 'Roboto Condensed', sans-serif;
+
+// ==================== FONT SIZE =======================
+// base
+$font-size-base: 10px;
+// font size
+$font-size10: 1rem;
+$font-size12: 1.2rem;
+$font-size13: 1.3rem;
+$font-size14: 1.4rem;
+$font-size15: 1.5rem;
+$font-size16: 1.6rem;
+$font-size17: 1.7rem;
+$font-size18: 1.8rem;
+$font-size19: 1.9rem;
+$font-size20: 2rem;
+$font-size21: 2.1rem;
+$font-size22: 2.2rem;
+$font-size24: 2.4rem;
+$font-size25: 2.5rem;
+$font-size26: 2.6rem;
+$font-size28: 2.8rem;
+$font-size30: 3rem;
+$font-size32: 3.2rem;
+$font-size35: 3.5rem;
+$font-size36: 3.6rem;
+$font-size38: 3.8rem;
+$font-size42: 4.2rem;
+$font-size45: 4.5rem;
+$font-size56: 5.6rem;
+$font-size60: 6rem;
+$font-size70: 7rem;
+$font-size80: 8rem;
+$font-size93: 9.3rem;
+$font-size100: 10rem;
+$font-size215: 21.5rem;
+$font-size230: 23rem;
+// tags
+$font-size-h1: $font-size36; // H1
+$font-size-h2: $font-size21; // H2
+$font-size-h3: $font-size17; // H3
+$font-size-h4: $font-size15; // H4
+$font-size-h5: $font-size13; // H5
+$font-size-h6: $font-size12; // H6
+$font-size-p: $font-size15; // p
+$font-size-label: $font-size15; // label
+$font-size-select: $font-size15; // select
+$font-size-input: $font-size17; // input
+$font-size-btn: $font-size15; // btn
+
+$font-weight-base: normal;
+$line-height-base: 1.4;
+$letter-spacing-base: 0;
+
+// ==================== FORMS: Buttons =======================
+$btn-bg: none;
+$btn-border-radius: 4px;
+$btn-font-size: $font-size-btn;
+$btn-font-size-mobile: $font-size20;
+$btn-font-family: $font-family-roboto;
+$btn-font-weight: $font-weight-base;
+$btn-padding: 0 1em;
+$btn-height-sm: 30px;
+$btn-height-md: 38px;
+$btn-height-lg: 48px;
+$btn-color: $white;
+// Btn primary
+$btn-primary-bg: $gray-light;
+$btn-primary-bg-hover: $gray-lighter;
+$btn-primary-border-color: 1px solid $gray-light;
+$btn-primary-border-color-hover: 1px solid $gray-light;
