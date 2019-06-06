@@ -1,7 +1,7 @@
 module.exports = {
   en: {
     locale: 'en-US',
-    messages: require("./lang/enUS.js").default,
+    messages: require('./lang/enUS.js').default,
   },
   ru: {
     locale: 'ru',

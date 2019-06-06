@@ -6,7 +6,7 @@ import { IntlProvider } from 'react-redux-multilingual';
 import AppComponent from './containers/AppComponent/index.jsx';
 import './styles/style.scss';
 import { store } from './store/store.jsx';
-import translations from './store/translations/index.js';
+import translations from './store/translations/index.jsx';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,5 +14,5 @@ ReactDOM.render(
       <AppComponent />
     </IntlProvider>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

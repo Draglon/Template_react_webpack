@@ -1,25 +1,25 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   entry: './app/app.jsx', // входная точка - исходный файл
-  output:{
+  output: {
     path: path.resolve(__dirname, './public'), // путь к каталогу выходных файлов - папка public
     publicPath: '/public/',
-    filename: 'bundle.js' // название создаваемого файла
+    filename: 'bundle.js', // название создаваемого файла
   },
-  module:{
-    rules:[   
+  module: {
+    rules: [
       { // Загрузчик для jsx
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
-        options:{
-          presets:['@babel/preset-env', '@babel/preset-react']
-        }
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       { // Загрузчик для шрифтов
         test: /.(eot|ttf|woff|woff2|svg)(\?.+)?$/,
@@ -30,9 +30,9 @@ module.exports = {
             options: {
               limit: 10000,
               name: './fonts/Icons/[name].[ext]',
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       { // Загрузчик для изображений
         test: /\.(gif|jpg|webp|png|svg)$/,
@@ -41,10 +41,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name].[ext]'
-            }
-          }
-        ]
+              name: './images/[name].[ext]',
+            },
+          },
+        ],
       },
       { // Загрузчик для css файлов
         test: /\.css$/,
@@ -55,11 +55,11 @@ module.exports = {
         test: /\.scss$/,
         exclude: [/node_modules/, /public/],
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'},
-          {loader: 'sass-loader'}
-        ]
-      }
-    ]
-  }
-}
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
+    ],
+  },
+};
