@@ -9,8 +9,6 @@ class AppComponent extends Component {
     const { page, translate } = this.props;
     const Content = components[page];
 
-    console.log(page);
-
     return (
       <main className="main page">
         <Content translate={translate(page.toLowerCase())} />
