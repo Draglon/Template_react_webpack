@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { POPUP_TOGGLE, MENU_TOGGLE } from './actions.jsx';
+import { POPUP_TOGGLE, MENU_TOGGLE } from './actions';
 
 // Popup
 const popupReducer = (state = false, action) => {

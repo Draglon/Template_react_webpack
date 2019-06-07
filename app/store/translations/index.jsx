@@ -1,10 +1,13 @@
+const ru = require('./lang/ru.jsx').default;
+const enUS = require('./lang/enUS.jsx').default;
+
 module.exports = {
   en: {
     locale: 'en-US',
-    messages: require('./lang/enUS.js').default,
+    messages: enUS,
   },
   ru: {
     locale: 'ru',
-    messages: require('./lang/ru.js').default,
+    messages: ru,
   },
 };

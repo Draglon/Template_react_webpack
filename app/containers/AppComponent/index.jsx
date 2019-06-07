@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withTranslate } from 'react-redux-multilingual';
 
-import * as components from './Components.jsx';
+import * as components from './Components';
 
 class AppComponent extends Component {
   render() {

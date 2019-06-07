@@ -3,6 +3,9 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   mode: 'development',
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devServer: {
     historyApiFallback: true,
   },
@@ -14,7 +17,8 @@ module.exports = {
   },
   module: {
     rules: [
-      { // Загрузчик для jsx
+      {
+        // Загрузчик для jsx
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
@@ -22,7 +26,8 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
-      { // Загрузчик для шрифтов
+      {
+        // Загрузчик для шрифтов
         test: /.(eot|ttf|woff|woff2|svg)(\?.+)?$/,
         exclude: /images/,
         use: [
@@ -35,7 +40,8 @@ module.exports = {
           },
         ],
       },
-      { // Загрузчик для изображений
+      {
+        // Загрузчик для изображений
         test: /\.(gif|jpg|webp|png|svg)$/,
         exclude: /fonts/,
         use: [
@@ -47,7 +53,8 @@ module.exports = {
           },
         ],
       },
-      { // Загрузчик для scss файлов
+      {
+        // Загрузчик для scss файлов
         test: /\.scss$/,
         exclude: [/node_modules/, /public/],
         use: [

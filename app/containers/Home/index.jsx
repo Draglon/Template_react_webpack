@@ -6,7 +6,7 @@ const Home = () => (
     <h1>Anywhere in your app!</h1>
     <Formik
       initialValues={{ email: '', password: '' }}
-      validate={(values) => {
+      validate={values => {
         const errors = {};
         if (!values.email) {
           errors.email = 'Required';

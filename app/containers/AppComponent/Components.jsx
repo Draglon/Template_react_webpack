@@ -1,6 +1,6 @@
 // Pages
-import Home from '../Home/index.jsx';
-import Contacts from '../Contacts/index.jsx';
-import NotFound from '../NotFound/index.jsx';
+import Home from '../Home';
+import Contacts from '../Contacts';
+import NotFound from '../NotFound';
 
 export { Home, Contacts, NotFound };
