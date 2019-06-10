@@ -1,32 +1,32 @@
 import {
-  SEARCH_MOVIE_REQUEST,
-  SEARCH_MOVIE_SUCCESS,
-  SEARCH_MOVIE_FAILURE,
-} from '../../constants/movie.constants';
+  AUTH_GUEST_SESSION_REQUEST,
+  AUTH_GUEST_SESSION_SUCCESS,
+  AUTH_GUEST_SESSION_FAILURE,
+} from '../../../constants/authGuestSession.constants';
 
-const searchMovieInitialState = {
+const authGuestSessionInitialState = {
   isPending: false,
   data: null,
   error: null,
 };
 
-// Search Movie Reducer
-const searchMovieReducer = (state = searchMovieInitialState, action) => {
+// Movie
+const authGuestSessionReducer = (state = authGuestSessionInitialState, action) => {
   switch (action.type) {
-    case SEARCH_MOVIE_REQUEST:
+    case AUTH_GUEST_SESSION_REQUEST:
       return {
         ...state,
         isPending: true,
         error: null,
       };
-    case SEARCH_MOVIE_SUCCESS:
+    case AUTH_GUEST_SESSION_SUCCESS:
       return {
         ...state,
         isPending: false,
         data: action.payload,
         error: null,
       };
-    case SEARCH_MOVIE_FAILURE:
+    case AUTH_GUEST_SESSION_FAILURE:
       return {
         ...state,
         isPending: false,
@@ -37,4 +37,4 @@ const searchMovieReducer = (state = searchMovieInitialState, action) => {
   }
 };
 
-export default searchMovieReducer;
+export default authGuestSessionReducer;

@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 
 import { MOVIE_REQUEST, SEARCH_MOVIE_REQUEST } from '../../store/constants/movie.constants';
 
+import { AUTH_GUEST_SESSION_REQUEST } from '../../store/constants/authGuestSession.constants';
+
 class Home extends Component {
   componentDidMount() {
-    const { setMovie, setSearchMovie } = this.props;
+    const { setMovie, setSearchMovie, setAuthGuestSession } = this.props;
     setMovie(3);
     setSearchMovie({ query: 'Day', page: 1 });
+    setAuthGuestSession();
   }
 
   render() {
@@ -29,6 +32,9 @@ export default connect(
     },
     setSearchMovie(payload) {
       dispatch({ type: SEARCH_MOVIE_REQUEST, payload });
+    },
+    setAuthGuestSession(payload) {
+      dispatch({ type: AUTH_GUEST_SESSION_REQUEST, payload });
     },
   }),
 )(Home);
