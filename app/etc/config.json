@@ -1,0 +1,11 @@
+{
+  "apiPrefix": "http://localhost:8080",
+  "serverPort": "8080",
+  "db":{
+    "name": "notes",
+    "host": "localhost",
+    "port": 27017
+  },
+  "themoviedb": "https://api.themoviedb.org/3",
+  "apiKey": "373ab70129f36fd1f65b6d7b24ec2641"
+}

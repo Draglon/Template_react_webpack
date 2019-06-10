@@ -1,20 +1,19 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { IntlReducer as Intl } from 'react-redux-multilingual';
-// import createSagaMiddleware from 'redux-saga';
+import { createLogicMiddleware } from 'redux-logic';
 
-import * as reducers from './reducers';
-// import rootSaga from './sagas/index';
+import reducers from './reducers';
+import rootLogic from './logic';
 
-// const sagaMiddleware = createSagaMiddleware();
+const logicMiddleware = createLogicMiddleware(rootLogic);
 
-// const middlewares = applyMiddleware(middleware, sagaMiddleware);
+const middlewares = applyMiddleware(logicMiddleware);
+const enhancers = compose(middlewares);
 
 const rootReducer = combineReducers({
-  ...reducers,
+  reducers,
   Intl,
 });
 
-export const store = createStore(rootReducer, composeWithDevTools());
-
-// sagaMiddleware.run(rootSaga);
+export default createStore(rootReducer, composeWithDevTools(enhancers));

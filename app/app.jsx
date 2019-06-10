@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-redux-multilingual';
 
 import AppComponent from './containers/AppComponent/index';
 import './styles/style.scss';
-import { store } from './store/store';
+import store from './store/store';
 import translations from './store/translations/index';
 
 ReactDOM.render(

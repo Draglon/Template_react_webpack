@@ -23,8 +23,12 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         options: {
+          // presets: ['env', 'es2015', 'react', 'stage-2'],
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
+        // query: {
+        //   presets: ['react', 'es2015'],
+        // },
       },
       {
         // Загрузчик для шрифтов
@@ -60,16 +64,12 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          // {
-          //   loader: 'postcss-loader',
-          //   options: {
-          //     plugins: [
-          //       autoprefixer({
-          //         browsers: ['ie >= 8', 'last 4 version'],
-          //       }),
-          //     ],
-          //   },
-          // },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer()],
+            },
+          },
           { loader: 'sass-loader' },
         ],
       },
