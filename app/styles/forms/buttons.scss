@@ -44,17 +44,14 @@ input[type=submit]:hover, button:hover, button:focus {
   background-color: $btn-primary-bg;
   border: $btn-primary-border-color;
   color: $white;
-  height: $btn-height-md;
   
   &:hover {
     background-color: $btn-primary-bg-hover;
     border: $btn-primary-border-color-hover;
-    color: $gray; 
   }
 
   &[disabled] {
     background-color: rgba($btn-primary-bg, .5);
     border: 1px solid rgba($btn-primary-bg, 0);
-    color: $gray; 
   }
 }

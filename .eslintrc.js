@@ -52,7 +52,7 @@ module.exports = {
     
     'react/require-default-props': 'off', // airbnb использует error
     'react/forbid-prop-types': 'off', // airbnb использует error
-    'react/jsx-filename-extension': '0ff',//[1, { 'extension': ['.js', '.jsx'] }], // airbnb is использует .jsx
+    'react/jsx-filename-extension': 0,//[1, { 'extension': ['.js', '.jsx'] }], // airbnb is использует .jsx
     'react/prefer-stateless-function': 'off',
     'react/prop-types': 'off',
     'import/namespace': 'off',

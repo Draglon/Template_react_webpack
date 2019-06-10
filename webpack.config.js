@@ -60,16 +60,16 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                autoprefixer({
-                  browsers: ['ie >= 8', 'last 4 version'],
-                }),
-              ],
-            },
-          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     plugins: [
+          //       autoprefixer({
+          //         browsers: ['ie >= 8', 'last 4 version'],
+          //       }),
+          //     ],
+          //   },
+          // },
           { loader: 'sass-loader' },
         ],
       },

@@ -1,0 +1,46 @@
+.header {
+  background-color: $black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  z-index: 100;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    max-width: 120em;
+    padding: 0 3em;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  &__btns {
+
+  }
+}
+
+.navbar {
+  &__link {
+    border-bottom: 1px solid $white_00;
+    font-size: $font-size14;
+    margin-right: 1em;
+    transition: .3s border;
+
+    &:hover {
+      border-bottom: 1px solid $white;
+    }
+  }
+}
+
+.btn-login {
+  margin-right: 1em;
+  min-width: 110px;
+}
+
+.btn-signup {
+  min-width: 110px;
+}

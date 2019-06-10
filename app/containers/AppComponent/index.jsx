@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withTranslate } from 'react-redux-multilingual';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import * as components from './Components';
+import Header from '../Header';
+
+import Home from '../Home';
+import Contacts from '../Contacts';
+import Login from '../Login';
+import Signup from '../Signup';
+import NotFound from '../NotFound';
 
 class AppComponent extends Component {
   render() {
-    const { page, translate } = this.props;
-    const Content = components[page];
-
     return (
-      <main className="main page">
-        <Content translate={translate(page.toLowerCase())} />
-      </main>
+      <Router>
+        <main className="main page">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/contact" component={Contacts} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
+      </Router>
     );
   }
 }
 
-export default connect(
-  state => ({
-    page: state.page,
-  }),
-  null,
-)(withTranslate(AppComponent));
+export default AppComponent;

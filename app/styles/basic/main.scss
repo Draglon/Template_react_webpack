@@ -65,6 +65,13 @@ ul {list-style-type: none;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.page {
+  background-color: $gray-lightest;
+  padding-top: $header-height;
+  min-height: 100vh;
+}
+
+
 .wrapper {
   margin: 0 auto;
   position: relative;
@@ -88,12 +95,6 @@ ul {list-style-type: none;
     text-align: center;
     letter-spacing: 1px;
   }
-}
-
-.title {
-  background-image: url('../images/logo.svg');
-  display: flex;
-  justify-content: center;
 }
 
 // -------------------------- screen: 767px ---------------------
