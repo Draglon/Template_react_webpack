@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { MOVIE_REQUEST } from '../../store/constants/movie.constants';
+import { MOVIE_REQUEST, SEARCH_MOVIE_REQUEST } from '../../store/constants/movie.constants';
 
 class Home extends Component {
   componentDidMount() {
-    const { setMovie } = this.props;
+    const { setMovie, setSearchMovie } = this.props;
     setMovie(3);
+    setSearchMovie({ query: 'Day', page: 1 });
   }
 
   render() {
@@ -25,6 +26,9 @@ export default connect(
   dispatch => ({
     setMovie(payload) {
       dispatch({ type: MOVIE_REQUEST, payload });
+    },
+    setSearchMovie(payload) {
+      dispatch({ type: SEARCH_MOVIE_REQUEST, payload });
     },
   }),
 )(Home);

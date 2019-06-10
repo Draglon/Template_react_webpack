@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import theMovieDB from './movie';
+import theMovieDB from './theMovieDB';
 
 export default combineReducers({
   theMovieDB,

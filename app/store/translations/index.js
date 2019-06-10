@@ -1,5 +1,5 @@
-const ru = require('./lang/ru.jsx').default;
-const enUS = require('./lang/enUS.jsx').default;
+const ru = require('./lang/ru.js').default;
+const enUS = require('./lang/enUS.js').default;
 
 module.exports = {
   en: {
