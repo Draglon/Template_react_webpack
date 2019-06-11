@@ -1,13 +1,13 @@
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import { createLogic } from 'redux-logic';
-import { themoviedb, apiKey } from '../../etc/config.json';
+import { themoviedb, apiKey } from '../../../etc/config.json';
 
 import {
   AUTH_TOKEN_REQUEST,
   AUTH_TOKEN_SUCCESS,
   AUTH_TOKEN_FAILURE,
-} from '../constants/authentication.constants';
+} from '../../constants/authentication.constants';
 
 const url = `${themoviedb}/authentication/token/new`;
 

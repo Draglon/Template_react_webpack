@@ -8,10 +8,7 @@ import { MOVIE_REQUEST, MOVIE_SUCCESS, MOVIE_FAILURE } from '../constants/movie.
 const url = `${themoviedb}/discover/movie`;
 
 const getMovie = createLogic({
-  // declarative built-in functionality wraps your code
-  type: MOVIE_REQUEST, // only apply this logic to this type
-  // cancelType: CANCEL_FETCH_POLLS, // cancel on this type
-  // latest: true, // only take latest
+  type: MOVIE_REQUEST,
 
   process({ getState, action }, dispatch, done) {
     axios

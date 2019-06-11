@@ -25,6 +25,7 @@ module.exports = {
         options: {
           // presets: ['env', 'es2015', 'react', 'stage-2'],
           presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-proposal-class-properties'],
         },
         // query: {
         //   presets: ['react', 'es2015'],
