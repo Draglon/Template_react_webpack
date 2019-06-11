@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getAuthToken } from '../../store/selectors/theMovieDB';
-import { AUTH_SESSION_WITH_LOGIN_REQUEST } from '../../store/constants/authentication.constants';
+import {
+  AUTH_TOKEN_REQUEST,
+  AUTH_SESSION_WITH_LOGIN_REQUEST,
+} from '../../store/constants/authentication.constants';
 
 class Login extends Component {
   constructor(props) {
@@ -14,6 +17,11 @@ class Login extends Component {
       // passwordValid: false,
       // formValid: false,
     };
+  }
+
+  componentDidMount() {
+    const { setAuthToken } = this.props;
+    setAuthToken();
   }
 
   handleChange(e) {
@@ -84,6 +92,9 @@ export default connect(
     accessToken: getAuthToken(state),
   }),
   dispatch => ({
+    setAuthToken(payload) {
+      dispatch({ type: AUTH_TOKEN_REQUEST, payload });
+    },
     setAuthSessionWithLogin(payload) {
       dispatch({ type: AUTH_SESSION_WITH_LOGIN_REQUEST, payload });
     },

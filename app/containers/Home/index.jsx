@@ -39,14 +39,8 @@ class Home extends Component {
     const {
       accessToken: { request_token },
       setAuthSession,
-      setAuthSessionWithLogin,
     } = this.props;
 
-    setAuthSessionWithLogin({
-      username: 'Draglon',
-      password: 'draglon750',
-      request_token,
-    });
     setAuthSession({ request_token });
   }
 

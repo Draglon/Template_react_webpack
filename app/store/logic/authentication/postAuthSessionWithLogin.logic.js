@@ -15,6 +15,7 @@ const getAuthSessionWithLogin = createLogic({
   type: AUTH_SESSION_WITH_LOGIN_REQUEST,
 
   process({ getState, action }, dispatch, done) {
+    console.log(getState());
     axios
       .post(`${url}?api_key=${apiKey}`, action.payload)
       .then(response => response)
