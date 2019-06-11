@@ -1,32 +1,32 @@
 import {
-  AUTH_GUEST_SESSION_REQUEST,
-  AUTH_GUEST_SESSION_SUCCESS,
-  AUTH_GUEST_SESSION_FAILURE,
+  AUTH_TOKEN_REQUEST,
+  AUTH_TOKEN_SUCCESS,
+  AUTH_TOKEN_FAILURE,
 } from '../../../constants/authentication.constants';
 
-const authGuestSessionInitialState = {
+const authTokenInitialState = {
   isPending: false,
   data: null,
   error: null,
 };
 
 // Movie
-const authGuestSessionReducer = (state = authGuestSessionInitialState, action) => {
+const authTokenReducer = (state = authTokenInitialState, action) => {
   switch (action.type) {
-    case AUTH_GUEST_SESSION_REQUEST:
+    case AUTH_TOKEN_REQUEST:
       return {
         ...state,
         isPending: true,
         error: null,
       };
-    case AUTH_GUEST_SESSION_SUCCESS:
+    case AUTH_TOKEN_SUCCESS:
       return {
         ...state,
         isPending: false,
         data: action.payload,
         error: null,
       };
-    case AUTH_GUEST_SESSION_FAILURE:
+    case AUTH_TOKEN_FAILURE:
       return {
         ...state,
         isPending: false,
@@ -37,4 +37,4 @@ const authGuestSessionReducer = (state = authGuestSessionInitialState, action) =
   }
 };
 
-export default authGuestSessionReducer;
+export default authTokenReducer;
