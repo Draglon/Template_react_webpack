@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getAuthToken } from '../../store/selectors/theMovieDB';
-import {
-  AUTH_TOKEN_REQUEST,
-  AUTH_SESSION_WITH_LOGIN_REQUEST,
-} from '../../store/constants/authentication.constants';
+import { AUTH_ACCESS_REQUEST } from '../../store/constants/authentication.constants';
 
 class Login extends Component {
   constructor(props) {
@@ -13,15 +9,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      // loginValid: false,
-      // passwordValid: false,
-      // formValid: false,
     };
-  }
-
-  componentDidMount() {
-    const { setAuthToken } = this.props;
-    setAuthToken();
   }
 
   handleChange(e) {
@@ -33,17 +21,9 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { username, password } = this.state;
-    const {
-      accessToken: { request_token },
-      setAuthSessionWithLogin,
-    } = this.props;
+    const { setAccess } = this.props;
 
-    const request = {
-      username,
-      password,
-      request_token,
-    };
-    setAuthSessionWithLogin(request);
+    setAccess({ username, password });
   }
 
   render() {
@@ -88,15 +68,13 @@ class Login extends Component {
 }
 
 export default connect(
-  state => ({
-    accessToken: getAuthToken(state),
-  }),
+  // state => ({
+  //   accessToken: getAuthToken(state),
+  // }),
+  null,
   dispatch => ({
-    setAuthToken(payload) {
-      dispatch({ type: AUTH_TOKEN_REQUEST, payload });
-    },
-    setAuthSessionWithLogin(payload) {
-      dispatch({ type: AUTH_SESSION_WITH_LOGIN_REQUEST, payload });
+    setAccess(payload) {
+      dispatch({ type: AUTH_ACCESS_REQUEST, payload });
     },
   }),
 )(Login);

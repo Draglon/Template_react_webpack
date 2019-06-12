@@ -1,32 +1,32 @@
 import {
-  AUTH_SESSION_REQUEST,
-  AUTH_SESSION_SUCCESS,
-  AUTH_SESSION_FAILURE,
+  AUTH_ACCESS_REQUEST,
+  AUTH_ACCESS_SUCCESS,
+  AUTH_ACCESS_FAILURE,
 } from '../../../constants/authentication.constants';
 
-const authSessionInitialState = {
+const authAccessInitialState = {
   isPending: false,
   data: null,
   error: null,
 };
 
 // Movie
-const authSessionReducer = (state = authSessionInitialState, action) => {
+const authAccessReducer = (state = authAccessInitialState, action) => {
   switch (action.type) {
-    case AUTH_SESSION_REQUEST:
+    case AUTH_ACCESS_REQUEST:
       return {
         ...state,
         isPending: true,
         error: null,
       };
-    case AUTH_SESSION_SUCCESS:
+    case AUTH_ACCESS_SUCCESS:
       return {
         ...state,
         isPending: false,
         data: action.payload,
         error: null,
       };
-    case AUTH_SESSION_FAILURE:
+    case AUTH_ACCESS_FAILURE:
       return {
         ...state,
         isPending: false,
@@ -37,4 +37,4 @@ const authSessionReducer = (state = authSessionInitialState, action) => {
   }
 };
 
-export default authSessionReducer;
+export default authAccessReducer;

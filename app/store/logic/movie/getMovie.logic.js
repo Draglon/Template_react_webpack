@@ -1,9 +1,9 @@
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import { createLogic } from 'redux-logic';
-import { themoviedb, apiKey } from '../../etc/config.json';
+import { themoviedb, apiKey } from '../../../etc/config.json';
 
-import { MOVIE_REQUEST, MOVIE_SUCCESS, MOVIE_FAILURE } from '../constants/movie.constants';
+import { MOVIE_REQUEST, MOVIE_SUCCESS, MOVIE_FAILURE } from '../../constants/movie.constants';
 
 const url = `${themoviedb}/discover/movie`;
 

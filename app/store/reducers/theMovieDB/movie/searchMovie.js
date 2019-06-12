@@ -2,7 +2,7 @@ import {
   SEARCH_MOVIE_REQUEST,
   SEARCH_MOVIE_SUCCESS,
   SEARCH_MOVIE_FAILURE,
-} from '../../constants/movie.constants';
+} from '../../../constants/movie.constants';
 
 const searchMovieInitialState = {
   isPending: false,

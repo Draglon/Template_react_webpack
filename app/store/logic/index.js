@@ -1,18 +1,10 @@
-import getAuthGuestSession from './authentication/getAuthGuestSession.logic';
-import getAuthToken from './authentication/getAuthToken.logic';
-import postAuthSession from './authentication/postAuthSession.logic';
-import postAuthSessionWithLogin from './authentication/postAuthSessionWithLogin.logic';
-import deleteAuthSession from './authentication/deleteAuthSession.logic';
+import getAuthAccess from './authentication/getAuthAccess.logic';
 
-import getMovie from './getMovie.logic';
-import getSearchMovie from './getSearchMovie.logic';
+// import getMovie from './movie/getMovie.logic';
+// import getSearchMovie from './movie/getSearchMovie.logic';
 
 export default [
-  getAuthGuestSession,
-  getAuthToken,
-  postAuthSession,
-  postAuthSessionWithLogin,
-  deleteAuthSession,
-  getMovie,
-  getSearchMovie,
+  getAuthAccess,
+  // getMovie,
+  // getSearchMovie,
 ];

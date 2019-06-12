@@ -1,13 +1,13 @@
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 import { createLogic } from 'redux-logic';
-import { themoviedb, apiKey } from '../../etc/config.json';
+import { themoviedb, apiKey } from '../../../etc/config.json';
 
 import {
   SEARCH_MOVIE_REQUEST,
   SEARCH_MOVIE_SUCCESS,
   SEARCH_MOVIE_FAILURE,
-} from '../constants/movie.constants';
+} from '../../constants/movie.constants';
 
 const url = `${themoviedb}/search/movie`;
 

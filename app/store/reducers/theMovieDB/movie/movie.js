@@ -1,32 +1,28 @@
-import {
-  AUTH_TOKEN_REQUEST,
-  AUTH_TOKEN_SUCCESS,
-  AUTH_TOKEN_FAILURE,
-} from '../../../constants/authentication.constants';
+import { MOVIE_REQUEST, MOVIE_SUCCESS, MOVIE_FAILURE } from '../../../constants/movie.constants';
 
-const authTokenInitialState = {
+const movieInitialState = {
   isPending: false,
   data: null,
   error: null,
 };
 
 // Movie
-const authTokenReducer = (state = authTokenInitialState, action) => {
+const movieReducer = (state = movieInitialState, action) => {
   switch (action.type) {
-    case AUTH_TOKEN_REQUEST:
+    case MOVIE_REQUEST:
       return {
         ...state,
         isPending: true,
         error: null,
       };
-    case AUTH_TOKEN_SUCCESS:
+    case MOVIE_SUCCESS:
       return {
         ...state,
         isPending: false,
         data: action.payload,
         error: null,
       };
-    case AUTH_TOKEN_FAILURE:
+    case MOVIE_FAILURE:
       return {
         ...state,
         isPending: false,
@@ -37,4 +33,4 @@ const authTokenReducer = (state = authTokenInitialState, action) => {
   }
 };
 
-export default authTokenReducer;
+export default movieReducer;

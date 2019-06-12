@@ -1,20 +1,12 @@
 import { combineReducers } from 'redux';
 
-import authGuestSession from './authentication/authGuestSession.reducer';
-import authToken from './authentication/authToken.reducer';
-import authSession from './authentication/authSession.reducer';
-import authSessionWithLogin from './authentication/authSessionWithLogin.reducer';
-import authDeleteSession from './authentication/authDeleteSession.reducer';
+import authAccess from './authentication/authAccess.reducer';
 
-import movie from './movie';
-import searchMovie from './searchMovie';
+// import movie from './movie/movie';
+// import searchMovie from './movie/searchMovie';
 
 export default combineReducers({
-  authGuestSession,
-  authToken,
-  authSession,
-  authSessionWithLogin,
-  authDeleteSession,
+  authAccess,
   // movie,
   // searchMovie,
 });
