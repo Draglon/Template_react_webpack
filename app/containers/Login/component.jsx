@@ -18,14 +18,31 @@ const Login = ({ setAccess }) => (
         onSubmit={values => setAccess(values)}
       >
         {() => (
-          <Form>
-            <Field name="username" />
-            <ErrorMessage name="username" component="div" />
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
-            <button className="btn btn-primary btn-small" type="submit">
-              Submit
-            </button>
+          <Form className="form">
+            <Field
+              name="username"
+              render={({ field }) => (
+                <div className="form__field">
+                  <input {...field} type="text" placeholder="Login" />
+                  <ErrorMessage name="username" component="div" className="form__error" />
+                </div>
+              )}
+            />
+            <Field
+              type="password"
+              name="password"
+              render={({ field }) => (
+                <div className="form__field">
+                  <input {...field} type="text" placeholder="Password" />
+                  <ErrorMessage name="password" component="div" className="form__error" />
+                </div>
+              )}
+            />
+            <div className="align-center">
+              <button className="btn btn-primary btn--small btn-submit" type="submit">
+                Submit
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
