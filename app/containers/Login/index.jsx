@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { AUTH_ACCESS_REQUEST } from '../../store/constants/authentication.constants';
 
+import { getAuthAccess } from '../../store/selectors/theMovieDB';
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,9 @@ class Login extends Component {
 
   render() {
     const { username, password } = this.state;
+    const { authAccess } = this.props;
+    if (authAccess) {console.log('authAccess', authAccess)}
+
     return (
       <section className="section">
         <div className="wrapper">
@@ -68,10 +73,9 @@ class Login extends Component {
 }
 
 export default connect(
-  // state => ({
-  //   accessToken: getAuthToken(state),
-  // }),
-  null,
+  state => ({
+    authAccess: getAuthAccess(state),
+  }),
   dispatch => ({
     setAccess(payload) {
       dispatch({ type: AUTH_ACCESS_REQUEST, payload });

@@ -1,2 +1,1 @@
-export const getAuthToken = state => state.reducers.theMovieDB.authToken.data;
-// export const getAuthToken = state => state.reducers.theMovieDB.authToken.data;
+export const getAuthAccess = state => state.reducers.theMovieDB.authAccess.data;
