@@ -21,6 +21,7 @@
     "formik": "^1.5.7",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
+    "qs": "^6.7.0",
     "react": "^16.5.0",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-custom-scrollbars": "^4.2.1",
@@ -34,6 +35,7 @@
     "redux-first-router-link": "^1.4.2",
     "redux-logic": "^2.1.1",
     "redux-saga": "^1.0.2",
+    "rxjs": "^6.5.2",
     "yup": "^0.27.0"
   },
   "devDependencies": {
