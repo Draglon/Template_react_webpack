@@ -6,6 +6,8 @@ const instance = axios.create({
   headers: {
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/json',
+    // 'Access-Control-Allow-Origin': '*',
+    // 'Access-Control-Allow-Methods': 'PUT,GET,POST,DELETE,OPTIONS',
   },
   params: {
     apiKey: '373ab70129f36fd1f65b6d7b24ec2641',
