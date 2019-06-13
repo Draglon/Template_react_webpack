@@ -33,7 +33,7 @@ const Login = ({ setAccess }) => (
               name="password"
               render={({ field }) => (
                 <div className="form__field">
-                  <input {...field} type="text" placeholder="Password" />
+                  <input {...field} type="password" placeholder="Password" />
                   <ErrorMessage name="password" component="div" className="form__error" />
                 </div>
               )}

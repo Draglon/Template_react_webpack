@@ -25,14 +25,15 @@ const getAuthAccess = createLogic({
         }),
       )
       .then(response2 => axios.post(urlSession, { request_token: response2.data.request_token }))
-      .then(response3 =>
+      .then(response3 => {
+        sessionStorage.setItem('session_id', response3.data.session_id);
         dispatch({
           type: AUTH_ACCESS_SUCCESS,
           payload: {
             session_id: response3.data.session_id,
           },
-        }),
-      )
+        });
+      })
       .catch(error => dispatch({ type: AUTH_ACCESS_FAILURE, payload: error, error: true }))
       .then(() => done());
   },
