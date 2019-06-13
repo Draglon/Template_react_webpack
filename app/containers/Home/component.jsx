@@ -12,9 +12,9 @@ const Home = ({ createList }) => {
             className="btn btn-primary btn--small"
             onClick={() =>
               createList({
-                "name": "This is my awesome test list.",
-                "description": "Just an aweso",
-                "language": "en"
+                name: 'This is maasdasy',
+                description: 'Just anasda',
+                language: 'en',
               })
             }
           >

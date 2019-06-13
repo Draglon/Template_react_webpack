@@ -15,7 +15,7 @@ const getCreateList = createLogic({
         `list?api_key=${apiKey}&session_id=${action.payload.session_id}`,
         action.payload.payload,
       )
-      .then(response => dispatch({ type: CREATE_LIST_SUCCESS, payload: response.data }))
+      .then(response => dispatch({ type: CREATE_LIST_SUCCESS, payload: response }))
       .catch(error => dispatch({ type: CREATE_LIST_FAILURE, payload: error, error: true }))
       .then(() => done());
   },
