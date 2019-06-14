@@ -24,7 +24,7 @@ const getAuthAccess = createLogic({
         }),
       )
       .then(response3 => {
-        sessionStorage.setItem('session_id', response3.data.session_id);
+        localStorage.setItem('session_id', response3.data.session_id);
         dispatch({
           type: AUTH_ACCESS_SUCCESS,
           payload: {

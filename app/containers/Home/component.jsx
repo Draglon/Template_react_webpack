@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Home = ({ createList }) => {
+const Home = ({ createList, listId }) => {
+  console.log(listId);
   return (
     <section className="section">
       <div className="wrapper">
@@ -12,8 +13,8 @@ const Home = ({ createList }) => {
             className="btn btn-primary btn--small"
             onClick={() =>
               createList({
-                name: 'This is maasdasy',
-                description: 'Just anasda',
+                name: 'This is m 123433',
+                description: 'Just an asdas 1212434',
                 language: 'en',
               })
             }
@@ -21,6 +22,8 @@ const Home = ({ createList }) => {
             Create list
           </button>
         </div>
+
+        <div className="">listId: {listId ? listId.list_id : null}</div>
       </div>
     </section>
   );

@@ -12,10 +12,10 @@ const getCreateList = createLogic({
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient
       .post(
-        `list?api_key=${apiKey}&session_id=${action.payload.session_id}`,
-        action.payload.payload,
+        `list?api_key=${apiKey}&session_id=${localStorage.getItem('session_id')}`,
+        action.payload,
       )
-      .then(response => dispatch({ type: CREATE_LIST_SUCCESS, payload: response }))
+      .then(response => dispatch({ type: CREATE_LIST_SUCCESS, payload: response.data }))
       .catch(error => dispatch({ type: CREATE_LIST_FAILURE, payload: error, error: true }))
       .then(() => done());
   },
