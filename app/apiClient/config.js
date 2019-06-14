@@ -3,10 +3,11 @@ import qs from 'qs';
 
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
+  proxyHeaders: false,
+  credentials: false,
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
-    // 'Access-Control-Allow-Origin': '*',
   },
   params: {
     apiKey: '373ab70129f36fd1f65b6d7b24ec2641',
@@ -14,6 +15,7 @@ const instance = axios.create({
   paramsSerializer: params => {
     return qs.stringify(params);
   },
+  dataType: 'jsonp',
 });
 
 export default instance;
