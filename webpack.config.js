@@ -15,6 +15,7 @@ module.exports = {
     publicPath: '/public/',
     filename: 'bundle.js', // название создаваемого файла
   },
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {

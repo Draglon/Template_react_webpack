@@ -27,12 +27,10 @@ const getAuthAccess = createLogic({
         localStorage.setItem('session_id', response3.data.session_id);
         dispatch({
           type: AUTH_ACCESS_SUCCESS,
-          payload: {
-            session_id: response3.data.session_id,
-          },
+          payload: response3.data.session_id,
         });
       })
-      .catch(error => dispatch({ type: AUTH_ACCESS_FAILURE, payload: error, error: true }))
+      .catch(error => dispatch({ type: AUTH_ACCESS_FAILURE, payload: error.message, error: true }))
       .then(() => done());
   },
 });

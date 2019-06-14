@@ -1,25 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => (
+const Header = ({ isLogged, removeSessionId }) => (
   <header className="header">
     <div className="header__wrapper">
       <nav className="navbar">
         <Link to="/" className="navbar__link">
           Home
         </Link>
-        <Link to="/contact" className="navbar__link">
-          Contacts
-        </Link>
       </nav>
-
       <div className="header__btns">
-        <Link to="/login" className="btn btn-primary btn--small btn-login">
-          Log In
-        </Link>
-        <Link to="/signup" className="btn btn-primary btn--small btn-signup">
-          Sign Up
-        </Link>
+        {isLogged && (
+          <button
+            type="button"
+            className="btn btn-primary btn--small btn-login"
+            onClick={() => {
+              localStorage.removeItem('session_id');
+              removeSessionId(null);
+            }}
+          >
+            Log out
+          </button>
+        )}
       </div>
     </div>
   </header>

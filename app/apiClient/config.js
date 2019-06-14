@@ -6,6 +6,7 @@ const instance = axios.create({
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
+    // 'Access-Control-Allow-Origin': '*',
   },
   params: {
     apiKey: '373ab70129f36fd1f65b6d7b24ec2641',

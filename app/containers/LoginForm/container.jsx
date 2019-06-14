@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { AUTH_ACCESS_REQUEST } from '../../store/constants/authentication.constants';
 
-import Login from './component';
+import LoginForm from './component';
 
 const mapDispatchToProps = dispatch => ({
   setAccess(payload) {
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(Login);
+)(LoginForm);

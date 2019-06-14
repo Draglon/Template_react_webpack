@@ -1,20 +1,11 @@
 import { connect } from 'react-redux';
-import { CREATE_LIST_REQUEST } from '../../store/constants/list.constants';
-import { getCreateList } from '../../store/selectors/theMovieDB';
-
 import Home from './component';
 
-const mapStateToProps = state => ({
-  listId: getCreateList(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-  createList(payload) {
-    dispatch({ type: CREATE_LIST_REQUEST, payload });
-  },
+const mapStateToProps = () => ({
+  isLogged: localStorage.getItem('session_id'),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 )(Home);

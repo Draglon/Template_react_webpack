@@ -5,8 +5,7 @@ import {
 } from '../../../constants/list.constants';
 
 const createListInitialState = {
-  isPending: false,
-  data: null,
+  list_id: null,
   error: null,
 };
 
@@ -16,20 +15,17 @@ const createListReducer = (state = createListInitialState, action) => {
     case CREATE_LIST_REQUEST:
       return {
         ...state,
-        isPending: true,
         error: null,
       };
     case CREATE_LIST_SUCCESS:
       return {
         ...state,
-        isPending: false,
-        data: action.payload,
+        list_id: action.payload,
         error: null,
       };
     case CREATE_LIST_FAILURE:
       return {
         ...state,
-        isPending: false,
         error: action.payload,
       };
     default:

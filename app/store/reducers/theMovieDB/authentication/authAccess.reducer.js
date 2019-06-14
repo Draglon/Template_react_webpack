@@ -2,11 +2,11 @@ import {
   AUTH_ACCESS_REQUEST,
   AUTH_ACCESS_SUCCESS,
   AUTH_ACCESS_FAILURE,
+  AUTH_ACCESS_REMOVE,
 } from '../../../constants/authentication.constants';
 
 const authAccessInitialState = {
-  isPending: false,
-  data: null,
+  session_id: null,
   error: null,
 };
 
@@ -16,21 +16,24 @@ const authAccessReducer = (state = authAccessInitialState, action) => {
     case AUTH_ACCESS_REQUEST:
       return {
         ...state,
-        isPending: true,
         error: null,
       };
     case AUTH_ACCESS_SUCCESS:
       return {
         ...state,
-        isPending: false,
-        data: action.payload,
+        session_id: action.payload,
         error: null,
       };
     case AUTH_ACCESS_FAILURE:
       return {
         ...state,
-        isPending: false,
         error: action.payload,
+      };
+    case AUTH_ACCESS_REMOVE:
+      return {
+        ...state,
+        session_id: action.payload,
+        error: null,
       };
     default:
       return state;
