@@ -9,6 +9,6 @@ import listReducers from './list/list.reducers';
 export const rootLogic = [accessLogic, listLogic];
 
 export const reducers = combineReducers({
-  accessReducers,
-  listReducers,
+  access: accessReducers,
+  list: listReducers,
 });
