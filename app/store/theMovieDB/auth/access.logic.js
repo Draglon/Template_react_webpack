@@ -19,9 +19,7 @@ const getAuthAccess = createLogic({
           request_token: response2.data.request_token,
         }),
       )
-      .then(response3 => {
-        dispatch(accessSuccess(response3.data.session_id));
-      })
+      .then(response3 => dispatch(accessSuccess(response3.data.session_id)))
       .catch(error => dispatch(accessFailure(error.message)))
       .then(() => done());
   },
