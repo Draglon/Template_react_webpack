@@ -1,4 +1,8 @@
-import actions from './list.actions';
+import {
+  createListTypeRequest,
+  createListTypeSuccess,
+  createListTypeFailure,
+} from './list.actions';
 
 const createListInitialState = {
   list_id: null,
@@ -8,18 +12,18 @@ const createListInitialState = {
 // Create List
 const createListReducer = (state = createListInitialState, action) => {
   switch (action.type) {
-    case actions.CREATE_LIST_REQUEST:
+    case createListTypeRequest():
       return {
         ...state,
         error: null,
       };
-    case actions.CREATE_LIST_SUCCESS:
+    case createListTypeSuccess():
       return {
         ...state,
         list_id: action.payload,
         error: null,
       };
-    case actions.CREATE_LIST_FAILURE:
+    case createListTypeFailure():
       return {
         ...state,
         error: action.payload,

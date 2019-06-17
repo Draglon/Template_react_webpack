@@ -1,9 +1,9 @@
 import { createLogic } from 'redux-logic';
 
-import actions from './list.actions';
+import { createListTypeRequest, createListSuccess, createListFailure } from './list.actions';
 
 const getCreateList = createLogic({
-  type: actions.CREATE_LIST_REQUEST,
+  type: createListTypeRequest(),
 
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient
@@ -11,10 +11,8 @@ const getCreateList = createLogic({
         `list?api_key=${apiKey}&session_id=${localStorage.getItem('session_id')}`,
         action.payload,
       )
-      .then(response => {
-        dispatch({ type: actions.CREATE_LIST_SUCCESS, payload: response.data });
-      })
-      .catch(error => dispatch({ type: actions.CREATE_LIST_FAILURE, payload: error, error: true }))
+      .then(response => dispatch(createListSuccess(response.data)))
+      .catch(error => dispatch(createListFailure(error)))
       .then(() => done());
   },
 });
