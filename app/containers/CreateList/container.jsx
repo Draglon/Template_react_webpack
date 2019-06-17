@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { CREATE_LIST_REQUEST } from '../../store/theMovieDB/list/list.actions';
 import { getCreateList } from '../../store/theMovieDB/list/list.selectors';
+import actions from '../../store/theMovieDB/list/list.actions';
 
 import CreateList from './component';
 
@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   createList(payload) {
-    dispatch({ type: CREATE_LIST_REQUEST, payload });
+    dispatch({ type: actions.CREATE_LIST_REQUEST, payload });
   },
 });
 

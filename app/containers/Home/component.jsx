@@ -3,9 +3,8 @@ import React from 'react';
 import LoginForm from '../LoginForm';
 import CreateList from '../CreateList';
 
-const Home = ({ isLogged, listId }) => (
+const Home = ({ isLogged }) => (
   <section className="section">
-    {console.log('listId: ', listId)}
     <div className="wrapper">{!isLogged ? <LoginForm /> : <CreateList />}</div>
   </section>
 );

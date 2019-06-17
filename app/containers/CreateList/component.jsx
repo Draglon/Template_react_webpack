@@ -18,7 +18,7 @@ const CreateList = ({ createList, listId }) => (
         Create list
       </button>
     </div>
-    <div className="">listId: {listId ? listId.list_id : null}</div>
+    {listId && <div className="">listId: {listId.list_id}</div>}
   </>
 );
 

@@ -1,8 +1,8 @@
 import {
-  AUTH_ACCESS_REQUEST,
-  AUTH_ACCESS_SUCCESS,
-  AUTH_ACCESS_FAILURE,
-  AUTH_ACCESS_REMOVE,
+  accessTypeRequest,
+  accessTypeSuccess,
+  accessTypeFailure,
+  accessTypeRemove,
 } from './access.actions';
 
 const authAccessInitialState = {
@@ -13,23 +13,24 @@ const authAccessInitialState = {
 // Movie
 const authAccessReducer = (state = authAccessInitialState, action) => {
   switch (action.type) {
-    case AUTH_ACCESS_REQUEST:
+    case accessTypeRequest():
       return {
         ...state,
         error: null,
       };
-    case AUTH_ACCESS_SUCCESS:
+    case accessTypeSuccess():
+      localStorage.setItem('session_id', action.payload);
       return {
         ...state,
         session_id: action.payload,
         error: null,
       };
-    case AUTH_ACCESS_FAILURE:
+    case accessTypeFailure():
       return {
         ...state,
         error: action.payload,
       };
-    case AUTH_ACCESS_REMOVE:
+    case accessTypeRemove():
       return {
         ...state,
         session_id: action.payload,

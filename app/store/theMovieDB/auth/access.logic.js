@@ -1,9 +1,9 @@
 import { createLogic } from 'redux-logic';
 
-import { AUTH_ACCESS_REQUEST, AUTH_ACCESS_SUCCESS, AUTH_ACCESS_FAILURE } from './access.actions';
+import { accessTypeRequest, accessSuccess, accessFailure } from './access.actions';
 
 const getAuthAccess = createLogic({
-  type: AUTH_ACCESS_REQUEST,
+  type: accessTypeRequest(),
 
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient
@@ -20,13 +20,9 @@ const getAuthAccess = createLogic({
         }),
       )
       .then(response3 => {
-        localStorage.setItem('session_id', response3.data.session_id);
-        dispatch({
-          type: AUTH_ACCESS_SUCCESS,
-          payload: response3.data.session_id,
-        });
+        dispatch(accessSuccess(response3.data.session_id));
       })
-      .catch(error => dispatch({ type: AUTH_ACCESS_FAILURE, payload: error.message, error: true }))
+      .catch(error => dispatch(accessFailure(error.message)))
       .then(() => done());
   },
 });
