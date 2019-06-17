@@ -9,9 +9,9 @@ const CreateList = ({ createList, listId }) => (
         className="btn btn-primary btn--small"
         onClick={() =>
           createList({
-            description: "Just an awesome list",
+            description: "Just an awedfdsfme",
             language: "en",
-            name: "This is my awesome test list.",
+            name: "This is my sdfsdf.",
           })
         }
       >

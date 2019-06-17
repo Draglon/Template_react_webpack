@@ -12,7 +12,7 @@ const getCreateList = createLogic({
         action.payload,
       )
       .then(response => dispatch(createListSuccess(response.data)))
-      .catch(error => dispatch(createListFailure(error)))
+      .catch(error => dispatch(createListFailure(error.message)))
       .then(() => done());
   },
 });
