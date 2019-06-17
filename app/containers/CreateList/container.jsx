@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { CREATE_LIST_REQUEST } from '../../store/constants/list.constants';
-import { getCreateList } from '../../store/selectors/theMovieDB';
+import { CREATE_LIST_REQUEST } from '../../store/theMovieDB/list/list.actions';
+import { getCreateList } from '../../store/theMovieDB/list/list.selectors';
 
 import CreateList from './component';
 

@@ -3,8 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogicMiddleware } from 'redux-logic';
 
 import apiClient from '../apiClient/config';
-import reducers from './reducers';
-import rootLogic from './logic';
+import { rootLogic, reducers } from './theMovieDB';
 
 const deps = {
   apiKey: '373ab70129f36fd1f65b6d7b24ec2641',

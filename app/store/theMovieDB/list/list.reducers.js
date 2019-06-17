@@ -1,8 +1,4 @@
-import {
-  CREATE_LIST_REQUEST,
-  CREATE_LIST_SUCCESS,
-  CREATE_LIST_FAILURE,
-} from '../../../constants/list.constants';
+import { CREATE_LIST_REQUEST, CREATE_LIST_SUCCESS, CREATE_LIST_FAILURE } from './list.actions';
 
 const createListInitialState = {
   list_id: null,

@@ -3,7 +3,7 @@ import {
   AUTH_ACCESS_SUCCESS,
   AUTH_ACCESS_FAILURE,
   AUTH_ACCESS_REMOVE,
-} from '../../../constants/authentication.constants';
+} from './access.actions';
 
 const authAccessInitialState = {
   session_id: null,

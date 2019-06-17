@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { AUTH_ACCESS_REQUEST } from '../../store/constants/authentication.constants';
+import { AUTH_ACCESS_REQUEST } from '../../store/theMovieDB/auth/access.actions';
 
 import LoginForm from './component';
 

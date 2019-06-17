@@ -1,10 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import {
-  AUTH_ACCESS_REQUEST,
-  AUTH_ACCESS_SUCCESS,
-  AUTH_ACCESS_FAILURE,
-} from '../../constants/authentication.constants';
+import { AUTH_ACCESS_REQUEST, AUTH_ACCESS_SUCCESS, AUTH_ACCESS_FAILURE } from './access.actions';
 
 const getAuthAccess = createLogic({
   type: AUTH_ACCESS_REQUEST,

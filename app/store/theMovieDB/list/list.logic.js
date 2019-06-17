@@ -1,10 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import {
-  CREATE_LIST_REQUEST,
-  CREATE_LIST_SUCCESS,
-  CREATE_LIST_FAILURE,
-} from '../../constants/list.constants';
+import { CREATE_LIST_REQUEST, CREATE_LIST_SUCCESS, CREATE_LIST_FAILURE } from './list.actions';
 
 const getCreateList = createLogic({
   type: CREATE_LIST_REQUEST,
@@ -16,7 +12,6 @@ const getCreateList = createLogic({
         action.payload,
       )
       .then(response => {
-        console.log(response.data);
         dispatch({ type: CREATE_LIST_SUCCESS, payload: response.data });
       })
       .catch(error => dispatch({ type: CREATE_LIST_FAILURE, payload: error, error: true }))

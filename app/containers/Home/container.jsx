@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 import Home from './component';
 
-const mapStateToProps = () => ({
+import { getCreateList } from '../../store/theMovieDB/list/list.selectors';
+
+const mapStateToProps = (state) => ({
   isLogged: localStorage.getItem('session_id'),
+  listId: getCreateList(state),
 });
 
 export default connect(
