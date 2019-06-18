@@ -11,7 +11,7 @@ const CreateList = ({ createList, listId }) => (
   <>
     <h2 className="section__title">Home page</h2>
     <Formik
-      initialValues={{ username: '', password: '' }}
+      initialValues={{ listname: '', description: '' }}
       validationSchema={LoginSchema}
       onSubmit={values => createList(values)}
     >
