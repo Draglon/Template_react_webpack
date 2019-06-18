@@ -5,40 +5,42 @@ import {
   accessTypeRemove,
 } from './access.actions';
 
-const authAccessInitialState = {
+export const initialState = {
+  isLoading: false,
   session_id: null,
   error: null,
 };
 
-// Movie
-const authAccessReducer = (state = authAccessInitialState, action) => {
+// Authentication
+export default (state = initialState, action) => {
   switch (action.type) {
     case accessTypeRequest():
       return {
         ...state,
+        isLoading: true,
         error: null,
       };
     case accessTypeSuccess():
-      localStorage.setItem('session_id', action.payload);
+      localStorage.setItem('session_id', action.payload.session_id);
       return {
         ...state,
-        session_id: action.payload,
-        error: null,
+        isLoading: false,
+        session_id: action.payload.session_id,
       };
     case accessTypeFailure():
       return {
         ...state,
-        error: action.payload,
+        isLoading: false,
+        error: action.payload.message,
       };
     case accessTypeRemove():
+      localStorage.removeItem('session_id');
       return {
-        ...state,
-        session_id: action.payload,
+        isLoading: false,
+        session_id: null,
         error: null,
       };
     default:
       return state;
   }
 };
-
-export default authAccessReducer;

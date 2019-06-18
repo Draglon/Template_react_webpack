@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic';
 
 import { accessTypeRequest, accessSuccess, accessFailure } from './access.actions';
 
-const getAuthAccess = createLogic({
+export default createLogic({
   type: accessTypeRequest(),
 
   process({ action, apiClient, apiKey }, dispatch, done) {
@@ -19,10 +19,8 @@ const getAuthAccess = createLogic({
           request_token: response2.data.request_token,
         }),
       )
-      .then(response3 => dispatch(accessSuccess(response3.data.session_id)))
-      .catch(error => dispatch(accessFailure(error.message)))
+      .then(response3 => dispatch(accessSuccess(response3.data)))
+      .catch(error => dispatch(accessFailure(error)))
       .then(() => done());
   },
 });
-
-export default getAuthAccess;

@@ -8,8 +8,8 @@ const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeSessionId(payload) {
-    dispatch(accessRemove(payload));
+  removeSessionId() {
+    dispatch(accessRemove());
   },
 });
 
