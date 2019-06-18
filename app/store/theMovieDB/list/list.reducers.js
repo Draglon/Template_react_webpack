@@ -4,34 +4,44 @@ import {
   createListTypeFailure,
 } from './list.actions';
 
-const createListInitialState = {
-  list_id: null,
+export const createListInitialState = {
+  isLoading: false,
+  data: {
+    list_id: null,
+    message: null,
+  },
   error: null,
 };
 
 // Create List
-const createListReducer = (state = createListInitialState, action) => {
+export const createListReducer = (state = createListInitialState, action) => {
   switch (action.type) {
     case createListTypeRequest():
       return {
-        ...state,
+        isLoading: true,
+        data: {
+          list_id: null,
+          message: null,
+        },
         error: null,
       };
     case createListTypeSuccess():
       localStorage.setItem('list_id', action.payload.list_id);
       return {
         ...state,
-        list_id: action.payload,
-        error: null,
+        isLoading: false,
+        data: {
+          list_id: action.payload.list_id,
+          message: action.payload.status_message,
+        },
       };
     case createListTypeFailure():
       return {
         ...state,
-        error: action.payload,
+        isLoading: false,
+        error: action.payload.message,
       };
     default:
       return state;
   }
 };
-
-export default createListReducer;

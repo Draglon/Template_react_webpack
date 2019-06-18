@@ -1,12 +1,4 @@
-export const type = {
-  CREATE_LIST_REQUEST: 'CREATE_LIST_REQUEST',
-  CREATE_LIST_SUCCESS: 'CREATE_LIST_SUCCESS',
-  CREATE_LIST_FAILURE: 'CREATE_LIST_FAILURE',
-
-  ADD_MOVIE_REQUEST: 'ADD_MOVIE_REQUEST',
-  ADD_MOVIE_SUCCESS: 'ADD_MOVIE_SUCCESS',
-  ADD_MOVIE_FAILURE: 'ADD_MOVIE_FAILURE',
-};
+import type from './list.actionTypes';
 
 // Create list
 export const createListTypeRequest = () => type.CREATE_LIST_REQUEST;

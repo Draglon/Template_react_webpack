@@ -21,7 +21,7 @@ export const createList = createLogic({
         language: 'en',
       })
       .then(response => dispatch(createListSuccess(response.data)))
-      .catch(error => dispatch(createListFailure(error.message)))
+      .catch(error => dispatch(createListFailure(error)))
       .then(() => done());
   },
 });
@@ -34,7 +34,7 @@ export const addMovie = createLogic({
     apiClient
       .post(`list/${localStorage.getItem('list_id')}/add_item?api_key=${apiKey}`, { media_id: 18 })
       .then(response => dispatch(addMovieSuccess(response.data)))
-      .catch(error => dispatch(addMovieFailure(error.message)))
+      .catch(error => dispatch(addMovieFailure(error)))
       .then(() => done());
   },
 });
@@ -47,7 +47,7 @@ export const addMovie = createLogic({
 //     apiClient
 //       .post(`list/${localStorage.getItem('list_id')}/remove_item?api_key=${apiKey}`, { media_id: 18 })
 //       .then(response => dispatch(removeMovieSuccess(response.data)))
-//       .catch(error => dispatch(removeMovieFailure(error.message)))
+//       .catch(error => dispatch(removeMovieFailure(error)))
 //       .then(() => done());
 //   },
 // });
@@ -60,7 +60,7 @@ export const addMovie = createLogic({
 //     apiClient
 //       .post(`list/${localStorage.getItem('list_id')}/clear?api_key=${apiKey}`)
 //       .then(response => dispatch(clearListSuccess(response.data)))
-//       .catch(error => dispatch(clearListFailure(error.message)))
+//       .catch(error => dispatch(clearListFailure(error)))
 //       .then(() => done());
 //   },
 // });
@@ -73,7 +73,7 @@ export const addMovie = createLogic({
 //     apiClient
 //       .post(`list/${localStorage.getItem('list_id')}?api_key=${apiKey}`)
 //       .then(response => dispatch(deleteListSuccess(response.data)))
-//       .catch(error => dispatch(deleteListFailure(error.message)))
+//       .catch(error => dispatch(deleteListFailure(error)))
 //       .then(() => done());
 //   },
 // });
@@ -86,7 +86,7 @@ export const addMovie = createLogic({
 //     apiClient
 //       .post(`list/${localStorage.getItem('list_id')}?api_key=${apiKey}`)
 //       .then(response => dispatch(getDetailsListSuccess(response.data)))
-//       .catch(error => dispatch(getDetailsListFailure(error.message)))
+//       .catch(error => dispatch(getDetailsListFailure(error)))
 //       .then(() => done());
 //   },
 // });
@@ -99,7 +99,7 @@ export const addMovie = createLogic({
 //     apiClient
 //       .post(`list/${localStorage.getItem('list_id')}/item_status?api_key=${apiKey}`)
 //       .then(response => dispatch(checkItemListSuccess(response.data)))
-//       .catch(error => dispatch(checkItemListFailure(error.message)))
+//       .catch(error => dispatch(checkItemListFailure(error)))
 //       .then(() => done());
 //   },
 // });

@@ -4,11 +4,11 @@ import accessLogic from './auth/access.logic';
 import { createList } from './list/list.logic';
 
 import authAccessReducer from './auth/access.reducers';
-import listReducers from './list/list.reducers';
+import { createListReducer } from './list/list.reducers';
 
 export const rootLogic = [accessLogic, createList];
 
 export const reducers = combineReducers({
   access: authAccessReducer,
-  list: listReducers,
+  list: createListReducer,
 });
