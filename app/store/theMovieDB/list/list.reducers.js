@@ -18,6 +18,7 @@ const createListReducer = (state = createListInitialState, action) => {
         error: null,
       };
     case createListTypeSuccess():
+      localStorage.setItem('list_id', action.payload.list_id);
       return {
         ...state,
         list_id: action.payload,
