@@ -3,7 +3,7 @@ import t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   // ACCESS_REQUEST
-  it('ACCESS_REQUEST', () => {
+  it('ACCESS_REQUEST after situation without error', () => {
     const action = {
       type: t.ACCESS_REQUEST,
     };
@@ -11,6 +11,25 @@ describe('Authentication reducer', () => {
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
       isLoading: true,
+      error: null,
+    });
+  });
+
+  it('ACCESS_REQUEST after error', () => {
+    const initialStateWithError = {
+      isLoading: true,
+      session_id: null,
+      error: 'Unknown error',
+    };
+
+    const action = {
+      type: t.ACCESS_REQUEST,
+    };
+
+    expect(reducer(initialStateWithError, action)).toEqual({
+      ...initialStateWithError,
+      isLoading: true,
+      error: null,
     });
   });
 
@@ -65,7 +84,9 @@ describe('Authentication reducer', () => {
     };
 
     expect(reducer(initialState, action)).toEqual({
-      ...initialState,
+      isLoading: false,
+      session_id: null,
+      error: null,
     });
   });
 });

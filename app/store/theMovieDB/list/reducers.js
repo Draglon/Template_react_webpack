@@ -14,11 +14,8 @@ export const createListReducer = (state = createListInitialState, action) => {
   switch (action.type) {
     case t.CREATE_LIST_REQUEST:
       return {
+        ...createListInitialState,
         isLoading: true,
-        data: {
-          list_id: null,
-          message: null,
-        },
         error: null,
       };
     case t.CREATE_LIST_SUCCESS:
