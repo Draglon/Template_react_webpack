@@ -6,14 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --watch --history-api-fallback",
     "build": "webpack",
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
+    "test": "jest --no-cache -u --watch=all",
     "prettier": "prettier --write ./app/*.jsx"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/setupTests.js"
-    ]
   },
   "dependencies": {
     "@material-ui/core": "^4.0.2",
