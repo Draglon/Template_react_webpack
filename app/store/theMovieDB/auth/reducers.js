@@ -1,9 +1,4 @@
-import {
-  accessTypeRequest,
-  accessTypeSuccess,
-  accessTypeFailure,
-  accessTypeRemove,
-} from './access.actions';
+import t from './actionTypes';
 
 export const initialState = {
   isLoading: false,
@@ -14,26 +9,26 @@ export const initialState = {
 // Authentication
 export default (state = initialState, action) => {
   switch (action.type) {
-    case accessTypeRequest():
+    case t.ACCESS_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case accessTypeSuccess():
+    case t.ACCESS_SUCCESS:
       localStorage.setItem('session_id', action.payload.session_id);
       return {
         ...state,
         isLoading: false,
         session_id: action.payload.session_id,
       };
-    case accessTypeFailure():
+    case t.ACCESS_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.payload.message,
       };
-    case accessTypeRemove():
+    case t.ACCESS_REMOVE:
       localStorage.removeItem('session_id');
       return {
         isLoading: false,

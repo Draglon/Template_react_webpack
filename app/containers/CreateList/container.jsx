@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { getCreateList } from '../../store/theMovieDB/list/list.selectors';
-import { createListRequest } from '../../store/theMovieDB/list/list.actions';
+import { getCreateList } from '../../store/theMovieDB/list/selectors';
+import { createListRequest } from '../../store/theMovieDB/list/actions';
 
 import CreateList from './component';
 

@@ -1,5 +1,5 @@
-import reducer, { initialState } from '../access.reducers';
-import t from '../access.actionTypes';
+import reducer, { initialState } from '../reducers';
+import t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   // ACCESS_REQUEST

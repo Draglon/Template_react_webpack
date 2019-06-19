@@ -1,26 +1,7 @@
-import {
-  createListTypeRequest,
-  createListTypeSuccess,
-  createListTypeFailure,
-  createListRequest,
-  createListSuccess,
-  createListFailure,
-} from '../list.actions';
-import t from '../list.actionTypes';
+import { createListRequest, createListSuccess, createListFailure } from '../actions';
+import t from '../actionTypes';
 
 describe('Authentication actions', () => {
-  it('createListTypeRequest', () => {
-    expect(createListTypeRequest()).toEqual(t.CREATE_LIST_REQUEST);
-  });
-
-  it('createListTypeSuccess', () => {
-    expect(createListTypeSuccess()).toEqual(t.CREATE_LIST_SUCCESS);
-  });
-
-  it('createListTypeFailure', () => {
-    expect(createListTypeFailure()).toEqual(t.CREATE_LIST_FAILURE);
-  });
-
   it('createListRequest', () => {
     const expectedAction = {
       type: t.CREATE_LIST_REQUEST,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { accessRemove } from '../../store/theMovieDB/auth/access.actions';
+import { accessRemove } from '../../store/theMovieDB/auth/actions';
 
 import Header from './component';
 

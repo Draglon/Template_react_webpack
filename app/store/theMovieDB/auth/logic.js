@@ -1,9 +1,10 @@
 import { createLogic } from 'redux-logic';
 
-import { accessTypeRequest, accessSuccess, accessFailure } from './access.actions';
+import { accessSuccess, accessFailure } from './actions';
+import t from './actionTypes';
 
 export default createLogic({
-  type: accessTypeRequest(),
+  type: t.ACCESS_REQUEST,
 
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient

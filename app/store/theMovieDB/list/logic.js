@@ -1,17 +1,11 @@
 import { createLogic } from 'redux-logic';
 
-import {
-  createListTypeRequest,
-  createListSuccess,
-  createListFailure,
-  addMovieTypeRequest,
-  addMovieSuccess,
-  addMovieFailure,
-} from './list.actions';
+import { createListSuccess, createListFailure, addMovieSuccess, addMovieFailure } from './actions';
+import t from './actionTypes';
 
 // Create List
 export const createList = createLogic({
-  type: createListTypeRequest(),
+  type: t.CREATE_LIST_REQUEST,
 
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient
@@ -28,7 +22,7 @@ export const createList = createLogic({
 
 // Add Movie
 export const addMovie = createLogic({
-  type: addMovieTypeRequest(),
+  type: t.ADD_MOVIE_REQUEST,
 
   process({ action, apiClient, apiKey }, dispatch, done) {
     apiClient

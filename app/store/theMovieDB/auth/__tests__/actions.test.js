@@ -1,32 +1,7 @@
-import {
-  accessTypeRequest,
-  accessTypeSuccess,
-  accessTypeFailure,
-  accessTypeRemove,
-  accessRequest,
-  accessSuccess,
-  accessFailure,
-  accessRemove,
-} from '../access.actions';
-import t from '../access.actionTypes';
+import { accessRequest, accessSuccess, accessFailure, accessRemove } from '../actions';
+import t from '../actionTypes';
 
 describe('Authentication actions', () => {
-  it('accessTypeRequest', () => {
-    expect(accessTypeRequest()).toEqual(t.ACCESS_REQUEST);
-  });
-
-  it('accessTypeSuccess', () => {
-    expect(accessTypeSuccess()).toEqual(t.ACCESS_SUCCESS);
-  });
-
-  it('accessTypeFailure', () => {
-    expect(accessTypeFailure()).toEqual(t.ACCESS_FAILURE);
-  });
-
-  it('accessTypeRemove', () => {
-    expect(accessTypeRemove()).toEqual(t.ACCESS_REMOVE);
-  });
-
   it('accessRequest', () => {
     const expectedAction = {
       type: t.ACCESS_REQUEST,

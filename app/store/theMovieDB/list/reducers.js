@@ -1,8 +1,4 @@
-import {
-  createListTypeRequest,
-  createListTypeSuccess,
-  createListTypeFailure,
-} from './list.actions';
+import t from './actionTypes';
 
 export const createListInitialState = {
   isLoading: false,
@@ -16,7 +12,7 @@ export const createListInitialState = {
 // Create List
 export const createListReducer = (state = createListInitialState, action) => {
   switch (action.type) {
-    case createListTypeRequest():
+    case t.CREATE_LIST_REQUEST:
       return {
         isLoading: true,
         data: {
@@ -25,7 +21,7 @@ export const createListReducer = (state = createListInitialState, action) => {
         },
         error: null,
       };
-    case createListTypeSuccess():
+    case t.CREATE_LIST_SUCCESS:
       localStorage.setItem('list_id', action.payload.list_id);
       return {
         ...state,
@@ -35,7 +31,7 @@ export const createListReducer = (state = createListInitialState, action) => {
           message: action.payload.status_message,
         },
       };
-    case createListTypeFailure():
+    case t.CREATE_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,
