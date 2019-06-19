@@ -3,11 +3,9 @@ import { accessRequest } from '../../store/theMovieDB/auth/access.actions';
 
 import LoginForm from './component';
 
-const mapDispatchToProps = dispatch => ({
-  setAccess(payload) {
-    dispatch(accessRequest(payload));
-  },
-});
+const mapDispatchToProps = {
+  setAccess: accessRequest,
+};
 
 export default connect(
   null,

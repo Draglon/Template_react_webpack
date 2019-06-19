@@ -13,7 +13,7 @@ const LoginForm = ({ setAccess }) => (
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
-      onSubmit={values => setAccess(values)}
+      onSubmit={setAccess}
     >
       {() => (
         <Form className="form">
