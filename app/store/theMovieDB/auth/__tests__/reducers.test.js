@@ -27,7 +27,7 @@ describe('Authentication reducer', () => {
 
   it('ACCESS_REQUEST after error', () => {
     const initialStateWithError = {
-      isLoading: true,
+      isLoading: false,
       session_id: null,
       error: 'Unknown error',
     };

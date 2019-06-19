@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
 import NotFound from '../component';
@@ -11,7 +12,7 @@ describe('<NotFound /> container', () => {
     expect(component.find('h1').text()).toEqual('404');
   });
 
-  // it('render property', () => {
-  //   expect(NotFoundContainer).toMatchSnapshot();
-  // });
+  it('render property', () => {
+    expect(renderer.create(<NotFound />).toJSON()).toMatchSnapshot();
+  });
 });

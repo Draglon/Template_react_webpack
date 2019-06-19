@@ -21,7 +21,6 @@ describe('<Header /> component', () => {
 
   describe('<Header /> component', () => {
     it('Render property', () => {
-      console.log(component.debug);
       expect(component).toMatchSnapshot();
     });
   });

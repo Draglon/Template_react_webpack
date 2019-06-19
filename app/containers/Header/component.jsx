@@ -7,7 +7,7 @@ const Header = ({ isLogged, removeSessionId }) => {
       <div className="header__wrapper">
         <nav className="navbar">
           <Link to="/" className="navbar__link">
-            Homess
+            Home
           </Link>
         </nav>
         <div className="header__btns">
