@@ -2,6 +2,16 @@ import reducer, { initialState } from '../reducers';
 import t from '../actionTypes';
 
 describe('Authentication reducer', () => {
+  const currentState = {
+    isLoading: false,
+    session_id: null,
+    error: null,
+  };
+
+  it('should have initial state', () => {
+    expect(initialState).toEqual(currentState);
+  });
+
   // ACCESS_REQUEST
   it('ACCESS_REQUEST after situation without error', () => {
     const action = {

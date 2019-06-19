@@ -3,7 +3,7 @@ import t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   // CREATE LIST REQUEST
-  it('CREATE_LIST_REQUEST', () => {
+  it('CREATE_LIST_REQUEST after situation without error', () => {
     const action = {
       type: t.CREATE_LIST_REQUEST,
     };
@@ -11,6 +11,28 @@ describe('Authentication reducer', () => {
     expect(createListReducer(createListInitialState, action)).toEqual({
       ...createListInitialState,
       isLoading: true,
+      error: null,
+    });
+  });
+
+  it('CREATE_LIST_REQUEST after error', () => {
+    const createListInitialStateWithError = {
+      isLoading: true,
+      data: {
+        list_id: null,
+        message: null,
+      },
+      error: 'Unknown error',
+    };
+
+    const action = {
+      type: t.CREATE_LIST_REQUEST,
+    };
+
+    expect(createListReducer(createListInitialStateWithError, action)).toEqual({
+      ...createListInitialStateWithError,
+      isLoading: true,
+      error: null,
     });
   });
 

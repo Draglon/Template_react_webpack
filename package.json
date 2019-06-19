@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --watch --history-api-fallback",
     "build": "webpack",
-    "test": "jest --no-cache -u --coverage",
+    "test": "jest --no-cache -u --watch",
+    "test:coverage": "jest --no-cache -u --coverage",
     "prettier": "prettier --write ./app/*.jsx"
   },
   "dependencies": {
