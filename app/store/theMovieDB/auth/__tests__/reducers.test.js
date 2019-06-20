@@ -83,7 +83,7 @@ describe('Authentication reducer', () => {
     expect(reducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
-      error: action.payload.message,
+      error: action.payload,
     });
   });
 

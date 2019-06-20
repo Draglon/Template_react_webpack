@@ -21,7 +21,7 @@ export default createLogic({
         }),
       )
       .then(response3 => dispatch(accessSuccess(response3.data)))
-      .catch(error => dispatch(accessFailure(error)))
+      .catch(error => dispatch(accessFailure(error.message)))
       .then(() => done());
   },
 });

@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload,
       };
     case t.ACCESS_REMOVE:
       localStorage.removeItem('session_id');
