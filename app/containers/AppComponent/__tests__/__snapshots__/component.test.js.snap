@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppComponent /> component Render property 1`] = `
+<BrowserRouter>
+  <main
+    className="main page"
+  >
+    <Connect(Header) />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </main>
+</BrowserRouter>
+`;

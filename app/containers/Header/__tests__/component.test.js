@@ -1,13 +1,12 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import ConnectedHeader, { Header } from '../component';
 
 describe('<Header /> component', () => {
-  const mockStore = configureStore();
-  const initialState = {};
-  const props = {
+  const initialState = {
     isLogged: false,
     removeSessionId: () => {},
   };
@@ -15,13 +14,11 @@ describe('<Header /> component', () => {
   let component;
 
   beforeEach(() => {
-    store = mockStore(initialState);
+    store = configureStore(initialState);
     component = shallow(<ConnectedHeader store={store} />);
   });
 
-  describe('<Header /> component', () => {
-    it('Render property', () => {
-      expect(component).toMatchSnapshot();
-    });
+  it('Render property', () => {
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> component <Header /> component Render property 1`] = `ShallowWrapper {}`;
+exports[`<Header /> component Render property 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header__wrapper"
+  >
+    <nav
+      className="navbar"
+    >
+      <Link
+        className="navbar__link"
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+    </nav>
+    <div
+      className="header__btns"
+    />
+  </div>
+</header>
+`;

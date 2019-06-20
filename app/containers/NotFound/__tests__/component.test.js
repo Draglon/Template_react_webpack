@@ -1,10 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import NotFound from '../component';
 
-describe('<NotFound /> container', () => {
+describe('<NotFound /> component', () => {
   const component = shallow(<NotFound />);
 
   it('renders without crashing', () => {
@@ -13,6 +13,6 @@ describe('<NotFound /> container', () => {
   });
 
   it('render property', () => {
-    expect(renderer.create(<NotFound />).toJSON()).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

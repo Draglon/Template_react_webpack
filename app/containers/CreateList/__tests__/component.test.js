@@ -3,16 +3,19 @@ import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ConnectedLoginForm, { LoginForm } from '../component';
+import ConnectedCreateList, { CreateList } from '../component';
 
-describe('<LoginForm /> component', () => {
-  const initialState = {};
+describe('<CreateList /> component', () => {
+  const initialState = {
+    isLogged: false,
+    removeSessionId: () => {},
+  };
   let store;
   let component;
 
   beforeEach(() => {
     store = configureStore(initialState);
-    component = shallow(<ConnectedLoginForm store={store} />);
+    component = shallow(<ConnectedCreateList store={store} />);
   });
 
   it('Render property', () => {

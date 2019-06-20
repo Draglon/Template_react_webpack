@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --watch --history-api-fallback",
     "build": "webpack",
-    "test": "jest --no-cache -u --watch",
+    "test": "jest --no-cache --watch",
     "test:coverage": "jest --no-cache -u --coverage",
     "prettier": "prettier --write ./app/*.jsx"
   },
@@ -55,6 +55,7 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-jest-enzyme": "^7.0.2",

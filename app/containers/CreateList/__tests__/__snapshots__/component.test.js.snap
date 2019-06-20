@@ -1,21 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginForm /> component Render property 1`] = `
+exports[`<CreateList /> component Render property 1`] = `
 <Fragment>
   <h2
     className="section__title"
   >
-    Login
+    Home page
   </h2>
   <Formik
     enableReinitialize={false}
     initialValues={
       Object {
-        "password": "",
-        "username": "",
+        "description": "",
+        "listname": "",
       }
     }
     isInitialValid={false}
+    onSubmit={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -31,8 +32,8 @@ exports[`<LoginForm /> component Render property 1`] = `
         "_exclusive": Object {},
         "_mutate": undefined,
         "_nodes": Array [
-          "password",
-          "username",
+          "description",
+          "listname",
         ],
         "_options": Object {
           "abortEarly": true,
@@ -45,7 +46,7 @@ exports[`<LoginForm /> component Render property 1`] = `
           "refs": Map {},
         },
         "fields": Object {
-          "password": StringSchema {
+          "description": StringSchema {
             "_blacklist": RefSet {
               "list": Set {},
               "refs": Map {},
@@ -73,7 +74,7 @@ exports[`<LoginForm /> component Render property 1`] = `
               [Function],
             ],
           },
-          "username": StringSchema {
+          "listname": StringSchema {
             "_blacklist": RefSet {
               "list": Set {},
               "refs": Map {},
