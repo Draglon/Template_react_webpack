@@ -2,6 +2,10 @@ import { createListReducer, createListInitialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Authentication reducer', () => {
+  it('state is undefined', () => {
+    expect(createListReducer(undefined, {})).toEqual(createListInitialState);
+  });
+
   // CREATE LIST REQUEST
   it('CREATE_LIST_REQUEST after situation without error', () => {
     const action = {

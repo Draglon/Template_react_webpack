@@ -21,17 +21,17 @@ export const createList = createLogic({
 });
 
 // Add Movie
-export const addMovie = createLogic({
-  type: t.ADD_MOVIE_REQUEST,
+// export const addMovie = createLogic({
+//   type: t.ADD_MOVIE_REQUEST,
 
-  process({ action, apiClient, apiKey }, dispatch, done) {
-    apiClient
-      .post(`list/${localStorage.getItem('list_id')}/add_item?api_key=${apiKey}`, { media_id: 18 })
-      .then(response => dispatch(addMovieSuccess(response.data)))
-      .catch(error => dispatch(addMovieFailure(error)))
-      .then(() => done());
-  },
-});
+//   process({ action, apiClient, apiKey }, dispatch, done) {
+//     apiClient
+//       .post(`list/${localStorage.getItem('list_id')}/add_item?api_key=${apiKey}`, { media_id: 18 })
+//       .then(response => dispatch(addMovieSuccess(response.data)))
+//       .catch(error => dispatch(addMovieFailure(error)))
+//       .then(() => done());
+//   },
+// });
 
 // Remove Movie
 // export const removeMovie = createLogic({

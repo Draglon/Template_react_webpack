@@ -2,14 +2,8 @@ import reducer, { initialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Authentication reducer', () => {
-  const currentState = {
-    isLoading: false,
-    session_id: null,
-    error: null,
-  };
-
-  it('should have initial state', () => {
-    expect(initialState).toEqual(currentState);
+  it('state is undefined', () => {
+    expect(reducer(undefined, {})).toEqual(initialState);
   });
 
   // ACCESS_REQUEST
