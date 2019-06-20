@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 
 import { accessSuccess, accessFailure } from './actions';
-import t from './actionTypes';
+import * as t from './actionTypes';
 
 export default createLogic({
   type: t.ACCESS_REQUEST,

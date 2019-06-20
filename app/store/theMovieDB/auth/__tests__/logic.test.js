@@ -3,7 +3,7 @@ import { createMockStore } from 'redux-logic-test';
 import reducer, { initialState } from '../reducers';
 import authLogic from '../logic';
 import apiClient from '../../../../apiClient/config';
-import t from '../actionTypes';
+import * as t from '../actionTypes';
 
 describe('Authentication logic', () => {
   let store;

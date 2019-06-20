@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 
 import { createListSuccess, createListFailure, addMovieSuccess, addMovieFailure } from './actions';
-import t from './actionTypes';
+import * as t from './actionTypes';
 
 // Create List
 export const createList = createLogic({

@@ -1,5 +1,5 @@
 import { createListRequest, createListSuccess, createListFailure } from '../actions';
-import t from '../actionTypes';
+import * as t from '../actionTypes';
 
 describe('Authentication actions', () => {
   it('createListRequest', () => {

@@ -1,5 +1,5 @@
 import reducer, { initialState } from '../reducers';
-import t from '../actionTypes';
+import * as t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   const currentState = {

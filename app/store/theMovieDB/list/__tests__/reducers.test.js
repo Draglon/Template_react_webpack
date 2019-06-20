@@ -1,5 +1,5 @@
 import { createListReducer, createListInitialState } from '../reducers';
-import t from '../actionTypes';
+import * as t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   // CREATE LIST REQUEST

@@ -1,5 +1,5 @@
 import { accessRequest, accessSuccess, accessFailure, accessRemove } from '../actions';
-import t from '../actionTypes';
+import * as t from '../actionTypes';
 
 describe('Authentication actions', () => {
   it('accessRequest', () => {

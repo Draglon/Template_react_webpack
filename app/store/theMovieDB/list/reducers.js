@@ -1,4 +1,4 @@
-import t from './actionTypes';
+import * as t from './actionTypes';
 
 export const createListInitialState = {
   isLoading: false,
