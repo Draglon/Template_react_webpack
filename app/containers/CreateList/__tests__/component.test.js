@@ -7,8 +7,8 @@ import ConnectedCreateList, { CreateList } from '../component';
 
 describe('<CreateList /> component', () => {
   const initialState = {
-    isLogged: false,
-    removeSessionId: () => {},
+    listId: 'some list_id',
+    createList: () => {},
   };
   let store;
   let component;

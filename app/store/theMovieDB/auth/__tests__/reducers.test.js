@@ -47,15 +47,13 @@ describe('Authentication reducer', () => {
 
     const action = {
       type: t.ACCESS_SUCCESS,
-      payload: {
-        session_id: 'session _id key',
-      },
+      payload: 'session _id key',
     };
 
     expect(reducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
-      session_id: action.payload.session_id,
+      session_id: action.payload,
     });
   });
 

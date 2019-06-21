@@ -8,11 +8,9 @@ const mapStateToProps = state => ({
   listId: getCreateList(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  createList(payload) {
-    dispatch(createListRequest(payload));
-  },
-});
+const mapDispatchToProps = {
+  createList: createListRequest,
+};
 
 export default connect(
   mapStateToProps,

@@ -5,12 +5,9 @@ import { createLogicMiddleware } from 'redux-logic';
 import apiClient from '../apiClient/config';
 import { rootLogic, reducers } from './theMovieDB';
 
-const deps = {
-  apiKey: '373ab70129f36fd1f65b6d7b24ec2641',
+const logicMiddleware = createLogicMiddleware(rootLogic, {
   apiClient,
-};
-
-const logicMiddleware = createLogicMiddleware(rootLogic, deps);
+});
 
 const middlewares = applyMiddleware(logicMiddleware);
 const enhancers = compose(middlewares);

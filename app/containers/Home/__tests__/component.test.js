@@ -7,16 +7,22 @@ import ConnectedHome, { Home } from '../component';
 
 describe('<Home /> container', () => {
   const initialState = {
-    isLogged: false,
-    removeSessionId: () => {},
+    isLogged: 'some session_id',
   };
+  const onRefreshSpy = jest.fn();
   let store;
   let component;
 
+  beforeAll(() => jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect));
+
   beforeEach(() => {
     store = configureStore(initialState);
-    component = shallow(<ConnectedHome store={store} />);
+    component = shallow(<ConnectedHome store={store} onRefresh={onRefreshSpy} />);
   });
+
+  // it('should refresh when change isLogged', () => {
+  //   expect(onRefreshSpy).toHaveBeenCalled();
+  // });
 
   it('render property', () => {
     expect(toJson(component)).toMatchSnapshot();

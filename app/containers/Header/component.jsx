@@ -15,7 +15,7 @@ const Header = ({ isLogged, removeSessionId }) => {
             <button
               type="button"
               className="btn btn-primary btn--small btn-login"
-              onClick={() => removeSessionId()}
+              onClick={removeSessionId}
             >
               Log out
             </button>

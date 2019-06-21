@@ -16,11 +16,10 @@ export default (state = initialState, action) => {
         error: null,
       };
     case t.ACCESS_SUCCESS:
-      localStorage.setItem('session_id', action.payload.session_id);
       return {
         ...state,
         isLoading: false,
-        session_id: action.payload.session_id,
+        session_id: action.payload,
       };
     case t.ACCESS_FAILURE:
       return {

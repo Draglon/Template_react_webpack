@@ -7,9 +7,10 @@ import * as t from './actionTypes';
 export const createList = createLogic({
   type: t.CREATE_LIST_REQUEST,
 
-  process({ action, apiClient, apiKey }, dispatch, done) {
+  process({ action, apiClient }, dispatch, done) {
+    console.log(localStorage.getItem('session_id'));
     apiClient
-      .post(`list?api_key=${apiKey}&session_id=${localStorage.getItem('session_id')}`, {
+      .post(`list?session_id=${localStorage.getItem('session_id')}`, {
         name: action.payload.listname,
         description: action.payload.description,
         language: 'en',
