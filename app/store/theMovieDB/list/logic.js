@@ -8,7 +8,6 @@ export const createList = createLogic({
   type: t.CREATE_LIST_REQUEST,
 
   process({ action, apiClient }, dispatch, done) {
-    console.log(localStorage.getItem('session_id'));
     apiClient
       .post(`list?session_id=${localStorage.getItem('session_id')}`, {
         name: action.payload.listname,
