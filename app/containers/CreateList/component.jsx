@@ -15,7 +15,7 @@ const CreateList = ({ createList, listId }) => (
     <Formik
       initialValues={{ listname: '', description: '' }}
       validationSchema={LoginSchema}
-      onSubmit={values => createList(values)}
+      onSubmit={createList}
     >
       {() => (
         <Form className="form">

@@ -16,7 +16,7 @@ exports[`<CreateList /> component Render property 1`] = `
       }
     }
     isInitialValid={false}
-    onSubmit={[Function]}
+    onSubmit={[MockFunction]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -112,5 +112,10 @@ exports[`<CreateList /> component Render property 1`] = `
   >
     <Component />
   </Formik>
+  <div
+    className=""
+  >
+    listId: 
+  </div>
 </Fragment>
 `;

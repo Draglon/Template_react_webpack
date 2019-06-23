@@ -1,45 +1,22 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ConnectedHeader, { Header } from '../component';
+import Header from '../component';
 
 describe('<Header /> component', () => {
-  const mockStore = configureStore();
-  const initialState = {
-    isLogged: true,
-    removeSessionId: () => {},
-  };
-  const props = {
-    removeSessionId: () => {},
-  };
-  let store;
+  let props;
   let component;
 
-  beforeEach(() => {
-    store = mockStore(initialState);
-    component = shallow(<ConnectedHeader store={store} {...props} />);
+  it('Render property - isLogged: false', () => {
+    props = { isLogged: false, removeSessionId: jest.fn() };
+    component = shallow(<Header {...props} />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 
-  // it('+++ render the connected(SMART) component', () => {
-  //   expect(component.length).toEqual(1);
-  // });
-
-  // it('should exist', () => {
-  //   // console.log(component.props().children);
-  //   expect(component.props().removeSessionId).toEqual(initialState.removeSessionId);
-  // });
-
-  // it('should logout after click button', () => {
-  //   // const btnLogout = component.find('button');
-  //   // btnLogout.simulate('click');
-  //   // component.update();
-  //   // component.setState({ isLogged: false });
-  //   // expect(btnLogout).toEqual(true);
-  // });
-
-  it('Render property', () => {
+  it('Render property - isLogged: true', () => {
+    props = { isLogged: true, removeSessionId: jest.fn() };
+    component = shallow(<Header {...props} />);
     expect(toJson(component)).toMatchSnapshot();
   });
 });

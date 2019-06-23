@@ -1,30 +1,24 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ConnectedHome, { Home } from '../component';
+import Home from '../component';
 
 describe('<Home /> container', () => {
-  const initialState = {
-    isLogged: 'some session_id',
-  };
-  const onRefreshSpy = jest.fn();
-  let store;
   let component;
+  let props;
 
-  beforeAll(() => jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect));
+  it('render property - isLogged: false', () => {
+    props = { isLogged: false };
+    component = shallow(<Home {...props} />);
 
-  beforeEach(() => {
-    store = configureStore(initialState);
-    component = shallow(<ConnectedHome store={store} onRefresh={onRefreshSpy} />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 
-  // it('should refresh when change isLogged', () => {
-  //   expect(onRefreshSpy).toHaveBeenCalled();
-  // });
+  it('render property - isLogged: true', () => {
+    props = { isLogged: true };
+    component = shallow(<Home {...props} />);
 
-  it('render property', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 });

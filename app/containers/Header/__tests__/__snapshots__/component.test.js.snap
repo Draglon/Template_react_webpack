@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> component Render property 1`] = `
+exports[`<Header /> component Render property - isLogged: false 1`] = `
 <header
   className="header"
 >
@@ -21,6 +21,39 @@ exports[`<Header /> component Render property 1`] = `
     <div
       className="header__btns"
     />
+  </div>
+</header>
+`;
+
+exports[`<Header /> component Render property - isLogged: true 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header__wrapper"
+  >
+    <nav
+      className="navbar"
+    >
+      <Link
+        className="navbar__link"
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+    </nav>
+    <div
+      className="header__btns"
+    >
+      <button
+        className="btn btn-primary btn--small btn-login"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Log out
+      </button>
+    </div>
   </div>
 </header>
 `;

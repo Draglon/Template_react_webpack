@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import FormField from '../component';
 
 describe('<FormField /> component', () => {
-  const props = { name: 'name', type: 'text', placeholder: 'placeholder' };
+  const props = { field: { name: 'name' }, type: 'text', placeholder: 'placeholder' };
   let component;
 
   beforeEach(() => {

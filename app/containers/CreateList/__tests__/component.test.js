@@ -1,21 +1,15 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ConnectedCreateList, { CreateList } from '../component';
+import CreateList from '../component';
 
 describe('<CreateList /> component', () => {
-  const initialState = {
-    listId: 'some list_id',
-    createList: () => {},
-  };
-  let store;
+  const props = { createList: jest.fn(), listId: 'list id ' };
   let component;
 
   beforeEach(() => {
-    store = configureStore(initialState);
-    component = shallow(<ConnectedCreateList store={store} />);
+    component = shallow(<CreateList {...props} />);
   });
 
   it('Render property', () => {

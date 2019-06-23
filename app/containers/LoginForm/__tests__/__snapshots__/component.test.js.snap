@@ -16,6 +16,7 @@ exports[`<LoginForm /> component Render property 1`] = `
       }
     }
     isInitialValid={false}
+    onSubmit={[MockFunction]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={

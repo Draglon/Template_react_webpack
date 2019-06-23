@@ -1,18 +1,15 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ConnectedLoginForm, { LoginForm } from '../component';
+import LoginForm from '../component';
 
 describe('<LoginForm /> component', () => {
-  const initialState = {};
-  let store;
+  const props = { setAccess: jest.fn() };
   let component;
 
   beforeEach(() => {
-    store = configureStore(initialState);
-    component = shallow(<ConnectedLoginForm store={store} />);
+    component = shallow(<LoginForm {...props} />);
   });
 
   it('Render property', () => {
