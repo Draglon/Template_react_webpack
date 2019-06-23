@@ -1,6 +1,8 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import FormField from '../../shared/forms/FormField';
+import FormButton from '../../shared/forms/Button';
 
 const LoginSchema = Yup.object().shape({
   listname: Yup.string().required('Required list name'),
@@ -17,29 +19,9 @@ const CreateList = ({ createList, listId }) => (
     >
       {() => (
         <Form className="form">
-          <Field
-            name="listname"
-            render={({ field }) => (
-              <div className="form__field">
-                <input {...field} type="text" placeholder="List name" />
-                <ErrorMessage name="listname" component="div" className="form__error" />
-              </div>
-            )}
-          />
-          <Field
-            name="description"
-            render={({ field }) => (
-              <div className="form__field">
-                <input {...field} type="text" placeholder="List description" />
-                <ErrorMessage name="description" component="div" className="form__error" />
-              </div>
-            )}
-          />
-          <div className="align-center">
-            <button className="btn btn-primary btn--small btn-submit" type="submit">
-              Create list
-            </button>
-          </div>
+          <Field type="text" name="listname" component={FormField} placeholder="List name" />
+          <Field type="text" name="description" component={FormField} placeholder="Description" />
+          <FormButton type="submit" value="Create list" />
         </Form>
       )}
     </Formik>

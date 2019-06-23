@@ -1,6 +1,8 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import FormField from '../../shared/forms/FormField';
+import FormButton from '../../shared/forms/Button';
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string().required('Required login'),
@@ -17,30 +19,9 @@ const LoginForm = ({ setAccess }) => (
     >
       {() => (
         <Form className="form">
-          <Field
-            name="username"
-            render={({ field }) => (
-              <div className="form__field">
-                <input {...field} type="text" placeholder="Login" />
-                <ErrorMessage name="username" component="div" className="form__error" />
-              </div>
-            )}
-          />
-          <Field
-            type="password"
-            name="password"
-            render={({ field }) => (
-              <div className="form__field">
-                <input {...field} type="password" placeholder="Password" />
-                <ErrorMessage name="password" component="div" className="form__error" />
-              </div>
-            )}
-          />
-          <div className="align-center">
-            <button className="btn btn-primary btn--small btn-submit" type="submit">
-              Submit
-            </button>
-          </div>
+          <Field type="text" name="username" component={FormField} placeholder="Login" />
+          <Field type="password" name="password" component={FormField} placeholder="Password" />
+          <FormButton type="submit" value="Submit" />
         </Form>
       )}
     </Formik>
