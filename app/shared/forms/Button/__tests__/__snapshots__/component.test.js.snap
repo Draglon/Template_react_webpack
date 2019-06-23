@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormButton /> component Render property 1`] = `
+<div
+  className="align-center"
+>
+  <button
+    className="btn btn-primary btn--small btn-submit"
+    type="submit"
+  >
+    Submit
+  </button>
+</div>
+`;

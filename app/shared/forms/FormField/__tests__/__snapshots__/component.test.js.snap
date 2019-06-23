@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormField /> component Render property 1`] = `
+<div
+  className="form__field"
+>
+  <input
+    placeholder="placeholder"
+    type="text"
+  />
+  <FormikConnect(ErrorMessageImpl)
+    className="form__error"
+    component="div"
+    name="name"
+  />
+</div>
+`;

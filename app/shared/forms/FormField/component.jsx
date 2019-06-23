@@ -1,10 +1,10 @@
 import React from 'react';
 import { ErrorMessage } from 'formik';
 
-const FormField = ({ field, type, placeholder }) => (
+const FormField = ({ name, type, placeholder }) => (
   <div className="form__field">
-    <input {...field} type={type} placeholder={placeholder} />
-    <ErrorMessage name={field.name} component="div" className="form__error" />
+    <input type={type} placeholder={placeholder} />
+    <ErrorMessage name={name} component="div" className="form__error" />
   </div>
 );
 
