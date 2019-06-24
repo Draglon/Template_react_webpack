@@ -1,10 +1,11 @@
 import React from 'react';
+import { Button } from 'antd';
 
-const FormButton = ({ value }) => (
+const FormButton = ({ htmlType, type, value, size, icon }) => (
   <div className="align-center">
-    <button type="submit" className="btn btn-primary btn--small btn-submit">
+    <Button htmlType={htmlType} type={type} size={size} icon={icon}>
       {value}
-    </button>
+    </Button>
   </div>
 );
 

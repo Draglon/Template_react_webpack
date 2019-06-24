@@ -3,7 +3,7 @@ import qs from 'qs';
 import config from '../config';
 
 jest.mock('axios', () => ({
-  create: jest.fn().mockImplementation(() => ({
+  create: jest.fn(() => ({
     interceptors: {
       request: {
         use: jest.fn(),

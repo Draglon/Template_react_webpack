@@ -4,8 +4,8 @@
 @import 'variables/variables';
 // Basic
 @import 'basic/main';
-// Forms
-@import 'forms/buttons';
-@import 'forms/form';
-// Forms
+// Ant Designer - library
+@import '../../node_modules/antd/dist/antd.css';
+// Components
 @import 'components/header';
+@import 'components/login';

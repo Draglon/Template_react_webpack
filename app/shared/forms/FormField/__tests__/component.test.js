@@ -5,14 +5,28 @@ import toJson from 'enzyme-to-json';
 import FormField from '../component';
 
 describe('<FormField /> component', () => {
-  const props = { field: { name: 'name' }, type: 'text', placeholder: 'placeholder' };
+  let props;
   let component;
 
-  beforeEach(() => {
+  it('Render property with error', () => {
+    props = {
+      field: { name: 'name' },
+      form: { errors: 'some error msg' },
+      type: 'text',
+      placeholder: 'placeholder',
+    };
     component = shallow(<FormField {...props} />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('Render property', () => {
+  it('Render property without error', () => {
+    props = {
+      field: { name: 'name' },
+      form: { errors: false },
+      type: 'text',
+      placeholder: 'placeholder',
+    };
+    component = shallow(<FormField {...props} />);
     expect(toJson(component)).toMatchSnapshot();
   });
 });
