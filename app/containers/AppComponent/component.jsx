@@ -6,16 +6,27 @@ import Header from '../Header';
 import Home from '../Home';
 import NotFound from '../NotFound';
 
-const AppComponent = () => (
-  <Router>
-    <main className="main page">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
-    </main>
-  </Router>
-);
+class AppComponent extends React.Component {
+  componentDidMount() {
+    const { accessAdd } = this.props;
+    if (localStorage.getItem('session_id')) {
+      accessAdd();
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <main className="main page">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
+      </Router>
+    );
+  }
+}
 
 export default AppComponent;

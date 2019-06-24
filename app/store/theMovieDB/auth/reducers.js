@@ -1,13 +1,13 @@
 import * as t from './actionTypes';
 
-export const initialState = {
+export const authAccessInitialState = {
   isLoading: false,
   session_id: null,
   error: null,
 };
 
 // Authentication
-export default (state = initialState, action) => {
+export const authAccessReducer = (state = authAccessInitialState, action) => {
   switch (action.type) {
     case t.ACCESS_REQUEST:
       return {
@@ -27,12 +27,26 @@ export default (state = initialState, action) => {
         isLoading: false,
         error: action.payload,
       };
+    default:
+      return state;
+  }
+};
+
+export const AccessSessionInitialState = {
+  accessSession: false,
+};
+
+// Authentication - localstorage session
+export const sessionAccessReducer = (state = AccessSessionInitialState, action) => {
+  switch (action.type) {
+    case t.ACCESS_ADD:
+      return {
+        accessSession: true,
+      };
     case t.ACCESS_REMOVE:
       localStorage.removeItem('session_id');
       return {
-        isLoading: false,
-        session_id: null,
-        error: null,
+        accessSession: false,
       };
     default:
       return state;

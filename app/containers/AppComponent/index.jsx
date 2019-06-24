@@ -1,3 +1,3 @@
-import AppComponent from './component';
+import AppComponent from './container';
 
 export default AppComponent;
