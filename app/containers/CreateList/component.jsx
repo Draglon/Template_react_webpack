@@ -9,7 +9,7 @@ const LoginSchema = Yup.object().shape({
   description: Yup.string().required('Required list description'),
 });
 
-const CreateList = ({ createList, listId }) => (
+const CreateList = ({ createList }) => (
   <>
     <h2 className="section__title">Home page</h2>
     <Formik
@@ -25,7 +25,6 @@ const CreateList = ({ createList, listId }) => (
         </Form>
       )}
     </Formik>
-    {listId && <div className="">listId: {listId.list_id}</div>}
   </>
 );
 

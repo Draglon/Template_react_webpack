@@ -112,10 +112,5 @@ exports[`<CreateList /> component Render property 1`] = `
   >
     <Component />
   </Formik>
-  <div
-    className=""
-  >
-    listId: 
-  </div>
 </Fragment>
 `;

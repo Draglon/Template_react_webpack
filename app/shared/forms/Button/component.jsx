@@ -1,8 +1,8 @@
 import React from 'react';
 
-const FormButton = ({ type, value }) => (
+const FormButton = ({ value }) => (
   <div className="align-center">
-    <button type={type} className="btn btn-primary btn--small btn-submit">
+    <button type="submit" className="btn btn-primary btn--small btn-submit">
       {value}
     </button>
   </div>

@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import CreateList from '../component';
 
 describe('<CreateList /> component', () => {
-  const props = { createList: jest.fn(), listId: 'list id ' };
+  const props = { createList: jest.fn() };
   let component;
 
   beforeEach(() => {

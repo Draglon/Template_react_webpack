@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import FormButton from '../component';
 
 describe('<FormButton /> component', () => {
-  const props = { type: 'submit', value: 'Submit' };
+  const props = { value: 'Submit' };
   let component;
 
   beforeEach(() => {
