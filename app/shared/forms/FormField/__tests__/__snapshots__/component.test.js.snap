@@ -5,6 +5,7 @@ exports[`<FormField /> component Render property 1`] = `
   className="form__field"
 >
   <input
+    name="name"
     placeholder="placeholder"
     type="text"
   />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ErrorMessage } from 'formik';
 
-const FormField = ({ field: { name }, type, placeholder }) => (
+const FormField = ({ field, field: { name }, type, placeholder }) => (
   <div className="form__field">
-    <input type={type} placeholder={placeholder} />
+    <input {...field} type={type} placeholder={placeholder} />
     <ErrorMessage name={name} component="div" className="form__error" />
   </div>
 );
