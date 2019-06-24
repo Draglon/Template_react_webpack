@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, createStore, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogicMiddleware } from 'redux-logic';
 
-import apiClient from '../apiClient/config';
+import apiClient from '../apiClient/client';
 import { rootLogic, reducers } from './theMovieDB';
 
 const logicMiddleware = createLogicMiddleware(rootLogic, {

@@ -2,21 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Header from '../component';
+import HeaderComponent from '../component';
 
-describe('<Header /> component', () => {
-  let props;
+describe('<HeaderComponent /> component', () => {
+  const props = { removeSessionId: jest.fn() };
   let component;
 
-  it('Render property - isLogged: false', () => {
-    props = { isLogged: false, removeSessionId: jest.fn() };
-    component = shallow(<Header {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+  beforeEach(() => {
+    component = shallow(<HeaderComponent {...props} />);
   });
 
-  it('Render property - isLogged: true', () => {
-    props = { isLogged: true, removeSessionId: jest.fn() };
-    component = shallow(<Header {...props} />);
+  it('Render property', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 });

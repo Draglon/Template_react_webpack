@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import config from '../config';
+import client from '../client';
 
 jest.mock('axios', () => ({
   create: jest.fn(() => ({

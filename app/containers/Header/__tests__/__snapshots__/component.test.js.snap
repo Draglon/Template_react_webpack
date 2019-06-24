@@ -1,59 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> component Render property - isLogged: false 1`] = `
-<header
-  className="header"
->
-  <div
-    className="header__wrapper"
+exports[`<HeaderComponent /> component Render property 1`] = `
+<Adapter>
+  <Row
+    gutter={0}
+    justify="space-between"
+    type="flex"
   >
-    <nav
-      className="navbar"
+    <Col
+      span={12}
     >
-      <Link
-        className="navbar__link"
-        replace={false}
-        to="/"
+      <Text
+        className="logo"
       >
-        Home
-      </Link>
-    </nav>
-    <div
-      className="header__btns"
-    />
-  </div>
-</header>
-`;
-
-exports[`<Header /> component Render property - isLogged: true 1`] = `
-<header
-  className="header"
->
-  <div
-    className="header__wrapper"
-  >
-    <nav
-      className="navbar"
+        THE MOVIE DB
+      </Text>
+    </Col>
+    <Col
+      span={12}
     >
-      <Link
-        className="navbar__link"
-        replace={false}
-        to="/"
+      <Avatar
+        icon="user"
+        shape="circle"
+        size="default"
+      />
+      <Dropdown
+        mouseEnterDelay={0.15}
+        mouseLeaveDelay={0.1}
+        overlay={
+          <Menu>
+            <MenuItem>
+              <Link
+                replace={false}
+                to="/stubs/dashboard"
+              >
+                Dashboard
+              </Link>
+            </MenuItem>
+            <Divider
+              className=""
+              disabled={true}
+              style={Object {}}
+            />
+            <MenuItem>
+              <Link
+                replace={false}
+                to="/stubs/lists"
+              >
+                My Lists
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                replace={false}
+                to="/stubs/watchlist"
+              >
+                Watchlist
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                replace={false}
+                to="/stubs/favorites"
+              >
+                Favorites
+              </Link>
+            </MenuItem>
+            <Divider
+              className=""
+              disabled={true}
+              style={Object {}}
+            />
+            <MenuItem
+              onClick={[MockFunction]}
+            >
+              Logout
+            </MenuItem>
+          </Menu>
+        }
+        placement="bottomLeft"
       >
-        Home
-      </Link>
-    </nav>
-    <div
-      className="header__btns"
-    >
-      <button
-        className="btn btn-primary btn--small btn-login"
-        onClick={[MockFunction]}
-        type="button"
-      >
-        Log out
-      </button>
-    </div>
-  </div>
-</header>
+        <Text>
+          Username
+          <Icon
+            type="caret-down"
+          />
+        </Text>
+      </Dropdown>
+    </Col>
+  </Row>
+</Adapter>
 `;

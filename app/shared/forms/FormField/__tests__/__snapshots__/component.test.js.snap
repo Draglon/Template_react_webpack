@@ -9,6 +9,7 @@ exports[`<FormField /> component Render property with error 1`] = `
     disabled={false}
     name="name"
     placeholder="placeholder"
+    prefix={false}
     type="text"
   />
   <FormikConnect(ErrorMessageImpl)
@@ -27,6 +28,7 @@ exports[`<FormField /> component Render property without error 1`] = `
     disabled={false}
     name="name"
     placeholder="placeholder"
+    prefix={false}
     type="text"
   />
   <FormikConnect(ErrorMessageImpl)
