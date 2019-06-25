@@ -1,4 +1,5 @@
 import { createLogic } from 'redux-logic';
+import { setCookie } from '../../../helpers/cookie';
 
 import { profileSuccess, profileFailure } from './actions';
 import * as t from './actionTypes';
@@ -12,7 +13,9 @@ export default createLogic({
       .then(response => {
         const now = new Date();
         now.setTime(now.getTime() + 24 * 3600 * 1000);
-        document.cookie = `username=${response.data.username};expires=${now.toUTCString()}`;
+        setCookie('username', response.data.username, now.toUTCString());
+        setCookie('user_id', response.data.id, now.toUTCString());
+        setCookie('avatar', response.data.avatar.gravatar.hash, now.toUTCString());
         dispatch(profileSuccess(response.data));
       })
       .catch(error => dispatch(profileFailure(error)))

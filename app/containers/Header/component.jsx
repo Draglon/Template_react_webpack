@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Row, Col, Avatar, Dropdown, Icon, Menu, Layout } from 'antd';
 import { Link } from 'react-router-dom';
+import { getCookie } from '../../helpers/cookie';
 
 const Overlay = removeSessionId => (
   <Menu>
@@ -22,7 +23,7 @@ const Overlay = removeSessionId => (
   </Menu>
 );
 
-const HeaderComponent = ({ profile, removeSessionId }) => {
+const HeaderComponent = ({ removeSessionId }) => {
   return (
     <Layout.Header>
       <Row type="flex" justify="space-between">
@@ -33,7 +34,7 @@ const HeaderComponent = ({ profile, removeSessionId }) => {
           <Avatar icon="user" />
           <Dropdown overlay={Overlay(removeSessionId)}>
             <Typography.Text>
-              {/* {profile.username} */}
+              {getCookie('username')}
               <Icon type="caret-down" />
             </Typography.Text>
           </Dropdown>
