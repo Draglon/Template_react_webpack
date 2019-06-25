@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Icon } from 'antd';
+import { Typography, Icon, Layout } from 'antd';
 import FormField from '../../shared/forms/FormField';
 import FormButton from '../../shared/forms/Button';
 
@@ -13,8 +13,8 @@ const LoginSchema = Yup.object().shape({
 });
 
 const LoginForm = ({ setAccess }) => (
-  <div className="login">
-    <h2 className="section__title">The Movie DB</h2>
+  <Layout className="login">
+    <Typography.Title>The Movie DB</Typography.Title>
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
@@ -36,11 +36,11 @@ const LoginForm = ({ setAccess }) => (
             placeholder="Password"
             fieldPrefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           />
-          <FormButton htmlType="submit" type="primary" size="small" value="Log in" icon="loading" />
+          <FormButton htmlType="submit" type="primary" size="" value="Log in" icon="loading" />
         </Form>
       )}
     </Formik>
-  </div>
+  </Layout>
 );
 
 export default LoginForm;
