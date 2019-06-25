@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { accessAdd } from '../../store/theMovieDB/auth/actions';
+import { getSessionId } from '../../store/theMovieDB/auth/selectors';
 
 import AppComponent from './component';
 
-const mapDispatchToProps = {
-  accessAdd,
-};
+const mapStateToProps = state => ({
+  islogged: getSessionId(state),
+});
 
 export default connect(
+  mapStateToProps,
   null,
-  mapDispatchToProps,
 )(AppComponent);

@@ -1,8 +1,9 @@
 import * as t from './actionTypes';
 
-export const accessRequest = payload => ({ type: t.ACCESS_REQUEST, payload });
-export const accessSuccess = payload => ({ type: t.ACCESS_SUCCESS, payload });
-export const accessFailure = payload => ({ type: t.ACCESS_FAILURE, payload });
+export const createSessionRequest = payload => ({ type: t.CREATE_SESSION_REQUEST, payload });
+export const createSessionSuccess = payload => ({ type: t.CREATE_SESSION_SUCCESS, payload });
+export const createSessionFailure = payload => ({ type: t.CREATE_SESSION_FAILURE, payload });
 
-export const accessAdd = () => ({ type: t.ACCESS_ADD });
-export const accessRemove = () => ({ type: t.ACCESS_REMOVE });
+export const deleteSessionRequest = () => ({ type: t.DELETE_SESSION_REQUEST });
+export const deleteSessionSuccess = payload => ({ type: t.DELETE_SESSION_SUCCESS, payload });
+export const deleteSessionFailure = payload => ({ type: t.DELETE_SESSION_FAILURE, payload });

@@ -1,1 +1,1 @@
-export const getAuthAccess = state => state.reducers.access.session_id;
+export const getSessionId = state => state.reducers.access.session_id;

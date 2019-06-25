@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
-import { accessRemove } from '../../store/theMovieDB/auth/actions';
+import { deleteSessionRequest } from '../../store/theMovieDB/auth/actions';
+
+import { getProfile } from '../../store/theMovieDB/account/selectors';
 
 import Header from './component';
 
+const mapStateToProps = state => ({
+  profile: getProfile(state),
+});
+
 const mapDispatchToProps = {
-  removeSessionId: accessRemove,
+  removeSessionId: deleteSessionRequest,
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(Header);

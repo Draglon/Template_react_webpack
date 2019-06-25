@@ -1,25 +1,25 @@
-import { authAccessReducer, authAccessInitialState } from '../reducers';
+import { loginReducer, loginInitialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Authentication reducer', () => {
   it('state is undefined', () => {
-    expect(authAccessReducer(undefined, {})).toEqual(authAccessInitialState);
+    expect(loginReducer(undefined, {})).toEqual(loginInitialState);
   });
 
-  // ACCESS_REQUEST
-  it('ACCESS_REQUEST after situation without error', () => {
+  // CREATE_SESSION_REQUEST
+  it('CREATE_SESSION_REQUEST after situation without error', () => {
     const action = {
-      type: t.ACCESS_REQUEST,
+      type: t.CREATE_SESSION_REQUEST,
     };
 
-    expect(authAccessReducer(authAccessInitialState, action)).toEqual({
-      ...authAccessInitialState,
+    expect(loginReducer(loginInitialState, action)).toEqual({
+      ...loginInitialState,
       isLoading: true,
       error: null,
     });
   });
 
-  it('ACCESS_REQUEST after error', () => {
+  it('CREATE_SESSION_REQUEST after error', () => {
     const initialStateWithError = {
       isLoading: false,
       session_id: null,
@@ -27,18 +27,18 @@ describe('Authentication reducer', () => {
     };
 
     const action = {
-      type: t.ACCESS_REQUEST,
+      type: t.CREATE_SESSION_REQUEST,
     };
 
-    expect(authAccessReducer(initialStateWithError, action)).toEqual({
+    expect(loginReducer(initialStateWithError, action)).toEqual({
       ...initialStateWithError,
       isLoading: true,
       error: null,
     });
   });
 
-  // ACCESS_SUCCESS
-  it('ACCESS_SUCCESS', () => {
+  // CREATE_SESSION_SUCCESS
+  it('CREATE_SESSION_SUCCESS', () => {
     const stateBefore = {
       isLoading: true,
       session_id: null,
@@ -46,19 +46,19 @@ describe('Authentication reducer', () => {
     };
 
     const action = {
-      type: t.ACCESS_SUCCESS,
+      type: t.CREATE_SESSION_SUCCESS,
       payload: 'session _id key',
     };
 
-    expect(authAccessReducer(stateBefore, action)).toEqual({
+    expect(loginReducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
       session_id: action.payload,
     });
   });
 
-  // ACCESS_FAILURE
-  it('ACCESS_FAILURE', () => {
+  // CREATE_SESSION_FAILURE
+  it('CREATE_SESSION_FAILURE', () => {
     const stateBefore = {
       isLoading: true,
       session_id: null,
@@ -66,29 +66,16 @@ describe('Authentication reducer', () => {
     };
 
     const action = {
-      type: t.ACCESS_FAILURE,
+      type: t.CREATE_SESSION_FAILURE,
       payload: {
         message: 'error message',
       },
     };
 
-    expect(authAccessReducer(stateBefore, action)).toEqual({
+    expect(loginReducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
       error: action.payload,
     });
   });
-
-  // ACCESS_REMOVE
-  // it('ACCESS_REMOVE', () => {
-  //   const action = {
-  //     type: t.ACCESS_REMOVE,
-  //   };
-
-  //   expect(reducer(initialState, action)).toEqual({
-  //     isLoading: false,
-  //     session_id: null,
-  //     error: null,
-  //   });
-  // });
 });

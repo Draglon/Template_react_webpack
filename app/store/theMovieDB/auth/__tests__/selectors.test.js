@@ -1,7 +1,7 @@
-import { getAuthAccess } from '../selectors';
+import { getSessionId } from '../selectors';
 
 describe('Authentication selectors', () => {
-  it('getAuthAccess - get session_id from store', () => {
+  it('getSessionId - get session_id from store', () => {
     const sessionId = 'some session_id';
     const state = {
       reducers: {
@@ -10,6 +10,6 @@ describe('Authentication selectors', () => {
         },
       },
     };
-    expect(getAuthAccess(state)).toEqual(sessionId);
+    expect(getSessionId(state)).toEqual(sessionId);
   });
 });

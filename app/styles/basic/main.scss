@@ -36,15 +36,15 @@ p {
   margin-bottom: 1em;
 }
 label {font-size: $font-size-label;}
-a {
-  color: $link-color;
-  text-decoration: none;
-  &:hover {
-    color: $link-color-hover;
-    text-decoration: none;
-  }
-  &:active, &.active {color: $link-color-active;}
-}
+// a {
+//   color: $link-color;
+//   text-decoration: none;
+//   &:hover {
+//     color: $link-color-hover;
+//     text-decoration: none;
+//   }
+//   &:active, &.active {color: $link-color-active;}
+// }
 
 ul {list-style-type: none;
   li {list-style-type: none;display: block;}

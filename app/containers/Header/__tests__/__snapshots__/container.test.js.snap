@@ -7,18 +7,14 @@ exports[`<Header /> component Render property 1`] = `
     justify="space-between"
     type="flex"
   >
-    <Col
-      span={12}
-    >
+    <Col>
       <Text
         className="logo"
       >
         THE MOVIE DB
       </Text>
     </Col>
-    <Col
-      span={12}
-    >
+    <Col>
       <Avatar
         icon="user"
         shape="circle"
@@ -81,7 +77,6 @@ exports[`<Header /> component Render property 1`] = `
         placement="bottomLeft"
       >
         <Text>
-          Username
           <Icon
             type="caret-down"
           />

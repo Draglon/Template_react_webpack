@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { accessRemove } from '../../store/theMovieDB/auth/actions';
-import { getAuthAccess } from '../../store/theMovieDB/auth/selectors';
+import { deleteSessionRequest } from '../../store/theMovieDB/auth/actions';
+import { getSessionId } from '../../store/theMovieDB/auth/selectors';
 
 import Home from './component';
 
 const mapStateToProps = state => ({
-  isLogged: getAuthAccess(state),
+  isLogged: getSessionId(state),
 });
 
 const mapDispatchToProps = {
-  removeSessionId: accessRemove,
+  removeSessionId: deleteSessionRequest,
 };
 
 export default connect(

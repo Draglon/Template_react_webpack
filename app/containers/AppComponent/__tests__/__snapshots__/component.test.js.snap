@@ -5,7 +5,6 @@ exports[`<AppComponent /> component Render property 1`] = `
   <main
     className="main page"
   >
-    <Connect(HeaderComponent) />
     <Switch>
       <Route
         component={[Function]}

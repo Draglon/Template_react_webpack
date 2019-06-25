@@ -1,52 +1,49 @@
 import * as t from './actionTypes';
 
-export const authAccessInitialState = {
+export const loginInitialState = {
   isLoading: false,
-  session_id: null,
+  session_id: localStorage.getItem('session_id'),
   error: null,
 };
 
 // Authentication
-export const authAccessReducer = (state = authAccessInitialState, action) => {
+export const loginReducer = (state = loginInitialState, action) => {
   switch (action.type) {
-    case t.ACCESS_REQUEST:
+    case t.CREATE_SESSION_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case t.ACCESS_SUCCESS:
+    case t.CREATE_SESSION_SUCCESS:
       return {
         ...state,
         isLoading: false,
         session_id: action.payload,
       };
-    case t.ACCESS_FAILURE:
+    case t.CREATE_SESSION_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.payload,
       };
-    default:
-      return state;
-  }
-};
-
-export const AccessSessionInitialState = {
-  accessSession: false,
-};
-
-// Authentication - localstorage session
-export const sessionAccessReducer = (state = AccessSessionInitialState, action) => {
-  switch (action.type) {
-    case t.ACCESS_ADD:
+    case t.DELETE_SESSION_REQUEST:
       return {
-        accessSession: true,
+        ...state,
+        isLoading: true,
+        error: null,
       };
-    case t.ACCESS_REMOVE:
-      localStorage.removeItem('session_id');
+    case t.DELETE_SESSION_SUCCESS:
       return {
-        accessSession: false,
+        ...state,
+        isLoading: false,
+        session_id: action.payload,
+      };
+    case t.DELETE_SESSION_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
       };
     default:
       return state;

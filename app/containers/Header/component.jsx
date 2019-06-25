@@ -22,18 +22,18 @@ const Overlay = removeSessionId => (
   </Menu>
 );
 
-const HeaderComponent = ({ removeSessionId }) => {
+const HeaderComponent = ({ profile, removeSessionId }) => {
   return (
     <Layout.Header>
       <Row type="flex" justify="space-between">
-        <Col span={12}>
+        <Col>
           <Typography.Text className="logo">THE MOVIE DB</Typography.Text>
         </Col>
-        <Col span={12}>
+        <Col>
           <Avatar icon="user" />
           <Dropdown overlay={Overlay(removeSessionId)}>
             <Typography.Text>
-              Username
+              {/* {profile.username} */}
               <Icon type="caret-down" />
             </Typography.Text>
           </Dropdown>
