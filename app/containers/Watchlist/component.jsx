@@ -2,7 +2,7 @@ import React from 'react';
 
 const Watchlist = () => (
   <>
-    <h1>Favorites</h1>
+    <h1>Watchlist</h1>
   </>
 );
 
