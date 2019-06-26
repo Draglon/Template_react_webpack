@@ -1,8 +1,8 @@
 import React from 'react';
 
 import LoginForm from '../LoginForm';
-import CreateList from '../CreateList';
+import Dashboard from '../Dashboard';
 
-const Home = ({ isLogged }) => <>{!isLogged ? <LoginForm /> : <CreateList />}</>;
+const Home = ({ isLogged }) => <>{!isLogged ? <LoginForm /> : <Dashboard />}</>;
 
 export default Home;

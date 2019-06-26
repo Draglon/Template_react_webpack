@@ -16,6 +16,7 @@ export default createLogic({
         setCookie('username', response.data.username, now.toUTCString());
         setCookie('user_id', response.data.id, now.toUTCString());
         setCookie('avatar', response.data.avatar.gravatar.hash, now.toUTCString());
+        setCookie('name', response.data.name, now.toUTCString());
         dispatch(profileSuccess(response.data));
       })
       .catch(error => dispatch(profileFailure(error)))
