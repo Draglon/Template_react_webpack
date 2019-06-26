@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
-
-import { getProfile } from '../../store/theMovieDB/account/selectors';
+// import { deleteSessionRequest } from '../../store/theMovieDB/trending/actions';
+import { getTrending } from '../../store/theMovieDB/trending/selectors';
 
 import Header from './component';
 
 const mapStateToProps = state => ({
-  profile: getProfile(state),
+  trending: getTrending(state),
 });
 
-const mapDispatchToProps = {
-  removeSessionId: deleteSessionRequest,
-};
+// const mapDispatchToProps = {
+//   removeSessionId: deleteSessionRequest,
+// };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
+  // mapDispatchToProps,
 )(Header);

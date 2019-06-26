@@ -3,7 +3,7 @@ import { Row, Col, Input, Pagination } from 'antd';
 
 import Movie from '../MovieItem';
 
-const Dashboard = () => (
+const Dashboard = ({ trending: { results, total_pages } }) => (
   <>
     <div className="top-padding">
       <Row type="flex">
@@ -21,20 +21,23 @@ const Dashboard = () => (
     <div className="top-padding">
       <Row type="flex" gutter={16}>
         <Col span={20} offset={2}>
-          <Col
-            xs={{ span: 12 }}
-            sm={{ span: 12 }}
-            md={{ span: 8 }}
-            lg={{ span: 6 }}
-            xl={{ span: 4 }}
-          >
-            <Movie />
-          </Col>
+          {results.map(item => (
+            <Col
+              key={item}
+              xs={{ span: 12 }}
+              sm={{ span: 12 }}
+              md={{ span: 8 }}
+              lg={{ span: 6 }}
+              xl={{ span: 4 }}
+            >
+              <Movie item={item} />
+            </Col>
+          ))}
         </Col>
       </Row>
       <Row type="flex" justify="center" className="top-padding">
         <Col>
-          <Pagination defaultCurrent={1} total={50} className="pagination" />
+          <Pagination defaultCurrent={1} total={total_pages} className="pagination" />
         </Col>
       </Row>
     </div>

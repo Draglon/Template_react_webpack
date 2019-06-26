@@ -23,9 +23,9 @@ const LoginForm = ({ setAccess }) => (
       onSubmit={(values, actions) => {
         actions.setSubmitting(true);
         setAccess(values);
-        setTimeout(() => {
-          actions.setSubmitting(false);
-        }, 1000);
+        // setTimeout(() => {
+        //   actions.setSubmitting(false);
+        // }, 1000);
       }}
       render={props => (
         <Form className="form login__form">

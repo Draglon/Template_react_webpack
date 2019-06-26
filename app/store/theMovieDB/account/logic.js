@@ -9,7 +9,7 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`/account?session_id=${action.payload}`)
+      .get(`account?session_id=${action.payload}`)
       .then(response => {
         const id = response.data.id;
         const avatar = response.data.avatar.gravatar.hash;
