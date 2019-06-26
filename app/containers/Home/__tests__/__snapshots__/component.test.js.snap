@@ -1,25 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> container render property - isLogged: false 1`] = `
-<section
-  className="section"
->
-  <div
-    className="wrapper"
-  >
-    <Connect(LoginForm) />
-  </div>
-</section>
+<Fragment>
+  <Connect(LoginForm) />
+</Fragment>
 `;
 
 exports[`<Home /> container render property - isLogged: true 1`] = `
-<section
-  className="section"
->
-  <div
-    className="wrapper"
-  >
-    <Connect(CreateList) />
-  </div>
-</section>
+<Fragment>
+  <Connect(Dashboard) />
+</Fragment>
 `;

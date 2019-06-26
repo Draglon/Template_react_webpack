@@ -2,8 +2,8 @@
 
 exports[`<AppComponent /> component Render property 1`] = `
 <BrowserRouter>
-  <main
-    className="main page"
+  <Adapter
+    className="page"
   >
     <Switch>
       <Route
@@ -13,8 +13,23 @@ exports[`<AppComponent /> component Render property 1`] = `
       />
       <Route
         component={[Function]}
+        exact={true}
+        path="/mylists"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/watchlist"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/favorites"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
-  </main>
+  </Adapter>
 </BrowserRouter>
 `;

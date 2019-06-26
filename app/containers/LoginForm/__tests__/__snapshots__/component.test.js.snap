@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginForm /> component Render property 1`] = `
-<div
+<Adapter
   className="login"
 >
-  <h2
-    className="section__title"
-  >
+  <Title>
     The Movie DB
-  </h2>
+  </Title>
   <Formik
     enableReinitialize={false}
     initialValues={
@@ -56,6 +54,7 @@ exports[`<LoginForm /> component Render property 1`] = `
             "_conditions": Array [],
             "_deps": Array [],
             "_exclusive": Object {
+              "min": true,
               "required": true,
             },
             "_mutate": undefined,
@@ -70,6 +69,7 @@ exports[`<LoginForm /> component Render property 1`] = `
               "refs": Map {},
             },
             "tests": Array [
+              [Function],
               [Function],
             ],
             "transforms": Array [
@@ -116,5 +116,5 @@ exports[`<LoginForm /> component Render property 1`] = `
   >
     <Component />
   </Formik>
-</div>
+</Adapter>
 `;

@@ -1,9 +1,22 @@
 .profile {
+  display: flex;
+  align-items: center;
+  align-content: center;
 
   &__avatar{
+    background-color: $white;
+    border-radius: 50%;
     color: $white;
-    display: inline-block;
+    overflow: hidden;
+    margin: 0;
     margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &__avatar-img {
+    display: block;
+    width: 100%;
   }
 
   &__dropdown {

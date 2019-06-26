@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 import client from '../client';
 
 jest.mock('axios', () => ({
@@ -16,6 +15,7 @@ describe('API config', () => {
   it('should send request - apiConfig', () => {
     expect(axios.create).toHaveBeenCalledWith({
       baseURL: 'https://api.themoviedb.org/3/',
+      timeout: 1000,
     });
   });
 });

@@ -31,22 +31,25 @@ const HeaderComponent = ({ removeSessionId }) => {
           <Typography.Text className="logo">THE MOVIE DB</Typography.Text>
         </Col>
         <Col>
-          <figure className="profile__avatar">
-            {getCookie('avatar') ? (
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${getCookie('avatar')}.jpg`}
-                alt={getCookie('name')}
-              />
-            ) : (
-              <Avatar icon="user" />
-            )}
-          </figure>
-          <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
-            <Typography.Text>
-              {getCookie('username')}
-              <Icon type="caret-down" />
-            </Typography.Text>
-          </Dropdown>
+          <div className="profile">
+            <figure className="profile__avatar">
+              {getCookie('avatar') ? (
+                <img
+                  className="profile__avatar-img"
+                  src={`https://www.gravatar.com/avatar/${getCookie('avatar')}.jpg`}
+                  alt={getCookie('name')}
+                />
+              ) : (
+                <Avatar icon="user" />
+              )}
+            </figure>
+            <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
+              <Typography.Text>
+                {getCookie('username')}
+                <Icon type="caret-down" />
+              </Typography.Text>
+            </Dropdown>
+          </div>
         </Col>
       </Row>
     </Layout.Header>

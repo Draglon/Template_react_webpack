@@ -9,11 +9,7 @@ const FormField = ({
   fieldPrefix = false,
   ...rest
 }) => (
-  <div
-    className={`form__field${
-      touched[field.name] && errors[field.name] ? ' form__field--error' : ''
-    }`}
-  >
+  <div className={`form__field${touched[name] && errors[name] ? ' form__field--error' : ''}`}>
     <Input {...field} {...rest} className="error" prefix={fieldPrefix} />
     <ErrorMessage name={name} component="div" />
   </div>

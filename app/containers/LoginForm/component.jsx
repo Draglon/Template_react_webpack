@@ -9,7 +9,9 @@ const LoginSchema = Yup.object().shape({
   username: Yup.string()
     .matches(/[a-z,A-Z,0-9]/, 'Should be combination of numbers & alphabets')
     .required('Should be required'),
-  password: Yup.string().required('Should be required'),
+  password: Yup.string()
+    .min(4, 'Too short!')
+    .required('Should be required'),
 });
 
 const LoginForm = ({ setAccess }) => (
@@ -36,7 +38,7 @@ const LoginForm = ({ setAccess }) => (
             placeholder="Password"
             fieldPrefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           />
-          <FormButton htmlType="submit" type="primary" size="" value="Log in" icon="loading" />
+          <FormButton htmlType="submit" type="primary" value="Log in" icon="loading" />
         </Form>
       )}
     </Formik>

@@ -15,73 +15,82 @@ exports[`<HeaderComponent /> component Render property 1`] = `
       </Text>
     </Col>
     <Col>
-      <Avatar
-        icon="user"
-        shape="circle"
-        size="default"
-      />
-      <Dropdown
-        mouseEnterDelay={0.15}
-        mouseLeaveDelay={0.1}
-        overlay={
-          <Menu>
-            <MenuItem>
-              <Link
-                replace={false}
-                to="/stubs/dashboard"
-              >
-                Dashboard
-              </Link>
-            </MenuItem>
-            <Divider
-              className=""
-              disabled={true}
-              style={Object {}}
-            />
-            <MenuItem>
-              <Link
-                replace={false}
-                to="/stubs/lists"
-              >
-                My Lists
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link
-                replace={false}
-                to="/stubs/watchlist"
-              >
-                Watchlist
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link
-                replace={false}
-                to="/stubs/favorites"
-              >
-                Favorites
-              </Link>
-            </MenuItem>
-            <Divider
-              className=""
-              disabled={true}
-              style={Object {}}
-            />
-            <MenuItem
-              onClick={[MockFunction]}
-            >
-              Logout
-            </MenuItem>
-          </Menu>
-        }
-        placement="bottomLeft"
+      <div
+        className="profile"
       >
-        <Text>
-          <Icon
-            type="caret-down"
+        <figure
+          className="profile__avatar"
+        >
+          <Avatar
+            icon="user"
+            shape="circle"
+            size="default"
           />
-        </Text>
-      </Dropdown>
+        </figure>
+        <Dropdown
+          className="profile__dropdown"
+          mouseEnterDelay={0.15}
+          mouseLeaveDelay={0.1}
+          overlay={
+            <Menu>
+              <MenuItem>
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  Dashboard
+                </Link>
+              </MenuItem>
+              <Divider
+                className=""
+                disabled={true}
+                style={Object {}}
+              />
+              <MenuItem>
+                <Link
+                  replace={false}
+                  to="/mylists"
+                >
+                  My Lists
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  replace={false}
+                  to="/watchlist"
+                >
+                  Watchlist
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  replace={false}
+                  to="/favorites"
+                >
+                  Favorites
+                </Link>
+              </MenuItem>
+              <Divider
+                className=""
+                disabled={true}
+                style={Object {}}
+              />
+              <MenuItem
+                onClick={[MockFunction]}
+              >
+                Logout
+              </MenuItem>
+            </Menu>
+          }
+          placement="bottomLeft"
+        >
+          <Text>
+            <Icon
+              type="caret-down"
+            />
+          </Text>
+        </Dropdown>
+      </div>
     </Col>
   </Row>
 </Adapter>
