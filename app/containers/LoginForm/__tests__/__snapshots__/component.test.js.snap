@@ -16,7 +16,8 @@ exports[`<LoginForm /> component Render property 1`] = `
       }
     }
     isInitialValid={false}
-    onSubmit={[MockFunction]}
+    onSubmit={[Function]}
+    render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -113,8 +114,6 @@ exports[`<LoginForm /> component Render property 1`] = `
         ],
       }
     }
-  >
-    <Component />
-  </Formik>
+  />
 </Adapter>
 `;

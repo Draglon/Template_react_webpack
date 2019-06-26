@@ -10,7 +10,7 @@ const LoginSchema = Yup.object().shape({
     .matches(/[a-z,A-Z,0-9]/, 'Should be combination of numbers & alphabets')
     .required('Should be required'),
   password: Yup.string()
-    .min(4, 'Too short!')
+    .min(4, 'Too short! Min 4 Symbols')
     .required('Should be required'),
 });
 
@@ -20,9 +20,14 @@ const LoginForm = ({ setAccess }) => (
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
-      onSubmit={setAccess}
-    >
-      {() => (
+      onSubmit={(values, actions) => {
+        actions.setSubmitting(true);
+        setAccess(values);
+        setTimeout(() => {
+          actions.setSubmitting(false);
+        }, 1000);
+      }}
+      render={props => (
         <Form className="form login__form">
           <Field
             type="text"
@@ -38,10 +43,16 @@ const LoginForm = ({ setAccess }) => (
             placeholder="Password"
             fieldPrefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           />
-          <FormButton htmlType="submit" type="primary" value="Log in" icon="loading" />
+          <FormButton
+            htmlType="submit"
+            type="primary"
+            value="Log in"
+            size="default"
+            icon={props.isSubmitting ? 'loading' : ''}
+          />
         </Form>
       )}
-    </Formik>
+    />
   </Layout>
 );
 
