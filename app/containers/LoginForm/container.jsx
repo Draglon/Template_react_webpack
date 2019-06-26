@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createSessionRequest } from '../../store/theMovieDB/auth/actions';
+import { createSessionRequest } from '../../store/theMovieDB/login/actions';
 
 import LoginForm from './component';
 

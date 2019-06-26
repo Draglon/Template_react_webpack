@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { deleteSessionRequest } from '../../store/theMovieDB/auth/actions';
-import { getSessionId } from '../../store/theMovieDB/auth/selectors';
+import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
+import { getSessionId } from '../../store/theMovieDB/login/selectors';
 
 import Home from './component';
 

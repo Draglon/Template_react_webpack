@@ -1,1 +1,0 @@
-export const getSessionId = state => state.reducers.access.session_id;

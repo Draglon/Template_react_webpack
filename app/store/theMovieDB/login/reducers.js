@@ -1,8 +1,9 @@
 import * as t from './actionTypes';
+import { getCookie } from '../../../helpers/cookie';
 
 export const loginInitialState = {
   isLoading: false,
-  session_id: localStorage.getItem('session_id'),
+  session_id: getCookie('session_id'),
   error: null,
 };
 

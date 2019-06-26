@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { createSessionLogic, deleteSessionLogic } from './auth/logic';
+import { createSessionLogic, deleteSessionLogic } from './login/logic';
 import accountLogic from './account/logic';
 import { createList } from './list/logic';
 
-import { loginReducer } from './auth/reducers';
+import { loginReducer } from './login/reducers';
 import { profileReducer } from './account/reducers';
 import { createListReducer } from './list/reducers';
 
@@ -17,6 +17,6 @@ export const rootLogic = [
 
 export const reducers = combineReducers({
   account: profileReducer,
-  access: loginReducer,
+  login: loginReducer,
   list: createListReducer,
 });

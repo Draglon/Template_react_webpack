@@ -1,4 +1,5 @@
 import { createLogic } from 'redux-logic';
+import { setCookie, getCookie } from '../../../helpers/cookie';
 
 import {
   createSessionSuccess,
@@ -6,7 +7,7 @@ import {
   deleteSessionSuccess,
   deleteSessionFailure,
 } from './actions';
-import { profileRequest } from '../account/actions';
+import { profileRequest, profileSuccess } from '../account/actions';
 import * as t from './actionTypes';
 
 export const createSessionLogic = createLogic({
@@ -27,8 +28,8 @@ export const createSessionLogic = createLogic({
         }),
       )
       .then(response3 => {
-        localStorage.setItem('session_id', response3.data.session_id);
-        const sessionId = localStorage.getItem('session_id');
+        const sessionId = response3.data.session_id;
+        setCookie('session_id', sessionId);
         dispatch(createSessionSuccess(sessionId));
         dispatch(profileRequest(sessionId));
       })
@@ -43,10 +44,15 @@ export const deleteSessionLogic = createLogic({
   process({ apiClient }, dispatch, done) {
     apiClient
       .delete('authentication/session', {
-        data: { session_id: localStorage.getItem('session_id') },
+        data: { session_id: getCookie('session_id') },
       })
       .then(() => {
-        localStorage.removeItem('session_id');
+        setCookie('session_id', '');
+        setCookie('username', '');
+        setCookie('user_id', '');
+        setCookie('avatar', '');
+        setCookie('name', '');
+        dispatch(profileSuccess({ id: null, avatar: null, name: null, username: null }));
         dispatch(deleteSessionSuccess(null));
       })
       .catch(error => dispatch(deleteSessionFailure(error)))

@@ -5,7 +5,7 @@ describe('Authentication selectors', () => {
     const sessionId = 'some session_id';
     const state = {
       reducers: {
-        access: {
+        login: {
           session_id: sessionId,
         },
       },

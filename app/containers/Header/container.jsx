@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteSessionRequest } from '../../store/theMovieDB/auth/actions';
+import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
 
 import { getProfile } from '../../store/theMovieDB/account/selectors';
 

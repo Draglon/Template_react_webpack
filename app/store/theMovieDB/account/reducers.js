@@ -1,8 +1,14 @@
 import * as t from './actionTypes';
+import { getCookie } from '../../../helpers/cookie';
 
 export const profileInitialState = {
   isLoading: false,
-  data: null,
+  data: {
+    id: getCookie('user_id'),
+    avatar: getCookie('avatar'),
+    name: getCookie('name'),
+    username: getCookie('username'),
+  },
   error: null,
 };
 

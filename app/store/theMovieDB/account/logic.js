@@ -11,13 +11,15 @@ export default createLogic({
     apiClient
       .get(`/account?session_id=${action.payload}`)
       .then(response => {
-        const now = new Date();
-        now.setTime(now.getTime() + 24 * 3600 * 1000);
-        setCookie('username', response.data.username, now.toUTCString());
-        setCookie('user_id', response.data.id, now.toUTCString());
-        setCookie('avatar', response.data.avatar.gravatar.hash, now.toUTCString());
-        setCookie('name', response.data.name, now.toUTCString());
-        dispatch(profileSuccess(response.data));
+        const id = response.data.id;
+        const avatar = response.data.avatar.gravatar.hash;
+        const name = response.data.name;
+        const username = response.data.username;
+        setCookie('username', username);
+        setCookie('user_id', id);
+        setCookie('avatar', avatar);
+        setCookie('name', name);
+        dispatch(profileSuccess({ id, avatar, name, username }));
       })
       .catch(error => dispatch(profileFailure(error)))
       .then(() => done());

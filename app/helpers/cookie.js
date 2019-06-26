@@ -1,3 +1,6 @@
+const time = new Date();
+time.setTime(time.getTime() + 24 * 3600 * 1000);
+
 export const getCookie = name => {
   const cookie = ` ${document.cookie}`;
   const search = ` ${name}=`;
@@ -18,7 +21,7 @@ export const getCookie = name => {
   return setStr;
 };
 
-export const setCookie = (name, value, expires, path, domain, secure) => {
+export const setCookie = (name, value, expires = time.toUTCString(), path, domain, secure) => {
   document.cookie = `${name}=${escape(value)}${expires ? `; expires=${expires}` : ''}${
     path ? `; path=${path}` : ''
   }${domain ? `; domain=${domain}` : ''}${secure ? '; secure' : ''}`;
