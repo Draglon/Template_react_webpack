@@ -31,8 +31,8 @@ const HeaderComponent = ({ removeSessionId }) => {
           <Typography.Text className="logo">THE MOVIE DB</Typography.Text>
         </Col>
         <Col>
-          <Avatar icon="user" />
-          <Dropdown overlay={Overlay(removeSessionId)}>
+          <Avatar className="profile__avatar" icon="user" />
+          <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
             <Typography.Text>
               {getCookie('username')}
               <Icon type="caret-down" />
