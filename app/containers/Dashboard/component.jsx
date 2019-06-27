@@ -20,7 +20,7 @@ const Dashboard = ({ trending: { results, total_pages } }) => (
     </div>
     <div className="top-padding">
       <Row type="flex" gutter={16}>
-        <Col span={20} offset={2}>
+        <Col className="cards" span={20} offset={2}>
           {results.map(item => (
             <Col
               key={item}

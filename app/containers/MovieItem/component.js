@@ -6,8 +6,8 @@ const cover = item => (
 );
 
 const Movie = ({ item }) => (
-  <Card hoverable cover={cover(item)} className="top-margin" actions={item}>
-    <Card.Meta title={item.title} description={item.overview} />
+  <Card className="top-margin" hoverable cover={cover(item)} actions={item}>
+    <Card.Meta className="text-size" title={item.title} description={item.overview} />
   </Card>
 );
 
