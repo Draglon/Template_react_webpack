@@ -26,4 +26,10 @@
       }
     }
   }
+
+  &__error {
+    color: $red;
+    font-size: $font-size14;
+    margin-top: 1em;
+  }
 }

@@ -14,7 +14,7 @@ const LoginSchema = Yup.object().shape({
     .required('Should be required'),
 });
 
-const LoginFormComponent = ({ setAccess }) => (
+const LoginFormComponent = ({ setAccess, loginError }) => (
   <Layout className="login">
     <Typography.Title>The Movie DB</Typography.Title>
     <Formik
@@ -47,6 +47,9 @@ const LoginFormComponent = ({ setAccess }) => (
             size="default"
             icon={props.isSubmitting ? 'loading' : ''}
           />
+          {loginError && (
+            <div className="login__error">Pleace, check your login or password and try again</div>
+          )}
         </Form>
       )}
     />
