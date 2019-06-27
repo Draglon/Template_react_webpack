@@ -21,6 +21,10 @@
   flex-wrap: wrap;
   align-content: stretch;
   align-items: stretch;
+
+  &__empty {
+    margin: 0 auto;
+  }
 }
 
 .ant-card {
@@ -31,4 +35,8 @@
   overflow: hidden;
   height: 100%;
   height: 100px;
+}
+
+.align-center {
+  text-align: center;
 }
