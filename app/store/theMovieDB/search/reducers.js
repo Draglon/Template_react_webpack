@@ -3,6 +3,7 @@ import * as t from './actionTypes';
 export const searchInitialState = {
   isLoading: false,
   data: {
+    query: '',
     pages: 1,
     results: [],
     total_pages: 0,
@@ -28,8 +29,14 @@ export const searchReducer = (state = searchInitialState, action) => {
       };
     case t.SEARCH_FAILURE:
       return {
-        ...state,
         isLoading: false,
+        data: {
+          query: '',
+          pages: 1,
+          results: [],
+          total_pages: 0,
+          total_results: 0,
+        },
         error: action.payload,
       };
     default:

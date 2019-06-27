@@ -8,9 +8,17 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`search/movie?query=${action.payload}`)
-      .then(response => dispatch(searchSuccess(response.data)))
-      .catch(error => dispatch(searchFailure(error)))
+      .get(`search/movie?query=${action.payload.query}&page=${action.payload.page || 1}`)
+      .then(response =>
+        dispatch(
+          searchSuccess({
+            query: action.payload.query,
+            page: action.payload.page,
+            ...response.data,
+          }),
+        ),
+      )
+      .catch(error => dispatch(searchFailure(error.message)))
       .then(() => done());
   },
 });

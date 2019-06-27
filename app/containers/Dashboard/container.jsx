@@ -12,8 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getSearch: searchRequest,
-  getTrending: trendingRequest,
+  searchRequest,
+  trendingRequest,
 };
 
 export default connect(
