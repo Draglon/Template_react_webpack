@@ -1,6 +1,6 @@
 import * as t from './actionTypes';
 
-export const trendingInitialState = {
+export const searchInitialState = {
   isLoading: false,
   data: {
     pages: 1,
@@ -11,22 +11,22 @@ export const trendingInitialState = {
   error: null,
 };
 
-// Trending movie
-export const trendingReducer = (state = trendingInitialState, action) => {
+// Search movie
+export const searchReducer = (state = searchInitialState, action) => {
   switch (action.type) {
-    case t.TRENDING_REQUEST:
+    case t.SEARCH_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case t.TRENDING_SUCCESS:
+    case t.SEARCH_SUCCESS:
       return {
         ...state,
         isLoading: false,
         data: action.payload,
       };
-    case t.TRENDING_FAILURE:
+    case t.SEARCH_FAILURE:
       return {
         ...state,
         isLoading: false,

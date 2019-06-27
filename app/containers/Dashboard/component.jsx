@@ -3,7 +3,7 @@ import { Row, Col, Input, Pagination } from 'antd';
 
 import Movie from '../MovieItem';
 
-const Dashboard = ({ trending: { results, total_pages } }) => (
+const Dashboard = ({ trending: { results, total_pages }, search, getSearch, getTrending }) => (
   <>
     <div className="top-padding">
       <Row type="flex">
@@ -14,16 +14,22 @@ const Dashboard = ({ trending: { results, total_pages } }) => (
           lg={{ span: 16, offset: 4 }}
           xl={{ span: 14, offset: 5 }}
         >
-          <Input.Search placeholder="Enter movie name" size="large" enterButton="Search" />
+          <Input.Search
+            placeholder="Enter movie name"
+            size="large"
+            enterButton="Search"
+            onSearch={getSearch}
+          />
         </Col>
       </Row>
     </div>
+    {/* { const movies = search.results.len} */}
     <div className="top-padding">
       <Row type="flex" gutter={16}>
         <Col className="cards" span={20} offset={2}>
           {results.map(item => (
             <Col
-              key={item}
+              key={item.id}
               xs={{ span: 12 }}
               sm={{ span: 12 }}
               md={{ span: 8 }}
@@ -37,7 +43,12 @@ const Dashboard = ({ trending: { results, total_pages } }) => (
       </Row>
       <Row type="flex" justify="center" className="top-padding">
         <Col>
-          <Pagination defaultCurrent={1} total={total_pages} className="pagination" />
+          <Pagination
+            defaultCurrent={1}
+            total={total_pages}
+            className="pagination"
+            onChange={page => getTrending({ page })}
+          />
         </Col>
       </Row>
     </div>

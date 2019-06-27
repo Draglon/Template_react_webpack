@@ -33,7 +33,7 @@ export const createSessionLogic = createLogic({
         setCookie('session_id', sessionId);
         dispatch(createSessionSuccess(sessionId));
         dispatch(profileRequest(sessionId));
-        dispatch(trendingRequest(sessionId));
+        dispatch(trendingRequest({ sessionId }));
       })
       .catch(error => dispatch(createSessionFailure(error)))
       .then(() => done());

@@ -1,3 +1,3 @@
-import Header from './container';
+import Dashboard from './container';
 
-export default Header;
+export default Dashboard;

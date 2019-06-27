@@ -1,19 +1,22 @@
 import { connect } from 'react-redux';
-// import { deleteSessionRequest } from '../../store/theMovieDB/trending/actions';
+import { trendingRequest } from '../../store/theMovieDB/trending/actions';
 import { getTrending } from '../../store/theMovieDB/trending/selectors';
+import { searchRequest } from '../../store/theMovieDB/search/actions';
+import { getSearch } from '../../store/theMovieDB/search/selectors';
 
-import Header from './component';
+import Dashboard from './component';
 
 const mapStateToProps = state => ({
   trending: getTrending(state),
+  search: getSearch(state),
 });
 
-// const mapDispatchToProps = {
-//   removeSessionId: deleteSessionRequest,
-// };
+const mapDispatchToProps = {
+  getSearch: searchRequest,
+  getTrending: trendingRequest,
+};
 
 export default connect(
   mapStateToProps,
-  null,
-  // mapDispatchToProps,
-)(Header);
+  mapDispatchToProps,
+)(Dashboard);
