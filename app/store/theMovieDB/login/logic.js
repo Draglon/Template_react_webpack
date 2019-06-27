@@ -19,7 +19,7 @@ export const createSessionLogic = createLogic({
       .get('authentication/token/new')
       .then(response1 =>
         apiClient.post('authentication/token/validate_with_login', {
-          ...action.payload,
+          ...action.payload.values,
           request_token: response1.data.request_token,
         }),
       )
@@ -34,8 +34,12 @@ export const createSessionLogic = createLogic({
         dispatch(createSessionSuccess(sessionId));
         dispatch(profileRequest(sessionId));
         dispatch(trendingRequest({ sessionId }));
+        action.payload.actions.setSubmitting(false);
       })
-      .catch(error => dispatch(createSessionFailure(error)))
+      .catch(error => {
+        dispatch(createSessionFailure(error.message));
+        action.payload.actions.setSubmitting(false);
+      })
       .then(() => done());
   },
 });

@@ -22,7 +22,7 @@ const LoginFormComponent = ({ setAccess }) => (
       validationSchema={LoginSchema}
       onSubmit={(values, actions) => {
         actions.setSubmitting(true);
-        setAccess(values);
+        setAccess({ values, actions });
       }}
       render={props => (
         <Form className="form login__form">
