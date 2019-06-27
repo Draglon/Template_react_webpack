@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Home /> container render property - isLogged: false 1`] = `
+exports[`<HomeComponent /> container render property - isLogged: false 1`] = `
 <Fragment>
-  <Connect(LoginForm) />
+  <Connect(LoginFormComponent) />
 </Fragment>
 `;
 
-exports[`<Home /> container render property - isLogged: true 1`] = `
+exports[`<HomeComponent /> container render property - isLogged: true 1`] = `
 <Fragment>
-  <Connect(Dashboard) />
+  <Connect(DashboardComponent) />
 </Fragment>
 `;

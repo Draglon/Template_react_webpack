@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateList /> component Render property 1`] = `
+exports[`<CreateListComponent /> component Render property 1`] = `
 <Fragment>
   <h2
     className="section__title"

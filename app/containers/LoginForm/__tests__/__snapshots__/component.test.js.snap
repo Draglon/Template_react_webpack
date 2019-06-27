@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginForm /> component Render property 1`] = `
+exports[`<LoginFormComponent /> component Render property 1`] = `
 <Adapter
   className="login"
 >
