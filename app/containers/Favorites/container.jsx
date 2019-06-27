@@ -3,7 +3,7 @@ import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
 
 import { getProfile } from '../../store/theMovieDB/account/selectors';
 
-import Favorites from './component';
+import FavoritesContainer from './component';
 
 const mapStateToProps = state => ({
   profile: getProfile(state),
@@ -16,4 +16,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Favorites);
+)(FavoritesContainer);

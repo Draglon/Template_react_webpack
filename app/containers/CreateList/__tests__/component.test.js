@@ -2,14 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import CreateList from '../component';
+import CreateListComponent from '../component';
 
-describe('<CreateList /> component', () => {
+describe('<CreateListComponent /> component', () => {
   const props = { createList: jest.fn() };
   let component;
 
   beforeEach(() => {
-    component = shallow(<CreateList {...props} />);
+    component = shallow(<CreateListComponent {...props} />);
   });
 
   it('Render property', () => {

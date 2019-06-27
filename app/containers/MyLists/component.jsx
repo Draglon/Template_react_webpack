@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MyLists = () => (
+const MyListsComponent = () => (
   <>
     <h1>My Lists</h1>
   </>
 );
 
-export default MyLists;
+export default MyListsComponent;

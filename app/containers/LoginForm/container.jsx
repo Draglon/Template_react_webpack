@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createSessionRequest } from '../../store/theMovieDB/login/actions';
 
-import LoginForm from './component';
+import LoginFormContainer from './component';
 
 const mapDispatchToProps = {
   setAccess: createSessionRequest,
@@ -10,4 +10,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps,
-)(LoginForm);
+)(LoginFormContainer);

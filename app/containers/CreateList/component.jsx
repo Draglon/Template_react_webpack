@@ -9,7 +9,7 @@ const LoginSchema = Yup.object().shape({
   description: Yup.string().required('Required list description'),
 });
 
-const CreateList = ({ createList }) => (
+const CreateListComponent = ({ createList }) => (
   <>
     <h2 className="section__title">Home page</h2>
     <Formik
@@ -28,4 +28,4 @@ const CreateList = ({ createList }) => (
   </>
 );
 
-export default CreateList;
+export default CreateListComponent;

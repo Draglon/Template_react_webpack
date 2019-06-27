@@ -5,10 +5,10 @@ const cover = item => (
   <img alt={item.title} src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
 );
 
-const Movie = ({ item }) => (
+const MovieItemComponent = ({ item }) => (
   <Card className="top-margin" hoverable cover={cover(item)} actions={item}>
     <Card.Meta className="text-size" title={item.title} description={item.overview} />
   </Card>
 );
 
-export default Movie;
+export default MovieItemComponent;

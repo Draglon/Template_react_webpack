@@ -4,7 +4,7 @@ import { getTrending } from '../../store/theMovieDB/trending/selectors';
 import { searchRequest } from '../../store/theMovieDB/search/actions';
 import { getSearch } from '../../store/theMovieDB/search/selectors';
 
-import Dashboard from './component';
+import DashboardContainer from './component';
 
 const mapStateToProps = state => ({
   trending: getTrending(state),
@@ -19,4 +19,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Dashboard);
+)(DashboardContainer);

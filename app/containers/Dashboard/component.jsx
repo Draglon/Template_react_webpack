@@ -3,7 +3,7 @@ import { Row, Col, Input, Pagination } from 'antd';
 
 import Movie from '../MovieItem';
 
-const Dashboard = ({ trending: { results, total_pages }, search, getSearch, getTrending }) => (
+const DashboardComponent = ({ trending: { results, total_pages }, search, getSearch, getTrending }) => (
   <>
     <div className="top-padding">
       <Row type="flex">
@@ -55,4 +55,4 @@ const Dashboard = ({ trending: { results, total_pages }, search, getSearch, getT
   </>
 );
 
-export default Dashboard;
+export default DashboardComponent;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotFound = () => (
+const NotFoundComponent = () => (
   <section className="section not-found">
     <div className="wrapper">
       <h2 className="not-found__title">Page not found</h2>
@@ -9,4 +9,4 @@ const NotFound = () => (
   </section>
 );
 
-export default NotFound;
+export default NotFoundComponent;
