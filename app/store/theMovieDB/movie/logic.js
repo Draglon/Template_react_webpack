@@ -8,7 +8,7 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`/movie/`)
+      .get(`/movie/${action.payload.id}`)
       .then(response =>
         dispatch(
           movieSuccess({

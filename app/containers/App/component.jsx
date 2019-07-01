@@ -8,6 +8,7 @@ import Home from '../Home';
 import MyLists from '../MyLists';
 import Watchlist from '../Watchlist';
 import Favorites from '../Favorites';
+import Movie from '../Movie';
 import NotFound from '../NotFound';
 
 function PrivateRoute({ component: Component, islogged, ...rest }) {
@@ -40,6 +41,7 @@ const AppComponent = ({ islogged }) => (
           <PrivateRoute exact path="/mylists" component={MyLists} islogged={islogged} />
           <PrivateRoute exact path="/watchlist" component={Watchlist} islogged={islogged} />
           <PrivateRoute exact path="/favorites" component={Favorites} islogged={islogged} />
+          <PrivateRoute exact path="/movie/:id" component={Movie} islogged={islogged} />
           <PrivateRoute component={NotFound} islogged={islogged} />
         </Switch>
       </Layout.Content>

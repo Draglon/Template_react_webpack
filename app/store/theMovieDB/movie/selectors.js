@@ -1,1 +1,1 @@
-export const getMovie = state => state.reducers.search.data;
+export const getMovie = state => state.reducers.movie.data;
