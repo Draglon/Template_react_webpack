@@ -36,7 +36,7 @@ class MovieItemComponent extends Component {
               <Col span={24}>
                 <Carousel autoplay>
                   {movie.images.backdrops.map(item => (
-                    <div>
+                    <div key={item.id}>
                       <img
                         className="movie-image"
                         src={`https://image.tmdb.org/t/p/original${item.file_path}`}

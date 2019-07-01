@@ -25,13 +25,18 @@ export const profileReducer = (state = profileInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: {
+          id: action.payload.id,
+          avatar: action.payload.avatar,
+          name: action.payload.name,
+          username: action.payload.username,
+        },
       };
     case t.PROFILE_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       };
     default:
       return state;
