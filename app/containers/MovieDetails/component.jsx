@@ -7,24 +7,23 @@ const cover = item => (
 
 const MovieDetailsComponent = ({ movieDetails }) => (
   <Row gutter={8} type="flex">
-    <Col span={20} offset={2} className="movie-details">
-      {movieDetails.map(
-        item =>
-          item.profile_path && (
-            <Col
-              key={item.id}
-              xs={{ span: 12 }}
-              sm={{ span: 8 }}
-              md={{ span: 6 }}
-              lg={{ span: 4 }}
-              xl={{ span: 4 }}
-            >
-              <Card cover={cover(item)} className="top-margin">
-                <Card.Meta title={item.name} description={item.character || item.job} />
-              </Card>
-            </Col>
-          ),
-      )}
+    <Col span={20} offset={2} className="movie__details">
+      {movieDetails
+        .filter(item => item.profile_path)
+        .map(item => (
+          <Col
+            key={item.id}
+            xs={{ span: 12 }}
+            sm={{ span: 8 }}
+            md={{ span: 6 }}
+            lg={{ span: 4 }}
+            xl={{ span: 4 }}
+          >
+            <Card cover={cover(item)} className="top-margin">
+              <Card.Meta title={item.name} description={item.character || item.job} />
+            </Card>
+          </Col>
+        ))}
     </Col>
   </Row>
 );

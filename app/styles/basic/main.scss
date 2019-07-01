@@ -54,8 +54,15 @@
   width: 100%;
 }
 
-.movie-details {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+.movie {
+
+  &__details {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__text {
+    font-size: 14px;
+  }
 }

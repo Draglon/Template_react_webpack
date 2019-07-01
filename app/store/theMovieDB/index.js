@@ -5,16 +5,14 @@ import accountLogic from './account/logic';
 import { createList } from './list/logic';
 import trendingLogic from './trending/logic';
 import searchLogic from './search/logic';
-import movieLogic from './movie/logic';
-import movieCreditsLogic from './movieCredits/logic';
+import { movieLogic, movieCreditsLogic } from './movie/logic';
 
 import { loginReducer } from './login/reducers';
 import { profileReducer } from './account/reducers';
 import { createListReducer } from './list/reducers';
 import { searchReducer } from './search/reducers';
 import { trendingReducer } from './trending/reducers';
-import { movieReducer } from './movie/reducers';
-import { movieCreditsReducer } from './movieCredits/reducers';
+import { movieReducer, movieCreditsReducer } from './movie/reducers';
 
 export const rootLogic = [
   accountLogic,
