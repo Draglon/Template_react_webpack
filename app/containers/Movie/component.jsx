@@ -12,6 +12,7 @@ import {
   CreateListModal,
 } from 'antd';
 import MovieDetails from '../MovieDetails';
+import { formatMoney, formatTime } from '../../helpers/format';
 
 class MovieItemComponent extends Component {
   componentDidMount() {
@@ -91,19 +92,19 @@ class MovieItemComponent extends Component {
               <Col span={20} offset={2}>
                 <Typography.Paragraph className="movie__text">
                   <b>Runtime: </b>
-                  <span>{movie.runtime}</span>
+                  <span>{formatTime(movie.runtime)}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
                 <Typography.Paragraph className="movie__text">
                   <b>Budget: </b>
-                  <span>${movie.budget}</span>
+                  <span>${formatMoney(movie.budget)}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
                 <Typography.Paragraph className="movie__text">
                   <b>Revenue: </b>
-                  <span>${movie.revenue}</span>
+                  <span>${formatMoney(movie.revenue)}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
