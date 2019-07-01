@@ -5,21 +5,24 @@ class MovieItemComponent extends Component {
   componentDidMount() {
     const {
       setMovie,
+      setMovieCredits,
       match: {
         params: { id },
       },
     } = this.props;
     setMovie({ id });
+    setMovieCredits({ id });
   }
 
   render() {
-    const { movie } = this.props;
+    const { movie, movieCredits } = this.props;
 
     return (
       <>
         {movie && (
           <>
             {console.log(movie)}
+            {console.log(movieCredits)}
             <Row type="flex">
               <Col span={24}>
                 <Carousel autoplay>
@@ -88,15 +91,15 @@ class MovieItemComponent extends Component {
               <Col span={20} offset={2}>
                 <Typography.Paragraph>
                   <b>Revenue: </b>
-                  <span>$2,742,491,359.00</span>
+                  <span>${movie.revenue}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
                 <Typography.Paragraph>
                   <b>Genres: </b>
-                  <Tag>ADVENTURE</Tag>
-                  <Tag>SCIENCE FICTION</Tag>
-                  <Tag>ACTION</Tag>
+                  {movie.genres.map(item => (
+                    <Tag key={item.id}>{item.name}</Tag>
+                  ))}
                 </Typography.Paragraph>
               </Col>
             </Row>
@@ -107,28 +110,33 @@ class MovieItemComponent extends Component {
             </Row>
             <Row gutter={8} type="flex">
               <Col span={20} offset={2}>
-                {/* {range(10).map(index => (
-                  <Col
-                    key={index}
-                    xs={{ span: 12 }}
-                    sm={{ span: 8 }}
-                    md={{ span: 6 }}
-                    lg={{ span: 4 }}
-                    xl={{ span: 4 }}
-                  >
-                    <Card
-                      cover={
-                        <img
-                          alt="example"
-                          src="https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg"
-                        />
-                      }
-                      className="top-margin"
+                {movieCredits
+                  && movieCredits.cast.map(item =>
+                    item.profile_path ? (
+                      <Col
+                      key={item.id}
+                      xs={{ span: 12 }}
+                      sm={{ span: 8 }}
+                      md={{ span: 6 }}
+                      lg={{ span: 4 }}
+                      xl={{ span: 4 }}
                     >
-                      <Card.Meta title="Robert Downey Jr." description="Ironman" />
-                    </Card>
-                  </Col>
-                ))} */}
+                      <Card
+                          cover={
+                            (
+<img
+                              alt={item.name}
+                              src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
+                          />
+)
+                          }
+                          className="top-margin"
+                        >
+                          <Card.Meta title={item.name} description={movie.title} />
+                        </Card>
+                    </Col>
+                  ) : null,
+                  )}
               </Col>
             </Row>
             <Row>
@@ -138,28 +146,30 @@ class MovieItemComponent extends Component {
             </Row>
             <Row gutter={8} type="flex">
               <Col span={20} offset={2}>
-                {/* {range(10).map(index => (
-                  <Col
-                    key={index}
-                    xs={{ span: 12 }}
-                    sm={{ span: 8 }}
-                    md={{ span: 6 }}
-                    lg={{ span: 4 }}
-                    xl={{ span: 4 }}
-                  >
-                    <Card
-                      cover={
-                        <img
-                          alt="example"
-                          src="https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg"
-                        />
-                      }
-                      className="top-margin"
-                    >
-                      <Card.Meta title="Robert Downey Jr." description="Ironman" />
-                    </Card>
-                  </Col>
-                ))} */}
+                {movieCredits
+                  && movieCredits.cast.map(item => item.profile_path ? (
+                        <Col
+                        key={item.id}
+                        xs={{ span: 12 }}
+                        sm={{ span: 8 }}
+                        md={{ span: 6 }}
+                        lg={{ span: 4 }}
+                        xl={{ span: 4 }}
+                      >
+                        <Card
+                          cover={(
+<img
+                            alt={item.name}
+                            src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
+                          />
+)}
+                          className="top-margin"
+                        >
+                          <Card.Meta title={item.name} description={movie.title} />
+                        </Card>
+                      </Col>
+                      ) : null,
+                  )}
               </Col>
             </Row>
           </>
