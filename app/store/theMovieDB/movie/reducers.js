@@ -44,7 +44,7 @@ export const movieReducer = (state = movieInitialState, action) => {
           genres: action.payload.genres,
           revenue: action.payload.revenue,
           runtime: action.payload.runtime,
-          language: action.payload.spoken_languages.name,
+          language: action.payload.language,
           credits: {
             cast: action.payload.cast,
             crew: action.payload.crew,
@@ -57,8 +57,8 @@ export const movieReducer = (state = movieInitialState, action) => {
       };
     case t.MOVIE_FAILURE:
       return {
+        ...state,
         isLoading: false,
-        data: null,
         error: action.payload.message,
       };
     default:

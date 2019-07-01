@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Row,
-  Col,
-  Carousel,
-  Typography,
-  Tag,
-  Popover,
-  PopoverContent,
-  Icon,
-  Modal,
-  CreateListModal,
-} from 'antd';
+import { Row, Col, Carousel, Typography, Tag, Popover, Icon, Modal } from 'antd';
 import MovieDetails from '../MovieDetails';
 import { formatMoney, formatTime } from '../../helpers/format';
 
@@ -86,7 +75,7 @@ class MovieItemComponent extends Component {
               <Col span={20} offset={2}>
                 <Typography.Paragraph className="movie__text">
                   <b>Original Language: </b>
-                  <span>{movie.languages}</span>
+                  <span>{movie.language}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
@@ -129,14 +118,14 @@ class MovieItemComponent extends Component {
             </Row>
             <MovieDetails movieDetails={movie.credits.crew} />
 
-            <Modal
+            {/* <Modal
               // visible={modalVisible}
               onCancel={this.hideModal}
               okText="Create"
               title="Create list"
             >
               <CreateListModal />
-            </Modal>
+            </Modal> */}
           </>
         )}
       </>

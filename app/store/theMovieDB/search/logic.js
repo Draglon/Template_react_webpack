@@ -14,11 +14,12 @@ export default createLogic({
           searchSuccess({
             query: action.payload.query,
             page: action.payload.page,
-            ...response.data,
+            results: response.data.results,
+            totalPages: action.payload.total_pages,
           }),
         ),
       )
-      .catch(error => dispatch(searchFailure(error.message)))
+      .catch(error => dispatch(searchFailure(error)))
       .then(() => done());
   },
 });

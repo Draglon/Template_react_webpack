@@ -21,7 +21,7 @@ class DashboardComponent extends Component {
           query={search.query}
           currentPage={search.query ? search.page : trending.page}
           getPage={search.query ? searchRequest : trendingRequest}
-          totalPages={search.query ? search.total_pages : trending.total_pages}
+          totalPages={search.query ? search.totalPages : trending.totalPages}
         />
       </>
     );

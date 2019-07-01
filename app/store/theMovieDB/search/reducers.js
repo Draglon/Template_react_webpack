@@ -4,10 +4,9 @@ export const searchInitialState = {
   isLoading: false,
   data: {
     query: '',
-    pages: 1,
+    page: 1,
     results: [],
-    total_pages: 0,
-    total_results: 0,
+    totalPages: 0,
   },
   error: null,
 };
@@ -25,19 +24,18 @@ export const searchReducer = (state = searchInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: {
+          query: action.payload.query,
+          page: action.payload.page,
+          results: action.payload.results,
+          totalPages: action.payload.totalPages,
+        },
       };
     case t.SEARCH_FAILURE:
       return {
+        ...state,
         isLoading: false,
-        data: {
-          query: '',
-          pages: 1,
-          results: [],
-          total_pages: 0,
-          total_results: 0,
-        },
-        error: action.payload,
+        error: action.payload.message,
       };
     default:
       return state;

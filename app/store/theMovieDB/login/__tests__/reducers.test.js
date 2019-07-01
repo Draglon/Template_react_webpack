@@ -78,4 +78,59 @@ describe('Authentication reducer', () => {
       error: action.payload,
     });
   });
+
+  // DELETE_SESSION_REQUEST
+  it('DELETE_SESSION_REQUEST', () => {
+    const action = {
+      type: t.DELETE_SESSION_REQUEST,
+    };
+
+    expect(loginReducer(loginInitialState, action)).toEqual({
+      ...loginInitialState,
+      isLoading: true,
+      error: null,
+    });
+  });
+
+  // DELETE_SESSION_SUCCESS
+  it('DELETE_SESSION_SUCCESS', () => {
+    const stateBefore = {
+      isLoading: true,
+      session_id: null,
+      error: null,
+    };
+
+    const action = {
+      type: t.DELETE_SESSION_SUCCESS,
+      payload: 'session _id key',
+    };
+
+    expect(loginReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      isLoading: false,
+      session_id: action.payload,
+    });
+  });
+
+  // DELETE_SESSION_FAILURE
+  it('DELETE_SESSION_FAILURE', () => {
+    const stateBefore = {
+      isLoading: true,
+      session_id: null,
+      error: null,
+    };
+
+    const action = {
+      type: t.DELETE_SESSION_FAILURE,
+      payload: {
+        message: 'error message',
+      },
+    };
+
+    expect(loginReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      isLoading: false,
+      error: action.payload,
+    });
+  });
 });

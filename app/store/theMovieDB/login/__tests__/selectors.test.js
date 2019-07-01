@@ -1,4 +1,4 @@
-import { getSessionId } from '../selectors';
+import { getSessionId, loginError } from '../selectors';
 
 describe('Authentication selectors', () => {
   it('getSessionId - get session_id from store', () => {
@@ -11,5 +11,17 @@ describe('Authentication selectors', () => {
       },
     };
     expect(getSessionId(state)).toEqual(sessionId);
+  });
+
+  it('loginError - get error message for wrong login', () => {
+    const message = 'some error message';
+    const state = {
+      reducers: {
+        login: {
+          error: message,
+        },
+      },
+    };
+    expect(loginError(state)).toEqual(message);
   });
 });

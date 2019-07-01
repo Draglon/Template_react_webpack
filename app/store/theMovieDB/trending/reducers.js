@@ -3,10 +3,9 @@ import * as t from './actionTypes';
 export const trendingInitialState = {
   isLoading: false,
   data: {
-    pages: 1,
+    page: 1,
     results: [],
-    total_pages: 0,
-    total_results: 0,
+    totalPages: 0,
   },
   error: null,
 };
@@ -24,13 +23,17 @@ export const trendingReducer = (state = trendingInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: {
+          page: action.payload.page,
+          results: action.payload.results,
+          totalPages: action.payload.totalPages,
+        },
       };
     case t.TRENDING_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       };
     default:
       return state;

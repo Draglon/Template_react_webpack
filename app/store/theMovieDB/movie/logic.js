@@ -24,6 +24,7 @@ export default createLogic({
       .then(response => {
         dispatch(
           movieSuccess({
+            language: movie.spoken_languages[0].name,
             ...movie,
             ...details,
             ...response.data,

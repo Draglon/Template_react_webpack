@@ -11,7 +11,13 @@ export default createLogic({
     apiClient
       .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}`)
       .then(response => {
-        dispatch(trendingSuccess(response.data));
+        dispatch(
+          trendingSuccess({
+            page: action.payload.page,
+            results: response.data.results,
+            totalPages: response.data.total_pages,
+          }),
+        );
       })
       .catch(error => dispatch(trendingFailure(error)))
       .then(() => done());
