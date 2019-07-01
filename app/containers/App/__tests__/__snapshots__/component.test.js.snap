@@ -11,22 +11,27 @@ exports[`<AppComponent /> component Render property 1`] = `
         exact={true}
         path="/"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
         path="/mylists"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
         path="/watchlist"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
         path="/favorites"
       />
-      <Route
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/movie/:id"
+      />
+      <PrivateRoute
         component={[Function]}
       />
     </Switch>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Carousel, Card, Typography, Tag, Icon, Popover, PopoverContent } from 'antd';
+import { Row, Col, Carousel, Card, Typography, Tag } from 'antd';
+import MovieDetails from '../MovieDetails';
 
 class MovieItemComponent extends Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class MovieItemComponent extends Component {
 
     return (
       <>
-        {movie && (
+        {movie && movieCredits && (
           <>
             {console.log(movie)}
             {console.log(movieCredits)}
@@ -73,7 +74,7 @@ class MovieItemComponent extends Component {
               <Col span={20} offset={2}>
                 <Typography.Paragraph>
                   <b>Original Language: </b>
-                  <span>{movie.spoken_languages.name}</span>
+                  <span>{movie.spoken_languages[0].name}</span>
                 </Typography.Paragraph>
               </Col>
               <Col span={20} offset={2}>
@@ -108,70 +109,13 @@ class MovieItemComponent extends Component {
                 <Typography.Title level={3}>Casts</Typography.Title>
               </Col>
             </Row>
-            <Row gutter={8} type="flex">
-              <Col span={20} offset={2}>
-                {movieCredits
-                  && movieCredits.cast.map(item =>
-                    item.profile_path ? (
-                      <Col
-                      key={item.id}
-                      xs={{ span: 12 }}
-                      sm={{ span: 8 }}
-                      md={{ span: 6 }}
-                      lg={{ span: 4 }}
-                      xl={{ span: 4 }}
-                    >
-                      <Card
-                          cover={
-                            (
-<img
-                              alt={item.name}
-                              src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
-                          />
-)
-                          }
-                          className="top-margin"
-                        >
-                          <Card.Meta title={item.name} description={movie.title} />
-                        </Card>
-                    </Col>
-                  ) : null,
-                  )}
-              </Col>
-            </Row>
+            <MovieDetails movieDetails={movieCredits.cast} />
             <Row>
               <Col span={10} offset={2} className="top-margin">
                 <Typography.Title level={3}>Crew</Typography.Title>
               </Col>
             </Row>
-            <Row gutter={8} type="flex">
-              <Col span={20} offset={2}>
-                {movieCredits
-                  && movieCredits.cast.map(item => item.profile_path ? (
-                        <Col
-                        key={item.id}
-                        xs={{ span: 12 }}
-                        sm={{ span: 8 }}
-                        md={{ span: 6 }}
-                        lg={{ span: 4 }}
-                        xl={{ span: 4 }}
-                      >
-                        <Card
-                          cover={(
-<img
-                            alt={item.name}
-                            src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
-                          />
-)}
-                          className="top-margin"
-                        >
-                          <Card.Meta title={item.name} description={movie.title} />
-                        </Card>
-                      </Col>
-                      ) : null,
-                  )}
-              </Col>
-            </Row>
+            <MovieDetails movieDetails={movieCredits.crew} />
           </>
         )}
       </>

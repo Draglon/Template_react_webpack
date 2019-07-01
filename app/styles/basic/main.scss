@@ -53,3 +53,9 @@
   background-attachment: fixed;
   width: 100%;
 }
+
+.movie-details {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
