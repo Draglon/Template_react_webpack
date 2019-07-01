@@ -8,7 +8,6 @@ import {
   deleteSessionFailure,
 } from './actions';
 import { profileRequest, profileSuccess } from '../account/actions';
-import { trendingRequest, trendingSuccess } from '../trending/actions';
 import * as t from './actionTypes';
 
 export const createSessionLogic = createLogic({
@@ -33,7 +32,6 @@ export const createSessionLogic = createLogic({
         setCookie('session_id', sessionId);
         dispatch(createSessionSuccess(sessionId));
         dispatch(profileRequest(sessionId));
-        dispatch(trendingRequest({ sessionId }));
         action.payload.actions.setSubmitting(false);
       })
       .catch(error => {

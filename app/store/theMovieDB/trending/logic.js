@@ -9,7 +9,7 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`trending/movie/week?session_id=${action.payload.sessionId}&page=${action.payload.page || 1}`)
+      .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}`)
       .then(response => {
         dispatch(trendingSuccess(response.data));
       })
