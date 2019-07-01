@@ -2,7 +2,24 @@ import * as t from './actionTypes';
 
 export const movieInitialState = {
   isLoading: false,
-  data: null,
+  data: {
+    id: 0,
+    title: '',
+    overview: '',
+    budget: 0,
+    genres: [],
+    revenue: 0,
+    runtime: 0,
+    language: '',
+    credits: {
+      cast: [],
+      crew: [],
+    },
+    images: {
+      backdrops: [],
+      posters: [],
+    },
+  },
   error: null,
 };
 
@@ -19,77 +36,30 @@ export const movieReducer = (state = movieInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: {
+          id: action.payload.id,
+          title: action.payload.title,
+          overview: action.payload.overview,
+          budget: action.payload.budget,
+          genres: action.payload.genres,
+          revenue: action.payload.revenue,
+          runtime: action.payload.runtime,
+          language: action.payload.spoken_languages.name,
+          credits: {
+            cast: action.payload.cast,
+            crew: action.payload.crew,
+          },
+          images: {
+            backdrops: action.payload.backdrops,
+            posters: action.payload.posters,
+          },
+        },
       };
     case t.MOVIE_FAILURE:
       return {
         isLoading: false,
         data: null,
-        error: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export const creditsInitialState = {
-  isLoading: false,
-  data: null,
-  error: null,
-};
-
-// Movie Credits
-export const movieCreditsReducer = (state = creditsInitialState, action) => {
-  switch (action.type) {
-    case t.CREDITS_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: null,
-      };
-    case t.CREDITS_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        data: action.payload,
-      };
-    case t.CREDITS_FAILURE:
-      return {
-        isLoading: false,
-        data: null,
-        error: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export const movieImagesInitialState = {
-  isLoading: false,
-  data: null,
-  error: null,
-};
-
-// Movie Credits
-export const movieImagesReducer = (state = movieImagesInitialState, action) => {
-  switch (action.type) {
-    case t.MOVIE_IMAGES_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: null,
-      };
-    case t.MOVIE_IMAGES_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        data: action.payload,
-      };
-    case t.MOVIE_IMAGES_FAILURE:
-      return {
-        isLoading: false,
-        data: null,
-        error: action.payload,
+        error: action.payload.message,
       };
     default:
       return state;

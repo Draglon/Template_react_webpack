@@ -5,14 +5,14 @@ import accountLogic from './account/logic';
 import { createList } from './list/logic';
 import trendingLogic from './trending/logic';
 import searchLogic from './search/logic';
-import { movieLogic, movieCreditsLogic } from './movie/logic';
+import movieLogic from './movie/logic';
 
 import { loginReducer } from './login/reducers';
 import { profileReducer } from './account/reducers';
 import { createListReducer } from './list/reducers';
 import { searchReducer } from './search/reducers';
 import { trendingReducer } from './trending/reducers';
-import { movieReducer, movieCreditsReducer } from './movie/reducers';
+import { movieReducer } from './movie/reducers';
 
 export const rootLogic = [
   accountLogic,
@@ -22,7 +22,6 @@ export const rootLogic = [
   trendingLogic,
   searchLogic,
   movieLogic,
-  movieCreditsLogic,
 ];
 
 export const reducers = combineReducers({
@@ -32,5 +31,4 @@ export const reducers = combineReducers({
   trending: trendingReducer,
   search: searchReducer,
   movie: movieReducer,
-  movieCredits: movieCreditsReducer,
 });
