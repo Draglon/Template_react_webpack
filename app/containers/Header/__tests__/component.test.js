@@ -5,17 +5,24 @@ import toJson from 'enzyme-to-json';
 import HeaderComponent from '../component';
 
 describe('<HeaderComponent /> component', () => {
-  const props = {
+  let props = {
     profile: { avatar: 'gravatar_hash', name: 'name', username: 'username' },
     removeSessionId: jest.fn(),
   };
   let component;
 
-  beforeEach(() => {
+  it('Render property - with avatar', () => {
     component = shallow(<HeaderComponent {...props} />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('Render property', () => {
+  it('render property - without avatar', () => {
+    props = {
+      ...props,
+      profile: { avatar: '', name: 'name', username: 'username' },
+    };
+    component = shallow(<HeaderComponent {...props} />);
+
     expect(toJson(component)).toMatchSnapshot();
   });
 });
