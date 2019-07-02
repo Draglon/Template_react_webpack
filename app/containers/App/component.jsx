@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import Header from '../Header';
@@ -11,25 +11,7 @@ import Favorites from '../Favorites';
 import Movie from '../Movie';
 import NotFound from '../NotFound';
 
-function PrivateRoute({ component: Component, islogged, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        (islogged ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/',
-              state: { from: props.location },
-            }}
-          />
-        ))
-      }
-    />
-  );
-}
+import PrivateRoute from '../PrivateRoute';
 
 const AppComponent = ({ islogged }) => (
   <Router>

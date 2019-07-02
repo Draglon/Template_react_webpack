@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AppComponent /> component Render property 1`] = `
+exports[`<AppComponent /> component render property - isLogged: false 1`] = `
 <BrowserRouter>
   <Adapter
     className="page"
@@ -11,27 +11,66 @@ exports[`<AppComponent /> component Render property 1`] = `
         exact={true}
         path="/"
       />
-      <PrivateRoute
+      <PrivateRouteComponent
         component={[Function]}
         exact={true}
         path="/mylists"
       />
-      <PrivateRoute
+      <PrivateRouteComponent
         component={[Function]}
         exact={true}
         path="/watchlist"
       />
-      <PrivateRoute
+      <PrivateRouteComponent
         component={[Function]}
         exact={true}
         path="/favorites"
       />
-      <PrivateRoute
+      <PrivateRouteComponent
         component={[Function]}
         exact={true}
         path="/movie/:id"
       />
-      <PrivateRoute
+      <PrivateRouteComponent
+        component={[Function]}
+      />
+    </Switch>
+  </Adapter>
+</BrowserRouter>
+`;
+
+exports[`<AppComponent /> component render property - isLogged: true 1`] = `
+<BrowserRouter>
+  <Adapter
+    className="page"
+  >
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <PrivateRouteComponent
+        component={[Function]}
+        exact={true}
+        path="/mylists"
+      />
+      <PrivateRouteComponent
+        component={[Function]}
+        exact={true}
+        path="/watchlist"
+      />
+      <PrivateRouteComponent
+        component={[Function]}
+        exact={true}
+        path="/favorites"
+      />
+      <PrivateRouteComponent
+        component={[Function]}
+        exact={true}
+        path="/movie/:id"
+      />
+      <PrivateRouteComponent
         component={[Function]}
       />
     </Switch>

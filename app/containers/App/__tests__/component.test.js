@@ -6,12 +6,19 @@ import AppComponent from '../component';
 
 describe('<AppComponent /> component', () => {
   let component;
+  let props;
 
-  beforeEach(() => {
-    component = shallow(<AppComponent />);
+  it('render property - isLogged: false', () => {
+    props = { isLogged: false };
+    component = shallow(<AppComponent {...props} />);
+
+    expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('Render property', () => {
+  it('render property - isLogged: true', () => {
+    props = { isLogged: true };
+    component = shallow(<AppComponent {...props} />);
+
     expect(toJson(component)).toMatchSnapshot();
   });
 });
