@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieItemComponent /> container render property 1`] = `
+<Link
+  replace={false}
+  to="movie/some id"
+>
+  <Card
+    actions={
+      Object {
+        "budget": 1000000,
+        "credits": Object {
+          "cast": Array [],
+          "crew": Array [],
+        },
+        "genres": Array [],
+        "id": "some id",
+        "images": Object {
+          "backdrops": Array [],
+          "posters": Array [],
+        },
+        "language": "English",
+        "overview": "some overview",
+        "revenue": 1000000,
+        "runtime": 140,
+        "title": "some title",
+      }
+    }
+    className="top-margin"
+    cover={
+      <img
+        alt="some title"
+        src="https://image.tmdb.org/t/p/original/undefined"
+      />
+    }
+    hoverable={true}
+  >
+    <Meta
+      className="text-size"
+      description="some overview"
+      title="some title"
+    />
+  </Card>
+</Link>
+`;

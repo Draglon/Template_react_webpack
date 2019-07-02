@@ -7,6 +7,7 @@ const cover = item => (
 
 const MovieDetailsComponent = ({ movieDetails }) => (
   <Row gutter={8} type="flex">
+    {console.log(movieDetails)}
     <Col span={20} offset={2} className="movie__details">
       {movieDetails
         .filter(item => item.profile_path)
