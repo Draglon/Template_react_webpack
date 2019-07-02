@@ -10,8 +10,8 @@ const MovieComponent = ({ movie }) => (
         <Row type="flex">
           <Col span={24}>
             <Carousel autoplay>
-              {movie.images.backdrops.map(item => (
-                <div key={item.id}>
+              {movie.images.backdrops.map((item, index) => (
+                <div key={index}>
                   <img
                     className="movie-image"
                     src={`https://image.tmdb.org/t/p/original${item.file_path}`}
