@@ -8,14 +8,14 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`search/movie?query=${action.payload.query}&page=${action.payload.page || 1}`)
+      .get(`search/movie?query=${action.payload.query}&page=${action.payload.page}`)
       .then(response =>
         dispatch(
           searchSuccess({
             query: action.payload.query,
             page: action.payload.page,
             results: response.data.results,
-            totalPages: action.payload.total_pages,
+            totalPages: response.data.total_pages,
           }),
         ),
       )
