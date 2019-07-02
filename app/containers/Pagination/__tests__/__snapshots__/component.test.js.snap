@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PaginationComponent /> container render property 1`] = `
+<Fragment>
+  <Row
+    className="top-padding"
+    gutter={0}
+    justify="center"
+    type="flex"
+  >
+    <Col>
+      <Pagination
+        className="pagination"
+        current={10}
+        defaultCurrent={1}
+        onChange={[Function]}
+        total={10}
+      />
+    </Col>
+  </Row>
+</Fragment>
+`;

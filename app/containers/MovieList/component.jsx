@@ -6,7 +6,7 @@ import MovieItem from '../MovieItem';
 const MovieListComponent = ({ movies }) => (
   <Row className="top-padding" type="flex" gutter={16}>
     <Col className="cards" span={20} offset={2}>
-      {movies.length ? (
+      {movies ? (
         movies.map(item => (
           <Col
             key={item.id}
