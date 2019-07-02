@@ -2,7 +2,7 @@
 
 exports[`<FormField /> component Render property with error 1`] = `
 <div
-  className="form__field"
+  className="form__field form__field--error"
 >
   <Input
     className="error"

@@ -4,7 +4,7 @@ import { getSessionId } from '../../store/theMovieDB/login/selectors';
 import AppContainer from './component';
 
 const mapStateToProps = state => ({
-  islogged: getSessionId(state),
+  isLogged: getSessionId(state),
 });
 
 export default connect(

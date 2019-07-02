@@ -11,7 +11,7 @@ describe('<FormField /> component', () => {
   it('Render property with error', () => {
     props = {
       field: { name: 'name' },
-      form: { touched: true, errors: 'some error msg' },
+      form: { touched: { name: true }, errors: { name: 'some error msg' } },
       type: 'text',
       placeholder: 'placeholder',
     };
@@ -22,7 +22,7 @@ describe('<FormField /> component', () => {
   it('Render property without error', () => {
     props = {
       field: { name: 'name' },
-      form: { touched: false, errors: false },
+      form: { touched: { name: false }, errors: {} },
       type: 'text',
       placeholder: 'placeholder',
     };

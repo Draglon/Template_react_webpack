@@ -14,25 +14,30 @@ exports[`<AppComponent /> component render property - isLogged: false 1`] = `
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={false}
         path="/mylists"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={false}
         path="/watchlist"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={false}
         path="/favorites"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={false}
         path="/movie/:id"
       />
       <PrivateRouteComponent
         component={[Function]}
+        isLogged={false}
       />
     </Switch>
   </Adapter>
@@ -41,6 +46,7 @@ exports[`<AppComponent /> component render property - isLogged: false 1`] = `
 
 exports[`<AppComponent /> component render property - isLogged: true 1`] = `
 <BrowserRouter>
+  <Connect(HeaderComponent) />
   <Adapter
     className="page"
   >
@@ -53,25 +59,30 @@ exports[`<AppComponent /> component render property - isLogged: true 1`] = `
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={true}
         path="/mylists"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={true}
         path="/watchlist"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={true}
         path="/favorites"
       />
       <PrivateRouteComponent
         component={[Function]}
         exact={true}
+        isLogged={true}
         path="/movie/:id"
       />
       <PrivateRouteComponent
         component={[Function]}
+        isLogged={true}
       />
     </Switch>
   </Adapter>

@@ -13,18 +13,18 @@ import NotFound from '../NotFound';
 
 import PrivateRoute from '../PrivateRoute';
 
-const AppComponent = ({ islogged }) => (
+const AppComponent = ({ isLogged }) => (
   <Router>
     <>
-      {islogged && <Header />}
+      {isLogged && <Header />}
       <Layout.Content className="page">
         <Switch>
           <Route exact path="/" component={Home} />
-          <PrivateRoute exact path="/mylists" component={MyLists} islogged={islogged} />
-          <PrivateRoute exact path="/watchlist" component={Watchlist} islogged={islogged} />
-          <PrivateRoute exact path="/favorites" component={Favorites} islogged={islogged} />
-          <PrivateRoute exact path="/movie/:id" component={Movie} islogged={islogged} />
-          <PrivateRoute component={NotFound} islogged={islogged} />
+          <PrivateRoute exact path="/mylists" component={MyLists} isLogged={isLogged} />
+          <PrivateRoute exact path="/watchlist" component={Watchlist} isLogged={isLogged} />
+          <PrivateRoute exact path="/favorites" component={Favorites} isLogged={isLogged} />
+          <PrivateRoute exact path="/movie/:id" component={Movie} isLogged={isLogged} />
+          <PrivateRoute component={NotFound} isLogged={isLogged} />
         </Switch>
       </Layout.Content>
     </>

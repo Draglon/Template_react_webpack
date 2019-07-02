@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FormButton /> component Render property with icon 1`] = `
+exports[`<FormButton /> component Render property - with icon 1`] = `
 <div
   className="align-center"
 >
@@ -8,7 +8,7 @@ exports[`<FormButton /> component Render property with icon 1`] = `
     block={false}
     ghost={false}
     htmlType="submit"
-    icon="user"
+    icon="some icon name"
     loading={false}
     size="small"
     type="sometype"
@@ -18,7 +18,43 @@ exports[`<FormButton /> component Render property with icon 1`] = `
 </div>
 `;
 
-exports[`<FormButton /> component Render property without icon 1`] = `
+exports[`<FormButton /> component Render property - with size default 1`] = `
+<div
+  className="align-center"
+>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="submit"
+    icon="some icon name"
+    loading={false}
+    size="default"
+    type="sometype"
+  >
+    Submit
+  </Button>
+</div>
+`;
+
+exports[`<FormButton /> component Render property - with size large 1`] = `
+<div
+  className="align-center"
+>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="submit"
+    icon="some icon name"
+    loading={false}
+    size="large"
+    type="sometype"
+  >
+    Submit
+  </Button>
+</div>
+`;
+
+exports[`<FormButton /> component Render property - without icon 1`] = `
 <div
   className="align-center"
 >

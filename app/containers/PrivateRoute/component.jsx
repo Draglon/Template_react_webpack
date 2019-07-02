@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-const PrivateRouteComponent = ({ component: Component, islogged, ...rest }) => {
+const PrivateRouteComponent = ({ component: Component, isLogged, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        (islogged ? (
+        (isLogged ? (
           <Component {...props} />
         ) : (
           <Redirect
