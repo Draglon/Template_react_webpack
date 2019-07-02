@@ -29,18 +29,18 @@ describe('DashboardContainer', () => {
     trendingRequest: mockFetchTrendingRequest,
     searchRequest: mockFetchSearchRequest,
   };
-  let store;
-  let container;
+  // let store;
+  // let container;
   // let instance;
   // let loadData;
 
   beforeAll(() => {
-    store = mockStore(state);
-    container = mount(<ConnectedDashboardContainer store={store} {...props} />).dive();
+    // store = mockStore(state);
+    // container = mount(<ConnectedDashboardContainer store={store} {...props} />).dive();
     // instance = container.instance();
     // loadData = jest.spyOn(instance, 'loadData');
     // instance.componentDidMount();
-    console.log(container);
+    // console.log(container);
   });
 
   it('dispatches the `trendingRequest()`', () => {

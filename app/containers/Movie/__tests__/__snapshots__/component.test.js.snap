@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchComponent /> container render property - with search query 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+    type="flex"
+  >
+    <Col
+      span={24}
+    >
+      <Carousel
+        arrows={false}
+        autoplay={true}
+        dots={true}
+        draggable={false}
+      />
+    </Col>
+  </Row>
+  <Row
+    className="top-margin"
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Title>
+        <span />
+         
+        <Popover
+          mouseEnterDelay={0.1}
+          mouseLeaveDelay={0.1}
+          overlayStyle={Object {}}
+          placement="top"
+          title="Add movie to list"
+          transitionName="zoom-big"
+          trigger="click"
+        >
+          <Icon
+            type="plus-circle"
+          />
+        </Popover>
+         
+        <Icon
+          type="heart"
+        />
+         
+        <Icon
+          type="book"
+        />
+      </Title>
+      <Title
+        level={3}
+      >
+        Overview
+      </Title>
+      <Paragraph
+        className="movie__text"
+      />
+    </Col>
+  </Row>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph
+        className="movie__text"
+      >
+        <b>
+          Original Language: 
+        </b>
+        <span />
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph
+        className="movie__text"
+      >
+        <b>
+          Runtime: 
+        </b>
+        <span>
+          0h 0m
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph
+        className="movie__text"
+      >
+        <b>
+          Budget: 
+        </b>
+        <span>
+          $
+          0.00
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph
+        className="movie__text"
+      >
+        <b>
+          Revenue: 
+        </b>
+        <span>
+          $
+          0.00
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph
+        className="movie__text"
+      >
+        <b>
+          Genres: 
+        </b>
+      </Paragraph>
+    </Col>
+  </Row>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        Casts
+      </Title>
+    </Col>
+  </Row>
+  <MovieDetailsComponent
+    movieDetails={Array []}
+  />
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        Crew
+      </Title>
+    </Col>
+  </Row>
+  <MovieDetailsComponent
+    movieDetails={Array []}
+  />
+</Fragment>
+`;
