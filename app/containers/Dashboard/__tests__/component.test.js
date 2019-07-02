@@ -6,7 +6,7 @@ import DashboardComponent from '../component';
 
 describe('<HomeComponent /> container', () => {
   const mockFetchTrendingRequest = jest.fn();
-  let props = {
+  const props = {
     searchRequest: jest.fn(),
     trending: {
       page: 1,

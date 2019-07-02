@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeComponent /> container render property - with search query 1`] = `
+<Fragment>
+  <SearchComponent
+    onSearch={[MockFunction]}
+  />
+  <MovieListComponent
+    movies={Array []}
+  />
+  <PaginationComponent
+    currentPage={1}
+    getPage={[MockFunction]}
+    query="some string"
+    totalPages={20}
+  />
+</Fragment>
+`;
+
+exports[`<HomeComponent /> container render property - without search query 1`] = `
+<Fragment>
+  <SearchComponent
+    onSearch={[MockFunction]}
+  />
+  <MovieListComponent
+    movies={Array []}
+  />
+  <PaginationComponent
+    currentPage={1}
+    getPage={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "page": 1,
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    query=""
+    totalPages={100}
+  />
+</Fragment>
+`;
