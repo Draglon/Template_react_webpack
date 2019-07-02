@@ -8,6 +8,6 @@ exports[`<HomeComponent /> container render property - isLogged: false 1`] = `
 
 exports[`<HomeComponent /> container render property - isLogged: true 1`] = `
 <Fragment>
-  <Connect(DashboardComponent) />
+  <Connect(DashboardContainer) />
 </Fragment>
 `;

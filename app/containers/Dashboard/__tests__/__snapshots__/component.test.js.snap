@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HomeComponent /> container render property - with search query 1`] = `
+exports[`<DashboardComponent /> container render property - with search query 1`] = `
 <Fragment>
   <SearchComponent
     onSearch={[MockFunction]}
@@ -17,7 +17,7 @@ exports[`<HomeComponent /> container render property - with search query 1`] = `
 </Fragment>
 `;
 
-exports[`<HomeComponent /> container render property - without search query 1`] = `
+exports[`<DashboardComponent /> container render property - without search query 1`] = `
 <Fragment>
   <SearchComponent
     onSearch={[MockFunction]}
@@ -27,23 +27,7 @@ exports[`<HomeComponent /> container render property - without search query 1`] 
   />
   <PaginationComponent
     currentPage={1}
-    getPage={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "page": 1,
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    getPage={[MockFunction]}
     query=""
     totalPages={100}
   />

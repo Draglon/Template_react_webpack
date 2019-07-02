@@ -1,10 +1,22 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { trendingRequest } from '../../store/theMovieDB/trending/actions';
+import { trendingRequest as trendingRequestAction } from '../../store/theMovieDB/trending/actions';
 import { getTrending } from '../../store/theMovieDB/trending/selectors';
 import { searchRequest } from '../../store/theMovieDB/search/actions';
 import { getSearch } from '../../store/theMovieDB/search/selectors';
 
-import DashboardContainer from './component';
+import DashboardComponent from './component';
+
+class DashboardContainer extends Component {
+  componentDidMount() {
+    const { trendingRequest } = this.props;
+    trendingRequest({ page: 1 });
+  }
+
+  render() {
+    return <DashboardComponent {...this.props} />;
+  }
+}
 
 const mapStateToProps = state => ({
   trending: getTrending(state),
@@ -13,7 +25,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   searchRequest,
-  trendingRequest,
+  trendingRequest: trendingRequestAction,
 };
 
 export default connect(

@@ -5,11 +5,6 @@ import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 
 class DashboardComponent extends Component {
-  componentDidMount() {
-    const { trendingRequest } = this.props;
-    trendingRequest({ page: 1 });
-  }
-
   render() {
     const { trending, search, searchRequest, trendingRequest } = this.props;
 

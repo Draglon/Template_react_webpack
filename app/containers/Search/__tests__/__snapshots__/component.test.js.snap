@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchComponent /> container render property - with search query 1`] = `
+<Row
+  className="top-padding"
+  gutter={0}
+  type="flex"
+>
+  <Col
+    lg={
+      Object {
+        "offset": 4,
+        "span": 16,
+      }
+    }
+    md={
+      Object {
+        "offset": 3,
+        "span": 18,
+      }
+    }
+    sm={
+      Object {
+        "offset": 2,
+        "span": 20,
+      }
+    }
+    xl={
+      Object {
+        "offset": 5,
+        "span": 14,
+      }
+    }
+    xs={
+      Object {
+        "offset": 1,
+        "span": 22,
+      }
+    }
+  >
+    <Search
+      enterButton="Search"
+      onSearch={[Function]}
+      placeholder="Enter movie name"
+      size="large"
+    />
+  </Col>
+</Row>
+`;
