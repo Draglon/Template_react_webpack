@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FavoritesComponent /> container render property 1`] = `
+exports[`<WatchlistComponent /> container render property 1`] = `
 <Fragment>
   <h1>
-    Favorites
+    Watchlist
   </h1>
 </Fragment>
 `;
