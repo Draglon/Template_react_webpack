@@ -52,10 +52,6 @@ export const deleteSessionLogic = createLogic({
       })
       .then(() => {
         setCookie('session_id', '');
-        setCookie('username', '');
-        setCookie('user_id', '');
-        setCookie('avatar', '');
-        setCookie('name', '');
         dispatch(profileSuccess({ id: null, avatar: null, name: null, username: null }));
         dispatch(deleteSessionSuccess(null));
       })

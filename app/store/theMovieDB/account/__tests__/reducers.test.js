@@ -1,9 +1,9 @@
-import { profileReducer, profileInitialState } from '../reducers';
+import { profileReducer, initialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Account profile reducer', () => {
   it('state is undefined', () => {
-    expect(profileReducer(undefined, {})).toEqual(profileInitialState);
+    expect(profileReducer(undefined, {})).toEqual(initialState);
   });
 
   // PROFILE_REQUEST
@@ -12,8 +12,8 @@ describe('Account profile reducer', () => {
       type: t.PROFILE_REQUEST,
     };
 
-    expect(profileReducer(profileInitialState, action)).toEqual({
-      ...profileInitialState,
+    expect(profileReducer(initialState, action)).toEqual({
+      ...initialState,
       isLoading: true,
       error: null,
     });

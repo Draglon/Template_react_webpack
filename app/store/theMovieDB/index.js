@@ -14,6 +14,8 @@ import { searchReducer } from './search/reducers';
 import { trendingReducer } from './trending/reducers';
 import { movieReducer } from './movie/reducers';
 
+import { dataReducer } from './data/reducers';
+
 export const rootLogic = [
   accountLogic,
   createSessionLogic,
@@ -31,4 +33,5 @@ export const reducers = combineReducers({
   trending: trendingReducer,
   search: searchReducer,
   movie: movieReducer,
+  data: dataReducer,
 });

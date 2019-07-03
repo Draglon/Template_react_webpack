@@ -10,7 +10,7 @@ const MovieComponent = ({ movie }) => (
         <Row type="flex">
           <Col span={24}>
             <Carousel autoplay>
-              {movie.images.backdrops.map((item, index) => (
+              {movie.backdrops.map((item, index) => (
                 <div key={index}>
                   <img
                     className="movie-image"
@@ -94,13 +94,13 @@ const MovieComponent = ({ movie }) => (
             <Typography.Title level={3}>Casts</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.credits.cast} />
+        <MovieDetails movieDetails={movie.cast} />
         <Row>
           <Col span={10} offset={2} className="top-margin">
             <Typography.Title level={3}>Crew</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.credits.crew} />
+        <MovieDetails movieDetails={movie.crew} />
 
         {/* <Modal
           // visible={modalVisible}
