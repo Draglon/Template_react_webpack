@@ -15,14 +15,10 @@ describe('<SearchComponent /> container', () => {
       revenue: 0,
       runtime: 0,
       language: '',
-      credits: {
-        cast: [],
-        crew: [],
-      },
-      images: {
-        backdrops: [],
-        posters: [],
-      },
+      cast: [],
+      crew: [],
+      backdrops: [],
+      posters: [],
     },
   };
   let component;
