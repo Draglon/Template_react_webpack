@@ -4,10 +4,10 @@ import toJson from 'enzyme-to-json';
 
 import MovieItemComponent from '../component';
 
-describe('<MovieItemComponent /> container', () => {
+describe('<MovieItemComponent />', () => {
   let component;
   const props = {
-    movieDetails: {},
+    movieDetails: [],
   };
 
   it('render property', () => {

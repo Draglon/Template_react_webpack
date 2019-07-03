@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieItemComponent /> render property 1`] = `
+<Row
+  gutter={8}
+  type="flex"
+>
+  <Col
+    className="movie__details"
+    offset={2}
+    span={20}
+  />
+</Row>
+`;

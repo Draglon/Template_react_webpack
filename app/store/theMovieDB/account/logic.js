@@ -1,4 +1,6 @@
 import { createLogic } from 'redux-logic';
+import { denormalize, normalize } from 'normalizr';
+import { profile } from '../../schema';
 import { setCookie } from '../../../helpers/cookie';
 
 import { profileSuccess, profileFailure } from './actions';
@@ -11,6 +13,9 @@ export default createLogic({
     apiClient
       .get(`account?session_id=${action.payload}`)
       .then(response => {
+        console.log(response.data);
+        const data = normalize(response.data, profile);
+        console.log(data);
         const id = response.data.id;
         const avatar = response.data.avatar.gravatar.hash;
         const name = response.data.name;
