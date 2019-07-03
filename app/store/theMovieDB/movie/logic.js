@@ -32,6 +32,7 @@ export default createLogic({
           ...response.data,
         };
         const normalizedData = normalize(data, schemaMovie);
+        console.log(normalizedData);
         dispatch(addEntities(normalizedData.entities));
       })
       .catch(error => dispatch(movieFailure(error)))

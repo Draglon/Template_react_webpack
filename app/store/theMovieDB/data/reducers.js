@@ -1,6 +1,8 @@
 import * as t from './actionTypes';
 
-export const initialState = {};
+export const initialState = {
+  profile: {},
+};
 
 // Data
 export const dataReducer = (state = initialState, action) => {

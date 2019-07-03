@@ -14,12 +14,15 @@ class HeaderContainer extends Component {
   }
 
   render() {
+    if (!this.props.profile) {
+      return null
+    }
     return <HeaderComponent {...this.props} />;
   }
 }
 
 const mapStateToProps = state => ({
-  profile: getProfile(state),
+  profile: getProfileByID(state),
 });
 
 const mapDispatchToProps = {
