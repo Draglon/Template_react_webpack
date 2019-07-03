@@ -46,7 +46,7 @@ exports[`<AppComponent /> component render property - isLogged: false 1`] = `
 
 exports[`<AppComponent /> component render property - isLogged: true 1`] = `
 <BrowserRouter>
-  <Connect(HeaderComponent) />
+  <Connect(HeaderContainer) />
   <Adapter
     className="page"
   >

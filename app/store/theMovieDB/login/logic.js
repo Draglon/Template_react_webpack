@@ -7,7 +7,6 @@ import {
   deleteSessionSuccess,
   deleteSessionFailure,
 } from './actions';
-import { profileRequest, profileSuccess } from '../account/actions';
 import * as t from './actionTypes';
 
 export const createSessionLogic = createLogic({
@@ -31,7 +30,6 @@ export const createSessionLogic = createLogic({
         const sessionId = response3.data.session_id;
         setCookie('session_id', sessionId);
         dispatch(createSessionSuccess(sessionId));
-        dispatch(profileRequest(sessionId));
         action.payload.actions.setSubmitting(false);
       })
       .catch(error => {
@@ -52,7 +50,6 @@ export const deleteSessionLogic = createLogic({
       })
       .then(() => {
         setCookie('session_id', '');
-        dispatch(profileSuccess({ id: null, avatar: null, name: null, username: null }));
         dispatch(deleteSessionSuccess(null));
       })
       .catch(error => dispatch(deleteSessionFailure(error)))

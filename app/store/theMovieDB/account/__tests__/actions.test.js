@@ -5,9 +5,8 @@ describe('Account - profile actions', () => {
   it('profileRequest', () => {
     const expectedAction = {
       type: t.PROFILE_REQUEST,
-      payload: ['some data'],
     };
-    expect(profileRequest(expectedAction.payload)).toEqual(expectedAction);
+    expect(profileRequest()).toEqual(expectedAction);
   });
 
   it('profileSuccess', () => {

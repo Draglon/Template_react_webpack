@@ -40,11 +40,9 @@ describe('DashboardContainer', () => {
     // instance = container.instance();
     // loadData = jest.spyOn(instance, 'loadData');
     // instance.componentDidMount();
-    // console.log(container);
   });
 
   it('dispatches the `trendingRequest()`', () => {
-    // console.log(store);
     // expect(loadData).toHaveBeenCalledWith({ page: 1 });
     // expect(loadData).toHaveBeenCalledTimes(1);
     // container.unmount();
