@@ -3,6 +3,8 @@ import * as t from './actionTypes';
 export const initialState = {
   profile: {},
   movies: {},
+  movie: {},
+  genres: {},
 };
 
 // Data

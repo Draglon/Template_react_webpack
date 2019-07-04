@@ -5,7 +5,6 @@ import { formatMoney, formatTime } from '../../helpers/format';
 
 const MovieComponent = ({ movie, genres }) => (
   <>
-    {console.log(genres)}
     {movie && (
       <>
         <Row type="flex">
@@ -81,14 +80,16 @@ const MovieComponent = ({ movie, genres }) => (
               <span>${formatMoney(movie.revenue)}</span>
             </Typography.Paragraph>
           </Col>
-          <Col span={20} offset={2}>
-            <Typography.Paragraph className="movie__text">
-              <b>Genres: </b>
-              {/* {genres.map(item => (
-                <Tag key={item.id}>{item.name}</Tag>
-              ))} */}
-            </Typography.Paragraph>
-          </Col>
+          {genres && (
+            <Col span={20} offset={2}>
+              <Typography.Paragraph className="movie__text">
+                <b>Genres: </b>
+                {genres.map(item => (
+                  <Tag key={item.id}>{item.name}</Tag>
+                ))}
+              </Typography.Paragraph>
+            </Col>
+          )}
         </Row>
         <Row>
           <Col span={10} offset={2} className="top-margin">
