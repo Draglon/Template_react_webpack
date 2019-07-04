@@ -14,11 +14,11 @@ export default createLogic({
     apiClient
       .get(`account?session_id=${getCookie('session_id')}`)
       .then(response => {
-        const { id, avatar, name, username } = response.data;
-        const data = { id, avatar, name, username };
+        const { id, avatar: { gravatar: { hash } }, name, username } = response.data;
+        const data = { id, avatar: hash, name, username };
         const normalizeData = normalize(data, profile);
         dispatch(addEntities(normalizeData.entities));
-        dispatch(profileSuccess(response.data));
+        dispatch(profileSuccess({ id }));
       })
       .catch(error => dispatch(profileFailure(error)))
       .then(() => done());

@@ -25,9 +25,6 @@ describe('Account profile reducer', () => {
       isLoading: true,
       data: {
         id: null,
-        avatar: null,
-        name: null,
-        username: null,
       },
       error: null,
     };
@@ -36,9 +33,6 @@ describe('Account profile reducer', () => {
       type: t.PROFILE_SUCCESS,
       payload: {
         id: 'some id',
-        avatar: 'some image hash',
-        name: 'some name',
-        username: 'some username',
       },
     };
 
@@ -47,9 +41,6 @@ describe('Account profile reducer', () => {
       isLoading: false,
       data: {
         id: action.payload.id,
-        avatar: action.payload.avatar,
-        name: action.payload.name,
-        username: action.payload.username,
       },
     });
   });
@@ -60,9 +51,6 @@ describe('Account profile reducer', () => {
       isLoading: true,
       data: {
         id: null,
-        avatar: null,
-        name: null,
-        username: null,
       },
       error: null,
     };

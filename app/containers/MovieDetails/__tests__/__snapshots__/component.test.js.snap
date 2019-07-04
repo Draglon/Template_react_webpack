@@ -1,6 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MovieItemComponent /> render property 1`] = `
+exports[`<MovieItemComponent /> Render property - movieDetails with data 1`] = `
+<Row
+  gutter={8}
+  type="flex"
+>
+  <Col
+    className="movie__details"
+    offset={2}
+    span={20}
+  >
+    <Col
+      key="1"
+      lg={
+        Object {
+          "span": 4,
+        }
+      }
+      md={
+        Object {
+          "span": 6,
+        }
+      }
+      sm={
+        Object {
+          "span": 8,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <Card
+        className="top-margin"
+        cover={
+          <img
+            src="https://image.tmdb.org/t/p/original/undefined"
+          />
+        }
+      >
+        <Meta />
+      </Card>
+    </Col>
+    <Col
+      key="2"
+      lg={
+        Object {
+          "span": 4,
+        }
+      }
+      md={
+        Object {
+          "span": 6,
+        }
+      }
+      sm={
+        Object {
+          "span": 8,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <Card
+        className="top-margin"
+        cover={
+          <img
+            src="https://image.tmdb.org/t/p/original/undefined"
+          />
+        }
+      >
+        <Meta />
+      </Card>
+    </Col>
+    <Col
+      key="3"
+      lg={
+        Object {
+          "span": 4,
+        }
+      }
+      md={
+        Object {
+          "span": 6,
+        }
+      }
+      sm={
+        Object {
+          "span": 8,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <Card
+        className="top-margin"
+        cover={
+          <img
+            src="https://image.tmdb.org/t/p/original/undefined"
+          />
+        }
+      >
+        <Meta />
+      </Card>
+    </Col>
+  </Col>
+</Row>
+`;
+
+exports[`<MovieItemComponent /> Render property - movieDetails without data 1`] = `
 <Row
   gutter={8}
   type="flex"

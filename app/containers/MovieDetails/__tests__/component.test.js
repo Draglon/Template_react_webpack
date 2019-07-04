@@ -5,11 +5,20 @@ import MovieItemComponent from '../component';
 
 describe('<MovieItemComponent />', () => {
   let component;
-  const props = {
-    movieDetails: [],
-  };
+  let props;
 
-  it('render property', () => {
+  it('Render property - movieDetails with data', () => {
+    props = {
+      movieDetails: [{ id: 1 }, { id: 2 }, { id: 3 }],
+    };
+    component = shallow(<MovieItemComponent {...props} />);
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
+  it('Render property - movieDetails without data', () => {
+    props = {
+      movieDetails: [],
+    };
     component = shallow(<MovieItemComponent {...props} />);
     expect(toJson(component)).toMatchSnapshot();
   });

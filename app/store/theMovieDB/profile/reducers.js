@@ -4,9 +4,6 @@ export const initialState = {
   isLoading: false,
   data: {
     id: '',
-    avatar: '',
-    name: '',
-    username: '',
   },
   error: null,
 };
@@ -26,9 +23,6 @@ export const profileReducer = (state = initialState, action) => {
         isLoading: false,
         data: {
           id: action.payload.id,
-          avatar: action.payload.avatar,
-          name: action.payload.name,
-          username: action.payload.username,
         },
       };
     case t.PROFILE_FAILURE:

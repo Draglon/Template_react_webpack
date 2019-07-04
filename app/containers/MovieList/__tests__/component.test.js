@@ -9,26 +9,7 @@ describe('<MovieListComponent /> container', () => {
 
   it('render property - with movies', () => {
     props = {
-      movie: [
-        {
-          id: 'some id',
-          title: 'some title',
-          overview: 'some overview',
-          budget: 1000000,
-          genres: [],
-          revenue: 1000000,
-          runtime: 140,
-          language: 'English',
-          credits: {
-            cast: [],
-            crew: [],
-          },
-          images: {
-            backdrops: [],
-            posters: [],
-          },
-        },
-      ],
+      movie: [{ id: 1 }, { id: 2 }, { id: 3 }],
     };
     component = shallow(<MovieListComponent {...props} />);
     expect(toJson(component)).toMatchSnapshot();
