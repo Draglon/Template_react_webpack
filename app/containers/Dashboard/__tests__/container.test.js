@@ -29,27 +29,20 @@ describe('DashboardContainer', () => {
   const props = {
     trendingRequest: mockFetchTrendingRequest,
     searchRequest: mockFetchSearchRequest,
-    trending: {},
-    search: {},
   };
-  let store;
-  let container;
-  let instance;
-  let loadData;
 
-  // beforeAll(() => {
-  store = mockStore(state);
-  container = mount(<DashboardContainer store={store} {...props} />).dive();
-  instance = container.instance();
-  console.log(instance);
-  loadData = jest.mock('trendingRequest', () => {});
+  const store = mockStore(state);
+  const container = shallow(<DashboardContainer store={store} {...props} />);
+  const instance = container.instance();
+  const spy = jest.spyOn(instance.props, 'trendingRequest');
+  // const spy = jest.spyOn(DashboardContainer.prototype, 'trendingRequest');
   instance.componentDidMount();
-  // console.log(container);
-  // });
+  // console.log(spy());
+  // console.log(instance.props);
 
   it('dispatches the `trendingRequest()`', () => {
-    expect(loadData).toHaveBeenCalledWith({ page: 1 });
-    expect(loadData).toHaveBeenCalledTimes(1);
-    container.unmount();
+    // expect(spy).toHaveBeenCalledWith({ page: 1 });
+    // expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalled();
   });
 });
