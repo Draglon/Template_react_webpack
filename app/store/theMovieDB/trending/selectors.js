@@ -1,17 +1,13 @@
 // eslint-disable-next-line import/prefer-default-export
 export const getTrendingById = state => {
-  const results = state.reducers.trending.data.results;
-  const entities = state.reducers.data.movies;
   const trending = state.reducers.trending.data;
-
-  console.log("results", results);
-  console.log("entities", entities);
-  console.log("trending", trending);
+  const entities = state.reducers.data.movies;
+  const results = Object.assign([], entities).filter(item => trending.results.includes(item.id));
 
   return (
-    entities && {
+    trending.results && {
       ...trending,
-      results: results.map(item => entities[item]),
+      results,
     }
   );
 };

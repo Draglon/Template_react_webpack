@@ -15,14 +15,13 @@ export default createLogic({
       .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}`)
       .then(response => {
         const normalizeData = normalize(response.data.results, [movies]);
+        dispatch(addEntities(normalizeData.entities));
         dispatch(
           trendingSuccess({
             ...response.data,
             results: normalizeData.result,
           }),
         );
-        dispatch(addEntities({ ...normalizeData.entities }));
-        // return response;
       })
       .catch(error => dispatch(trendingFailure(error)))
       .then(() => done());
