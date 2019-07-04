@@ -1,7 +1,7 @@
 import { searchReducer, searchInitialState } from '../reducers';
 import * as t from '../actionTypes';
 
-describe('Account profile reducer', () => {
+describe('Search reducer', () => {
   it('state is undefined', () => {
     expect(searchReducer(undefined, {})).toEqual(searchInitialState);
   });

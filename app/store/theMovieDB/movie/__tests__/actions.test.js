@@ -1,7 +1,7 @@
 import { movieRequest, movieSuccess, movieFailure } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Account - profile actions', () => {
+describe('Profile actions', () => {
   it('movieRequest', () => {
     const expectedAction = {
       type: t.MOVIE_REQUEST,

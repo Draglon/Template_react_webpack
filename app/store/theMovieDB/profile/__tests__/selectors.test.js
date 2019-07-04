@@ -1,6 +1,6 @@
 import { getProfileById } from '../selectors';
 
-describe('Account selectors', () => {
+describe('Profile selectors', () => {
   it('getProfileById - get profile data from store', () => {
     const id = 9999;
     const data = {

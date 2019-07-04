@@ -1,7 +1,7 @@
 import { searchRequest, searchSuccess, searchFailure } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Account - profile actions', () => {
+describe('Search actions', () => {
   it('searchRequest', () => {
     const expectedAction = {
       type: t.SEARCH_REQUEST,

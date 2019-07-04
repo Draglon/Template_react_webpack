@@ -1,7 +1,7 @@
 import { trendingReducer, trendingInitialState } from '../reducers';
 import * as t from '../actionTypes';
 
-describe('Account profile reducer', () => {
+describe('Trending reducer', () => {
   it('state is undefined', () => {
     expect(trendingReducer(undefined, {})).toEqual(trendingInitialState);
   });

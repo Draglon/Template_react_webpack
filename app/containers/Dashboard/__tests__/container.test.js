@@ -1,12 +1,11 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
+import { trendingRequest } from '../../../store/theMovieDB/trending/actions';
 import DashboardContainer from '../container';
 
 describe('DashboardContainer', () => {
   const mockStore = configureStore();
-  const mockFetchTrendingRequest = jest.fn();
-  const mockFetchSearchRequest = jest.fn();
   const state = {
     reducers: {
       trending: {
@@ -27,22 +26,24 @@ describe('DashboardContainer', () => {
     },
   };
   const props = {
-    trendingRequest: mockFetchTrendingRequest,
-    searchRequest: mockFetchSearchRequest,
-    trending: {},
-    search: {},
+    // trendingRequest: mockFetchTrendingRequest,
+    // searchRequest: mockFetchSearchRequest,
+    // trending: {},
+    // search: {},
   };
 
   const store = mockStore(state);
-  const container = shallow(<DashboardContainer store={store} {...props} />);
-  const instance = container.instance();
-  // const spy = jest.spyOn(instance.props, 'trendingRequest');
-  instance.componentDidMount();
-  // console.log(instance.props.trendingRequest(jest.fn()));
+  store.dispatch = jest.fn();
 
-  it('dispatches the `trendingRequest()`', () => {
-    // expect(instance.props.trendingRequest).toHaveBeenCalledWith({ page: 1 });
-    // expect(spy).toHaveBeenCalledTimes(1);
-    // expect(spy).toHaveBeenCalled();
+  const wrapper = shallow(<DashboardContainer store={store} {...props} />);
+  const container = wrapper.dive();
+  const instance = container.instance();
+
+  describe('componentDidMount()', () => {
+    it('dispatches the `trendingRequest()`', () => {
+      instance.componentDidMount();
+
+      expect(store.dispatch).toHaveBeenCalledWith(trendingRequest({ page: 1 }));
+    });
   });
 });

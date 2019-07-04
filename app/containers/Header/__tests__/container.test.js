@@ -1,12 +1,10 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
+import { profileRequest } from '../../../store/theMovieDB/profile/actions';
 import HeaderContainer from '../container';
 
 describe('<HeaderContainer />', () => {
-  const mockStore = configureStore();
-  const mockFetchSetProfile = jest.fn();
-  const mockFetchRemoveSessionId = jest.fn();
   const id = 8493834;
   const profileData = {
     id,
@@ -29,19 +27,22 @@ describe('<HeaderContainer />', () => {
     },
   };
   const props = {
-    trendingRequest: mockFetchSetProfile,
-    searchRequest: mockFetchRemoveSessionId,
     profile: profileData,
   };
 
+  const mockStore = configureStore();
   const store = mockStore(state);
-  const container = shallow(<HeaderContainer store={store} {...props} />);
-  const instance = container.instance();
-  // const spy = jest.spyOn(instance.props, 'trendingRequest');
-  instance.componentDidMount();
-  // console.log(instance.props);
+  store.dispatch = jest.fn();
 
-  it('dispatches the `trendingRequest()`', () => {
-    expect(instance.props.profile).toEqual(profileData);
+  const wrapper = shallow(<HeaderContainer store={store} {...props} />);
+  const container = wrapper.dive();
+  const instance = container.instance();
+
+  describe('componentDidMount()', () => {
+    it('dispatches the `profileRequest()`', () => {
+      instance.componentDidMount();
+
+      expect(store.dispatch).toHaveBeenCalledWith(profileRequest());
+    });
   });
 });

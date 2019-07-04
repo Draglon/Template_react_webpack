@@ -9,7 +9,7 @@ describe('<MovieListComponent /> container', () => {
 
   it('render property - with movies', () => {
     props = {
-      movie: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      movies: [{ id: 1 }, { id: 2 }, { id: 3 }],
     };
     component = shallow(<MovieListComponent {...props} />);
     expect(toJson(component)).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('<MovieListComponent /> container', () => {
 
   it('render property - without movies', () => {
     props = {
-      movie: [],
+      movies: [],
     };
     component = shallow(<MovieListComponent {...props} />);
     expect(toJson(component)).toMatchSnapshot();
