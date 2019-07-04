@@ -1,9 +1,9 @@
-import { movieReducer, movieInitialState } from '../reducers';
+import { movieReducer, initialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Profile reducer', () => {
   it('state is undefined', () => {
-    expect(movieReducer(undefined, {})).toEqual(movieInitialState);
+    expect(movieReducer(undefined, {})).toEqual(initialState);
   });
 
   // MOVIE_REQUEST
@@ -12,70 +12,17 @@ describe('Profile reducer', () => {
       type: t.MOVIE_REQUEST,
     };
 
-    expect(movieReducer(movieInitialState, action)).toEqual({
-      ...movieInitialState,
+    expect(movieReducer(initialState, action)).toEqual({
+      ...initialState,
       isLoading: true,
       error: null,
-    });
-  });
-
-  // MOVIE_SUCCESS
-  it('MOVIE_SUCCESS', () => {
-    const stateBefore = {
-      ...movieInitialState,
-      isLoading: true,
-    };
-
-    const action = {
-      type: t.MOVIE_SUCCESS,
-      payload: {
-        id: 'some id',
-        title: 'some title',
-        overview: 'some overview',
-        budget: 0,
-        genres: [],
-        revenue: 0,
-        runtime: 0,
-        language: 'English',
-        credits: {
-          cast: [],
-          crew: [],
-        },
-        images: {
-          backdrops: [],
-          posters: [],
-        },
-      },
-    };
-
-    expect(movieReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
-      isLoading: false,
-      data: {
-        id: action.payload.id,
-        title: action.payload.title,
-        overview: action.payload.overview,
-        budget: action.payload.budget,
-        genres: action.payload.genres,
-        revenue: action.payload.revenue,
-        runtime: action.payload.runtime,
-        language: action.payload.language,
-        credits: {
-          cast: action.payload.cast,
-          crew: action.payload.crew,
-        },
-        images: {
-          backdrops: action.payload.backdrops,
-          posters: action.payload.posters,
-        },
-      },
     });
   });
 
   // MOVIE_FAILURE
   it('MOVIE_FAILURE', () => {
     const stateBefore = {
-      ...movieInitialState,
+      ...initialState,
       isLoading: true,
     };
 

@@ -26,7 +26,7 @@ export const trendingReducer = (state = trendingInitialState, action) => {
         data: {
           page: action.payload.page,
           results: action.payload.results,
-          totalPages: action.payload.totalPages,
+          totalPages: action.payload.total_pages,
         },
       };
     case t.TRENDING_FAILURE:

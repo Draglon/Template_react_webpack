@@ -41,7 +41,7 @@ describe('Trending reducer', () => {
       data: {
         page: action.payload.page,
         results: action.payload.results,
-        totalPages: action.payload.totalPages,
+        totalPages: action.payload.total_pages,
       },
     });
   });
