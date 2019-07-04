@@ -1,27 +1,47 @@
-// import React from 'react';
-// import configureStore from 'redux-mock-store';
-// import toJson from 'enzyme-to-json';
+import React from 'react';
+import configureStore from 'redux-mock-store';
 
-// import ConnectedHeader, { Header } from '../component';
+import HeaderContainer from '../container';
 
-describe('<Header /> component', () => {
-  // const mockStore = configureStore();
-  // const initialState = {
-  //   isLogged: true,
-  //   removeSessionId: () => {},
-  // };
-  // const props = {
-  //   removeSessionId: () => {},
-  // };
-  // let store;
-  // let component;
+describe('<HeaderContainer />', () => {
+  const mockStore = configureStore();
+  const mockFetchSetProfile = jest.fn();
+  const mockFetchRemoveSessionId = jest.fn();
+  const id = 8493834;
+  const profileData = {
+    id,
+    avatar: 'some hash',
+    name: 'some name',
+    username: 'some username',
+  };
+  const state = {
+    reducers: {
+      profile: {
+        data: {
+          id,
+        },
+      },
+      data: {
+        profile: {
+          id,
+        },
+      },
+    },
+  };
+  const props = {
+    trendingRequest: mockFetchSetProfile,
+    searchRequest: mockFetchRemoveSessionId,
+    profile: profileData,
+  };
 
-  // beforeEach(() => {
-  //   store = mockStore(initialState);
-  //   component = shallow(<ConnectedHeader store={store} {...props} />);
-  // });
+  const store = mockStore(state);
+  const container = shallow(<HeaderContainer store={store} {...props} />);
+  const instance = container.instance();
+  // const spy = jest.spyOn(instance.props, 'trendingRequest');
+  instance.componentDidMount();
+  // console.log(instance.props);
 
-  it('Render property', () => {
-    // expect(toJson(component)).toMatchSnapshot();
+  it('dispatches the `trendingRequest()`', () => {
+    expect(instance.props.profile).toEqual(profileData);
   });
 });

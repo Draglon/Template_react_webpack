@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
-import { profileRequest } from '../../store/theMovieDB/account/actions';
+import { profileRequest } from '../../store/theMovieDB/profile/actions';
 
-import { getProfileByID } from '../../store/theMovieDB/account/selectors';
+import { getProfileById } from '../../store/theMovieDB/profile/selectors';
 
 import HeaderComponent from './component';
 
@@ -22,7 +22,7 @@ class HeaderContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  profile: getProfileByID(state),
+  profile: getProfileById(state),
 });
 
 const mapDispatchToProps = {
