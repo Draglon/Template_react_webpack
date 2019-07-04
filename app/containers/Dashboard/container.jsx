@@ -14,8 +14,14 @@ class DashboardContainer extends Component {
   }
 
   onSearch = value => {
-    const { searchRequest } = this.props;
-    searchRequest({ query: value, page: 1 });
+    const { searchRequest, trendingRequest } = this.props;
+
+    if (value) {
+      searchRequest({ query: value, page: 1 });
+    } else {
+      searchRequest({ query: value, page: 1 });
+      trendingRequest({ page: 1 });
+    }
   };
 
   setMovies = () => {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Row, Col, Carousel, Typography, Tag, Popover, Icon, Modal } from 'antd';
-import MovieDetails from '../MovieDetails';
 import { formatMoney, formatTime } from '../../helpers/format';
+
+import MovieDetails from '../MovieDetails';
 
 const MovieComponent = ({ movie, genres }) => (
   <>
-    {movie && (
+    {movie && genres && (
       <>
         <Row type="flex">
           <Col span={24}>
@@ -80,29 +81,25 @@ const MovieComponent = ({ movie, genres }) => (
               <span>${formatMoney(movie.revenue)}</span>
             </Typography.Paragraph>
           </Col>
-          {genres && (
-            <Col span={20} offset={2}>
-              <Typography.Paragraph className="movie__text">
-                <b>Genres: </b>
-                {genres.map(item => (
-                  <Tag key={item.id}>{item.name}</Tag>
-                ))}
-              </Typography.Paragraph>
-            </Col>
-          )}
+          <Col span={20} offset={2}>
+            <Typography.Paragraph className="movie__text">
+              <b>Genres: </b>
+              {genres && genres.map(item => <Tag key={item.id}>{item.name}</Tag>)}
+            </Typography.Paragraph>
+          </Col>
         </Row>
         <Row>
           <Col span={10} offset={2} className="top-margin">
             <Typography.Title level={3}>Casts</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.cast} />
+        {/* <MovieDetails movieDetails={movie.cast} /> */}
         <Row>
           <Col span={10} offset={2} className="top-margin">
             <Typography.Title level={3}>Crew</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.crew} />
+        {/* <MovieDetails movieDetails={movie.crew} /> */}
 
         {/* <Modal
           // visible={modalVisible}

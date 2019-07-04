@@ -17,10 +17,6 @@ class MovieContainer extends Component {
   }
 
   render() {
-    if (!this.props.movie || !this.props.genres) {
-      return null;
-    }
-
     return <MovieComponent {...this.props} />;
   }
 }

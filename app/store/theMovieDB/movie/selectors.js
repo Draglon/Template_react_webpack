@@ -5,7 +5,7 @@ export const getMovieById = (state, id) => {
 
 export const getGenresById = (state, id) => {
   const movie = state.reducers.data.movie;
-  const entities = state.reducers.data.genres;
+  const genres = state.reducers.data.genres;
 
-  return movie && Object.assign([], entities).filter(item => movie[id].genres.includes(item.id));
+  return Object.assign([], genres).filter(item => movie[id].genres.includes(item.id));
 };

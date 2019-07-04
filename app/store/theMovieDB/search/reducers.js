@@ -35,6 +35,12 @@ export const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        data: {
+          query: '',
+          page: 1,
+          results: [],
+          totalPages: 0,
+        },
         error: action.payload.message,
       };
     default:
