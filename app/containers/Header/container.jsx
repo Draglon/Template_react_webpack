@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
 import { profileRequest } from '../../store/theMovieDB/account/actions';
 
-import { getProfile, getProfileByID } from '../../store/theMovieDB/account/selectors';
+import { getProfileByID } from '../../store/theMovieDB/account/selectors';
 
 import HeaderComponent from './component';
 
@@ -15,7 +15,7 @@ class HeaderContainer extends Component {
 
   render() {
     if (!this.props.profile) {
-      return null
+      return null;
     }
     return <HeaderComponent {...this.props} />;
   }

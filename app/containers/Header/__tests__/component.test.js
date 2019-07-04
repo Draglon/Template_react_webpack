@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import HeaderComponent from '../component';
@@ -16,7 +15,7 @@ describe('<HeaderComponent /> component', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('render property - without avatar', () => {
+  it('Render property - without avatar', () => {
     props = {
       ...props,
       profile: { avatar: '', name: 'name', username: 'username' },

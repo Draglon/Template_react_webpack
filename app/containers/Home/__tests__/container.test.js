@@ -1,9 +1,9 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import AppContainer from '../container';
+import HomeContainer from '../container';
 
-describe('<AppContainer />', () => {
+describe('<HomeContainer />', () => {
   const mockStore = configureStore();
   const sessionId = 'some session id';
   const state = {
@@ -18,7 +18,7 @@ describe('<AppContainer />', () => {
   };
 
   const store = mockStore(state);
-  const container = shallow(<AppContainer store={store} {...props} />);
+  const container = shallow(<HomeContainer store={store} {...props} />);
   const instance = container.instance();
 
   it('Should be called', () => {

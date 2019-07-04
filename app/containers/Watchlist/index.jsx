@@ -1,3 +1,3 @@
-import Watchlist from './container';
+import Watchlist from './component';
 
 export default Watchlist;

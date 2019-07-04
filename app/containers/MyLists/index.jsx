@@ -1,3 +1,3 @@
-import MyLists from './container';
+import MyLists from './component';
 
 export default MyLists;

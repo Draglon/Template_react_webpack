@@ -1,6 +1,5 @@
 // import React from 'react';
 // import configureStore from 'redux-mock-store';
-// import { shallow } from 'enzyme';
 // import toJson from 'enzyme-to-json';
 
 // import ConnectedHeader, { Header } from '../component';
