@@ -1,7 +1,7 @@
-import { getSearch } from '../selectors';
+import { getSearchById } from '../selectors';
 
 describe('Search movie selectors', () => {
-  it('getSearch - get profile data from store', () => {
+  it('getSearchById - get profile data from store', () => {
     const data = {
       query: '',
       page: 1,
@@ -21,6 +21,6 @@ describe('Search movie selectors', () => {
         },
       },
     };
-    expect(getSearch(state)).toEqual(data);
+    expect(getSearchById(state)).toEqual(data);
   });
 });

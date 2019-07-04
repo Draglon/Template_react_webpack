@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Pagination } from 'antd';
 
-const PaginationComponent = ({ query, currentPage, getPage, totalPages }) => (
+const PaginationComponent = ({ page, currentPage, totalPages }) => (
   <>
     {totalPages ? (
       <Row type="flex" justify="center" className="top-padding">
@@ -11,7 +11,7 @@ const PaginationComponent = ({ query, currentPage, getPage, totalPages }) => (
             defaultCurrent={1}
             current={currentPage}
             total={totalPages}
-            onChange={page => getPage(query ? { query, page } : { page })}
+            onChange={page}
           />
         </Col>
       </Row>

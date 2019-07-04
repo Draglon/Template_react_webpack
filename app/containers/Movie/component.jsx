@@ -3,9 +3,9 @@ import { Row, Col, Carousel, Typography, Tag, Popover, Icon, Modal } from 'antd'
 import MovieDetails from '../MovieDetails';
 import { formatMoney, formatTime } from '../../helpers/format';
 
-const MovieComponent = ({ movie }) => (
+const MovieComponent = ({ movie, genres }) => (
   <>
-    {console.log(movie)}
+    {console.log(genres)}
     {movie && (
       <>
         <Row type="flex">
@@ -84,7 +84,7 @@ const MovieComponent = ({ movie }) => (
           <Col span={20} offset={2}>
             <Typography.Paragraph className="movie__text">
               <b>Genres: </b>
-              {/* {movie.genres.map(item => (
+              {/* {genres.map(item => (
                 <Tag key={item.id}>{item.name}</Tag>
               ))} */}
             </Typography.Paragraph>

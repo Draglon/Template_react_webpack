@@ -14,7 +14,7 @@ const SearchComponent = ({ onSearch }) => (
         placeholder="Enter movie name"
         size="large"
         enterButton="Search"
-        onSearch={value => onSearch({ query: value, page: 1 })}
+        onSearch={onSearch}
       />
     </Col>
   </Row>

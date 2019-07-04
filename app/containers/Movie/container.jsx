@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { movieRequest } from '../../store/theMovieDB/movie/actions';
-import { getMovieById } from '../../store/theMovieDB/movie/selectors';
+import { getMovieById, getGenresById } from '../../store/theMovieDB/movie/selectors';
 
 import MovieComponent from './component';
 
@@ -17,6 +17,10 @@ class MovieContainer extends Component {
   }
 
   render() {
+    if (!this.props.movie && this.props.genres) {
+      return null;
+    }
+
     return <MovieComponent {...this.props} />;
   }
 }
@@ -30,6 +34,7 @@ const mapStateToProps = (
   },
 ) => ({
   movie: getMovieById(state, id),
+  genres: getGenresById(state, id),
 });
 
 const mapDispatchToProps = {

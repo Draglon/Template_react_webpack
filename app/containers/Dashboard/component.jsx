@@ -4,16 +4,11 @@ import Search from '../Search';
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 
-const DashboardComponent = ({ trending, search, searchRequest, trendingRequest }) => (
+const DashboardComponent = ({ onSearch, movies, page, currentPage, totalPages }) => (
   <>
-    <Search onSearch={searchRequest} />
-    <MovieList movies={search.query ? search.results : trending.results} />
-    <Pagination
-      query={search.query}
-      currentPage={search.query ? search.page : trending.page}
-      getPage={search.query ? searchRequest : trendingRequest}
-      totalPages={search.query ? search.totalPages : trending.totalPages}
-    />
+    <Search onSearch={onSearch} />
+    <MovieList movies={movies} />
+    <Pagination currentPage={currentPage} page={page} totalPages={totalPages} />
   </>
 );
 

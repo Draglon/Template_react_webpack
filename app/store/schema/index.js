@@ -3,8 +3,8 @@ import { schema } from 'normalizr';
 // profile
 export const profile = new schema.Entity('profile');
 
-// trending
-export const trending = new schema.Entity('trending');
+// movies
+export const movies = new schema.Entity('movies');
 
 // genres
 export const genres = new schema.Entity('genres');

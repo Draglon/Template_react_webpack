@@ -1,6 +1,6 @@
 import * as t from './actionTypes';
 
-export const searchInitialState = {
+export const initialState = {
   isLoading: false,
   data: {
     query: '',
@@ -12,7 +12,7 @@ export const searchInitialState = {
 };
 
 // Search movie
-export const searchReducer = (state = searchInitialState, action) => {
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.SEARCH_REQUEST:
       return {

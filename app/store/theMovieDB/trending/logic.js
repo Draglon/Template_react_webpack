@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
-import { trending } from '../../schema';
+import { movies } from '../../schema';
 import { getCookie } from '../../../helpers/cookie';
 
 import { trendingSuccess, trendingFailure } from './actions';
@@ -14,15 +14,15 @@ export default createLogic({
     apiClient
       .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [trending]);
-        dispatch(addEntities(normalizeData.entities));
+        const normalizeData = normalize(response.data.results, [movies]);
         dispatch(
           trendingSuccess({
             ...response.data,
             results: normalizeData.result,
           }),
         );
-        return response;
+        dispatch(addEntities({ ...normalizeData.entities }));
+        // return response;
       })
       .catch(error => dispatch(trendingFailure(error)))
       .then(() => done());

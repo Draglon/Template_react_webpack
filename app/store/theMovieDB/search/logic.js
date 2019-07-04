@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
-import { trending } from '../../schema';
+import { movies } from '../../schema';
 
 import { searchSuccess, searchFailure } from './actions';
 import { addEntities } from '../data/actions';
@@ -13,8 +13,7 @@ export default createLogic({
     apiClient
       .get(`search/movie?query=${action.payload.query}&page=${action.payload.page}`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [trending]);
-        // console.log(normalizeData);
+        const normalizeData = normalize(response.data.results, [movies]);
         dispatch(addEntities(normalizeData.entities));
         dispatch(
           searchSuccess({

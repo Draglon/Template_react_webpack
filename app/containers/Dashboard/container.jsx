@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { trendingRequest as trendingRequestAction } from '../../store/theMovieDB/trending/actions';
-import { getTrending } from '../../store/theMovieDB/trending/selectors';
-import { searchRequest } from '../../store/theMovieDB/search/actions';
-import { getSearch } from '../../store/theMovieDB/search/selectors';
+import { getTrendingById } from '../../store/theMovieDB/trending/selectors';
+import { searchRequest as searchRequestAction } from '../../store/theMovieDB/search/actions';
+import { getSearchById } from '../../store/theMovieDB/search/selectors';
 
 import DashboardComponent from './component';
 
@@ -13,18 +13,70 @@ class DashboardContainer extends Component {
     trendingRequest({ page: 1 });
   }
 
+  onSearch = value => {
+    const { searchRequest } = this.props;
+    searchRequest({ query: value, page: 1 });
+  };
+
+  setMovies = () => {
+    const {
+      search: { query, results },
+      trending,
+    } = this.props;
+    return query ? results : trending.results;
+  };
+
+  getPage = page => {
+    const {
+      searchRequest,
+      trendingRequest,
+      search: { query },
+    } = this.props;
+    query ? searchRequest({ query, page }) : trendingRequest({ page });
+  };
+
+  currentPage = () => {
+    const {
+      search: { query, page },
+      trending,
+    } = this.props;
+    return query ? page : trending.page;
+  };
+
+  totalPages = () => {
+    const {
+      search: { query, totalPages },
+      trending,
+    } = this.props;
+    return query ? totalPages : trending.totalPages;
+  };
+
   render() {
-    return <DashboardComponent {...this.props} />;
+    const {
+      search: { query },
+    } = this.props;
+
+    return (
+      <DashboardComponent
+        {...this.props}
+        query={query}
+        onSearch={this.onSearch}
+        movies={this.setMovies()}
+        page={this.getPage}
+        currentPage={this.currentPage()}
+        totalPages={this.totalPages()}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  trending: getTrending(state),
-  search: getSearch(state),
+  trending: getTrendingById(state),
+  search: getSearchById(state),
 });
 
 const mapDispatchToProps = {
-  searchRequest,
+  searchRequest: searchRequestAction,
   trendingRequest: trendingRequestAction,
 };
 

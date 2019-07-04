@@ -1,7 +1,7 @@
-import { getTrending } from '../selectors';
+import { getTrendingById } from '../selectors';
 
 describe('Trending movie selectors', () => {
-  it('getTrending - get trending movie from store', () => {
+  it('getTrendingById - get trending movie from store', () => {
     const data = {
       page: 1,
       results: [],
@@ -19,6 +19,6 @@ describe('Trending movie selectors', () => {
         },
       },
     };
-    expect(getTrending(state)).toEqual(data);
+    expect(getTrendingById(state)).toEqual(data);
   });
 });
