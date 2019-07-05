@@ -1,4 +1,4 @@
-import { getMovieById, getGenresById } from '../selectors';
+import { getMovieById, getGenresById, getCastById, getCrewById } from '../selectors';
 
 describe('Movie selectors', () => {
   describe('getMovieById()', () => {
@@ -44,6 +44,60 @@ describe('Movie selectors', () => {
       };
 
       expect(getGenresById(state, id)).toEqual([
+        { id: 1, name: 'some title' },
+        { id: 2, name: 'some title' },
+      ]);
+    });
+  });
+
+  describe('getCastById()', () => {
+    it('getCastById - get casts from store', () => {
+      const id = 9999;
+      const state = {
+        reducers: {
+          data: {
+            movie: {
+              [id]: {
+                id,
+                cast: [1, 2],
+              },
+            },
+            cast: {
+              1: { id: 1, name: 'some title' },
+              2: { id: 2, name: 'some title' },
+            },
+          },
+        },
+      };
+
+      expect(getCastById(state, id)).toEqual([
+        { id: 1, name: 'some title' },
+        { id: 2, name: 'some title' },
+      ]);
+    });
+  });
+
+  describe('getCrewById()', () => {
+    it('getCrewById - get crew from store', () => {
+      const id = 9999;
+      const state = {
+        reducers: {
+          data: {
+            movie: {
+              [id]: {
+                id,
+                crew: [1, 2],
+              },
+            },
+            crew: {
+              1: { id: 1, name: 'some title' },
+              2: { id: 2, name: 'some title' },
+            },
+          },
+        },
+      };
+
+      expect(getCrewById(state, id)).toEqual([
         { id: 1, name: 'some title' },
         { id: 2, name: 'some title' },
       ]);
