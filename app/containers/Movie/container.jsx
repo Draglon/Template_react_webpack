@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { movieRequest } from '../../store/theMovieDB/movie/actions';
-import { getMovieById, getGenresById } from '../../store/theMovieDB/movie/selectors';
+import { getMovieById, getGenresById, getCastById, getCrewById } from '../../store/theMovieDB/movie/selectors';
 
 import MovieComponent from './component';
 
@@ -31,6 +31,8 @@ const mapStateToProps = (
 ) => ({
   movie: getMovieById(state, id),
   genres: getGenresById(state, id),
+  cast: getCastById(state, id),
+  crew: getCrewById(state, id),
 });
 
 const mapDispatchToProps = {

@@ -14,6 +14,7 @@ export const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.entities,
+        // movies: action.entities,
       };
     default:
       return state;

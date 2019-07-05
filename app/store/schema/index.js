@@ -18,6 +18,6 @@ export const crew = new schema.Entity('crew');
 // movie
 export const schemaMovie = new schema.Entity('movie', {
   genres: [genres],
-  // cast: [cast],
-  // crew: [crew],
+  cast: [cast],
+  crew: [crew],
 });

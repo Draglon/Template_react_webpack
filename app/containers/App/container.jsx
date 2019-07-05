@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getSessionId } from '../../store/theMovieDB/login/selectors';
 
-import AppContainer from './component';
+import AppComponent from './component';
 
 const mapStateToProps = state => ({
   isLogged: getSessionId(state),
@@ -10,4 +10,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null,
-)(AppContainer);
+)(AppComponent);

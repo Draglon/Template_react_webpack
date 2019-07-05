@@ -14,12 +14,9 @@ describe('<AppContainer />', () => {
       },
     },
   };
-  const props = {
-    isLogged: sessionId,
-  };
 
   const store = mockStore(state);
-  const container = shallow(<AppContainer store={store} {...props} />);
+  const container = shallow(<AppContainer store={store} />);
 
   it('Render property', () => {
     expect(toJson(container)).toMatchSnapshot();

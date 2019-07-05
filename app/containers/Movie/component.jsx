@@ -4,9 +4,9 @@ import { formatMoney, formatTime } from '../../helpers/format';
 
 import MovieDetails from '../MovieDetails';
 
-const MovieComponent = ({ movie, genres }) => (
+const MovieComponent = ({ movie, genres, cast, crew }) => (
   <>
-    {movie && genres && (
+    {movie && genres && cast && crew && (
       <>
         <Row type="flex">
           <Col span={24}>
@@ -84,7 +84,9 @@ const MovieComponent = ({ movie, genres }) => (
           <Col span={20} offset={2}>
             <Typography.Paragraph className="movie__text">
               <b>Genres: </b>
-              {genres.map(item => <Tag key={item.id}>{item.name}</Tag>)}
+              {genres.map(item => (
+                <Tag key={item.id}>{item.name}</Tag>
+              ))}
             </Typography.Paragraph>
           </Col>
         </Row>
@@ -93,13 +95,13 @@ const MovieComponent = ({ movie, genres }) => (
             <Typography.Title level={3}>Casts</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.cast} />
+        <MovieDetails movieDetails={cast} />
         <Row>
           <Col span={10} offset={2} className="top-margin">
             <Typography.Title level={3}>Crew</Typography.Title>
           </Col>
         </Row>
-        <MovieDetails movieDetails={movie.crew} />
+        <MovieDetails movieDetails={crew} />
 
         {/* <Modal
           // visible={modalVisible}
