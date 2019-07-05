@@ -23,6 +23,9 @@ describe('DashboardContainer', () => {
           totalPages: 20,
         },
       },
+      data: {
+        movies: {},
+      },
     },
   };
   const props = {

@@ -1,9 +1,9 @@
-import { searchReducer, searchInitialState } from '../reducers';
+import { searchReducer, initialState } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Search reducer', () => {
   it('state is undefined', () => {
-    expect(searchReducer(undefined, {})).toEqual(searchInitialState);
+    expect(searchReducer(undefined, {})).toEqual(initialState);
   });
 
   // SEARCH_REQUEST
@@ -12,8 +12,8 @@ describe('Search reducer', () => {
       type: t.SEARCH_REQUEST,
     };
 
-    expect(searchReducer(searchInitialState, action)).toEqual({
-      ...searchInitialState,
+    expect(searchReducer(initialState, action)).toEqual({
+      ...initialState,
       isLoading: true,
       error: null,
     });
@@ -22,7 +22,7 @@ describe('Search reducer', () => {
   // SEARCH_SUCCESS
   it('SEARCH_SUCCESS', () => {
     const stateBefore = {
-      ...searchInitialState,
+      ...initialState,
       isLoading: true,
       error: null,
     };
@@ -52,7 +52,7 @@ describe('Search reducer', () => {
   // SEARCH_FAILURE
   it('SEARCH_FAILURE', () => {
     const stateBefore = {
-      ...searchInitialState,
+      ...initialState,
       isLoading: true,
     };
 

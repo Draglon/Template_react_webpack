@@ -22,34 +22,37 @@ const Overlay = removeSessionId => (
   </Menu>
 );
 
-const HeaderComponent = ({ profile: { avatar, name, username }, removeSessionId }) => {
+const HeaderComponent = ({ profile, removeSessionId }) => {
   return (
     <Layout.Header>
       <Row type="flex" justify="space-between">
         <Col>
           <Typography.Text className="logo">THE MOVIE DB</Typography.Text>
         </Col>
-        <Col>
-          <div className="profile">
-            <figure className="profile__avatar">
-              {avatar ? (
-                <img
-                  className="profile__avatar-img"
-                  src={`https://www.gravatar.com/avatar/${avatar}.jpg`}
-                  alt={name}
-                />
-              ) : (
-                <Avatar icon="user" />
-              )}
-            </figure>
-            <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
-              <Typography.Text>
-                {username}
-                <Icon type="caret-down" />
-              </Typography.Text>
-            </Dropdown>
-          </div>
-        </Col>
+
+        {profile && (
+          <Col>
+            <div className="profile">
+              <figure className="profile__avatar">
+                {profile.avatar ? (
+                  <img
+                    className="profile__avatar-img"
+                    src={`https://www.gravatar.com/avatar/${profile.avatar}.jpg`}
+                    alt={profile.name}
+                  />
+                ) : (
+                  <Avatar icon="user" />
+                )}
+              </figure>
+              <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
+                <Typography.Text>
+                  {profile.username}
+                  <Icon type="caret-down" />
+                </Typography.Text>
+              </Dropdown>
+            </div>
+          </Col>
+        )}
       </Row>
     </Layout.Header>
   );

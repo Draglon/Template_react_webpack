@@ -1,10 +1,10 @@
 import { getTrendingById } from '../selectors';
 
-describe('Trending movie selectors', () => {
-  it('getTrendingById - get trending movie from store', () => {
+describe('Trending selectors', () => {
+  it('getTrendingById - get trending data from store', () => {
     const data = {
       page: 1,
-      results: [],
+      results: [1, 2, 3],
       totalPages: 0,
     };
 
@@ -17,8 +17,18 @@ describe('Trending movie selectors', () => {
             totalPages: data.totalPages,
           },
         },
+        data: {
+          movies: {
+            1: { id: 1 },
+            2: { id: 2 },
+            3: { id: 3 },
+          },
+        },
       },
     };
-    expect(getTrendingById(state)).toEqual(data);
+    expect(getTrendingById(state)).toEqual({
+      ...data,
+      results: [{ id: 1 }, { id: 2 }, { id: 3 }],
+    });
   });
 });

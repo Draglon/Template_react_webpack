@@ -1,11 +1,11 @@
 import { getSearchById } from '../selectors';
 
 describe('Search movie selectors', () => {
-  it('getSearchById - get profile data from store', () => {
+  it('getSearchById - get movie data from store', () => {
     const data = {
       query: '',
       page: 1,
-      results: [],
+      results: [1, 2, 3],
       totalPages: 0,
     };
 
@@ -19,8 +19,18 @@ describe('Search movie selectors', () => {
             totalPages: data.totalPages,
           },
         },
+        data: {
+          movies: {
+            1: { id: 1 },
+            2: { id: 2 },
+            3: { id: 3 },
+          },
+        },
       },
     };
-    expect(getSearchById(state)).toEqual(data);
+    expect(getSearchById(state)).toEqual({
+      ...data,
+      results: [{ id: 1 }, { id: 2 }, { id: 3 }],
+    });
   });
 });

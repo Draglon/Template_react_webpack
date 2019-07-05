@@ -3,26 +3,26 @@ import toJson from 'enzyme-to-json';
 
 import MovieComponent from '../component';
 
-describe('<SearchComponent /> container', () => {
+describe('<SearchComponent />', () => {
   const props = {
     movie: {
-      id: 0,
-      title: '',
-      overview: '',
-      budget: 0,
-      genres: [],
-      revenue: 0,
-      runtime: 0,
-      language: '',
-      cast: [],
-      crew: [],
-      backdrops: [],
-      posters: [],
+      id: 999,
+      title: 'some title',
+      overview: 'some overview',
+      budget: 100000,
+      genres: [1, 2, 3],
+      revenue: 1000000,
+      runtime: 140,
+      language: 'English',
+      cast: [1, 2, 3],
+      crew: [1, 2, 3],
+      backdrops: [{ file_path: 'path' }, { file_path: 'path' }, { file_path: 'path' }],
+      posters: [1, 2, 3],
     },
   };
   let component;
 
-  it('render property - with search query', () => {
+  it('render property', () => {
     component = shallow(<MovieComponent {...props} />);
     expect(toJson(component)).toMatchSnapshot();
   });

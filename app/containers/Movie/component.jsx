@@ -84,7 +84,7 @@ const MovieComponent = ({ movie, genres }) => (
           <Col span={20} offset={2}>
             <Typography.Paragraph className="movie__text">
               <b>Genres: </b>
-              {genres && genres.map(item => <Tag key={item.id}>{item.name}</Tag>)}
+              {genres.map(item => <Tag key={item.id}>{item.name}</Tag>)}
             </Typography.Paragraph>
           </Col>
         </Row>
@@ -93,13 +93,13 @@ const MovieComponent = ({ movie, genres }) => (
             <Typography.Title level={3}>Casts</Typography.Title>
           </Col>
         </Row>
-        {/* <MovieDetails movieDetails={movie.cast} /> */}
+        <MovieDetails movieDetails={movie.cast} />
         <Row>
           <Col span={10} offset={2} className="top-margin">
             <Typography.Title level={3}>Crew</Typography.Title>
           </Col>
         </Row>
-        {/* <MovieDetails movieDetails={movie.crew} /> */}
+        <MovieDetails movieDetails={movie.crew} />
 
         {/* <Modal
           // visible={modalVisible}

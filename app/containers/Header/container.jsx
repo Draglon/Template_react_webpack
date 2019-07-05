@@ -14,9 +14,6 @@ class HeaderContainer extends Component {
   }
 
   render() {
-    if (!this.props.profile) {
-      return null;
-    }
     return <HeaderComponent {...this.props} />;
   }
 }

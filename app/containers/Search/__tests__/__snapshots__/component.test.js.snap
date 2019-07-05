@@ -40,7 +40,7 @@ exports[`<SearchComponent /> container render property - with search query 1`] =
   >
     <Search
       enterButton="Search"
-      onSearch={[Function]}
+      onSearch={[MockFunction]}
       placeholder="Enter movie name"
       size="large"
     />

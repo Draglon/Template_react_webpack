@@ -2,34 +2,16 @@
 
 exports[`<DashboardComponent /> container render property - with search query 1`] = `
 <Fragment>
-  <SearchComponent
-    onSearch={[MockFunction]}
-  />
-  <MovieListComponent
-    movies={Array []}
-  />
-  <PaginationComponent
-    currentPage={1}
-    getPage={[MockFunction]}
-    query="some string"
-    totalPages={20}
-  />
+  <SearchComponent />
+  <MovieListComponent />
+  <PaginationComponent />
 </Fragment>
 `;
 
 exports[`<DashboardComponent /> container render property - without search query 1`] = `
 <Fragment>
-  <SearchComponent
-    onSearch={[MockFunction]}
-  />
-  <MovieListComponent
-    movies={Array []}
-  />
-  <PaginationComponent
-    currentPage={1}
-    getPage={[MockFunction]}
-    query=""
-    totalPages={100}
-  />
+  <SearchComponent />
+  <MovieListComponent />
+  <PaginationComponent />
 </Fragment>
 `;
