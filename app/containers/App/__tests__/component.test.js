@@ -7,14 +7,14 @@ describe('<AppComponent /> component', () => {
   let component;
   let props;
 
-  it('render property - isLogged: false', () => {
+  it('Render property - isLogged: false', () => {
     props = { isLogged: false };
     component = shallow(<AppComponent {...props} />);
 
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('render property - isLogged: true', () => {
+  it('Render property - isLogged: true', () => {
     props = { isLogged: true };
     component = shallow(<AppComponent {...props} />);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
+import toJson from 'enzyme-to-json';
 
 import AppContainer from '../container';
 
@@ -19,9 +20,8 @@ describe('<AppContainer />', () => {
 
   const store = mockStore(state);
   const container = shallow(<AppContainer store={store} {...props} />);
-  const instance = container.instance();
 
-  it('Should be called', () => {
-    expect(instance.props.isLogged).toEqual(sessionId);
+  it('Render property', () => {
+    expect(toJson(container)).toMatchSnapshot();
   });
 });
