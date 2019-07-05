@@ -3,7 +3,7 @@ import toJson from 'enzyme-to-json';
 
 import MovieComponent from '../component';
 
-describe('<SearchComponent />', () => {
+describe('<MovieComponent />', () => {
   const props = {
     movie: {
       id: 999,

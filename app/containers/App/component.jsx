@@ -11,7 +11,7 @@ import Favorites from '../Favorites';
 import Movie from '../Movie';
 import NotFound from '../NotFound';
 
-import PrivateRoute from '../PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 const AppComponent = ({ isLogged }) => (
   <Router>
