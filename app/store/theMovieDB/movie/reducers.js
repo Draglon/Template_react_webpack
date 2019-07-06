@@ -5,7 +5,6 @@ export const initialState = {
   error: null,
 };
 
-// Movie
 export const movieReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.MOVIE_REQUEST:

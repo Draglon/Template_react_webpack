@@ -11,7 +11,6 @@ export const initialState = {
   error: null,
 };
 
-// Search movie
 export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.SEARCH_REQUEST:

@@ -28,7 +28,7 @@ export const createSessionLogic = createLogic({
       )
       .then(response3 => {
         const sessionId = response3.data.session_id;
-        setCookie('session_id', sessionId);
+        setCookie('sessionId', sessionId);
         dispatch(createSessionSuccess(sessionId));
         action.payload.actions.setSubmitting(false);
       })
@@ -46,10 +46,11 @@ export const deleteSessionLogic = createLogic({
   process({ apiClient }, dispatch, done) {
     apiClient
       .delete('authentication/session', {
-        data: { session_id: getCookie('session_id') },
+        data: { session_id: getCookie('sessionId') },
       })
       .then(() => {
-        setCookie('session_id', '');
+        setCookie('sessionId', '');
+        setCookie('accountId', '');
         dispatch(deleteSessionSuccess(null));
       })
       .catch(error => dispatch(deleteSessionFailure(error)))

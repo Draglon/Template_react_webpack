@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const getSearchById = state => {
   const search = state.reducers.search.data;
   const entities = state.reducers.data.movies;

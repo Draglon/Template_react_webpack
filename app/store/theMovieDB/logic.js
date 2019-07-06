@@ -4,6 +4,7 @@ import { createList } from './list/logic';
 import trendingLogic from './trending/logic';
 import searchLogic from './search/logic';
 import movieLogic from './movie/logic';
+import { myListsLogic } from './myLists/logic';
 
 export default [
   profileLogic,
@@ -13,4 +14,5 @@ export default [
   trendingLogic,
   searchLogic,
   movieLogic,
+  myListsLogic,
 ];

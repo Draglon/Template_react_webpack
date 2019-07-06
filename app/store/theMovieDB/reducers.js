@@ -6,6 +6,7 @@ import { createListReducer } from './list/reducers';
 import { searchReducer } from './search/reducers';
 import { trendingReducer } from './trending/reducers';
 import { movieReducer } from './movie/reducers';
+import { createdListsReducer } from './myLists/reducers';
 
 import { dataReducer } from './data/reducers';
 
@@ -16,5 +17,6 @@ export default combineReducers({
   trending: trendingReducer,
   search: searchReducer,
   movie: movieReducer,
+  lists: createdListsReducer,
   data: dataReducer,
 });

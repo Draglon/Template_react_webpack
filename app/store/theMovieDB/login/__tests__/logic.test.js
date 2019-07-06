@@ -17,7 +17,7 @@ describe('Authentication logic', () => {
 
   //   responseData = {
   //     success: true,
-  //     session_id: 'any session id',
+  //     sessionId: 'any session id',
   //   };
 
   //   errorMsg = 'any error message';

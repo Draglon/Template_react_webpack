@@ -10,7 +10,7 @@ describe('<AppContainer />', () => {
   const state = {
     reducers: {
       login: {
-        session_id: sessionId,
+        sessionId,
       },
     },
   };

@@ -6,7 +6,6 @@ describe('Authentication reducer', () => {
     expect(loginReducer(undefined, {})).toEqual(loginInitialState);
   });
 
-  // CREATE_SESSION_REQUEST
   it('CREATE_SESSION_REQUEST after situation without error', () => {
     const action = {
       type: t.CREATE_SESSION_REQUEST,
@@ -22,7 +21,7 @@ describe('Authentication reducer', () => {
   it('CREATE_SESSION_REQUEST after error', () => {
     const initialStateWithError = {
       isLoading: false,
-      session_id: null,
+      sessionId: null,
       error: 'Unknown error',
     };
 
@@ -37,11 +36,10 @@ describe('Authentication reducer', () => {
     });
   });
 
-  // CREATE_SESSION_SUCCESS
   it('CREATE_SESSION_SUCCESS', () => {
     const stateBefore = {
       isLoading: true,
-      session_id: null,
+      sessionId: null,
       error: null,
     };
 
@@ -53,15 +51,14 @@ describe('Authentication reducer', () => {
     expect(loginReducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
-      session_id: action.payload,
+      sessionId: action.payload,
     });
   });
 
-  // CREATE_SESSION_FAILURE
   it('CREATE_SESSION_FAILURE', () => {
     const stateBefore = {
       isLoading: true,
-      session_id: null,
+      sessionId: null,
       error: null,
     };
 
@@ -79,7 +76,6 @@ describe('Authentication reducer', () => {
     });
   });
 
-  // DELETE_SESSION_REQUEST
   it('DELETE_SESSION_REQUEST', () => {
     const action = {
       type: t.DELETE_SESSION_REQUEST,
@@ -92,11 +88,10 @@ describe('Authentication reducer', () => {
     });
   });
 
-  // DELETE_SESSION_SUCCESS
   it('DELETE_SESSION_SUCCESS', () => {
     const stateBefore = {
       isLoading: true,
-      session_id: null,
+      sessionId: null,
       error: null,
     };
 
@@ -108,15 +103,14 @@ describe('Authentication reducer', () => {
     expect(loginReducer(stateBefore, action)).toEqual({
       ...stateBefore,
       isLoading: false,
-      session_id: action.payload,
+      sessionId: action.payload,
     });
   });
 
-  // DELETE_SESSION_FAILURE
   it('DELETE_SESSION_FAILURE', () => {
     const stateBefore = {
       isLoading: true,
-      session_id: null,
+      sessionId: null,
       error: null,
     };
 

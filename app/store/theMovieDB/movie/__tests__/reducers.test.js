@@ -6,7 +6,6 @@ describe('Profile reducer', () => {
     expect(movieReducer(undefined, {})).toEqual(initialState);
   });
 
-  // MOVIE_REQUEST
   it('MOVIE_REQUEST after situation without error', () => {
     const action = {
       type: t.MOVIE_REQUEST,
@@ -19,7 +18,6 @@ describe('Profile reducer', () => {
     });
   });
 
-  // MOVIE_FAILURE
   it('MOVIE_FAILURE', () => {
     const stateBefore = {
       ...initialState,

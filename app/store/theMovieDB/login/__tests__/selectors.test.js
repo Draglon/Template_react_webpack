@@ -1,12 +1,12 @@
 import { getSessionId, loginError } from '../selectors';
 
 describe('Authentication selectors', () => {
-  it('getSessionId - get session_id from store', () => {
-    const sessionId = 'some session_id';
+  it('getSessionId - get sessionId from store', () => {
+    const sessionId = 'some sessionId';
     const state = {
       reducers: {
         login: {
-          session_id: sessionId,
+          sessionId,
         },
       },
     };

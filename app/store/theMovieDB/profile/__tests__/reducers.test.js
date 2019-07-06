@@ -6,7 +6,6 @@ describe('Profile reducer', () => {
     expect(profileReducer(undefined, {})).toEqual(initialState);
   });
 
-  // PROFILE_REQUEST
   it('PROFILE_REQUEST after situation without error', () => {
     const action = {
       type: t.PROFILE_REQUEST,
@@ -19,7 +18,6 @@ describe('Profile reducer', () => {
     });
   });
 
-  // PROFILE_SUCCESS
   it('PROFILE_SUCCESS', () => {
     const stateBefore = {
       isLoading: true,
@@ -45,7 +43,6 @@ describe('Profile reducer', () => {
     });
   });
 
-  // PROFILE_FAILURE
   it('PROFILE_FAILURE', () => {
     const stateBefore = {
       isLoading: true,

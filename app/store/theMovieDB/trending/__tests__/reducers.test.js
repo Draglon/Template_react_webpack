@@ -6,7 +6,6 @@ describe('Trending reducer', () => {
     expect(trendingReducer(undefined, {})).toEqual(trendingInitialState);
   });
 
-  // TRENDING_REQUEST
   it('TRENDING_REQUEST', () => {
     const action = {
       type: t.TRENDING_REQUEST,
@@ -19,7 +18,6 @@ describe('Trending reducer', () => {
     });
   });
 
-  // TRENDING_SUCCESS
   it('TRENDING_SUCCESS', () => {
     const stateBefore = {
       ...trendingInitialState,
@@ -46,7 +44,6 @@ describe('Trending reducer', () => {
     });
   });
 
-  // TRENDING_FAILURE
   it('TRENDING_FAILURE', () => {
     const stateBefore = {
       ...trendingInitialState,

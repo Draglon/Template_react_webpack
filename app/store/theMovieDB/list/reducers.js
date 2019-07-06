@@ -9,12 +9,11 @@ export const createListInitialState = {
   error: null,
 };
 
-// Create List
 export const createListReducer = (state = createListInitialState, action) => {
   switch (action.type) {
     case t.CREATE_LIST_REQUEST:
       return {
-        ...createListInitialState,
+        ...state,
         isLoading: true,
         error: null,
       };

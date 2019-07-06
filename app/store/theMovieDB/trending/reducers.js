@@ -10,7 +10,6 @@ export const trendingInitialState = {
   error: null,
 };
 
-// Trending movie
 export const trendingReducer = (state = trendingInitialState, action) => {
   switch (action.type) {
     case t.TRENDING_REQUEST:

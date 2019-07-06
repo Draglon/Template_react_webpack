@@ -9,7 +9,6 @@ export const initialState = {
   crew: {},
 };
 
-// Data
 export const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.ADD_ENTITIES:

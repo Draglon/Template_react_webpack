@@ -6,7 +6,6 @@ describe('Search reducer', () => {
     expect(searchReducer(undefined, {})).toEqual(initialState);
   });
 
-  // SEARCH_REQUEST
   it('SEARCH_REQUEST after situation without error', () => {
     const action = {
       type: t.SEARCH_REQUEST,
@@ -19,7 +18,6 @@ describe('Search reducer', () => {
     });
   });
 
-  // SEARCH_SUCCESS
   it('SEARCH_SUCCESS', () => {
     const stateBefore = {
       ...initialState,
@@ -49,7 +47,6 @@ describe('Search reducer', () => {
     });
   });
 
-  // SEARCH_FAILURE
   it('SEARCH_FAILURE', () => {
     const stateBefore = {
       ...initialState,

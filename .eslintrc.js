@@ -56,7 +56,7 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     'react/prop-types': 'off',
     'import/namespace': 'off',
-
+    'import/prefer-default-export': 'off',
     
     'prefer-destructuring': 'off',
     

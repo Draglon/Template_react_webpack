@@ -1,31 +1,26 @@
 import * as t from './actionTypes';
-import { getCookie } from '../../../helpers/cookie';
 
 export const initialState = {
   isLoading: false,
-  data: {
-    id: getCookie('accountId'),
-  },
+  data: {},
   error: null,
 };
 
-export const profileReducer = (state = initialState, action) => {
+export const createdListsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case t.PROFILE_REQUEST:
+    case t.CREATED_LISTS_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case t.PROFILE_SUCCESS:
+    case t.CREATED_LISTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        data: {
-          id: action.payload.id,
-        },
+        data: action.payload,
       };
-    case t.PROFILE_FAILURE:
+    case t.CREATED_LISTS_FAILURE:
       return {
         ...state,
         isLoading: false,

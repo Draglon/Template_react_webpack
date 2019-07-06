@@ -4,13 +4,12 @@ import { getCookie } from '../../../helpers/cookie';
 import { createListSuccess, createListFailure, addMovieSuccess, addMovieFailure } from './actions';
 import * as t from './actionTypes';
 
-// Create List
 export const createList = createLogic({
   type: t.CREATE_LIST_REQUEST,
 
   process({ action, apiClient }, dispatch, done) {
     apiClient
-      .post(`list?session_id=${getCookie('session_id')}`, {
+      .post(`list?session_id=${getCookie('sessionId')}`, {
         name: action.payload.listname,
         description: action.payload.description,
         language: 'en',

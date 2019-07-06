@@ -3,11 +3,10 @@ import { getCookie } from '../../../helpers/cookie';
 
 export const loginInitialState = {
   isLoading: false,
-  session_id: getCookie('session_id'),
+  sessionId: getCookie('sessionId'),
   error: null,
 };
 
-// Authentication
 export const loginReducer = (state = loginInitialState, action) => {
   switch (action.type) {
     case t.CREATE_SESSION_REQUEST:
@@ -20,7 +19,7 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        session_id: action.payload,
+        sessionId: action.payload,
       };
     case t.CREATE_SESSION_FAILURE:
       return {
@@ -38,7 +37,7 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        session_id: action.payload,
+        sessionId: action.payload,
       };
     case t.DELETE_SESSION_FAILURE:
       return {

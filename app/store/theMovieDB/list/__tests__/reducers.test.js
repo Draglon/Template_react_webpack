@@ -6,7 +6,6 @@ describe('Authentication reducer', () => {
     expect(createListReducer(undefined, {})).toEqual(createListInitialState);
   });
 
-  // CREATE LIST REQUEST
   it('CREATE_LIST_REQUEST after situation without error', () => {
     const action = {
       type: t.CREATE_LIST_REQUEST,
@@ -40,7 +39,6 @@ describe('Authentication reducer', () => {
     });
   });
 
-  // CREATE LIST SUCCESS
   it('CREATE_LIST_SUCCESS', () => {
     const stateBefore = {
       isLoading: true,
@@ -69,7 +67,6 @@ describe('Authentication reducer', () => {
     });
   });
 
-  // CREATE LIST FAILURE
   it('CREATE_LIST_FAILURE', () => {
     const stateBefore = {
       isLoading: true,

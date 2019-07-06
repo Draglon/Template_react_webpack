@@ -6,12 +6,11 @@ export const initialState = {
   error: null,
 };
 
-// Get favorite movie
 export const createListReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.FAVORITE_REQUEST:
       return {
-        ...initialState,
+        ...state,
         isLoading: true,
         error: null,
       };

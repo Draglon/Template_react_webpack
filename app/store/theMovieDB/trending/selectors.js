@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const getTrendingById = state => {
   const trending = state.reducers.trending.data;
   const entities = state.reducers.data.movies;
