@@ -8,7 +8,7 @@ const DashboardComponent = ({ onSearch, movies, page, currentPage, totalPages })
   <>
     <Search onSearch={onSearch} />
     <MovieList movies={movies} />
-    <Pagination currentPage={currentPage} page={page} totalPages={totalPages} />
+    <Pagination currentPage={currentPage} page={page} totalPages={totalPages * 10} />
   </>
 );
 

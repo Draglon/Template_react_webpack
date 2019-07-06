@@ -12,7 +12,7 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}`)
+      .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}&language=en-US`)
       .then(response => {
         const normalizeData = normalize(response.data.results, [movies]);
         dispatch(addEntities(normalizeData.entities));

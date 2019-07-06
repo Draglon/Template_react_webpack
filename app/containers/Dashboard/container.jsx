@@ -58,14 +58,9 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    const {
-      search: { query },
-    } = this.props;
-
     return (
       <DashboardComponent
         {...this.props}
-        query={query}
         onSearch={this.onSearch}
         movies={this.setMovies()}
         page={this.getPage}
