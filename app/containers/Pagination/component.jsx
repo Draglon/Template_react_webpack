@@ -10,7 +10,7 @@ const PaginationComponent = ({ page, currentPage, totalPages }) => (
             className="pagination"
             defaultCurrent={1}
             current={currentPage}
-            total={totalPages}
+            total={totalPages * 10}
             onChange={page}
           />
         </Col>

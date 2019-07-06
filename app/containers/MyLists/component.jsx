@@ -4,7 +4,14 @@ import { Row, Col, Card, Typography, Icon, Modal } from 'antd';
 import Pagination from '../Pagination';
 import CreateListModal from '../CreateListModal';
 
-const MyListsComponent = ({ myLists, showModal, showModalDelete, hideModal, modalVisible, page }) => (
+const MyListsComponent = ({
+  myLists,
+  showModal,
+  showModalDelete,
+  hideModal,
+  modalVisible,
+  page,
+}) => (
   <>
     {myLists && (
       <>
@@ -43,11 +50,17 @@ const MyListsComponent = ({ myLists, showModal, showModalDelete, hideModal, moda
             ))}
           </Col>
         </Row>
-        <Pagination currentPage={myLists.page} page={page} totalPages={myLists.totalPages * 10} />
+        <Pagination currentPage={myLists.page} page={page} totalPages={myLists.totalPages} />
       </>
     )}
 
-    <Modal visible={modalVisible} onCancel={hideModal} onOk={() => console.log('OnOk')} okText="Create" title="Create list">
+    <Modal
+      visible={modalVisible}
+      onCancel={hideModal}
+      onOk={() => console.log('OnOk')}
+      okText="Create"
+      title="Create list"
+    >
       <CreateListModal />
     </Modal>
   </>
