@@ -18,7 +18,7 @@ class MyListsContainer extends Component {
       modalVisible: false,
       name: '',
       description: '',
-      listnameError: '',
+      errorNameValidate: false,
     };
 
     this.showModal = () => {
@@ -56,10 +56,11 @@ class MyListsContainer extends Component {
     const { name, description } = this.state;
     if (name) {
       createList({ name, description });
+      this.setState({ errorNameValidate: false });
+      this.hideModal();
     } else {
-      // listnameError: {};
+      this.setState({ errorNameValidate: true });
     }
-    this.hideModal();
   };
 
   getPage = page => {
@@ -68,7 +69,7 @@ class MyListsContainer extends Component {
   };
 
   render() {
-    const { modalVisible } = this.state;
+    const { modalVisible, errorNameValidate } = this.state;
     return (
       <MyListsComponent
         {...this.props}
@@ -77,6 +78,7 @@ class MyListsContainer extends Component {
         showModalDelete={this.showModalDelete}
         hideModal={this.hideModal}
         modalVisible={modalVisible}
+        errorNameValidate={errorNameValidate}
         onChangeField={this.onChangeField}
         onAddList={this.onAddList}
       />

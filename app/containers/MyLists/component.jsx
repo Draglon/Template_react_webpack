@@ -13,6 +13,7 @@ const MyListsComponent = ({
   page,
   onAddList,
   onChangeField,
+  errorNameValidate,
 }) => (
   <>
     {myLists && (
@@ -62,7 +63,7 @@ const MyListsComponent = ({
       okText="Create"
       title="Create list"
     >
-      <CreateListModal onChangeField={onChangeField} />
+      <CreateListModal onChangeField={onChangeField} errorNameValidate={errorNameValidate} />
     </Modal>
   </>
 );
