@@ -6,6 +6,7 @@ import { searchReducer } from './search/reducers';
 import { trendingReducer } from './trending/reducers';
 import { movieReducer } from './movie/reducers';
 import { createdListsReducer, createListReducer, deleteListReducer } from './myLists/reducers';
+import { createFavoriteListReducer, addFavoriteReducer } from './favorite/reducers';
 
 import { dataReducer } from './data/reducers';
 
@@ -18,5 +19,7 @@ export default combineReducers({
   lists: createdListsReducer,
   list: createListReducer,
   deleteList: deleteListReducer,
+  favoriteList: createFavoriteListReducer,
+  addToFavorite: addFavoriteReducer,
   data: dataReducer,
 });

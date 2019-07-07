@@ -4,7 +4,18 @@ import { formatMoney, formatTime } from '../../helpers/format';
 
 import MovieDetails from '../MovieDetails';
 
-const MovieComponent = ({ movie, genres, cast, crew }) => (
+const MovieComponent = ({
+  movie,
+  genres,
+  cast,
+  crew,
+  modalVisible,
+  popoverVisible,
+  watchlist,
+  handleWatchlist,
+  bookmarked,
+  handleBookmark,
+}) => (
   <>
     {movie && genres && cast && crew && (
       <>
@@ -43,13 +54,13 @@ const MovieComponent = ({ movie, genres, cast, crew }) => (
               </Popover>{' '}
               <Icon
                 type="heart"
-                // theme={watchlist ? 'filled' : undefined}
-                // onClick={this.handleWatchlist}
+                theme={watchlist ? 'filled' : undefined}
+                onClick={handleWatchlist}
               />{' '}
               <Icon
                 type="book"
-                // theme={bookmarked ? 'filled' : undefined}
-                // onClick={this.handleBookmark}
+                theme={bookmarked ? 'filled' : undefined}
+                onClick={() => handleBookmark(movie.id)}
               />
             </Typography.Title>
             <Typography.Title level={3}>Overview</Typography.Title>

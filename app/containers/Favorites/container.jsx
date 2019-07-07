@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getFavoriteMovie } from '../../store/theMovieDB/favorite/selectors';
 import { favoriteRequest as favoriteRequestAction } from '../../store/theMovieDB/favorite/actions';
+import { getFavoriteMovie } from '../../store/theMovieDB/favorite/selectors';
 
 import FavoritesComponent from './component';
 
 class FavoritesContainer extends Component {
   componentDidMount() {
     const { favoriteRequest } = this.props;
-    favoriteRequest();
+    favoriteRequest({ page: 1 });
   }
 
   render() {
-    console.log(favorites);
-    return <FavoritesComponent />;
+    return <FavoritesComponent {...this.props} />;
   }
 }
 

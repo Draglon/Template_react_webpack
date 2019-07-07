@@ -1,1 +1,1 @@
-export const getFavoriteMovie = state => state.reducers.favorite.data;
+export const getFavoriteMovie = state => state.reducers.favoriteList.data;

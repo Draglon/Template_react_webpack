@@ -1,11 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { movieRequest } from '../../store/theMovieDB/movie/actions';
-import { getMovieById, getGenresById, getCastById, getCrewById } from '../../store/theMovieDB/movie/selectors';
+import { addToFvoriteRequest } from '../../store/theMovieDB/favorite/actions';
+
+import {
+  getMovieById,
+  getGenresById,
+  getCastById,
+  getCrewById,
+} from '../../store/theMovieDB/movie/selectors';
 
 import MovieComponent from './component';
 
 class MovieContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      modalVisible: false,
+      popoverVisible: false,
+      bookmarked: false,
+      watchlist: false,
+    };
+
+    this.handleVisiblePopover = visible => {
+      this.setState({ popoverVisible: visible });
+    };
+
+    this.showModal = () => {
+      this.setState({ modalVisible: true });
+    };
+
+    this.hideModal = () => {
+      this.setState({ modalVisible: false });
+    };
+
+    this.handleWatchlist = () => {
+      this.setState(state => ({ watchlist: !state.watchlist }));
+    };
+
+    this.handleBookmark = movieId => {
+      const { bookmarked } = this.state;
+      const { addFavorite } = this.props;
+      this.setState(state => ({ bookmarked: !state.bookmarked }));
+      addFavorite({ movieId, favorite: !bookmarked });
+    };
+  }
+
   componentDidMount() {
     const {
       setMovie,
@@ -17,7 +58,16 @@ class MovieContainer extends Component {
   }
 
   render() {
-    return <MovieComponent {...this.props} />;
+    const { bookmarked, watchlist } = this.state;
+    return (
+      <MovieComponent
+        {...this.props}
+        handleWatchlist={this.handleWatchlist}
+        watchlist={watchlist}
+        handleBookmark={this.handleBookmark}
+        bookmarked={bookmarked}
+      />
+    );
   }
 }
 
@@ -37,6 +87,7 @@ const mapStateToProps = (
 
 const mapDispatchToProps = {
   setMovie: movieRequest,
+  addFavorite: addToFvoriteRequest,
 };
 
 export default connect(
