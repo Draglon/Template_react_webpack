@@ -3,7 +3,7 @@ import { Row, Col, Pagination } from 'antd';
 
 const PaginationComponent = ({ page, currentPage, totalPages }) => (
   <>
-    {totalPages ? (
+    {totalPages > 1 ? (
       <Row type="flex" justify="center" className="top-padding">
         <Col>
           <Pagination

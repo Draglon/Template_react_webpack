@@ -55,7 +55,6 @@
 }
 
 .movie {
-
   &__details {
     display: flex;
     justify-content: flex-start;
@@ -64,5 +63,16 @@
 
   &__text {
     font-size: 14px;
+  }
+}
+
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+
+  .ant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

@@ -6,6 +6,8 @@ import {
   createdListsRequest,
   createdListsSuccess,
   createdListsFailure,
+  createListSuccess,
+  createListFailure,
   deleteListSuccess,
   deleteListFailure,
 } from './actions';
@@ -28,6 +30,23 @@ export const myListsLogic = createLogic({
   },
 });
 
+export const createList = createLogic({
+  type: t.CREATE_LIST_REQUEST,
+
+  process({ apiClient, getState, action }, dispatch, done) {
+    const sessionId = getSessionId(getState());
+    const { name, description } = action.payload;
+    apiClient
+      .post(`list?session_id=${sessionId}`, { name, description, language: 'en' })
+      .then(response => {
+        dispatch(createListSuccess(response.data));
+        dispatch(createdListsRequest({ page: 1 }));
+      })
+      .catch(error => dispatch(createListFailure(error)))
+      .then(() => done());
+  },
+});
+
 export const deleteListLogic = createLogic({
   type: t.DELETE_LIST_REQUEST,
 
@@ -37,10 +56,13 @@ export const deleteListLogic = createLogic({
     apiClient
       .delete(`list/${listId}?session_id=${sessionId}`)
       .then(response => {
-        dispatch(createdListsRequest({ paga: 1 }));
         dispatch(deleteListSuccess(response.data));
+        dispatch(createdListsRequest({ page: 1 }));
       })
-      .catch(error => dispatch(deleteListFailure(error)))
+      .catch(error => {
+        dispatch(deleteListFailure(error));
+        dispatch(createdListsRequest({ page: 1 }));
+      })
       .then(() => done());
   },
 });

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'antd';
-import { createdListsRequest, deleteListRequest } from '../../store/theMovieDB/myLists/actions';
+import {
+  createdListsRequest,
+  createListRequest,
+  deleteListRequest,
+} from '../../store/theMovieDB/myLists/actions';
 import { getCreatedLists } from '../../store/theMovieDB/myLists/selectors';
-import { createListRequest } from '../../store/theMovieDB/list/actions';
 
 import MyListsComponent from './component';
 
@@ -11,7 +14,12 @@ class MyListsContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { modalVisible: false };
+    this.state = {
+      modalVisible: false,
+      name: '',
+      description: '',
+      listnameError: '',
+    };
 
     this.showModal = () => {
       this.setState({ modalVisible: true });
@@ -38,6 +46,22 @@ class MyListsContainer extends Component {
     });
   };
 
+  onChangeField = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+  };
+
+  onAddList = () => {
+    const { createList } = this.props;
+    const { name, description } = this.state;
+    if (name) {
+      createList({ name, description });
+    } else {
+      // listnameError: {};
+    }
+    this.hideModal();
+  };
+
   getPage = page => {
     const { createdLists } = this.props;
     createdLists({ page });
@@ -53,6 +77,8 @@ class MyListsContainer extends Component {
         showModalDelete={this.showModalDelete}
         hideModal={this.hideModal}
         modalVisible={modalVisible}
+        onChangeField={this.onChangeField}
+        onAddList={this.onAddList}
       />
     );
   }

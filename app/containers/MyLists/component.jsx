@@ -11,6 +11,8 @@ const MyListsComponent = ({
   hideModal,
   modalVisible,
   page,
+  onAddList,
+  onChangeField,
 }) => (
   <>
     {myLists && (
@@ -19,14 +21,13 @@ const MyListsComponent = ({
           <Col offset={2} span={20}>
             <div className="top-margin">
               <Typography.Title>
-                My Lists
-                <Icon type="plus-circle" onClick={showModal} />
+                My Lists <Icon type="plus-circle" onClick={showModal} />
               </Typography.Title>
             </div>
           </Col>
         </Row>
         <Row gutter={8} type="flex">
-          <Col span={20} offset={2}>
+          <Col span={20} offset={2} className="lists">
             {myLists.results.map(item => (
               <Col
                 key={item.id}
@@ -57,11 +58,11 @@ const MyListsComponent = ({
     <Modal
       visible={modalVisible}
       onCancel={hideModal}
-      onOk={() => console.log('OnOk')}
+      onOk={onAddList}
       okText="Create"
       title="Create list"
     >
-      <CreateListModal />
+      <CreateListModal onChangeField={onChangeField} />
     </Modal>
   </>
 );
