@@ -6,6 +6,7 @@ export const initialState = {
     page: 1,
     results: [],
     totalPages: 0,
+    totalResults: 0,
   },
   error: null,
 };
@@ -26,6 +27,7 @@ export const createWatchlistListReducer = (state = initialState, action) => {
           page: action.payload.page,
           results: action.payload.results,
           totalPages: action.payload.total_pages,
+          totalResults: action.payload.total_results,
         },
       };
     case t.WATCHLIST_FAILURE:

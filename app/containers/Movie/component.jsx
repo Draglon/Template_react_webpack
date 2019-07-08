@@ -3,18 +3,16 @@ import { Row, Col, Carousel, Typography, Tag, Popover, Icon, Modal } from 'antd'
 import { formatMoney, formatTime } from '../../helpers/format';
 
 import MovieDetails from '../MovieDetails';
+import WatchlistIcon from './WatchlistIcon';
+import FavoriteIcon from './FavoriteIcon';
 
 const MovieComponent = ({
   movie,
   genres,
   cast,
   crew,
-  modalVisible,
-  popoverVisible,
-  watchlist,
-  handleWatchlist,
-  bookmarked,
-  handleBookmark,
+  // modalVisible,
+  // popoverVisible,
 }) => (
   <>
     {movie && genres && cast && crew && (
@@ -52,16 +50,8 @@ const MovieComponent = ({
               >
                 <Icon type="plus-circle" />
               </Popover>{' '}
-              <Icon
-                type="heart"
-                theme={watchlist ? 'filled' : undefined}
-                onClick={() => handleWatchlist(movie.id)}
-              />{' '}
-              <Icon
-                type="book"
-                theme={bookmarked ? 'filled' : undefined}
-                onClick={() => handleBookmark(movie.id)}
-              />
+              <WatchlistIcon movieId={movie.id} watchlist={movie.watchlist} />{' '}
+              <FavoriteIcon movieId={movie.id} favorite={movie.favorite} />
             </Typography.Title>
             <Typography.Title level={3}>Overview</Typography.Title>
             <Typography.Paragraph className="movie__text">{movie.overview}</Typography.Paragraph>

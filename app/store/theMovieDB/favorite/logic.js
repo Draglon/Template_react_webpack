@@ -1,4 +1,6 @@
 import { createLogic } from 'redux-logic';
+import { normalize } from 'normalizr';
+import { movies } from '../../schema';
 import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
@@ -9,6 +11,8 @@ import {
   addToFvoriteSuccess,
   addToFvoriteFailure,
 } from './actions';
+import { addEntities } from '../data/actions';
+import { movieRequest } from '../movie/actions';
 import * as t from './actionTypes';
 
 export const favoriteLogic = createLogic({
@@ -21,7 +25,14 @@ export const favoriteLogic = createLogic({
     apiClient
       .get(`account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        dispatch(favoriteSuccess(response.data));
+        const normalizeData = normalize(response.data.results, [movies]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          favoriteSuccess({
+            ...response.data,
+            results: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(favoriteFailure(error)))
       .then(() => done());
@@ -45,6 +56,7 @@ export const addToFavoriteLogic = createLogic({
       .then(response => {
         dispatch(addToFvoriteSuccess(response.data));
         dispatch(favoriteRequest({ page: 1 }));
+        dispatch(movieRequest({ movieId }));
       })
       .catch(error => dispatch(addToFvoriteFailure(error)))
       .then(() => done());

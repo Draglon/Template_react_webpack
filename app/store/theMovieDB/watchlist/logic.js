@@ -1,4 +1,6 @@
 import { createLogic } from 'redux-logic';
+import { normalize } from 'normalizr';
+import { movies } from '../../schema';
 import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
@@ -9,6 +11,8 @@ import {
   addToWatchlistSuccess,
   addToWatchlistFailure,
 } from './actions';
+import { addEntities } from '../data/actions';
+import { movieRequest } from '../movie/actions';
 import * as t from './actionTypes';
 
 export const watchlistLogic = createLogic({
@@ -21,7 +25,14 @@ export const watchlistLogic = createLogic({
     apiClient
       .get(`account/${accountId}/watchlist/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        dispatch(watchlistSuccess(response.data));
+        const normalizeData = normalize(response.data.results, [movies]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          watchlistSuccess({
+            ...response.data,
+            results: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(watchlistFailure(error)))
       .then(() => done());
@@ -45,6 +56,7 @@ export const addToWatchlistLogic = createLogic({
       .then(response => {
         dispatch(addToWatchlistSuccess(response.data));
         dispatch(watchlistRequest({ page: 1 }));
+        dispatch(movieRequest({ movieId }));
       })
       .catch(error => dispatch(addToWatchlistFailure(error)))
       .then(() => done());

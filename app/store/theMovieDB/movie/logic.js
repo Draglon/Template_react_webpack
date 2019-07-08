@@ -1,18 +1,22 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
 import { schemaMovie } from '../../schema';
+import { getSessionId } from '../login/selectors';
 
 import { movieSuccess, movieFailure } from './actions';
 import { addEntities } from '../data/actions';
 import * as t from './actionTypes';
 
-export default createLogic({
+export const movieLogic = createLogic({
   type: t.MOVIE_REQUEST,
 
-  process({ apiClient, action }, dispatch, done) {
-    const movieId = action.payload.id;
+  process({ apiClient, getState, action }, dispatch, done) {
+    const sessionId = getSessionId(getState());
+    const movieId = action.payload.movieId;
     let movie;
-    let details;
+    let credits;
+    let images;
+    let states;
 
     apiClient
       .get(`/movie/${movieId}`)
@@ -21,15 +25,21 @@ export default createLogic({
         return apiClient.get(`/movie/${movieId}/credits`);
       })
       .then(response => {
-        details = response.data;
+        credits = response.data;
         return apiClient.get(`/movie/${movieId}/images`);
       })
       .then(response => {
+        images = response.data;
+        return apiClient.get(`/movie/${movieId}/account_states?session_id=${sessionId}`);
+      })
+      .then(response => {
+        states = response.data;
         const data = {
           language: movie.spoken_languages[0].name,
           ...movie,
-          ...details,
-          ...response.data,
+          ...credits,
+          ...images,
+          ...states,
         };
         const normalizedData = normalize(data, schemaMovie);
         dispatch(addEntities(normalizedData.entities));

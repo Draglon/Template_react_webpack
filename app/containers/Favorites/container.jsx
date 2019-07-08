@@ -5,7 +5,7 @@ import {
   favoriteRequest as favoriteRequestAction,
   addToFvoriteRequest as addToFvoriteRequestAction,
 } from '../../store/theMovieDB/favorite/actions';
-import { getFavoriteMovie } from '../../store/theMovieDB/favorite/selectors';
+import { getFavoriteById } from '../../store/theMovieDB/favorite/selectors';
 
 import FavoritesComponent from './component';
 
@@ -42,7 +42,7 @@ class FavoritesContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  favorites: getFavoriteMovie(state),
+  favorites: getFavoriteById(state),
 });
 
 const mapDispatchToProps = {
