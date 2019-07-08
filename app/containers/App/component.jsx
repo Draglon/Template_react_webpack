@@ -20,11 +20,11 @@ const AppComponent = ({ isLogged }) => (
       <Layout.Content className="page">
         <Switch>
           <Route exact path="/" component={Home} />
-          <PrivateRoute exact path="/mylists" component={MyLists} isLogged={isLogged} />
-          <PrivateRoute exact path="/watchlist" component={Watchlist} isLogged={isLogged} />
-          <PrivateRoute exact path="/favorites" component={Favorites} isLogged={isLogged} />
-          <PrivateRoute exact path="/movie/:id" component={Movie} isLogged={isLogged} />
-          <PrivateRoute component={NotFound} isLogged={isLogged} />
+          <PrivateRoute exact path="/mylists" component={MyLists} />
+          <PrivateRoute exact path="/watchlist" component={Watchlist} />
+          <PrivateRoute exact path="/favorites" component={Favorites} />
+          <PrivateRoute exact path="/movie/:id" component={Movie} />
+          <PrivateRoute component={NotFound} />
         </Switch>
       </Layout.Content>
     </>

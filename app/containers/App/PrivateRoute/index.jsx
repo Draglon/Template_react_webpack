@@ -1,3 +1,3 @@
-import PrivateRoute from './component';
+import PrivateRoute from './container';
 
 export default PrivateRoute;
