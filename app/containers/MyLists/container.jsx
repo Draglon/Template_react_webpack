@@ -42,7 +42,7 @@ class MyListsContainer extends Component {
       onOk() {
         deleteList({ listId });
       },
-      onCancel() {},
+      // onCancel() {},
     });
   };
 

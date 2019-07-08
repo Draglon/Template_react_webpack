@@ -22,7 +22,6 @@ class WatchlistContainer extends Component {
       onOk() {
         addToWatchlistRequest({ movieId, watchlist: false });
       },
-      onCancel() {},
     });
   };
 

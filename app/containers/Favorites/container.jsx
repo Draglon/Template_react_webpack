@@ -20,9 +20,8 @@ class FavoritesContainer extends Component {
     Modal.confirm({
       title: 'Do you want to delete movie from favorites?',
       onOk() {
-        addToFvoriteRequest({ movieId, watchlist: false });
+        addToFvoriteRequest({ movieId, favorite: false });
       },
-      onCancel() {},
     });
   };
 

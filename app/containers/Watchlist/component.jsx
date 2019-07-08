@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Typography, Icon } from 'antd';
+import { Row, Col, Typography } from 'antd';
 
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
