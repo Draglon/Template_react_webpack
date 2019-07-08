@@ -11,8 +11,13 @@ class FavoritesContainer extends Component {
     favoriteRequest({ page: 1 });
   }
 
+  getPage = page => {
+    const { favoriteRequest } = this.props;
+    favoriteRequest({ page });
+  };
+
   render() {
-    return <FavoritesComponent {...this.props} />;
+    return <FavoritesComponent {...this.props} page={this.getPage} />;
   }
 }
 

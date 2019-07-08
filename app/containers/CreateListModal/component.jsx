@@ -3,7 +3,6 @@ import { Form, Input } from 'antd';
 
 const CreateListModalComponent = ({ onChangeField, errorNameValidate }) => (
   <Form>
-    {console.log(errorNameValidate)}
     <Form.Item
       validateStatus={errorNameValidate && 'error'}
       help={errorNameValidate && 'Should be required'}

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Typography, Modal, Icon, Pagination } from 'antd';
-import { range } from 'lodash';
+import { Row, Col, Typography, Modal, Icon } from 'antd';
 
 // const showDeleteMovieModal = () => {
 //   Modal.confirm({
@@ -11,9 +10,9 @@ import { range } from 'lodash';
 // };
 
 import MovieList from '../MovieList';
-// import Pagination from '../Pagination';
+import Pagination from '../Pagination';
 
-const FavoritesComponent = ({ favorites }) => (
+const FavoritesComponent = ({ favorites, page }) => (
   <>
     {favorites && (
       <>
@@ -25,11 +24,7 @@ const FavoritesComponent = ({ favorites }) => (
           </Col>
         </Row>
         <MovieList movies={favorites.results} />
-        <Row type="flex" justify="center">
-          <Col>
-            <Pagination defaultCurrent={1} total={50} className="pagination" />
-          </Col>
-        </Row>
+        <Pagination currentPage={favorites.page} page={page} totalPages={favorites.totalPages} />
       </>
     )}
   </>

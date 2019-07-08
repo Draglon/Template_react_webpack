@@ -55,7 +55,7 @@ const MovieComponent = ({
               <Icon
                 type="heart"
                 theme={watchlist ? 'filled' : undefined}
-                onClick={handleWatchlist}
+                onClick={() => handleWatchlist(movie.id)}
               />{' '}
               <Icon
                 type="book"

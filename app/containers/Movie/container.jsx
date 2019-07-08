@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { movieRequest } from '../../store/theMovieDB/movie/actions';
 import { addToFvoriteRequest } from '../../store/theMovieDB/favorite/actions';
+import { addToWatchlistRequest } from '../../store/theMovieDB/watchlist/actions';
 
 import {
   getMovieById,
@@ -17,26 +18,29 @@ class MovieContainer extends Component {
     super(props);
 
     this.state = {
-      modalVisible: false,
-      popoverVisible: false,
+      // modalVisible: false,
+      // popoverVisible: false,
       bookmarked: false,
       watchlist: false,
     };
 
-    this.handleVisiblePopover = visible => {
-      this.setState({ popoverVisible: visible });
-    };
+    // this.handleVisiblePopover = visible => {
+    //   this.setState({ popoverVisible: visible });
+    // };
 
-    this.showModal = () => {
-      this.setState({ modalVisible: true });
-    };
+    // this.showModal = () => {
+    //   this.setState({ modalVisible: true });
+    // };
 
-    this.hideModal = () => {
-      this.setState({ modalVisible: false });
-    };
+    // this.hideModal = () => {
+    //   this.setState({ modalVisible: false });
+    // };
 
-    this.handleWatchlist = () => {
+    this.handleWatchlist = movieId => {
+      const { watchlist } = this.state;
+      const { addWatchlist } = this.props;
       this.setState(state => ({ watchlist: !state.watchlist }));
+      addWatchlist({ movieId, watchlist: !watchlist });
     };
 
     this.handleBookmark = movieId => {
@@ -88,6 +92,7 @@ const mapStateToProps = (
 const mapDispatchToProps = {
   setMovie: movieRequest,
   addFavorite: addToFvoriteRequest,
+  addWatchlist: addToWatchlistRequest,
 };
 
 export default connect(

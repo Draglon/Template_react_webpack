@@ -10,15 +10,15 @@ export const initialState = {
   error: null,
 };
 
-export const createFavoriteListReducer = (state = initialState, action) => {
+export const createWatchlistListReducer = (state = initialState, action) => {
   switch (action.type) {
-    case t.FAVORITE_REQUEST:
+    case t.WATCHLIST_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case t.FAVORITE_SUCCESS:
+    case t.WATCHLIST_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -28,7 +28,7 @@ export const createFavoriteListReducer = (state = initialState, action) => {
           totalPages: action.payload.total_pages,
         },
       };
-    case t.FAVORITE_FAILURE:
+    case t.WATCHLIST_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -39,7 +39,7 @@ export const createFavoriteListReducer = (state = initialState, action) => {
   }
 };
 
-export const addFavoriteInitialState = {
+export const addWatchlistInitialState = {
   isLoading: false,
   data: {
     message: '',
@@ -47,15 +47,15 @@ export const addFavoriteInitialState = {
   error: null,
 };
 
-export const addToFavoriteReducer = (state = addFavoriteInitialState, action) => {
+export const addToWatchlistReducer = (state = addWatchlistInitialState, action) => {
   switch (action.type) {
-    case t.ADD_TO_FAVORITE_REQUEST:
+    case t.ADD_TO_WATCHLIST_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case t.ADD_TO_FAVORITE_SUCCESS:
+    case t.ADD_TO_WATCHLIST_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -63,7 +63,7 @@ export const addToFavoriteReducer = (state = addFavoriteInitialState, action) =>
           statusMessage: action.payload.message,
         },
       };
-    case t.ADD_TO_FAVORITE_FAILURE:
+    case t.ADD_TO_WATCHLIST_FAILURE:
       return {
         ...state,
         isLoading: false,
