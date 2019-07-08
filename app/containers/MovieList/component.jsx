@@ -1,9 +1,9 @@
 import React from 'react';
-import { Row, Col, Empty } from 'antd';
+import { Row, Col, Empty, Icon } from 'antd';
 
 import MovieItem from '../MovieItem';
 
-const MovieListComponent = ({ movies }) => (
+const MovieListComponent = ({ movies, actions }) => (
   <Row className="top-padding" type="flex" gutter={16}>
     <Col className="cards" span={20} offset={2}>
       {movies.length !== 0 && (
@@ -17,7 +17,12 @@ const MovieListComponent = ({ movies }) => (
               lg={{ span: 6 }}
               xl={{ span: 4 }}
             >
-              <MovieItem item={item} />
+              <MovieItem
+                item={item}
+                actions={
+                  actions && [<Icon key="delete" type="delete" onClick={() => actions(item.id)} />]
+                }
+              />
             </Col>
           ))}
         </>

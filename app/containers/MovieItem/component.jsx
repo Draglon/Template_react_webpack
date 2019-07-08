@@ -3,15 +3,21 @@ import { Link } from 'react-router-dom';
 import { Card } from 'antd';
 
 const cover = item => (
-  <img alt={item.title} src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
+  <Link to={`movie/${item.id}`}>
+    <img
+      className="movie__img"
+      alt={item.title}
+      src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+    />
+  </Link>
 );
 
-const MovieItemComponent = ({ item, item: { id, title, overview } }) => (
-  <Link to={`movie/${id}`}>
-    <Card className="top-margin" hoverable cover={cover(item)} actions={item}>
-      <Card.Meta className="text-size" title={title} description={overview} />
-    </Card>
-  </Link>
+const MovieItemComponent = ({ item, actions }) => (
+  <Card className="top-margin" hoverable cover={cover(item)} actions={actions}>
+    <Link to={`movie/${item.id}`}>
+      <Card.Meta className="text-size" title={item.title} description={item.overview} />
+    </Link>
+  </Card>
 );
 
 export default MovieItemComponent;

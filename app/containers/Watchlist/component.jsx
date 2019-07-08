@@ -1,19 +1,10 @@
 import React from 'react';
-import { Row, Col, Typography, Modal, Icon } from 'antd';
-import { range } from 'lodash';
-
-// const showDeleteMovieModal = () => {
-//   Modal.confirm({
-//     title: 'Do you want to delete movie from watchlist?',
-//     onOk() {},
-//     onCancel() {},
-//   });
-// };
+import { Row, Col, Typography, Icon } from 'antd';
 
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 
-const WatchlistComponent = ({ watchlist, page }) => (
+const WatchlistComponent = ({ watchlist, page, showDeleteMovieModal }) => (
   <>
     {watchlist && (
       <>
@@ -24,7 +15,7 @@ const WatchlistComponent = ({ watchlist, page }) => (
             </div>
           </Col>
         </Row>
-        <MovieList movies={watchlist.results} />
+        <MovieList movies={watchlist.results} actions={showDeleteMovieModal} />
         <Pagination currentPage={watchlist.page} page={page} totalPages={watchlist.totalPages} />
       </>
     )}

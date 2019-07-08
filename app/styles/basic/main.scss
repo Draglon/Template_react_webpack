@@ -55,6 +55,19 @@
 }
 
 .movie {
+  &__img {
+    width: 100%;
+  }
+
+  .ant-card-body {
+    padding: 0;
+  }
+
+  .ant-card-meta {
+    padding: 24px;
+  }
+
+
   &__details {
     display: flex;
     justify-content: flex-start;

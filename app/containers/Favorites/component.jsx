@@ -1,18 +1,10 @@
 import React from 'react';
 import { Row, Col, Typography, Modal, Icon } from 'antd';
 
-// const showDeleteMovieModal = () => {
-//   Modal.confirm({
-//     title: 'Do you want to delete movie from favorites?',
-//     onOk() {},
-//     onCancel() {},
-//   });
-// };
-
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 
-const FavoritesComponent = ({ favorites, page }) => (
+const FavoritesComponent = ({ favorites, page, showDeleteMovieModal }) => (
   <>
     {favorites && (
       <>
@@ -23,7 +15,7 @@ const FavoritesComponent = ({ favorites, page }) => (
             </div>
           </Col>
         </Row>
-        <MovieList movies={favorites.results} />
+        <MovieList movies={favorites.results} actions={showDeleteMovieModal} />
         <Pagination currentPage={favorites.page} page={page} totalPages={favorites.totalPages} />
       </>
     )}

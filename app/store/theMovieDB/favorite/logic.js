@@ -3,6 +3,7 @@ import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
 import {
+  favoriteRequest,
   favoriteSuccess,
   favoriteFailure,
   addToFvoriteSuccess,
@@ -20,7 +21,6 @@ export const favoriteLogic = createLogic({
     apiClient
       .get(`account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        console.log(response.data);
         dispatch(favoriteSuccess(response.data));
       })
       .catch(error => dispatch(favoriteFailure(error)))
@@ -36,14 +36,16 @@ export const addToFavoriteLogic = createLogic({
     const sessionId = getSessionId(getState());
     const movieId = action.payload.movieId;
     const favorite = action.payload.favorite;
-    console.log('movieId ', movieId, 'favorite ', favorite);
     apiClient
       .post(`account/${accountId}/favorite?session_id=${sessionId}`, {
         media_type: 'movie',
         media_id: movieId,
         favorite,
       })
-      .then(response => dispatch(addToFvoriteSuccess(response.data)))
+      .then(response => {
+        dispatch(addToFvoriteSuccess(response.data));
+        dispatch(favoriteRequest({ page: 1 }));
+      })
       .catch(error => dispatch(addToFvoriteFailure(error)))
       .then(() => done());
   },

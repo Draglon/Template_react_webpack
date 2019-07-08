@@ -3,6 +3,7 @@ import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
 import {
+  watchlistRequest,
   watchlistSuccess,
   watchlistFailure,
   addToWatchlistSuccess,
@@ -20,7 +21,6 @@ export const watchlistLogic = createLogic({
     apiClient
       .get(`account/${accountId}/watchlist/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        console.log(response.data);
         dispatch(watchlistSuccess(response.data));
       })
       .catch(error => dispatch(watchlistFailure(error)))
@@ -43,8 +43,8 @@ export const addToWatchlistLogic = createLogic({
         watchlist,
       })
       .then(response => {
-        console.log('movieId ', movieId, 'watchlist ', watchlist);
         dispatch(addToWatchlistSuccess(response.data));
+        dispatch(watchlistRequest({ page: 1 }));
       })
       .catch(error => dispatch(addToWatchlistFailure(error)))
       .then(() => done());
