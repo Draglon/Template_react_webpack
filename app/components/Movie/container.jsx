@@ -12,27 +12,6 @@ import {
 import MovieComponent from './component';
 
 class MovieContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    // this.state = {
-    //   modalVisible: false,
-    //   popoverVisible: false,
-    // };
-
-    // this.handleVisiblePopover = visible => {
-    //   this.setState({ popoverVisible: visible });
-    // };
-
-    // this.showModal = () => {
-    //   this.setState({ modalVisible: true });
-    // };
-
-    // this.hideModal = () => {
-    //   this.setState({ modalVisible: false });
-    // };
-  }
-
   componentDidMount() {
     const {
       setMovie,

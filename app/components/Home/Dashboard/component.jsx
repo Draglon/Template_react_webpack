@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Search from '../../Search';
-import MovieList from '../../MovieList';
+import Search from './Search';
+import MovieList from '../../../shared/lists/MovieList';
 import Pagination from '../../../shared/Pagination';
 
 const DashboardComponent = ({ onSearch, movies, page, currentPage, totalPages }) => (
