@@ -2,21 +2,15 @@
 
 exports[`<CreateListComponent /> component Render property 1`] = `
 <Fragment>
-  <h2
-    className="section__title"
-  >
-    Home page
-  </h2>
   <Formik
     enableReinitialize={false}
     initialValues={
       Object {
         "description": "",
-        "listname": "",
+        "name": "",
       }
     }
     isInitialValid={false}
-    onSubmit={[MockFunction]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -33,7 +27,7 @@ exports[`<CreateListComponent /> component Render property 1`] = `
         "_mutate": undefined,
         "_nodes": Array [
           "description",
-          "listname",
+          "name",
         ],
         "_options": Object {
           "abortEarly": true,
@@ -74,7 +68,7 @@ exports[`<CreateListComponent /> component Render property 1`] = `
               [Function],
             ],
           },
-          "listname": StringSchema {
+          "name": StringSchema {
             "_blacklist": RefSet {
               "list": Set {},
               "refs": Map {},

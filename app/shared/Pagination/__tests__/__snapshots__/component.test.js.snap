@@ -13,7 +13,7 @@ exports[`<PaginationComponent /> render property - with totalPages 1`] = `
         className="pagination"
         current={10}
         defaultCurrent={1}
-        total={10}
+        total={100}
       />
     </Col>
   </Row>
