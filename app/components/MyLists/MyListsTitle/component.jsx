@@ -1,12 +1,14 @@
 import React from 'react';
-import { Typography, Row, Col, Icon } from 'antd';
+import { Typography, Row, Col } from 'antd';
 
-const MyListsTitleComponent = ({ showModal }) => (
+import CreateListModal from '../../../shared/modal/CreateListModal';
+
+const MyListsTitleComponent = () => (
   <Row>
     <Col offset={2} span={20}>
       <div className="top-margin">
         <Typography.Title>
-          My Lists <Icon type="plus-circle" onClick={showModal} />
+          My Lists <CreateListModal icon="plus-circle" />
         </Typography.Title>
       </div>
     </Col>

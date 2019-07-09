@@ -7,29 +7,4 @@
   &__form {
     min-width: 32em;
   }
-
-  .form__field {
-    margin-bottom: 24px;
-    position: relative;
-
-    &--error {
-      input {
-        border: 1px solid $red;
-      }
-
-      div {
-        color: $red;
-        font-size: 12px;
-        position: absolute;
-        top: 100%;
-        left: 5px; 
-      }
-    }
-  }
-
-  &__error {
-    color: $red;
-    font-size: 14px;
-    margin-top: 1em;
-  }
 }
