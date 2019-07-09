@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Typography, Modal, Icon } from 'antd';
 
-import MovieList from '../MovieList';
+import MovieList from '../../shared/lists/MovieList';
 import Pagination from '../../shared/Pagination';
 
 const FavoritesComponent = ({ favorites, page, showDeleteMovieModal }) => (

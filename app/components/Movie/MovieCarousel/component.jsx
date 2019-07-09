@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Carousel } from 'antd';
 
-import Image from '../../../shared/Image';
+import Image from '../../../shared/images/Image';
 
 const MovieCarouselComponent = ({ backdrops, title }) => (
   <Row type="flex">

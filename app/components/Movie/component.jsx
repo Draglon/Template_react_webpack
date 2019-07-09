@@ -17,8 +17,8 @@ const MovieComponent = ({ movie, genres, cast, crew }) => (
         <MovieOverview title="overview" overview={movie.overview} />
         <MovieLabel title="Original Language" text={movie.language} />
         <MovieLabel title="Runtime" text={formatTime(movie.runtime)} />
-        <MovieLabel title="Budget" text={formatMoney(movie.budget)} />
-        <MovieLabel title="Revenue" text={formatMoney(movie.revenue)} />
+        <MovieLabel title="Budget" text={`$${formatMoney(movie.budget)}`} />
+        <MovieLabel title="Revenue" text={`$${formatMoney(movie.revenue)}`} />
         <MovieGenres title="Genres" genres={genres} />
         <MovieDetails movieDetails={cast} title="Casts" />
         <MovieDetails movieDetails={crew} title="Crew" />
