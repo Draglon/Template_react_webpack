@@ -8,25 +8,28 @@ class PopoverContainer extends Component {
     super(props);
 
     this.state = {
-      modalVisible: false,
       popoverVisible: false,
-    };
-
-    this.handleVisiblePopover = visible => {
-      this.setState({ popoverVisible: visible });
-    };
-
-    this.showModal = () => {
-      this.setState({ modalVisible: true });
-    };
-
-    this.hideModal = () => {
-      this.setState({ modalVisible: false });
     };
   }
 
+  closePopover = () => {
+    this.handleVisiblePopover(false);
+  };
+
+  handleVisiblePopover = visible => {
+    this.setState({ popoverVisible: visible });
+  };
+
   render() {
-    return <PopoverComponent {...this.props} />;
+    const { popoverVisible } = this.state;
+    return (
+      <PopoverComponent
+        {...this.props}
+        popoverVisible={popoverVisible}
+        handleVisiblePopover={this.handleVisiblePopover}
+        closePopover={this.closePopover}
+      />
+    );
   }
 }
 
