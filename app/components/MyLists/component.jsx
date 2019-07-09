@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, Typography, Icon, Modal } from 'antd';
 
-import Pagination from '../Pagination';
+import Pagination from '../../shared/Pagination';
 import CreateListModal from '../CreateListModal';
 
 const MyListsComponent = ({

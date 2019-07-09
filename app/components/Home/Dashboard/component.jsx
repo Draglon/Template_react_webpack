@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Search from '../../Search';
+import Search from './Search';
 import MovieList from '../../MovieList';
 import Pagination from '../../../shared/Pagination';
 
