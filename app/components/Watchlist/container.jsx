@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'antd';
+
 import {
   watchlistRequest as watchlistRequestAction,
   addToWatchlistRequest as addToWatchlistRequestAction,
@@ -15,27 +15,22 @@ class WatchlistContainer extends Component {
     watchlistRequest({ page: 1 });
   }
 
-  showDeleteMovieModal = movieId => {
-    const { addToWatchlistRequest } = this.props;
-    Modal.confirm({
-      title: 'Do you want to delete movie from watchlist?',
-      onOk() {
-        addToWatchlistRequest({ movieId, watchlist: false });
-      },
-    });
-  };
-
   getPage = page => {
     const { watchlistRequest } = this.props;
     watchlistRequest({ page });
   };
 
   render() {
+    const { addToWatchlistRequest } = this.props;
     return (
       <WatchlistComponent
         {...this.props}
         page={this.getPage}
-        showDeleteMovieModal={this.showDeleteMovieModal}
+        modalParams={{
+          title: 'Do you want to delete movie from watchlist?',
+          params: { watchlist: false },
+          onConfirm: addToWatchlistRequest,
+        }}
       />
     );
   }

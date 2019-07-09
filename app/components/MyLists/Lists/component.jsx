@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography, Row, Col, Card } from 'antd';
 
-import DeleteList from './DeleteList';
+import DeleteItemModal from '../../../shared/modal/DeleteItemModal';
 
-const ListsComponent = ({ lists }) => (
+const ListsComponent = ({ lists, onConfirm }) => (
   <Row gutter={8} type="flex">
     <Col span={20} offset={2} className="lists">
       {lists.map(item => (
@@ -15,7 +15,17 @@ const ListsComponent = ({ lists }) => (
           lg={{ span: 4 }}
           xl={{ span: 4 }}
         >
-          <Card hoverable className="top-margin" actions={[<DeleteList listId={item.id} />]}>
+          <Card
+            hoverable
+            className="top-margin"
+            actions={[
+              <DeleteItemModal
+                title="Do you want to delete list?"
+                params={{ movieId: item.id }}
+                onConfirm={onConfirm}
+              />,
+            ]}
+          >
             <Typography.Title level={4}>{item.name}</Typography.Title>
             {item.description}
           </Card>

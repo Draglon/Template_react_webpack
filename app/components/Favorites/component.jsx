@@ -1,10 +1,10 @@
 import React from 'react';
-import { Row, Col, Typography, Modal, Icon } from 'antd';
+import { Row, Col, Typography } from 'antd';
 
 import MovieList from '../../shared/lists/MovieList';
 import Pagination from '../../shared/Pagination';
 
-const FavoritesComponent = ({ favorites, page, showDeleteMovieModal }) => (
+const FavoritesComponent = ({ favorites, page, modalParams }) => (
   <>
     {favorites && (
       <>
@@ -15,7 +15,7 @@ const FavoritesComponent = ({ favorites, page, showDeleteMovieModal }) => (
             </div>
           </Col>
         </Row>
-        <MovieList movies={favorites.results} actions={showDeleteMovieModal} />
+        <MovieList movies={favorites.results} modalParams={modalParams} />
         <Pagination currentPage={favorites.page} page={page} totalPages={favorites.totalPages} />
       </>
     )}

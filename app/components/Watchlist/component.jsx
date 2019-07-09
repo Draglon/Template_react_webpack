@@ -4,7 +4,7 @@ import { Row, Col, Typography } from 'antd';
 import MovieList from '../../shared/lists/MovieList';
 import Pagination from '../../shared/Pagination';
 
-const WatchlistComponent = ({ watchlist, page, showDeleteMovieModal }) => (
+const WatchlistComponent = ({ watchlist, page, modalParams }) => (
   <>
     {watchlist && (
       <>
@@ -15,7 +15,7 @@ const WatchlistComponent = ({ watchlist, page, showDeleteMovieModal }) => (
             </div>
           </Col>
         </Row>
-        <MovieList movies={watchlist.results} actions={showDeleteMovieModal} />
+        <MovieList movies={watchlist.results} modalParams={modalParams} />
         <Pagination currentPage={watchlist.page} page={page} totalPages={watchlist.totalPages} />
       </>
     )}

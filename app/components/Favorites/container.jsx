@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'antd';
+
 import {
   favoriteRequest as favoriteRequestAction,
   addToFvoriteRequest as addToFvoriteRequestAction,
@@ -15,27 +15,22 @@ class FavoritesContainer extends Component {
     favoriteRequest({ page: 1 });
   }
 
-  showDeleteMovieModal = movieId => {
-    const { addToFvoriteRequest } = this.props;
-    Modal.confirm({
-      title: 'Do you want to delete movie from favorites?',
-      onOk() {
-        addToFvoriteRequest({ movieId, favorite: false });
-      },
-    });
-  };
-
   getPage = page => {
     const { favoriteRequest } = this.props;
     favoriteRequest({ page });
   };
 
   render() {
+    const { addToFvoriteRequest } = this.props;
     return (
       <FavoritesComponent
         {...this.props}
         page={this.getPage}
-        showDeleteMovieModal={this.showDeleteMovieModal}
+        modalParams={{
+          title: 'Do you want to delete movie from favorites?',
+          params: { favorite: false },
+          onConfirm: addToFvoriteRequest,
+        }}
       />
     );
   }
