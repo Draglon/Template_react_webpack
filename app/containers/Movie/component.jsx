@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Carousel, Typography, Tag, Popover, Icon, Modal } from 'antd';
 import { formatMoney, formatTime } from '../../helpers/format';
 
-import MovieDetails from '../MovieDetails';
+import MovieDetails from './MovieDetails';
 import WatchlistIcon from './WatchlistIcon';
 import FavoriteIcon from './FavoriteIcon';
 

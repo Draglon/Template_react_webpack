@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Empty, Icon } from 'antd';
 
-import MovieItem from '../MovieItem';
+import MovieItem from './MovieItem';
 
 const MovieListComponent = ({ movies, actions }) => (
   <Row className="top-padding" type="flex" gutter={16}>

@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Typography, Icon, Layout } from 'antd';
-import FormField from '../../shared/forms/FormField';
-import FormButton from '../../shared/forms/Button';
+import FormField from '../../../shared/forms/FormField';
+import FormButton from '../../../shared/forms/Button';
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string()

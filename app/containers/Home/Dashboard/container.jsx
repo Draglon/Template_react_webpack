@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { trendingRequest as trendingRequestAction } from '../../store/theMovieDB/trending/actions';
-import { getTrendingById } from '../../store/theMovieDB/trending/selectors';
-import { searchRequest as searchRequestAction } from '../../store/theMovieDB/search/actions';
-import { getSearchById } from '../../store/theMovieDB/search/selectors';
+import { trendingRequest as trendingRequestAction } from '../../../store/theMovieDB/trending/actions';
+import { getTrendingById } from '../../../store/theMovieDB/trending/selectors';
+import { searchRequest as searchRequestAction } from '../../../store/theMovieDB/search/actions';
+import { getSearchById } from '../../../store/theMovieDB/search/selectors';
 
 import DashboardComponent from './component';
 
