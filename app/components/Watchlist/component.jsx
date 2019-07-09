@@ -1,10 +1,10 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
 
-import MovieList from '../../shared/lists/MovieList';
+import MovieList from '../MovieList';
 import Pagination from '../../shared/Pagination';
 
-const WatchlistComponent = ({ watchlist, page, modalParams }) => (
+const WatchlistComponent = ({ watchlist, page, showDeleteMovieModal }) => (
   <>
     {watchlist && (
       <>
@@ -15,7 +15,7 @@ const WatchlistComponent = ({ watchlist, page, modalParams }) => (
             </div>
           </Col>
         </Row>
-        <MovieList movies={watchlist.results} modalParams={modalParams} />
+        <MovieList movies={watchlist.results} actions={showDeleteMovieModal} />
         <Pagination currentPage={watchlist.page} page={page} totalPages={watchlist.totalPages} />
       </>
     )}

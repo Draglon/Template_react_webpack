@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToFvoriteRequest as addToFvoriteRequestAction } from '../../../../store/theMovieDB/favorite/actions';
+import { addToFvoriteRequest as addToFvoriteRequestAction } from '../../../store/theMovieDB/favorite/actions';
 
 import FavoriteIconComponent from './component';
 
