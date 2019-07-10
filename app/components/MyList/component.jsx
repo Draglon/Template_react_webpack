@@ -2,16 +2,15 @@ import React from 'react';
 
 import MyListTitle from './MyListTitle';
 import MovieList from '../../shared/lists/MovieList';
-// import Pagination from '../../shared/Pagination';
+import Pagination from '../../shared/Pagination';
 
-const MyListComponent = ({ myList, page }) => (
+const MyListComponent = ({ myList, page, modalParams }) => (
   <>
     {myList && (
       <>
-        {console.log(myList)}
-        <MyListTitle />
-        <MovieList lists={myList.results} />
-        {/* <Pagination currentPage={myLists.page} page={page} totalPages={myLists.totalPages} /> */}
+        <MyListTitle myList={myList} />
+        <MovieList movies={myList.results} modalParams={modalParams} />
+        <Pagination currentPage={1} page={page} totalPages={myList.total / 20} />
       </>
     )}
   </>

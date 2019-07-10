@@ -8,6 +8,7 @@ import {
   createdListsFailure,
   createListSuccess,
   createListFailure,
+  detailsListRequest,
   detailsListSuccess,
   detailsListFailure,
   deleteListSuccess,
@@ -20,6 +21,7 @@ import {
   removeMovieListFailure,
   checkMovieListSuccess,
   checkMovieListFailure,
+  deleteListRequest,
 } from './actions';
 import * as t from './actionTypes';
 
@@ -135,7 +137,7 @@ export const removeMovieListLogic = createLogic({
 
   process({ apiClient, getState, action }, dispatch, done) {
     const listId = action.payload.listId;
-    const mediaId = action.payload.mediaId;
+    const mediaId = action.payload.movieId;
     const sessionId = getSessionId(getState());
     apiClient
       .post(`list/${listId}/remove_item?session_id=${sessionId}`, {
@@ -143,6 +145,7 @@ export const removeMovieListLogic = createLogic({
       })
       .then(response => {
         dispatch(removeMovieListSuccess(response.data));
+        dispatch(detailsListRequest({ listId }));
       })
       .catch(error => {
         dispatch(removeMovieListFailure(error));

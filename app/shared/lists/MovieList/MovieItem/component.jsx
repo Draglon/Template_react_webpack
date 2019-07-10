@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'antd';
 
 const cover = item => (
-  <Link to={`movie/${item.id}`}>
+  <Link to={`/movie/${item.id}`}>
     <img
       className="movie__img"
       alt={item.title}
@@ -14,7 +14,7 @@ const cover = item => (
 
 const MovieItemComponent = ({ item, actions }) => (
   <Card className="top-margin" hoverable cover={cover(item)} actions={actions}>
-    <Link to={`movie/${item.id}`}>
+    <Link to={`/movie/${item.id}`}>
       <Card.Meta className="text-size" title={item.title} description={item.overview} />
     </Link>
   </Card>
