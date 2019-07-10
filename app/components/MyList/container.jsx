@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import { createdListsRequest, createListRequest } from '../../store/theMovieDB/myLists/actions';
-// import { getCreatedLists } from '../../store/theMovieDB/myLists/selectors';
+import { detailsListRequest as detailsListRequestAction } from '../../store/theMovieDB/myLists/actions';
+import { getDetailsList } from '../../store/theMovieDB/myLists/selectors';
 
 import MyListComponent from './component';
 
 class MyListContainer extends Component {
   componentDidMount() {
-    // const { createdLists } = this.props;
-    // createdLists({ page: 1 });
+    const {
+      detailsListRequest,
+      match: {
+        params: { id },
+      },
+    } = this.props;
+    detailsListRequest({ listId: id });
   }
 
   getPage = page => {
@@ -23,12 +28,11 @@ class MyListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  // myLists: getCreatedLists(state),
+  myList: getDetailsList(state),
 });
 
 const mapDispatchToProps = {
-  // createdLists: createdListsRequest,
-  // createList: createListRequest,
+  detailsListRequest: detailsListRequestAction,
 };
 
 export default connect(

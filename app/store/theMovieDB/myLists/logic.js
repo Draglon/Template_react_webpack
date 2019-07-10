@@ -8,6 +8,8 @@ import {
   createdListsFailure,
   createListSuccess,
   createListFailure,
+  detailsListSuccess,
+  detailsListFailure,
   deleteListSuccess,
   deleteListFailure,
   clearListSuccess,
@@ -34,6 +36,21 @@ export const myListsLogic = createLogic({
         dispatch(createdListsSuccess(response.data));
       })
       .catch(error => dispatch(createdListsFailure(error)))
+      .then(() => done());
+  },
+});
+
+export const detailsListLogic = createLogic({
+  type: t.DETAILS_LIST_REQUEST,
+
+  process({ apiClient, action }, dispatch, done) {
+    const listId = action.payload.listId;
+    apiClient
+      .get(`list/${listId}?language=en-US`)
+      .then(response => {
+        dispatch(detailsListSuccess(response.data));
+      })
+      .catch(error => dispatch(detailsListFailure(error)))
       .then(() => done());
   },
 });
@@ -97,7 +114,7 @@ export const addMovieListLogic = createLogic({
 
   process({ apiClient, getState, action }, dispatch, done) {
     const listId = action.payload.listId;
-    const mediaId = action.payload.mediaId;
+    const mediaId = action.payload.movieId;
     const sessionId = getSessionId(getState());
     apiClient
       .post(`list/${listId}/add_item?session_id=${sessionId}`, {

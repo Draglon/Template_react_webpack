@@ -39,6 +39,49 @@ export const createdListsReducer = (state = initialState, action) => {
   }
 };
 
+export const detailsListInitialState = {
+  isLoading: false,
+  data: {
+    id: '',
+    title: '',
+    description: '',
+    results: [],
+    total: 0,
+  },
+  error: null,
+};
+
+export const detailsListReducer = (state = detailsListInitialState, action) => {
+  switch (action.type) {
+    case t.DETAILS_LIST_REQUEST:
+      return {
+        ...detailsListInitialState,
+        isLoading: true,
+        error: null,
+      };
+    case t.DETAILS_LIST_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        data: {
+          id: action.payload.id,
+          title: action.payload.name,
+          description: action.payload.description,
+          results: action.payload.items,
+          total: action.payload.item_count,
+        },
+      };
+    case t.DETAILS_LIST_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.message,
+      };
+    default:
+      return state;
+  }
+};
+
 export const createListInitialState = {
   isLoading: false,
   data: {
@@ -167,7 +210,7 @@ export const addMovieListReducer = (state = addMovieListInitialState, action) =>
         ...state,
         isLoading: false,
         data: {
-          message: action.payload.message,
+          message: action.payload.status_message,
         },
       };
     case t.ADD_MOVIE_LIST_FAILURE:
@@ -202,7 +245,7 @@ export const removeMovieListReducer = (state = removeMovieListInitialState, acti
         ...state,
         isLoading: false,
         data: {
-          message: action.payload.message,
+          message: action.payload.status_message,
         },
       };
     case t.REMOVE_MOVIE_LIST_FAILURE:
@@ -237,7 +280,7 @@ export const checkMovieListReducer = (state = checkMovieListInitialState, action
         ...state,
         isLoading: false,
         data: {
-          message: action.payload.message,
+          message: action.payload.status_message,
         },
       };
     case t.CHECK_MOVIE_LIST_FAILURE:

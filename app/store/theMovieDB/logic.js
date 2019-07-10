@@ -8,6 +8,7 @@ import { watchlistLogic, addToWatchlistLogic } from './watchlist/logic';
 import {
   myListsLogic,
   createList,
+  detailsListLogic,
   deleteListLogic,
   clearListLogic,
   addMovieListLogic,
@@ -28,6 +29,7 @@ export default [
   addToWatchlistLogic,
   myListsLogic,
   createList,
+  detailsListLogic,
   deleteListLogic,
   clearListLogic,
   addMovieListLogic,

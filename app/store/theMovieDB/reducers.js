@@ -10,6 +10,7 @@ import { createWatchlistListReducer, addToWatchlistReducer } from './watchlist/r
 import {
   createdListsReducer,
   createListReducer,
+  detailsListReducer,
   deleteListReducer,
   clearListReducer,
   addMovieListReducer,
@@ -31,6 +32,7 @@ export default combineReducers({
   addToWatchlist: addToWatchlistReducer,
   lists: createdListsReducer,
   list: createListReducer,
+  detailsList: detailsListReducer,
   deleteList: deleteListReducer,
   clearList: clearListReducer,
   addMovieList: addMovieListReducer,
