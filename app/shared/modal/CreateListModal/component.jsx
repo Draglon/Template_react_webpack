@@ -23,7 +23,7 @@ const CreateListModalComponent = ({
     <Modal
       visible={modalVisible}
       onCancel={hideModal}
-      // onOk={onSubmit}
+      onOk={onSubmit}
       okText="Create"
       title="Create list"
     >
