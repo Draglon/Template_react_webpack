@@ -26,7 +26,7 @@ class CreateListModalContainer extends Component {
     this.setState({ values });
   };
 
-  onCreateList = () => {
+  onSubmit = () => {
     const { createListRequest } = this.props;
     const { values } = this.state;
     if (values.name) {
@@ -44,7 +44,7 @@ class CreateListModalContainer extends Component {
         showModal={this.showModal}
         hideModal={this.hideModal}
         onValidate={this.onValidate}
-        onCreateList={this.onCreateList}
+        onSubmit={this.onSubmit}
       />
     );
   }

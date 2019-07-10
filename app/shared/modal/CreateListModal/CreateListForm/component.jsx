@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import FormField from '../../../forms/FormField';
 
-const LoginSchema = Yup.object().shape({
+const createListSchema = Yup.object().shape({
   name: Yup.string().required('Required name'),
   description: Yup.string().required('Required description'),
 });
@@ -12,7 +12,7 @@ const CreateListFormComponent = ({ onValidate }) => (
   <>
     <Formik
       initialValues={{ name: '', description: '' }}
-      validationSchema={LoginSchema}
+      validationSchema={createListSchema}
       validate={onValidate}
     >
       {() => (

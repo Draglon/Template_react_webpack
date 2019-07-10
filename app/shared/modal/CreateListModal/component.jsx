@@ -7,7 +7,7 @@ const CreateListModalComponent = ({
   modalVisible,
   showModal,
   hideModal,
-  onCreateList,
+  onSubmit,
   onValidate,
   icon = '',
   text = '',
@@ -23,7 +23,7 @@ const CreateListModalComponent = ({
     <Modal
       visible={modalVisible}
       onCancel={hideModal}
-      onOk={onCreateList}
+      // onOk={onSubmit}
       okText="Create"
       title="Create list"
     >
