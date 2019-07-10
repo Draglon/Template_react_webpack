@@ -21,7 +21,6 @@ import {
   removeMovieListFailure,
   checkMovieListSuccess,
   checkMovieListFailure,
-  deleteListRequest,
 } from './actions';
 import * as t from './actionTypes';
 

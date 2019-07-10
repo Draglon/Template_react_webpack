@@ -24,6 +24,7 @@ const ListsComponent = ({ lists, onConfirm }) => (
                 title="Do you want to delete list?"
                 params={{ listId: item.id }}
                 onConfirm={onConfirm}
+                type="delete"
               />,
             ]}
           >

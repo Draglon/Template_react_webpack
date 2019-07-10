@@ -1,14 +1,19 @@
 import React from 'react';
-import { Typography, Row, Col, Icon } from 'antd';
+import { Typography, Row, Col } from 'antd';
 
-// import DeleteListModal from '../../../shared/modal/DeleteListModal';
+import DeleteItemModal from '../../../shared/modal/DeleteItemModal';
 
-const MyListsTitleComponent = ({ myList }) => (
+const MyListsTitleComponent = ({ myList, modalParams }) => (
   <Row>
     <Col offset={2} span={20}>
       <div className="top-margin">
         <Typography.Title>
-          {myList.title} <Icon type="minus-circle" />
+          {myList.title}{' '}
+          <DeleteItemModal
+            title={modalParams.title}
+            onConfirm={modalParams.onConfirm}
+            type="minus-circle"
+          />
         </Typography.Title>
       </div>
     </Col>

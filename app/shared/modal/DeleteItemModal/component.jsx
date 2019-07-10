@@ -1,8 +1,8 @@
 import React from 'react';
 import { Icon } from 'antd';
 
-const DeleteItemModalComponent = ({ showModal }) => (
-  <Icon key="delete" type="delete" onClick={showModal} />
+const DeleteItemModalComponent = ({ type, showModal }) => (
+  <Icon key="delete" type={type} onClick={showModal} />
 );
 
 export default DeleteItemModalComponent;

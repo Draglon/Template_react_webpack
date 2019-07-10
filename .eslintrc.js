@@ -65,8 +65,10 @@ module.exports = {
     'react/no-unused-prop-types': 'off', 
     'react/jsx-one-expression-per-line': 'off',
     
-    "jsx-a11y/anchor-is-valid": ["error", { "components": ["Link"], "specialLink": ["to"] }],
-    "jsx-a11y/label-has-for": [2, { "required": { "every": ["id"] } }],
+    'jsx-a11y/anchor-is-valid': ["error", { "components": ["Link"], "specialLink": ["to"] }],
+    'jsx-a11y/label-has-for': [2, { "required": { "every": ["id"] } }],
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
 
     'prettier/prettier': ['error'],
   },

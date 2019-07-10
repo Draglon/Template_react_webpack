@@ -20,11 +20,6 @@ class MyListContainer extends Component {
     detailsListRequest({ listId: id });
   }
 
-  getPage = page => {
-    // const { createdLists } = this.props;
-    // createdLists({ page });
-  };
-
   render() {
     const {
       removeMovieListRequest,
@@ -35,7 +30,6 @@ class MyListContainer extends Component {
     return (
       <MyListComponent
         {...this.props}
-        page={this.getPage}
         modalParams={{
           title: 'Do you want to delete movie from this list?',
           params: { listId: id },

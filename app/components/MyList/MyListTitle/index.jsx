@@ -1,3 +1,3 @@
-import MyListsTitle from './component';
+import MyListsTitle from './container';
 
 export default MyListsTitle;
