@@ -1,7 +1,10 @@
 import { createLogic } from 'redux-logic';
+import { normalize } from 'normalizr';
+import { movies, lists } from '../../schema';
 import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
+import { addEntities } from '../data/actions';
 import {
   createdListsRequest,
   createdListsSuccess,
@@ -30,7 +33,14 @@ export const myListsLogic = createLogic({
     apiClient
       .get(`account/${accountId}/lists?session_id=${sessionId}&page=${page}&language=en-US`)
       .then(response => {
-        dispatch(createdListsSuccess(response.data));
+        const normalizeData = normalize(response.data.results, [lists]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          createdListsSuccess({
+            ...response.data,
+            results: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(createdListsFailure(error)))
       .then(() => done());
@@ -45,7 +55,14 @@ export const detailsListLogic = createLogic({
     apiClient
       .get(`list/${listId}?language=en-US`)
       .then(response => {
-        dispatch(detailsListSuccess(response.data));
+        const normalizeData = normalize(response.data.items, [movies]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          detailsListSuccess({
+            ...response.data,
+            items: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(detailsListFailure(error)))
       .then(() => done());
