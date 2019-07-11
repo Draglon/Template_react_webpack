@@ -2,33 +2,42 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import PropTypes from 'prop-types';
 
 import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
 
-import MyListComponent from './component';
+import MyListsTitleComponent from './component';
 
-class MyListContainer extends Component {
+class MyListsTitleContainer extends Component {
   redirectToLists = () => {
     const { history } = this.props;
     return history.push('/myLists');
   };
 
-  render() {
+  onConfirm = () => {
     const { deleteListRequest, myList } = this.props;
+    deleteListRequest({ listId: myList.id });
+    this.redirectToLists();
+  };
+
+  render() {
     return (
-      <MyListComponent
+      <MyListsTitleComponent
         {...this.props}
         modalParams={{
           title: 'Do you want to delete list?',
-          onConfirm: () => {
-            deleteListRequest({ listId: myList.id });
-            this.redirectToLists();
-          },
+          onConfirm: this.onConfirm,
         }}
       />
     );
   }
 }
+
+MyListsTitleContainer.propTypes = {
+  deleteListRequest: PropTypes.func.isRequired,
+  myList: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
 
 const mapDispatchToProps = {
   deleteListRequest: deleteListRequestAction,
@@ -40,4 +49,4 @@ export default compose(
     mapDispatchToProps,
   ),
   withRouter,
-)(MyListContainer);
+)(MyListsTitleContainer);
