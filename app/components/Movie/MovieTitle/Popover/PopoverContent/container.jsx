@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { createdListsRequest as createdListsRequestAction } from '../../../../../store/theMovieDB/myLists/actions';
-import { getCreatedLists } from '../../../../../store/theMovieDB/myLists/selectors';
+import { getCreatedListsById } from '../../../../../store/theMovieDB/myLists/selectors';
 
 import PopoverContentComponent from './component';
 
@@ -18,7 +18,7 @@ class PopoverContentContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  myLists: getCreatedLists(state),
+  myLists: getCreatedListsById(state),
 });
 
 const mapDispatchToProps = {
