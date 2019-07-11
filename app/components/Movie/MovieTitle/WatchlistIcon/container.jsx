@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addToWatchlistRequest as addToWatchlistRequestAction } from '../../../../store/theMovieDB/watchlist/actions';
 
 import WatchlistIconComponent from './component';
@@ -14,6 +15,12 @@ class WatchlistIconContainer extends Component {
     return <WatchlistIconComponent {...this.props} handleWatchlist={this.handleWatchlist} />;
   }
 }
+
+WatchlistIconContainer.propTypes = {
+  addToWatchlistRequest: PropTypes.func.isRequired,
+  movieId: PropTypes.number.isRequired,
+  watchlist: PropTypes.bool.isRequired,
+};
 
 const mapDispatchToProps = {
   addToWatchlistRequest: addToWatchlistRequestAction,

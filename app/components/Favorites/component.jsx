@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography } from 'antd';
 
 import MovieList from '../../shared/lists/MovieList';
@@ -21,5 +22,11 @@ const FavoritesComponent = ({ favorites, page, modalParams }) => (
     )}
   </>
 );
+
+FavoritesComponent.propTypes = {
+  favorites: PropTypes.object.isRequired,
+  page: PropTypes.func.isRequired,
+  modalParams: PropTypes.object.isRequired,
+};
 
 export default FavoritesComponent;

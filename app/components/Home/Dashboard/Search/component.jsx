@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Input } from 'antd';
 
 const SearchComponent = ({ onSearch }) => (
@@ -19,5 +20,9 @@ const SearchComponent = ({ onSearch }) => (
     </Col>
   </Row>
 );
+
+SearchComponent.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default SearchComponent;
