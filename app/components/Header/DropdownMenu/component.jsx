@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
@@ -21,5 +22,9 @@ const DropdownMenuComponent = ({ deleteSessionRequest }) => (
     <Menu.Item onClick={deleteSessionRequest}>Logout</Menu.Item>
   </Menu>
 );
+
+DropdownMenuComponent.propTypes = {
+  deleteSessionRequest: PropTypes.func.isRequired,
+};
 
 export default DropdownMenuComponent;

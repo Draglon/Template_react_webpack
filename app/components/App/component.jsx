@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
@@ -32,5 +33,9 @@ const AppComponent = ({ isLogged }) => (
     </>
   </Router>
 );
+
+AppComponent.propTypes = {
+  isLogged: PropTypes.string.isRequired,
+};
 
 export default AppComponent;

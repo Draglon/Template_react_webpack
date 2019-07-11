@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography } from 'antd';
 
 const MovieLabelComponent = ({ title, text }) => (
@@ -11,5 +12,10 @@ const MovieLabelComponent = ({ title, text }) => (
     </Col>
   </Row>
 );
+
+MovieLabelComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default MovieLabelComponent;

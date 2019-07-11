@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { movieRequest } from '../../store/theMovieDB/movie/actions';
+import PropTypes from 'prop-types';
+import { movieRequest as movieRequestAction } from '../../store/theMovieDB/movie/actions';
 
 import {
   getMovieById,
@@ -14,12 +15,12 @@ import MovieComponent from './component';
 class MovieContainer extends Component {
   componentDidMount() {
     const {
-      setMovie,
+      movieRequest,
       match: {
         params: { id },
       },
     } = this.props;
-    setMovie({ movieId: id });
+    movieRequest({ movieId: id });
   }
 
   render() {
@@ -41,8 +42,23 @@ const mapStateToProps = (
   crew: getCrewById(state, id),
 });
 
+MovieContainer.defaultProps = {
+  movie: null,
+  genres: [],
+  cast: [],
+  crew: [],
+};
+
+MovieContainer.propTypes = {
+  movieRequest: PropTypes.func.isRequired,
+  movie: PropTypes.object,
+  genres: PropTypes.array,
+  cast: PropTypes.array,
+  crew: PropTypes.array,
+};
+
 const mapDispatchToProps = {
-  setMovie: movieRequest,
+  movieRequest: movieRequestAction,
 };
 
 export default connect(

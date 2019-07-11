@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography, Card } from 'antd';
 
 import Image from '../../../shared/images/Image';
@@ -33,5 +34,10 @@ const MovieDetailsComponent = ({ movieDetails, title }) => (
     </Row>
   </>
 );
+
+MovieDetailsComponent.propTypes = {
+  movieDetails: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default MovieDetailsComponent;

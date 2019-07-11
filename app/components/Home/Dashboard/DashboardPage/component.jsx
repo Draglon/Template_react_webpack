@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Search from '../Search';
 import MovieList from '../../../../shared/lists/MovieList';
@@ -11,5 +12,11 @@ const DashboardComponent = ({ trending, onSearch, page }) => (
     <Pagination currentPage={trending.page} page={page} totalPages={trending.totalPages} />
   </>
 );
+
+DashboardComponent.propTypes = {
+  page: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
+  trending: PropTypes.object.isRequired,
+};
 
 export default DashboardComponent;
