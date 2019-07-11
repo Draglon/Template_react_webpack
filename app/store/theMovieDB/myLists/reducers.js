@@ -154,41 +154,6 @@ export const deleteListReducer = (state = deleteListInitialState, action) => {
   }
 };
 
-export const clearListInitialState = {
-  isLoading: false,
-  data: {
-    message: '',
-  },
-  error: null,
-};
-
-export const clearListReducer = (state = clearListInitialState, action) => {
-  switch (action.type) {
-    case t.CLEAR_LIST_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: null,
-      };
-    case t.CLEAR_LIST_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        data: {
-          message: action.payload.message,
-        },
-      };
-    case t.CLEAR_LIST_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.payload.message,
-      };
-    default:
-      return state;
-  }
-};
-
 export const addMovieListInitialState = {
   isLoading: false,
   data: {
@@ -249,41 +214,6 @@ export const removeMovieListReducer = (state = removeMovieListInitialState, acti
         },
       };
     case t.REMOVE_MOVIE_LIST_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.payload.message,
-      };
-    default:
-      return state;
-  }
-};
-
-export const checkMovieListInitialState = {
-  isLoading: false,
-  data: {
-    message: '',
-  },
-  error: null,
-};
-
-export const checkMovieListReducer = (state = checkMovieListInitialState, action) => {
-  switch (action.type) {
-    case t.CHECK_MOVIE_LIST_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: null,
-      };
-    case t.CHECK_MOVIE_LIST_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        data: {
-          message: action.payload.status_message,
-        },
-      };
-    case t.CHECK_MOVIE_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,

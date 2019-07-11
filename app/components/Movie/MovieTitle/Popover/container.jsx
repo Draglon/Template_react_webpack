@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import PopoverComponent from './component';
 
@@ -33,7 +32,4 @@ class PopoverContainer extends Component {
   }
 }
 
-export default connect(
-  null,
-  null,
-)(PopoverContainer);
+export default PopoverContainer;
