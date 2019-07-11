@@ -21,7 +21,7 @@ const ListsComponent = ({ lists, onConfirm }) => (
             actions={[
               <DeleteItemModal
                 title="Do you want to delete list?"
-                params={{ movieId: item.id }}
+                params={{ listId: item.id }}
                 onConfirm={onConfirm}
               />,
             ]}

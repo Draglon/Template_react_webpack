@@ -1,23 +1,26 @@
 .form {
-  &__field {
-    margin-bottom: 1em;
-    min-width: 300px;
+  .form__field {
+    margin-bottom: 24px;
+    position: relative;
+
+    &--error {
+      input {
+        border: 1px solid $red;
+      }
+
+      div {
+        color: $red;
+        font-size: 12px;
+        position: absolute;
+        top: 100%;
+        left: 5px; 
+      }
+    }
   }
 
   &__error {
     color: $red;
-    font-size: $font-size12;
-    margin-top: 3px;
-    margin-left: 5px;
+    font-size: 14px;
+    margin-top: 1em;
   }
-}
-
-input {
-  padding: 0 15px;
-  height: 30px;
-  width: 100%;
-}
-
-.btn-submit {
-  min-width: 200px;
 }
