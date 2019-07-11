@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
-import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
 
+import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
 import { getProfileById } from '../../store/theMovieDB/profile/selectors';
 
 import HeaderComponent from './component';
@@ -24,7 +23,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   profileRequest: profileRequestAction,
-  removeSessionId: deleteSessionRequest,
 };
 
 export default connect(
