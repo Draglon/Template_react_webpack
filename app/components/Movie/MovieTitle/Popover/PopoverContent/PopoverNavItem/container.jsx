@@ -17,6 +17,17 @@ class PopoverNavItemContainer extends Component {
   }
 }
 
+PopoverNavItemContainer.defaultProps = {
+  closePopover: null,
+};
+
+PopoverNavItemContainer.propTypes = {
+  addMovieListRequest: PropTypes.func.isRequired,
+  closePopover: PropTypes.func,
+  list: PropTypes.object.isRequired,
+  movieId: PropTypes.number.isRequired,
+};
+
 const mapDispatchToProps = {
   addMovieListRequest: addMovieListRequestAction,
 };
