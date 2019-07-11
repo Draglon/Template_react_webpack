@@ -34,8 +34,12 @@ const AppComponent = ({ isLogged }) => (
   </Router>
 );
 
+AppComponent.defaultProps = {
+  isLogged: '',
+};
+
 AppComponent.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  isLogged: PropTypes.string,
 };
 
 export default AppComponent;
