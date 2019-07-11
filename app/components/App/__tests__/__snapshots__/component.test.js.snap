@@ -11,33 +11,28 @@ exports[`<AppComponent /> component Render property - isLogged: false 1`] = `
         exact={true}
         path="/"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={false}
         path="/mylists"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={false}
         path="/watchlist"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={false}
         path="/favorites"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={false}
         path="/movie/:id"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
-        isLogged={false}
       />
     </Switch>
   </Adapter>
@@ -56,33 +51,28 @@ exports[`<AppComponent /> component Render property - isLogged: true 1`] = `
         exact={true}
         path="/"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={true}
         path="/mylists"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={true}
         path="/watchlist"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={true}
         path="/favorites"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
         exact={true}
-        isLogged={true}
         path="/movie/:id"
       />
-      <PrivateRouteComponent
+      <Connect(PrivateRouteComponent)
         component={[Function]}
-        isLogged={true}
       />
     </Switch>
   </Adapter>

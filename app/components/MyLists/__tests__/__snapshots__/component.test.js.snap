@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MyListsComponent /> container render property 1`] = `
-<Fragment>
-  <h1>
-    My Lists
-  </h1>
-</Fragment>
-`;
+exports[`<MyListsComponent /> container render property 1`] = `<Fragment />`;

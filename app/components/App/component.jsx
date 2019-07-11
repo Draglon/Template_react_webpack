@@ -6,6 +6,7 @@ import Header from '../Header';
 
 import Home from '../Home';
 import MyLists from '../MyLists';
+import MyList from '../MyList';
 import Watchlist from '../Watchlist';
 import Favorites from '../Favorites';
 import Movie from '../Movie';
@@ -24,6 +25,7 @@ const AppComponent = ({ isLogged }) => (
           <PrivateRoute exact path="/watchlist" component={Watchlist} />
           <PrivateRoute exact path="/favorites" component={Favorites} />
           <PrivateRoute exact path="/movie/:id" component={Movie} />
+          <PrivateRoute exact path="/list/:id" component={MyList} />
           <PrivateRoute component={NotFound} />
         </Switch>
       </Layout.Content>

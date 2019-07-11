@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Typography, Row, Col, Card } from 'antd';
 
 import DeleteItemModal from '../../../shared/modal/DeleteItemModal';
@@ -23,11 +24,14 @@ const ListsComponent = ({ lists, onConfirm }) => (
                 title="Do you want to delete list?"
                 params={{ listId: item.id }}
                 onConfirm={onConfirm}
+                type="delete"
               />,
             ]}
           >
-            <Typography.Title level={4}>{item.name}</Typography.Title>
-            {item.description}
+            <Link to={`list/${item.id}`}>
+              <Typography.Title level={4}>{item.name}</Typography.Title>
+              {item.description}
+            </Link>
           </Card>
         </Col>
       ))}

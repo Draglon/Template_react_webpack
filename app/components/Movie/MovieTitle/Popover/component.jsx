@@ -1,30 +1,18 @@
 import React from 'react';
 import { Popover, Icon } from 'antd';
 
-const PopoverComponent = () => (
+import PopoverContent from './PopoverContent';
+
+const PopoverComponent = ({ popoverVisible, closePopover, handleVisiblePopover, movieId }) => (
   <Popover
     title="Add movie to list"
     trigger="click"
-    // visible={popoverVisible}
-    // onVisibleChange={this.handleVisiblePopover}
-    // content={
-    //   <PopoverContent
-    //     openModal={this.showModal}
-    //     closePopover={() => this.handleVisiblePopover(false)}
-    //   />
-    // }
+    visible={popoverVisible}
+    onVisibleChange={handleVisiblePopover}
+    content={<PopoverContent closePopover={closePopover} movieId={movieId} />}
   >
     <Icon type="plus-circle" />
   </Popover>
-
-  /* <Modal
-    // visible={modalVisible}
-    onCancel={this.hideModal}
-    okText="Create"
-    title="Create list"
-  >
-    <CreateListModal />
-  </Modal> */
 );
 
 export default PopoverComponent;

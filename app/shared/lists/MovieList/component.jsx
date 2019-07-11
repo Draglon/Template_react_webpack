@@ -26,6 +26,7 @@ const MovieListComponent = ({ movies, modalParams }) => (
                       title={modalParams.title}
                       params={{ movieId: item.id, ...modalParams.params }}
                       onConfirm={modalParams.onConfirm}
+                      type="delete"
                     />,
                   ]
                 }

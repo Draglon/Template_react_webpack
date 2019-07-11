@@ -1,145 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MovieItemComponent /> Render property - movieDetails with data 1`] = `
-<Row
-  gutter={8}
-  type="flex"
->
-  <Col
-    className="movie__details"
-    offset={2}
-    span={20}
+<Fragment>
+  <Row
+    gutter={0}
   >
     <Col
-      key="1"
-      lg={
-        Object {
-          "span": 4,
-        }
-      }
-      md={
-        Object {
-          "span": 6,
-        }
-      }
-      sm={
-        Object {
-          "span": 8,
-        }
-      }
-      xl={
-        Object {
-          "span": 4,
-        }
-      }
-      xs={
-        Object {
-          "span": 12,
-        }
-      }
+      className="top-margin"
+      offset={2}
+      span={10}
     >
-      <Card
-        className="top-margin"
-        cover={
-          <img
-            src="https://image.tmdb.org/t/p/original/undefined"
-          />
-        }
-      >
-        <Meta />
-      </Card>
+      <Title
+        level={3}
+      />
     </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
     <Col
-      key="2"
-      lg={
-        Object {
-          "span": 4,
-        }
-      }
-      md={
-        Object {
-          "span": 6,
-        }
-      }
-      sm={
-        Object {
-          "span": 8,
-        }
-      }
-      xl={
-        Object {
-          "span": 4,
-        }
-      }
-      xs={
-        Object {
-          "span": 12,
-        }
-      }
+      className="movie__details"
+      offset={2}
+      span={20}
     >
-      <Card
-        className="top-margin"
-        cover={
-          <img
-            src="https://image.tmdb.org/t/p/original/undefined"
-          />
+      <Col
+        key="1"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
         }
       >
-        <Meta />
-      </Card>
-    </Col>
-    <Col
-      key="3"
-      lg={
-        Object {
-          "span": 4,
+        <Card
+          className="top-margin"
+          cover={
+            <img
+              src="https://image.tmdb.org/t/p/original/undefined"
+            />
+          }
+        >
+          <Meta />
+        </Card>
+      </Col>
+      <Col
+        key="2"
+        lg={
+          Object {
+            "span": 4,
+          }
         }
-      }
-      md={
-        Object {
-          "span": 6,
+        md={
+          Object {
+            "span": 6,
+          }
         }
-      }
-      sm={
-        Object {
-          "span": 8,
+        sm={
+          Object {
+            "span": 8,
+          }
         }
-      }
-      xl={
-        Object {
-          "span": 4,
+        xl={
+          Object {
+            "span": 4,
+          }
         }
-      }
-      xs={
-        Object {
-          "span": 12,
-        }
-      }
-    >
-      <Card
-        className="top-margin"
-        cover={
-          <img
-            src="https://image.tmdb.org/t/p/original/undefined"
-          />
+        xs={
+          Object {
+            "span": 12,
+          }
         }
       >
-        <Meta />
-      </Card>
+        <Card
+          className="top-margin"
+          cover={
+            <img
+              src="https://image.tmdb.org/t/p/original/undefined"
+            />
+          }
+        >
+          <Meta />
+        </Card>
+      </Col>
+      <Col
+        key="3"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="top-margin"
+          cover={
+            <img
+              src="https://image.tmdb.org/t/p/original/undefined"
+            />
+          }
+        >
+          <Meta />
+        </Card>
+      </Col>
     </Col>
-  </Col>
-</Row>
+  </Row>
+</Fragment>
 `;
 
 exports[`<MovieItemComponent /> Render property - movieDetails without data 1`] = `
-<Row
-  gutter={8}
-  type="flex"
->
-  <Col
-    className="movie__details"
-    offset={2}
-    span={20}
-  />
-</Row>
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      />
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      className="movie__details"
+      offset={2}
+      span={20}
+    />
+  </Row>
+</Fragment>
 `;

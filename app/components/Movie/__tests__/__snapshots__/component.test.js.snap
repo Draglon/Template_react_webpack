@@ -2,225 +2,87 @@
 
 exports[`<MovieComponent /> Render snapshot - movie 1`] = `
 <Fragment>
-  <Row
-    gutter={0}
-    type="flex"
-  >
-    <Col
-      span={24}
-    >
-      <Carousel
-        arrows={false}
-        autoplay={true}
-        dots={true}
-        draggable={false}
-      >
-        <div
-          key="0"
-        >
-          <img
-            alt="some title"
-            className="movie-image"
-            src="https://image.tmdb.org/t/p/originalpath"
-          />
-        </div>
-        <div
-          key="1"
-        >
-          <img
-            alt="some title"
-            className="movie-image"
-            src="https://image.tmdb.org/t/p/originalpath"
-          />
-        </div>
-        <div
-          key="2"
-        >
-          <img
-            alt="some title"
-            className="movie-image"
-            src="https://image.tmdb.org/t/p/originalpath"
-          />
-        </div>
-      </Carousel>
-    </Col>
-  </Row>
-  <Row
-    className="top-margin"
-    gutter={0}
-  >
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Title>
-        <span>
-          some title
-        </span>
-         
-        <Popover
-          mouseEnterDelay={0.1}
-          mouseLeaveDelay={0.1}
-          overlayStyle={Object {}}
-          placement="top"
-          title="Add movie to list"
-          transitionName="zoom-big"
-          trigger="click"
-        >
-          <Icon
-            type="plus-circle"
-          />
-        </Popover>
-         
-        <Icon
-          type="heart"
-        />
-         
-        <Icon
-          type="book"
-        />
-      </Title>
-      <Title
-        level={3}
-      >
-        Overview
-      </Title>
-      <Paragraph
-        className="movie__text"
-      >
-        some overview
-      </Paragraph>
-    </Col>
-  </Row>
-  <Row
-    gutter={0}
-  >
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Paragraph
-        className="movie__text"
-      >
-        <b>
-          Original Language: 
-        </b>
-        <span>
-          English
-        </span>
-      </Paragraph>
-    </Col>
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Paragraph
-        className="movie__text"
-      >
-        <b>
-          Runtime: 
-        </b>
-        <span>
-          2h 20m
-        </span>
-      </Paragraph>
-    </Col>
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Paragraph
-        className="movie__text"
-      >
-        <b>
-          Budget: 
-        </b>
-        <span>
-          $
-          100,000.00
-        </span>
-      </Paragraph>
-    </Col>
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Paragraph
-        className="movie__text"
-      >
-        <b>
-          Revenue: 
-        </b>
-        <span>
-          $
-          1,000,000.00
-        </span>
-      </Paragraph>
-    </Col>
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Paragraph
-        className="movie__text"
-      >
-        <b>
-          Genres: 
-        </b>
-        <Tag
-          closable={false}
-          key="1"
-        />
-        <Tag
-          closable={false}
-          key="2"
-        />
-        <Tag
-          closable={false}
-          key="3"
-        />
-      </Paragraph>
-    </Col>
-  </Row>
-  <Row
-    gutter={0}
-  >
-    <Col
-      className="top-margin"
-      offset={2}
-      span={10}
-    >
-      <Title
-        level={3}
-      >
-        Casts
-      </Title>
-    </Col>
-  </Row>
-  <MovieDetailsComponent
-    movieDetails={
+  <MovieCarouselComponent
+    backdrops={
       Array [
-        1,
-        2,
-        3,
+        Object {
+          "file_path": "path",
+        },
+        Object {
+          "file_path": "path",
+        },
+        Object {
+          "file_path": "path",
+        },
       ]
+    }
+    title="some title"
+  />
+  <MovieTitleComponent
+    movie={
+      Object {
+        "backdrops": Array [
+          Object {
+            "file_path": "path",
+          },
+          Object {
+            "file_path": "path",
+          },
+          Object {
+            "file_path": "path",
+          },
+        ],
+        "budget": 100000,
+        "genres": Array [
+          1,
+          2,
+          3,
+        ],
+        "id": 999,
+        "language": "English",
+        "overview": "some overview",
+        "revenue": 1000000,
+        "runtime": 140,
+        "title": "some title",
+      }
     }
   />
-  <Row
-    gutter={0}
-  >
-    <Col
-      className="top-margin"
-      offset={2}
-      span={10}
-    >
-      <Title
-        level={3}
-      >
-        Crew
-      </Title>
-    </Col>
-  </Row>
+  <MovieOverviewComponent
+    overview="some overview"
+    title="overview"
+  />
+  <MovieLabelComponent
+    text="English"
+    title="Original Language"
+  />
+  <MovieLabelComponent
+    text="2h 20m"
+    title="Runtime"
+  />
+  <MovieLabelComponent
+    text="$100,000.00"
+    title="Budget"
+  />
+  <MovieLabelComponent
+    text="$1,000,000.00"
+    title="Revenue"
+  />
+  <MovieGenresComponent
+    genres={
+      Array [
+        Object {
+          "id": 1,
+        },
+        Object {
+          "id": 2,
+        },
+        Object {
+          "id": 3,
+        },
+      ]
+    }
+    title="Genres"
+  />
   <MovieDetailsComponent
     movieDetails={
       Array [
@@ -229,6 +91,17 @@ exports[`<MovieComponent /> Render snapshot - movie 1`] = `
         3,
       ]
     }
+    title="Casts"
+  />
+  <MovieDetailsComponent
+    movieDetails={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+    title="Crew"
   />
 </Fragment>
 `;
