@@ -13,17 +13,19 @@ class MyListContainer extends Component {
     return history.push('/myLists');
   };
 
-  render() {
+  onConfirm = () => {
     const { deleteListRequest, myList } = this.props;
+    deleteListRequest({ listId: myList.id });
+    this.redirectToLists();
+  };
+
+  render() {
     return (
       <MyListComponent
         {...this.props}
         modalParams={{
           title: 'Do you want to delete list?',
-          onConfirm: () => {
-            deleteListRequest({ listId: myList.id });
-            this.redirectToLists();
-          },
+          onConfirm: this.onConfirm,
         }}
       />
     );

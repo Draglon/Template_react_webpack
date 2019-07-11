@@ -1,26 +1,16 @@
 import React from 'react';
-import { Button } from 'antd';
 
 import CreateListModal from '../../../../../shared/modal/CreateListModal';
+import PopoverNavItem from './PopoverNavItem';
 
-const PopoverContentComponent = ({ closePopover, myLists, addMovieToList }) => (
+const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
   <nav className="popover__nav">
     <ul>
       <li onClick={closePopover}>
         <CreateListModal text="Create new list ..." />
       </li>
       {myLists.results.map(item => (
-        <li key={item.id}>
-          <Button
-            type="link"
-            onClick={() => {
-              addMovieToList(item.id);
-              closePopover();
-            }}
-          >
-            {item.name}
-          </Button>
-        </li>
+        <PopoverNavItem list={item} movieId={movieId} />
       ))}
     </ul>
   </nav>
