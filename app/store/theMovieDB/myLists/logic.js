@@ -13,14 +13,10 @@ import {
   detailsListFailure,
   deleteListSuccess,
   deleteListFailure,
-  clearListSuccess,
-  clearListFailure,
   addMovieListSuccess,
   addMovieListFailure,
   removeMovieListSuccess,
   removeMovieListFailure,
-  checkMovieListSuccess,
-  checkMovieListFailure,
 } from './actions';
 import * as t from './actionTypes';
 
@@ -94,24 +90,6 @@ export const deleteListLogic = createLogic({
   },
 });
 
-export const clearListLogic = createLogic({
-  type: t.CLEAR_LIST_REQUEST,
-
-  process({ apiClient, getState, action }, dispatch, done) {
-    const listId = action.payload.listId;
-    const sessionId = getSessionId(getState());
-    apiClient
-      .post(`list/${listId}/clear?session_id=${sessionId}`)
-      .then(response => {
-        dispatch(clearListSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(clearListFailure(error));
-      })
-      .then(() => done());
-  },
-});
-
 export const addMovieListLogic = createLogic({
   type: t.ADD_MOVIE_LIST_REQUEST,
 
@@ -150,24 +128,6 @@ export const removeMovieListLogic = createLogic({
       })
       .catch(error => {
         dispatch(removeMovieListFailure(error));
-      })
-      .then(() => done());
-  },
-});
-
-export const checkMovieListLogic = createLogic({
-  type: t.CHECK_MOVIE_LIST_REQUEST,
-
-  process({ apiClient, action }, dispatch, done) {
-    const listId = action.payload.listId;
-    const mediaId = action.payload.mediaId;
-    apiClient
-      .get(`list/${listId}/item_status?movie_id=${mediaId}`)
-      .then(response => {
-        dispatch(checkMovieListSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(checkMovieListFailure(error));
       })
       .then(() => done());
   },

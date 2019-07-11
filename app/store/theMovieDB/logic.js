@@ -10,10 +10,8 @@ import {
   createList,
   detailsListLogic,
   deleteListLogic,
-  clearListLogic,
   addMovieListLogic,
   removeMovieListLogic,
-  checkMovieListLogic,
 } from './myLists/logic';
 
 export default [
@@ -31,8 +29,6 @@ export default [
   createList,
   detailsListLogic,
   deleteListLogic,
-  clearListLogic,
   addMovieListLogic,
   removeMovieListLogic,
-  checkMovieListLogic,
 ];
