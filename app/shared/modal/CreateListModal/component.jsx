@@ -10,10 +10,10 @@ const createListSchema = Yup.object().shape({
 });
 
 const CreateListModalComponent = ({
+  createListRequest,
   modalVisible,
   showModal,
   hideModal,
-  onSubmit,
   icon = '',
   text = '',
 }) => (
@@ -25,12 +25,20 @@ const CreateListModalComponent = ({
       </Button>
     )}
 
-    <Formik initialValues={{ name: '', description: '' }} validationSchema={createListSchema}>
+    <Formik
+      initialValues={{ name: '', description: '' }}
+      validationSchema={createListSchema}
+      onSubmit={(values, actions) => {
+        actions.setSubmitting(true);
+        createListRequest({ values, actions, hideModal });
+      }}
+    >
       {props => (
         <Modal
           visible={modalVisible}
           onCancel={hideModal}
-          onOk={() => onSubmit(props.values)}
+          onOk={props.submitForm}
+          okButtonProps={{ icon: props.isSubmitting ? 'loading' : '' }}
           okText="Create"
           title="Create list"
         >

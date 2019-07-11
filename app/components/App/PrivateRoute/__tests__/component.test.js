@@ -13,7 +13,6 @@ describe('<PrivateRouteComponent /> component', () => {
 
   it('Render property - with isLogged true', () => {
     component = shallow(<PrivateRouteComponent {...props} isLogged />);
-    // console.log(component.prop('render')());
     expect(toJson(component)).toMatchSnapshot();
   });
 
