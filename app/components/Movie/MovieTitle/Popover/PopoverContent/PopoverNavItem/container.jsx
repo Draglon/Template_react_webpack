@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addMovieListRequest as addMovieListRequestAction } from '../../../../../../store/theMovieDB/myLists/actions';
 
@@ -16,6 +17,17 @@ class PopoverNavItemContainer extends Component {
     return <PopoverNavItemComponent {...this.props} onClick={this.onClick} />;
   }
 }
+
+PopoverNavItemContainer.defaultProps = {
+  closePopover: null,
+};
+
+PopoverNavItemContainer.propTypes = {
+  addMovieListRequest: PropTypes.func.isRequired,
+  closePopover: PropTypes.func,
+  list: PropTypes.object.isRequired,
+  movieId: PropTypes.number.isRequired,
+};
 
 const mapDispatchToProps = {
   addMovieListRequest: addMovieListRequestAction,

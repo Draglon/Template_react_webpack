@@ -17,9 +17,13 @@ const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
   </nav>
 );
 
+PopoverContentComponent.defaultProps = {
+  closePopover: null,
+};
+
 PopoverContentComponent.propTypes = {
-  addMovieToList: PropTypes.func.isRequired,
-  closePopover: PropTypes.func.isRequired,
+  closePopover: PropTypes.func,
+  movieId: PropTypes.number.isRequired,
   myLists: PropTypes.object.isRequired,
 };
 

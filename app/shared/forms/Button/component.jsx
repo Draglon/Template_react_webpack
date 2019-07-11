@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 const FormButton = ({ htmlType, type, value, size, icon = '' }) => (
@@ -8,5 +9,13 @@ const FormButton = ({ htmlType, type, value, size, icon = '' }) => (
     </Button>
   </div>
 );
+
+FormButton.propTypes = {
+  htmlType: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+};
 
 export default FormButton;
