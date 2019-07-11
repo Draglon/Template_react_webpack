@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, Row, Col, Avatar, Dropdown, Icon, Layout } from 'antd';
 
 import DropdownMenu from './DropdownMenu';
@@ -37,6 +38,14 @@ const HeaderComponent = ({ profile }) => {
       </Row>
     </Layout.Header>
   );
+};
+
+HeaderComponent.defaultProps = {
+  profile: {},
+};
+
+HeaderComponent.propTypes = {
+  profile: PropTypes.object,
 };
 
 export default HeaderComponent;

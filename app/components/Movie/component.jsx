@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatMoney, formatTime } from '../../helpers/format';
 
 import MovieCarousel from './MovieCarousel';
@@ -26,5 +27,12 @@ const MovieComponent = ({ movie, genres, cast, crew }) => (
     )}
   </>
 );
+
+MovieComponent.propTypes = {
+  movie: PropTypes.object,
+  genres: PropTypes.array,
+  cast: PropTypes.array,
+  crew: PropTypes.array,
+};
 
 export default MovieComponent;

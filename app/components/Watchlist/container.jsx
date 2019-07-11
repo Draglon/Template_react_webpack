@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   watchlistRequest as watchlistRequestAction,
@@ -35,6 +36,12 @@ class WatchlistContainer extends Component {
     );
   }
 }
+
+WatchlistContainer.propTypes = {
+  addToWatchlistRequest: PropTypes.func.isRequired,
+  watchlistRequest: PropTypes.func.isRequired,
+  watchlist: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   watchlist: getWatchlistById(state),

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography } from 'antd';
 
 import Popover from './Popover';
@@ -16,5 +17,9 @@ const MovieTitleComponent = ({ movie }) => (
     </Col>
   </Row>
 );
+
+MovieTitleComponent.propTypes = {
+  movie: PropTypes.object.isRequired,
+};
 
 export default MovieTitleComponent;

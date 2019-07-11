@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 import CreateListModal from '../../../../../shared/modal/CreateListModal';
@@ -25,5 +26,11 @@ const PopoverContentComponent = ({ closePopover, myLists, addMovieToList }) => (
     </ul>
   </nav>
 );
+
+PopoverContentComponent.propTypes = {
+  addMovieToList: PropTypes.func.isRequired,
+  closePopover: PropTypes.func.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
 
 export default PopoverContentComponent;

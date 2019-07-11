@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   favoriteRequest as favoriteRequestAction,
@@ -35,6 +36,12 @@ class FavoritesContainer extends Component {
     );
   }
 }
+
+FavoritesContainer.propTypes = {
+  addToFvoriteRequest: PropTypes.func.isRequired,
+  favoriteRequest: PropTypes.func.isRequired,
+  favorites: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   favorites: getFavoriteById(state),

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   createdListsRequest as createdListsRequestAction,
@@ -24,6 +25,12 @@ class PopoverContentContainer extends Component {
     return <PopoverContentComponent {...this.props} addMovieToList={this.addMovieToList} />;
   }
 }
+
+PopoverContentContainer.propTypes = {
+  createdListsRequest: PropTypes.func.isRequired,
+  addMovieListRequest: PropTypes.func.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   myLists: getCreatedListsById(state),

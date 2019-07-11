@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography } from 'antd';
 
 const MovieOverviewComponent = ({ title, overview }) => (
@@ -9,5 +10,10 @@ const MovieOverviewComponent = ({ title, overview }) => (
     </Col>
   </Row>
 );
+
+MovieOverviewComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+};
 
 export default MovieOverviewComponent;
