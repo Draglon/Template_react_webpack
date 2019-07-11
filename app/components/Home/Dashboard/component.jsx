@@ -1,15 +1,10 @@
 import React from 'react';
 
-import Search from './Search';
-import MovieList from '../../../shared/lists/MovieList';
-import Pagination from '../../../shared/Pagination';
+import SearchPage from './SearchPage';
+import DashboardPage from './DashboardPage';
 
-const DashboardComponent = ({ onSearch, movies, page, currentPage, totalPages }) => (
-  <>
-    <Search onSearch={onSearch} />
-    <MovieList movies={movies} />
-    <Pagination currentPage={currentPage} page={page} totalPages={totalPages} />
-  </>
+const DashboardComponent = ({ searchQuery }) => (
+  <>{searchQuery ? <SearchPage /> : <DashboardPage />}</>
 );
 
 export default DashboardComponent;
