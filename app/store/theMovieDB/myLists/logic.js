@@ -62,10 +62,12 @@ export const createList = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const sessionId = getSessionId(getState());
     apiClient
-      .post(`list?session_id=${sessionId}`, { ...action.payload, language: 'en' })
+      .post(`list?session_id=${sessionId}`, { ...action.payload.values, language: 'en' })
       .then(response => {
         dispatch(createListSuccess(response.data));
         dispatch(createdListsRequest({ page: 1 }));
+        action.payload.actions.setSubmitting(false);
+        action.payload.hideModal();
       })
       .catch(error => dispatch(createListFailure(error)))
       .then(() => done());
