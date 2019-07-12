@@ -18,9 +18,13 @@ const MovieItemComponent = ({ item, actions }) => (
   </Card>
 );
 
+MovieItemComponent.defaultProps = {
+  actions: null,
+};
+
 MovieItemComponent.propTypes = {
   item: PropTypes.object.isRequired,
-  actions: PropTypes.array.isRequired,
+  actions: PropTypes.array,
 };
 
 export default MovieItemComponent;

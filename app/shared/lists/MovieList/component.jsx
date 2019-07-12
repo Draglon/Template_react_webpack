@@ -48,12 +48,11 @@ const MovieListComponent = ({ movies, modalParams }) => (
 );
 
 MovieListComponent.defaultProps = {
-  movies: [],
-  modalParams: {},
+  modalParams: null,
 };
 
 MovieListComponent.propTypes = {
-  movies: PropTypes.array,
+  movies: PropTypes.array.isRequired,
   modalParams: PropTypes.object,
 };
 
