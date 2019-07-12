@@ -1,6 +1,6 @@
 import { getCreateList } from '../selectors';
 
-describe('List selectors', () => {
+describe('MyLists - selectors', () => {
   it('getCreateList', () => {
     const listId = 'some list_id';
     const message = 'some message';

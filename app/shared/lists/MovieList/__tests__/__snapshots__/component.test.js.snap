@@ -40,6 +40,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 1,
+                }
+              }
+              title=""
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 1,
@@ -76,6 +90,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 2,
+                }
+              }
+              title=""
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 2,
@@ -112,6 +140,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 3,
+                }
+              }
+              title=""
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 3,

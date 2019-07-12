@@ -1,22 +1,22 @@
-import { getSearchById } from '../selectors';
+import { getFavoriteById } from '../selectors';
 
-describe('Search movies - selectors', () => {
-  it('getSearchById - get movie data from store', () => {
+describe('Favorite - selectors', () => {
+  it('getFavoriteById - get favorite data from store', () => {
     const data = {
-      query: '',
       page: 1,
       results: [1, 2, 3],
       totalPages: 0,
+      totalResults: 0,
     };
 
     const state = {
       reducers: {
-        search: {
+        favoriteList: {
           data: {
-            query: data.query,
             page: data.page,
             results: data.results,
             totalPages: data.totalPages,
+            totalResults: data.totalResults,
           },
         },
         data: {
@@ -28,7 +28,7 @@ describe('Search movies - selectors', () => {
         },
       },
     };
-    expect(getSearchById(state)).toEqual({
+    expect(getFavoriteById(state)).toEqual({
       ...data,
       results: [{ id: 1 }, { id: 2 }, { id: 3 }],
     });

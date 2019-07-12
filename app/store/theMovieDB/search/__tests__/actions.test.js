@@ -1,7 +1,7 @@
 import { searchRequest, searchSuccess, searchFailure } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Search actions', () => {
+describe('Search movies - actions', () => {
   it('searchRequest', () => {
     const expectedAction = {
       type: t.SEARCH_REQUEST,
