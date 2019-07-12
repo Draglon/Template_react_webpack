@@ -1,28 +1,9 @@
 import React from 'react';
-import { Typography, Row, Col, Avatar, Dropdown, Icon, Menu, Layout } from 'antd';
-import { Link } from 'react-router-dom';
+import { Typography, Row, Col, Avatar, Dropdown, Icon, Layout } from 'antd';
 
-const Overlay = removeSessionId => (
-  <Menu>
-    <Menu.Item>
-      <Link to="/">Dashboard</Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item>
-      <Link to="/mylists">My Lists</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/watchlist">Watchlist</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/favorites">Favorites</Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item onClick={removeSessionId}>Logout</Menu.Item>
-  </Menu>
-);
+import DropdownMenu from './DropdownMenu';
 
-const HeaderComponent = ({ profile, removeSessionId }) => {
+const HeaderComponent = ({ profile }) => {
   return (
     <Layout.Header>
       <Row type="flex" justify="space-between">
@@ -44,7 +25,7 @@ const HeaderComponent = ({ profile, removeSessionId }) => {
                   <Avatar icon="user" />
                 )}
               </figure>
-              <Dropdown className="profile__dropdown" overlay={Overlay(removeSessionId)}>
+              <Dropdown className="profile__dropdown" overlay={<DropdownMenu />}>
                 <Typography.Text>
                   {profile.username}
                   <Icon type="caret-down" />

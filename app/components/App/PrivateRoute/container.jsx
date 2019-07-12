@@ -7,7 +7,4 @@ const mapStateToProps = state => ({
   isLogged: getSessionId(state),
 });
 
-export default connect(
-  mapStateToProps,
-  null,
-)(PrivateRouteContainer);
+export default connect(mapStateToProps)(PrivateRouteContainer);
