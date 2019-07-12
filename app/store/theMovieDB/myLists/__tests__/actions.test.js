@@ -1,7 +1,7 @@
 import { createListRequest, createListSuccess, createListFailure } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Authentication actions', () => {
+describe('MyLists - actions', () => {
   it('createListRequest', () => {
     const expectedAction = {
       type: t.CREATE_LIST_REQUEST,

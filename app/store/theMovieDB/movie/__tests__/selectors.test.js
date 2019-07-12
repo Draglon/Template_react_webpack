@@ -1,6 +1,6 @@
 import { getMovieById, getGenresById, getCastById, getCrewById } from '../selectors';
 
-describe('Movie selectors', () => {
+describe('Movie - selectors', () => {
   describe('getMovieById()', () => {
     it('getMovieById - get movie from store', () => {
       const id = 9999;

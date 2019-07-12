@@ -1,7 +1,7 @@
 import { profileRequest, profileSuccess, profileFailure } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Profile actions', () => {
+describe('Profile - actions', () => {
   it('profileRequest', () => {
     const expectedAction = {
       type: t.PROFILE_REQUEST,
