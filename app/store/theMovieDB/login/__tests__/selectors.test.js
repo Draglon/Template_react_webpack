@@ -1,6 +1,6 @@
 import { getSessionId, loginError } from '../selectors';
 
-describe('Authentication selectors', () => {
+describe('Authentication - selectors', () => {
   it('getSessionId - get sessionId from store', () => {
     const sessionId = 'some sessionId';
     const state = {

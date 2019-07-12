@@ -1,12 +1,12 @@
 import { searchReducer, initialState } from '../reducers';
 import * as t from '../actionTypes';
 
-describe('Search reducer', () => {
+describe('Search movies - reducer', () => {
   it('state is undefined', () => {
     expect(searchReducer(undefined, {})).toEqual(initialState);
   });
 
-  it('SEARCH_REQUEST after situation without error', () => {
+  it('SEARCH_REQUEST', () => {
     const action = {
       type: t.SEARCH_REQUEST,
     };
