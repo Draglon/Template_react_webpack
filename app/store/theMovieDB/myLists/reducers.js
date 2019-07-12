@@ -140,7 +140,7 @@ export const deleteListReducer = (state = deleteListInitialState, action) => {
         ...state,
         isLoading: false,
         data: {
-          message: action.payload.message,
+          message: action.payload.status_message,
         },
       };
     case t.DELETE_LIST_FAILURE:

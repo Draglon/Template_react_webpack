@@ -45,33 +45,74 @@ describe('MyLists - selectors', () => {
       expect(getCreateList(state)).toEqual({ list_id: listId, message });
     });
   });
+
+  describe('MyLists - getCreatedListsById()', () => {
+    it('getCreatedListsById', () => {
+      const data = {
+        page: 1,
+        results: [1, 2, 3],
+        totalPages: 0,
+      };
+
+      const state = {
+        reducers: {
+          lists: {
+            data: {
+              page: data.page,
+              results: data.results,
+              totalPages: data.totalPages,
+            },
+          },
+          data: {
+            lists: {
+              1: { id: 1 },
+              2: { id: 2 },
+              3: { id: 3 },
+            },
+          },
+        },
+      };
+      expect(getCreatedListsById(state)).toEqual({
+        ...data,
+        results: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      });
+    });
+  });
+
+  describe('MyLists - getDetailsListById()', () => {
+    it('getDetailsListById', () => {
+      const data = {
+        id: '',
+        title: '',
+        description: '',
+        results: [1, 2, 3],
+        total: 0,
+      };
+
+      const state = {
+        reducers: {
+          detailsList: {
+            data: {
+              id: data.id,
+              title: data.title,
+              description: data.description,
+              results: data.results,
+              total: data.total,
+            },
+          },
+          data: {
+            movies: {
+              1: { id: 1 },
+              2: { id: 2 },
+              3: { id: 3 },
+            },
+          },
+        },
+      };
+      expect(getDetailsListById(state)).toEqual({
+        ...data,
+        results: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      });
+    });
+  });
 });
-
-// export const getCreatedLists = state => state.reducers.lists.data;
-// export const getCreateList = state => state.reducers.list.data;
-
-// export const getCreatedListsById = state => {
-//   const lists = state.reducers.lists.data;
-//   const entities = state.reducers.data.lists;
-//   const results = Object.assign([], entities).filter(item => lists.results.includes(item.id));
-
-//   return (
-//     lists.results && {
-//       ...lists,
-//       results,
-//     }
-//   );
-// };
-
-// export const getDetailsListById = state => {
-//   const detailsList = state.reducers.detailsList.data;
-//   const entities = state.reducers.data.movies;
-//   const results = Object.assign([], entities).filter(item => detailsList.results.includes(item.id));
-
-//   return (
-//     detailsList.results && {
-//       ...detailsList,
-//       results,
-//     }
-//   );
-// };
