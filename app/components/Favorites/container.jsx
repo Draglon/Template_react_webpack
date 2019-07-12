@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {
   favoriteRequest as favoriteRequestAction,
-  addToFvoriteRequest as addToFvoriteRequestAction,
+  addToFavoriteRequest as addToFavoriteRequestAction,
 } from '../../store/theMovieDB/favorite/actions';
 import { getFavoriteById } from '../../store/theMovieDB/favorite/selectors';
 
@@ -22,7 +22,7 @@ class FavoritesContainer extends Component {
   };
 
   render() {
-    const { addToFvoriteRequest } = this.props;
+    const { addToFavoriteRequest } = this.props;
     return (
       <FavoritesComponent
         {...this.props}
@@ -30,7 +30,7 @@ class FavoritesContainer extends Component {
         modalParams={{
           title: 'Do you want to delete movie from favorites?',
           params: { favorite: false },
-          onConfirm: addToFvoriteRequest,
+          onConfirm: addToFavoriteRequest,
         }}
       />
     );
@@ -38,7 +38,7 @@ class FavoritesContainer extends Component {
 }
 
 FavoritesContainer.propTypes = {
-  addToFvoriteRequest: PropTypes.func.isRequired,
+  addToFavoriteRequest: PropTypes.func.isRequired,
   favoriteRequest: PropTypes.func.isRequired,
   favorites: PropTypes.object.isRequired,
 };
@@ -49,7 +49,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   favoriteRequest: favoriteRequestAction,
-  addToFvoriteRequest: addToFvoriteRequestAction,
+  addToFavoriteRequest: addToFavoriteRequestAction,
 };
 
 export default connect(

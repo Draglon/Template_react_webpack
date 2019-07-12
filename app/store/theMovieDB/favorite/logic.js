@@ -8,8 +8,8 @@ import {
   favoriteRequest,
   favoriteSuccess,
   favoriteFailure,
-  addToFvoriteSuccess,
-  addToFvoriteFailure,
+  addToFavoriteSuccess,
+  addToFavoriteFailure,
 } from './actions';
 import { addEntities } from '../data/actions';
 import { movieRequest } from '../movie/actions';
@@ -54,11 +54,11 @@ export const addToFavoriteLogic = createLogic({
         favorite,
       })
       .then(response => {
-        dispatch(addToFvoriteSuccess(response.data));
+        dispatch(addToFavoriteSuccess(response.data));
         dispatch(favoriteRequest({ page: 1 }));
         dispatch(movieRequest({ movieId }));
       })
-      .catch(error => dispatch(addToFvoriteFailure(error)))
+      .catch(error => dispatch(addToFavoriteFailure(error)))
       .then(() => done());
   },
 });

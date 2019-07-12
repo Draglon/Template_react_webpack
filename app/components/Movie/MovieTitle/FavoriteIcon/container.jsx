@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addToFvoriteRequest as addToFvoriteRequestAction } from '../../../../store/theMovieDB/favorite/actions';
+import { addToFavoriteRequest as addToFavoriteRequestAction } from '../../../../store/theMovieDB/favorite/actions';
 
 import FavoriteIconComponent from './component';
 
 class FavoriteIconContainer extends Component {
   handleFavorite = () => {
-    const { addToFvoriteRequest, favorite, movieId } = this.props;
-    addToFvoriteRequest({ movieId, favorite: !favorite });
+    const { addToFavoriteRequest, favorite, movieId } = this.props;
+    addToFavoriteRequest({ movieId, favorite: !favorite });
   };
 
   render() {
@@ -17,13 +17,13 @@ class FavoriteIconContainer extends Component {
 }
 
 FavoriteIconContainer.propTypes = {
-  addToFvoriteRequest: PropTypes.func.isRequired,
+  addToFavoriteRequest: PropTypes.func.isRequired,
   movieId: PropTypes.number.isRequired,
   favorite: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = {
-  addToFvoriteRequest: addToFvoriteRequestAction,
+  addToFavoriteRequest: addToFavoriteRequestAction,
 };
 
 export default connect(
