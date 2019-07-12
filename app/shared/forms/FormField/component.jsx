@@ -19,7 +19,7 @@ const FormField = ({
 FormField.defaultProps = {
   field: {},
   form: {},
-  fieldPrefix: <></>,
+  fieldPrefix: null,
 };
 
 FormField.propTypes = {

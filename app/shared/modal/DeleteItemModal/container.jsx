@@ -22,15 +22,13 @@ class DeleteItemModalContainer extends Component {
 <<<<<<< HEAD
 =======
 DeleteItemModalContainer.defaultProps = {
-  title: '',
-  params: {},
-  onConfirm: () => {},
+  params: null,
 };
 
 DeleteItemModalContainer.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   params: PropTypes.object,
-  onConfirm: PropTypes.func,
+  onConfirm: PropTypes.func.isRequired,
 };
 
 >>>>>>> typeProps part-3
