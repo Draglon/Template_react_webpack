@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Icon, Button } from 'antd';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -48,5 +49,19 @@ const CreateListModalComponent = ({
     </Formik>
   </>
 );
+
+CreateListModalComponent.defaultProps = {
+  icon: '',
+  text: '',
+};
+
+CreateListModalComponent.propTypes = {
+  modalVisible: PropTypes.bool.isRequired,
+  showModal: PropTypes.func.isRequired,
+  hideModal: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  icon: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default CreateListModalComponent;

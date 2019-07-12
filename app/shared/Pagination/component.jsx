@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Pagination } from 'antd';
 
 const PaginationComponent = ({ page, currentPage, totalPages }) => (
@@ -18,5 +19,11 @@ const PaginationComponent = ({ page, currentPage, totalPages }) => (
     ) : null}
   </>
 );
+
+PaginationComponent.propTypes = {
+  page: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+};
 
 export default PaginationComponent;

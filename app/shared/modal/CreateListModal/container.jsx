@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createListRequest as createListRequestAction } from '../../../store/theMovieDB/myLists/actions';
 
 import CreateListModalComponent from './component';
@@ -40,6 +41,10 @@ class CreateListModalContainer extends Component {
     );
   }
 }
+
+CreateListModalContainer.propTypes = {
+  createListRequest: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   createListRequest: createListRequestAction,
