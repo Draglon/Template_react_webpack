@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, Row, Col } from 'antd';
 
 import DeleteItemModal from '../../../shared/modal/DeleteItemModal';
@@ -19,5 +20,10 @@ const MyListsTitleComponent = ({ myList, modalParams }) => (
     </Col>
   </Row>
 );
+
+MyListsTitleComponent.propTypes = {
+  myList: PropTypes.object.isRequired,
+  modalParams: PropTypes.object.isRequired,
+};
 
 export default MyListsTitleComponent;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from 'antd';
 
 import DeleteItemModalComponent from './component';
@@ -19,8 +20,6 @@ class DeleteItemModalContainer extends Component {
   }
 }
 
-<<<<<<< HEAD
-=======
 DeleteItemModalContainer.defaultProps = {
   params: null,
 };
@@ -31,5 +30,4 @@ DeleteItemModalContainer.propTypes = {
   onConfirm: PropTypes.func.isRequired,
 };
 
->>>>>>> typeProps part-3
 export default DeleteItemModalContainer;

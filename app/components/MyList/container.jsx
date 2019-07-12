@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   detailsListRequest as detailsListRequestAction,
@@ -39,6 +40,12 @@ class MyListContainer extends Component {
     );
   }
 }
+
+MyListContainer.propTypes = {
+  detailsListRequest: PropTypes.func.isRequired,
+  removeMovieListRequest: PropTypes.func.isRequired,
+  myList: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   myList: getDetailsListById(state),

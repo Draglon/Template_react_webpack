@@ -20,7 +20,6 @@ class PopoverContentContainer extends Component {
 
 PopoverContentContainer.propTypes = {
   createdListsRequest: PropTypes.func.isRequired,
-  addMovieListRequest: PropTypes.func.isRequired,
   myLists: PropTypes.object.isRequired,
 };
 
