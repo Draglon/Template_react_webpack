@@ -1,59 +1,63 @@
 import {
-  // watchlistRequest,
-  // watchlistSuccess,
-  // watchlistFailure,
-  // addToWatchlistRequest,
-  // addToWatchlistSuccess,
-  // addToWatchlistFailure,
+  favoriteRequest,
+  favoriteSuccess,
+  favoriteFailure,
+  addToFavoriteRequest,
+  addToFavoriteSuccess,
+  addToFavoriteFailure,
 } from '../actions';
 import * as t from '../actionTypes';
 
-describe('Watchlist - actions', () => {
-  it('watchlistRequest', () => {
-    // const expectedAction = {
-    //   type: t.WATCHLIST_REQUEST,
-    //   payload: ['some data'],
-    // };
-    // expect(watchlistRequest(expectedAction.payload)).toEqual(expectedAction);
+describe('Favorite - actions', () => {
+  describe('Favorite - create favorite list actions', () => {
+    it('favoriteRequest', () => {
+      const expectedAction = {
+        type: t.FAVORITE_REQUEST,
+        payload: ['some data'],
+      };
+      expect(favoriteRequest(expectedAction.payload)).toEqual(expectedAction);
+    });
+
+    it('favoriteSuccess', () => {
+      const expectedAction = {
+        type: t.FAVORITE_SUCCESS,
+        payload: ['some data'],
+      };
+      expect(favoriteSuccess(expectedAction.payload)).toEqual(expectedAction);
+    });
+
+    it('favoriteFailure', () => {
+      const expectedAction = {
+        type: t.FAVORITE_FAILURE,
+        payload: ['some data'],
+      };
+      expect(favoriteFailure(expectedAction.payload)).toEqual(expectedAction);
+    });
   });
 
-  // it('watchlistSuccess', () => {
-  //   const expectedAction = {
-  //     type: t.WATCHLIST_SUCCESS,
-  //     payload: ['some data'],
-  //   };
-  //   expect(watchlistSuccess(expectedAction.payload)).toEqual(expectedAction);
-  // });
+  describe('Favorite - add to favorite list actions', () => {
+    it('addToFavoriteRequest', () => {
+      const expectedAction = {
+        type: t.ADD_TO_FAVORITE_REQUEST,
+        payload: ['some data'],
+      };
+      expect(addToFavoriteRequest(expectedAction.payload)).toEqual(expectedAction);
+    });
 
-  // it('watchlistFailure', () => {
-  //   const expectedAction = {
-  //     type: t.WATCHLIST_FAILURE,
-  //     payload: ['some data'],
-  //   };
-  //   expect(watchlistFailure(expectedAction.payload)).toEqual(expectedAction);
-  // });
+    it('addToFavoriteSuccess', () => {
+      const expectedAction = {
+        type: t.ADD_TO_FAVORITE_SUCCESS,
+        payload: ['some data'],
+      };
+      expect(addToFavoriteSuccess(expectedAction.payload)).toEqual(expectedAction);
+    });
 
-  // it('addToWatchlistRequest', () => {
-  //   const expectedAction = {
-  //     type: t.ADD_TO_WATCHLIST_REQUEST,
-  //     payload: ['some data'],
-  //   };
-  //   expect(addToWatchlistRequest(expectedAction.payload)).toEqual(expectedAction);
-  // });
-
-  // it('addToWatchlistSuccess', () => {
-  //   const expectedAction = {
-  //     type: t.ADD_TO_WATCHLIST_SUCCESS,
-  //     payload: ['some data'],
-  //   };
-  //   expect(addToWatchlistSuccess(expectedAction.payload)).toEqual(expectedAction);
-  // });
-
-  // it('addToWatchlistFailure', () => {
-  //   const expectedAction = {
-  //     type: t.ADD_TO_WATCHLIST_FAILURE,
-  //     payload: ['some data'],
-  //   };
-  //   expect(addToWatchlistFailure(expectedAction.payload)).toEqual(expectedAction);
-  // });
+    it('addToFavoriteFailure', () => {
+      const expectedAction = {
+        type: t.ADD_TO_FAVORITE_FAILURE,
+        payload: ['some data'],
+      };
+      expect(addToFavoriteFailure(expectedAction.payload)).toEqual(expectedAction);
+    });
+  });
 });
