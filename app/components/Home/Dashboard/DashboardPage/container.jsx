@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { searchRequest as searchRequestAction } from '../../../../store/theMovieDB/search/actions';
 import { trendingRequest as trendingRequestAction } from '../../../../store/theMovieDB/trending/actions';
-import { getTrendingById } from '../../../../store/theMovieDB/trending/selectors';
+import { getTrending } from '../../../../store/theMovieDB/trending/selectors';
 
 import DashboardComponent from './component';
 
@@ -30,7 +30,7 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  trending: getTrendingById(state),
+  trending: getTrending(state),
 });
 
 const mapDispatchToProps = {

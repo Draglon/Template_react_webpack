@@ -1,7 +1,7 @@
-import { getTrendingById } from '../selectors';
+import { getTrending } from '../selectors';
 
 describe('Trending selectors', () => {
-  it('getTrendingById - get trending data from store', () => {
+  it('getTrending - get trending data from store', () => {
     const data = {
       page: 1,
       results: [1, 2, 3],
@@ -26,7 +26,7 @@ describe('Trending selectors', () => {
         },
       },
     };
-    expect(getTrendingById(state)).toEqual({
+    expect(getTrending(state)).toEqual({
       ...data,
       results: [{ id: 1 }, { id: 2 }, { id: 3 }],
     });

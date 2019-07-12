@@ -15,7 +15,4 @@ const mapStateToProps = state => ({
   search: getSearchById(state),
 });
 
-export default connect(
-  mapStateToProps,
-  null,
-)(DashboardContainer);
+export default connect(mapStateToProps)(DashboardContainer);
