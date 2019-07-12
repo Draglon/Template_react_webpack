@@ -1,7 +1,10 @@
 import { createLogic } from 'redux-logic';
+import { normalize } from 'normalizr';
+import { movies, lists } from '../../schema';
 import { getSessionId } from '../login/selectors';
 import { getAccountId } from '../profile/selectors';
 
+import { addEntities } from '../data/actions';
 import {
   createdListsRequest,
   createdListsSuccess,
@@ -13,15 +16,10 @@ import {
   detailsListFailure,
   deleteListSuccess,
   deleteListFailure,
-  clearListSuccess,
-  clearListFailure,
   addMovieListSuccess,
   addMovieListFailure,
   removeMovieListSuccess,
   removeMovieListFailure,
-  checkMovieListSuccess,
-  checkMovieListFailure,
-  deleteListRequest,
 } from './actions';
 import * as t from './actionTypes';
 
@@ -35,7 +33,14 @@ export const myListsLogic = createLogic({
     apiClient
       .get(`account/${accountId}/lists?session_id=${sessionId}&page=${page}&language=en-US`)
       .then(response => {
-        dispatch(createdListsSuccess(response.data));
+        const normalizeData = normalize(response.data.results, [lists]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          createdListsSuccess({
+            ...response.data,
+            results: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(createdListsFailure(error)))
       .then(() => done());
@@ -50,7 +55,14 @@ export const detailsListLogic = createLogic({
     apiClient
       .get(`list/${listId}?language=en-US`)
       .then(response => {
-        dispatch(detailsListSuccess(response.data));
+        const normalizeData = normalize(response.data.items, [movies]);
+        dispatch(addEntities(normalizeData.entities));
+        dispatch(
+          detailsListSuccess({
+            ...response.data,
+            items: normalizeData.result,
+          }),
+        );
       })
       .catch(error => dispatch(detailsListFailure(error)))
       .then(() => done());
@@ -63,10 +75,12 @@ export const createList = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const sessionId = getSessionId(getState());
     apiClient
-      .post(`list?session_id=${sessionId}`, { ...action.payload, language: 'en' })
+      .post(`list?session_id=${sessionId}`, { ...action.payload.values, language: 'en' })
       .then(response => {
         dispatch(createListSuccess(response.data));
         dispatch(createdListsRequest({ page: 1 }));
+        action.payload.actions.setSubmitting(false);
+        action.payload.hideModal();
       })
       .catch(error => dispatch(createListFailure(error)))
       .then(() => done());
@@ -88,24 +102,6 @@ export const deleteListLogic = createLogic({
       .catch(error => {
         dispatch(deleteListFailure(error));
         dispatch(createdListsRequest({ page: 1 }));
-      })
-      .then(() => done());
-  },
-});
-
-export const clearListLogic = createLogic({
-  type: t.CLEAR_LIST_REQUEST,
-
-  process({ apiClient, getState, action }, dispatch, done) {
-    const listId = action.payload.listId;
-    const sessionId = getSessionId(getState());
-    apiClient
-      .post(`list/${listId}/clear?session_id=${sessionId}`)
-      .then(response => {
-        dispatch(clearListSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(clearListFailure(error));
       })
       .then(() => done());
   },
@@ -149,24 +145,6 @@ export const removeMovieListLogic = createLogic({
       })
       .catch(error => {
         dispatch(removeMovieListFailure(error));
-      })
-      .then(() => done());
-  },
-});
-
-export const checkMovieListLogic = createLogic({
-  type: t.CHECK_MOVIE_LIST_REQUEST,
-
-  process({ apiClient, action }, dispatch, done) {
-    const listId = action.payload.listId;
-    const mediaId = action.payload.mediaId;
-    apiClient
-      .get(`list/${listId}/item_status?movie_id=${mediaId}`)
-      .then(response => {
-        dispatch(checkMovieListSuccess(response.data));
-      })
-      .catch(error => {
-        dispatch(checkMovieListFailure(error));
       })
       .then(() => done());
   },

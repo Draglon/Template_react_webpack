@@ -1,7 +1,7 @@
 import { createListReducer, createListInitialState } from '../reducers';
 import * as t from '../actionTypes';
 
-describe('Authentication reducer', () => {
+describe('MyLists - reducers', () => {
   it('state is undefined', () => {
     expect(createListReducer(undefined, {})).toEqual(createListInitialState);
   });

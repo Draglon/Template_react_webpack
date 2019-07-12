@@ -1,23 +1,28 @@
 import React from 'react';
-import { Button } from 'antd';
+import PropTypes from 'prop-types';
 
 import CreateListModal from '../../../../../shared/modal/CreateListModal';
+import PopoverNavLink from './PopoverNavLink';
 
-const PopoverContentComponent = ({ closePopover, myLists, addMovieToList }) => (
-  <>
-    <div onClick={closePopover}>
-      <CreateListModal text="Create new list ..." />
-    </div>
+const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
+  <nav className="popover__nav">
     <ul>
+      <li onClick={closePopover}>
+        <CreateListModal text="Create new list ..." />
+      </li>
       {myLists.results.map(item => (
         <li key={item.id}>
-          <Button type="link" onClick={() => addMovieToList(item.id)}>
-            {item.name}
-          </Button>
+          <PopoverNavLink list={item} movieId={movieId} closePopover={closePopover} />
         </li>
       ))}
     </ul>
-  </>
+  </nav>
 );
+
+PopoverContentComponent.propTypes = {
+  closePopover: PropTypes.func.isRequired,
+  movieId: PropTypes.number.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
 
 export default PopoverContentComponent;

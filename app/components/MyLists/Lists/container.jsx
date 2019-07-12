@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
 
@@ -11,6 +12,10 @@ class ListsContainer extends Component {
     return <ListsComponent {...this.props} onConfirm={deleteListRequest} />;
   }
 }
+
+ListsContainer.propTypes = {
+  deleteListRequest: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   deleteListRequest: deleteListRequestAction,

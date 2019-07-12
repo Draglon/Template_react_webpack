@@ -1,7 +1,7 @@
 import { movieReducer, initialState } from '../reducers';
 import * as t from '../actionTypes';
 
-describe('Profile reducer', () => {
+describe('Movie - reducers', () => {
   it('state is undefined', () => {
     expect(movieReducer(undefined, {})).toEqual(initialState);
   });

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteSessionRequest } from '../../store/theMovieDB/login/actions';
-import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
+import PropTypes from 'prop-types';
 
+import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
 import { getProfileById } from '../../store/theMovieDB/profile/selectors';
 
 import HeaderComponent from './component';
@@ -18,13 +18,21 @@ class HeaderContainer extends Component {
   }
 }
 
+HeaderComponent.defaultProps = {
+  profile: {},
+};
+
+HeaderContainer.propTypes = {
+  profileRequest: PropTypes.func.isRequired,
+  profile: PropTypes.object,
+};
+
 const mapStateToProps = state => ({
   profile: getProfileById(state),
 });
 
 const mapDispatchToProps = {
   profileRequest: profileRequestAction,
-  removeSessionId: deleteSessionRequest,
 };
 
 export default connect(

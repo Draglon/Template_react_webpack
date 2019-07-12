@@ -89,3 +89,26 @@
     justify-content: space-between;
   }
 }
+
+.popover {
+  &__nav {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        &:first-child {
+          border-bottom: 1px solid #e8e8e8;
+          margin: 0 -16px 10px;
+        }
+      }
+    }
+  }
+}
+
+.ant-dropdown {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .25);
+  border-radius: 5px;
+  overflow: hidden;
+}

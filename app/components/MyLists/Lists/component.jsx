@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Typography, Row, Col, Card } from 'antd';
 
@@ -24,6 +25,7 @@ const ListsComponent = ({ lists, onConfirm }) => (
                 title="Do you want to delete list?"
                 params={{ listId: item.id }}
                 onConfirm={onConfirm}
+                type="delete"
               />,
             ]}
           >
@@ -37,5 +39,10 @@ const ListsComponent = ({ lists, onConfirm }) => (
     </Col>
   </Row>
 );
+
+ListsComponent.propTypes = {
+  lists: PropTypes.array.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+};
 
 export default ListsComponent;

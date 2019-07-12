@@ -12,10 +12,8 @@ import {
   createListReducer,
   detailsListReducer,
   deleteListReducer,
-  clearListReducer,
   addMovieListReducer,
   removeMovieListReducer,
-  checkMovieListReducer,
 } from './myLists/reducers';
 
 import { dataReducer } from './data/reducers';
@@ -34,9 +32,7 @@ export default combineReducers({
   list: createListReducer,
   detailsList: detailsListReducer,
   deleteList: deleteListReducer,
-  clearList: clearListReducer,
   addMovieList: addMovieListReducer,
   removeMovieList: removeMovieListReducer,
-  checkMovieList: checkMovieListReducer,
   data: dataReducer,
 });

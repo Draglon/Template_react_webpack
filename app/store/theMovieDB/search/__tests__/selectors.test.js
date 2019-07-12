@@ -1,6 +1,6 @@
 import { getSearchById } from '../selectors';
 
-describe('Search movie selectors', () => {
+describe('Search movies - selectors', () => {
   it('getSearchById - get movie data from store', () => {
     const data = {
       query: '',

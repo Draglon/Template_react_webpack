@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Popover, Icon } from 'antd';
 
 import PopoverContent from './PopoverContent';
@@ -14,5 +15,12 @@ const PopoverComponent = ({ popoverVisible, closePopover, handleVisiblePopover, 
     <Icon type="plus-circle" />
   </Popover>
 );
+
+PopoverComponent.propTypes = {
+  handleVisiblePopover: PropTypes.func.isRequired,
+  closePopover: PropTypes.func.isRequired,
+  movieId: PropTypes.number.isRequired,
+  popoverVisible: PropTypes.bool.isRequired,
+};
 
 export default PopoverComponent;

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   detailsListRequest as detailsListRequestAction,
   removeMovieListRequest as removeMovieListRequestAction,
 } from '../../store/theMovieDB/myLists/actions';
-import { getDetailsList } from '../../store/theMovieDB/myLists/selectors';
+import { getDetailsListById } from '../../store/theMovieDB/myLists/selectors';
 
 import MyListComponent from './component';
 
@@ -20,11 +21,6 @@ class MyListContainer extends Component {
     detailsListRequest({ listId: id });
   }
 
-  getPage = page => {
-    // const { createdLists } = this.props;
-    // createdLists({ page });
-  };
-
   render() {
     const {
       removeMovieListRequest,
@@ -35,7 +31,6 @@ class MyListContainer extends Component {
     return (
       <MyListComponent
         {...this.props}
-        page={this.getPage}
         modalParams={{
           title: 'Do you want to delete movie from this list?',
           params: { listId: id },
@@ -46,8 +41,14 @@ class MyListContainer extends Component {
   }
 }
 
+MyListContainer.propTypes = {
+  detailsListRequest: PropTypes.func.isRequired,
+  removeMovieListRequest: PropTypes.func.isRequired,
+  myList: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
-  myList: getDetailsList(state),
+  myList: getDetailsListById(state),
 });
 
 const mapDispatchToProps = {

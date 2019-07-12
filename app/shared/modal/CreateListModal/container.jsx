@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createListRequest as createListRequestAction } from '../../../store/theMovieDB/myLists/actions';
 
 import CreateListModalComponent from './component';
@@ -21,12 +22,10 @@ class CreateListModalContainer extends Component {
     this.setState({ modalVisible: false });
   };
 
-  onSubmit = values => {
+  onSubmit = (values, actions) => {
     const { createListRequest } = this.props;
-    if (values.name) {
-      createListRequest(values);
-      this.hideModal();
-    }
+    actions.setSubmitting(true);
+    createListRequest({ values, actions, hideModal: this.hideModal });
   };
 
   render() {
@@ -37,12 +36,15 @@ class CreateListModalContainer extends Component {
         modalVisible={modalVisible}
         showModal={this.showModal}
         hideModal={this.hideModal}
-        onValidate={this.onValidate}
         onSubmit={this.onSubmit}
       />
     );
   }
 }
+
+CreateListModalContainer.propTypes = {
+  createListRequest: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   createListRequest: createListRequestAction,

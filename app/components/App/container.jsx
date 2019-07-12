@@ -7,7 +7,4 @@ const mapStateToProps = state => ({
   isLogged: getSessionId(state),
 });
 
-export default connect(
-  mapStateToProps,
-  null,
-)(AppComponent);
+export default connect(mapStateToProps)(AppComponent);

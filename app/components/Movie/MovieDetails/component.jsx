@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography, Card } from 'antd';
 
-const cover = item => (
-  <img alt={item.name} src={`https://image.tmdb.org/t/p/original/${item.profile_path}`} />
-);
+import Image from '../../../shared/images/Image';
 
 const MovieDetailsComponent = ({ movieDetails, title }) => (
   <>
@@ -23,7 +22,10 @@ const MovieDetailsComponent = ({ movieDetails, title }) => (
             lg={{ span: 4 }}
             xl={{ span: 4 }}
           >
-            <Card cover={cover(item)} className="top-margin">
+            <Card
+              className="top-margin"
+              cover={<Image className="movie-image" path={item.profile_path} alt={item.name} />}
+            >
               <Card.Meta title={item.name} description={item.character || item.job} />
             </Card>
           </Col>
@@ -32,5 +34,10 @@ const MovieDetailsComponent = ({ movieDetails, title }) => (
     </Row>
   </>
 );
+
+MovieDetailsComponent.propTypes = {
+  movieDetails: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default MovieDetailsComponent;
