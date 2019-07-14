@@ -2,9 +2,9 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 
-import AppComponent from '../container';
+import PrivateRouteComponent from '../container';
 
-describe('<AppContainer />', () => {
+describe('<PrivateRouteComponent />', () => {
   const mockStore = configureStore();
   const sessionId = 'some session id';
   const state = {
@@ -16,7 +16,7 @@ describe('<AppContainer />', () => {
   };
 
   const store = mockStore(state);
-  const container = shallow(<AppComponent store={store} />);
+  const container = shallow(<PrivateRouteComponent store={store} />);
 
   it('Render property', () => {
     expect(toJson(container)).toMatchSnapshot();

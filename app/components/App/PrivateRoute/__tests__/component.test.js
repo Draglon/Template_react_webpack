@@ -12,12 +12,12 @@ describe('<PrivateRouteComponent /> component', () => {
   };
 
   it('Render property - with isLogged true', () => {
-    // component = shallow(<PrivateRouteComponent {...props} isLogged />);
-    // expect(toJson(component)).toMatchSnapshot();
+    component = shallow(<PrivateRouteComponent {...props} isLogged="" />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 
   it('Render property - with isLogged false', () => {
-    // component = shallow(<PrivateRouteComponent {...props} isLogged={false} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    component = shallow(<PrivateRouteComponent {...props} isLogged="some sessionId" />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

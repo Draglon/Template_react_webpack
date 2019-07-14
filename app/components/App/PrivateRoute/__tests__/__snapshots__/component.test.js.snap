@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrivateRouteComponent /> component Render property - with isLogged false 1`] = `
+<Route
+  path="/"
+  render={[Function]}
+/>
+`;
+
+exports[`<PrivateRouteComponent /> component Render property - with isLogged true 1`] = `
+<Route
+  path="/"
+  render={[Function]}
+/>
+`;
