@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
+import Cookies from 'js-cookie';
 import { profile } from '../../schema';
-import { getCookie, setCookie } from '../../../helpers/cookie';
 
 import { profileSuccess, profileFailure } from './actions';
 import { addEntities } from '../data/actions';
@@ -12,12 +12,12 @@ export default createLogic({
 
   process({ apiClient }, dispatch, done) {
     apiClient
-      .get(`account?session_id=${getCookie('sessionId')}`)
+      .get(`account?session_id=${Cookies.get('sessionId')}`)
       .then(response => {
         const { id, avatar: { gravatar: { hash } }, name, username } = response.data;
         const data = { id, avatar: hash, name, username };
         const normalizeData = normalize(data, profile);
-        setCookie('accountId', id);
+        Cookies.set('accountId', id, { expires: 7 });
         dispatch(addEntities(normalizeData.entities));
         dispatch(profileSuccess({ id }));
       })

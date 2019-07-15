@@ -1,10 +1,10 @@
+import Cookies from 'js-cookie';
 import * as t from './actionTypes';
-import { getCookie } from '../../../helpers/cookie';
 
 export const initialState = {
   isLoading: false,
   data: {
-    id: getCookie('accountId'),
+    id: Cookies.get('accountId'),
   },
   error: null,
 };

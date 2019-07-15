@@ -16,11 +16,7 @@ describe('MyLists - selectors', () => {
       const state = {
         reducers: {
           lists: {
-            data: {
-              page: data.page,
-              results: data.results,
-              totalPages: data.totalPages,
-            },
+            data,
           },
         },
       };
@@ -57,11 +53,7 @@ describe('MyLists - selectors', () => {
       const state = {
         reducers: {
           lists: {
-            data: {
-              page: data.page,
-              results: data.results,
-              totalPages: data.totalPages,
-            },
+            data,
           },
           data: {
             lists: {
@@ -92,13 +84,7 @@ describe('MyLists - selectors', () => {
       const state = {
         reducers: {
           detailsList: {
-            data: {
-              id: data.id,
-              title: data.title,
-              description: data.description,
-              results: data.results,
-              total: data.total,
-            },
+            data,
           },
           data: {
             movies: {

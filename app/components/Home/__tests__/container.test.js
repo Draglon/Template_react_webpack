@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import HomeContainer from '../container';
 
 describe('<HomeContainer />', () => {
-  const mockStore = configureStore();
+  // const mockStore = configureStore();
   const sessionId = 'some session id';
   const state = {
     reducers: {
@@ -17,7 +17,7 @@ describe('<HomeContainer />', () => {
     isLogged: sessionId,
   };
 
-  const store = mockStore(state);
+  const store = configureStore()(state);
   const container = shallow(<HomeContainer store={store} {...props} />);
   const instance = container.instance();
 

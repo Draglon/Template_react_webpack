@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import WatchlistComponent from '../component';
 
@@ -8,6 +7,6 @@ describe('<WatchlistComponent /> container', () => {
 
   it('render property', () => {
     // component = shallow(<WatchlistComponent />);
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 });

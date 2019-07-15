@@ -3,16 +3,29 @@ import * as t from '../actionTypes';
 
 describe('Search movies - reducer', () => {
   it('state is undefined', () => {
-    expect(searchReducer(undefined, {})).toEqual(initialState);
+    expect(searchReducer(undefined, {})).toEqual({
+      isLoading: false,
+      data: {
+        query: '',
+        page: 1,
+        results: [],
+        totalPages: 0,
+      },
+      error: null,
+    });
   });
 
   it('SEARCH_REQUEST', () => {
+    const state = {
+      isLoading: false,
+      error: 'Error',
+    };
+
     const action = {
       type: t.SEARCH_REQUEST,
     };
 
-    expect(searchReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(searchReducer(state, action)).toEqual({
       isLoading: true,
       error: null,
     });

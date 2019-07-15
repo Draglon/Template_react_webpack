@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import FormButton from '../component';
 
@@ -8,13 +7,13 @@ describe('<FormButton /> component', () => {
   let component;
 
   it('Render property - without icon', () => {
-    // component = shallow(<FormButton {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    component = shallow(<FormButton {...props} />);
+    expect(component).toMatchSnapshot();
   });
 
   it('Render property - with icon', () => {
-    // props = { ...props, icon: 'some icon name' };
-    // component = shallow(<FormButton {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    props = { ...props, icon: 'some icon name' };
+    component = shallow(<FormButton {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

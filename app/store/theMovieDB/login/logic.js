@@ -1,5 +1,5 @@
 import { createLogic } from 'redux-logic';
-import { setCookie, getCookie } from '../../../helpers/cookie';
+import Cookies from 'js-cookie';
 
 import {
   createSessionSuccess,
@@ -28,7 +28,7 @@ export const createSessionLogic = createLogic({
       )
       .then(response3 => {
         const sessionId = response3.data.session_id;
-        setCookie('sessionId', sessionId);
+        Cookies.set('sessionId', sessionId, { expires: 7 });
         dispatch(createSessionSuccess(sessionId));
         action.payload.actions.setSubmitting(false);
       })
@@ -46,11 +46,11 @@ export const deleteSessionLogic = createLogic({
   process({ apiClient }, dispatch, done) {
     apiClient
       .delete('authentication/session', {
-        data: { session_id: getCookie('sessionId') },
+        data: { session_id: Cookies.get('sessionId') },
       })
       .then(() => {
-        setCookie('sessionId', '');
-        setCookie('accountId', '');
+        Cookies.set('sessionId', '');
+        Cookies.set('accountId', '');
         dispatch(deleteSessionSuccess(null));
       })
       .catch(error => dispatch(deleteSessionFailure(error)))

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeComponent /> Render snapshot - isLogged: false 1`] = `
+<Fragment>
+  <Connect(LoginFormComponent) />
+</Fragment>
+`;
+
+exports[`<HomeComponent /> Render snapshot - isLogged: true 1`] = `
+<Fragment>
+  <Connect(DashboardContainer) />
+</Fragment>
+`;

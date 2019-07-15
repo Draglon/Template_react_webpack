@@ -6,8 +6,12 @@ const DeleteItemModalComponent = ({ type, showModal }) => (
   <Icon key="delete" type={type} onClick={showModal} />
 );
 
+DeleteItemModalComponent.defaultTypes = {
+  type: null,
+};
+
 DeleteItemModalComponent.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   showModal: PropTypes.func.isRequired,
 };
 

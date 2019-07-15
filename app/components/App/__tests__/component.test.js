@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import AppComponent from '../component';
 
@@ -7,17 +6,17 @@ describe('<AppComponent /> component', () => {
   let component;
   let props;
 
-  it('Render property - isLogged: false', () => {
+  it('Render snapshot - isLogged: false', () => {
     props = { isLogged: '' };
     component = shallow(<AppComponent {...props} />);
 
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
-  it('Render property - isLogged: true', () => {
+  it('Render snapshot - isLogged: true', () => {
     props = { isLogged: 'some sessionId' };
     component = shallow(<AppComponent {...props} />);
 
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

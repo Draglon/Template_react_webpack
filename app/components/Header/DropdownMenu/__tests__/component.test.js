@@ -1,16 +1,15 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
-import DropdownMenu from '../component';
+import DropdownMenuComponent from '../component';
 
-describe('<DropdownMenu /> component', () => {
+describe('<DropdownMenuComponent />', () => {
   let component;
   const props = {
     deleteSessionRequest: () => {},
   };
 
-  it('Render property - with avatar', () => {
-    component = shallow(<DropdownMenu {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+  it('Render snapshot - DropdownMenuComponent', () => {
+    component = shallow(<DropdownMenuComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

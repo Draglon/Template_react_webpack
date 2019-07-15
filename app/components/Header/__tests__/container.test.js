@@ -44,5 +44,9 @@ describe('<HeaderContainer />', () => {
 
       expect(store.dispatch).toHaveBeenCalledWith(profileRequest());
     });
+
+    it('Render snapshot - HeaderContainer', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });

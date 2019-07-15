@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DropdownMenu /> component Render property - with avatar 1`] = `
+exports[`<DropdownMenuComponent /> Render snapshot - DropdownMenuComponent 1`] = `
 <Menu>
   <MenuItem>
     <Link

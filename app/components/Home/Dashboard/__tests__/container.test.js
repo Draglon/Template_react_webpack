@@ -28,17 +28,11 @@ describe('DashboardContainer', () => {
       },
     },
   };
-  const props = {
-    // trendingRequest: mockFetchTrendingRequest,
-    // searchRequest: mockFetchSearchRequest,
-    // trending: {},
-    // search: {},
-  };
 
   const store = mockStore(state);
   store.dispatch = jest.fn();
 
-  const wrapper = shallow(<DashboardContainer store={store} {...props} />);
+  const wrapper = shallow(<DashboardContainer store={store} />);
   const container = wrapper.dive();
   const instance = container.instance();
 

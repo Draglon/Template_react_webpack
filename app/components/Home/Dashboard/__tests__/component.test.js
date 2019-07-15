@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import DashboardComponent from '../component';
 
@@ -23,7 +22,7 @@ describe('<DashboardComponent /> container', () => {
 
   it('render property - without search query', () => {
     // component = shallow(<DashboardComponent {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 
   it('render property - with search query', () => {
@@ -37,6 +36,6 @@ describe('<DashboardComponent /> container', () => {
     //   },
     // };
     // component = shallow(<DashboardComponent {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 });

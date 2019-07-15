@@ -3,11 +3,16 @@ import * as t from '../actionTypes';
 
 describe('Search movies - actions', () => {
   it('searchRequest', () => {
-    const expectedAction = {
+    // const expectedAction = {
+    //   type: t.SEARCH_REQUEST,
+    //   payload: ['some data'],
+    // };
+
+    const payload = ['some data'];
+    expect(searchRequest(payload)).toEqual({
       type: t.SEARCH_REQUEST,
-      payload: ['some data'],
-    };
-    expect(searchRequest(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('searchSuccess', () => {

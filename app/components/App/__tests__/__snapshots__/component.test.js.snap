@@ -88,3 +88,7 @@ exports[`<AppComponent /> component Render property - isLogged: true 1`] = `
   </Adapter>
 </BrowserRouter>
 `;
+
+exports[`<AppComponent /> component Render snapshot - isLogged: false 1`] = `ShallowWrapper {}`;
+
+exports[`<AppComponent /> component Render snapshot - isLogged: true 1`] = `ShallowWrapper {}`;

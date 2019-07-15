@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 import { normalize } from 'normalizr';
+import Cookies from 'js-cookie';
 import { movies } from '../../schema';
-import { getCookie } from '../../../helpers/cookie';
 
 import { trendingSuccess, trendingFailure } from './actions';
 import { addEntities } from '../data/actions';
@@ -12,7 +12,7 @@ export default createLogic({
 
   process({ apiClient, action }, dispatch, done) {
     apiClient
-      .get(`trending/movie/week?session_id=${getCookie('sessionId')}&page=${action.payload.page}&language=en-US`)
+      .get(`trending/movie/week?session_id=${Cookies.get('sessionId')}&page=${action.payload.page}&language=en-US`)
       .then(response => {
         const normalizeData = normalize(response.data.results, [movies]);
         dispatch(addEntities(normalizeData.entities));
