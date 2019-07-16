@@ -163,48 +163,39 @@ describe('MyLists - reducers', () => {
 
   describe('MyLists - details list reducers', () => {
     it('state is undefined', () => {
-      expect(detailsListReducer(undefined, {})).toEqual(detailsListInitialState);
-    });
-
-    it('DETAILS_LIST_REQUEST after situation without error', () => {
-      const action = {
-        type: t.DETAILS_LIST_REQUEST,
-      };
-
-      expect(detailsListReducer(detailsListInitialState, action)).toEqual({
-        ...detailsListInitialState,
-        isLoading: true,
+      expect(detailsListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          id: '',
+          title: '',
+          description: '',
+          results: [],
+          total: 0,
+        },
         error: null,
       });
     });
 
-    it('DETAILS_LIST_REQUEST after error', () => {
-      const detailsListInitialStateWithError = {
-        ...detailsListInitialState,
-        isLoading: true,
-        error: 'Unknown error',
+    it('DETAILS_LIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
 
       const action = {
         type: t.DETAILS_LIST_REQUEST,
       };
 
-      expect(detailsListReducer(detailsListInitialStateWithError, action)).toEqual({
-        ...detailsListInitialStateWithError,
+      expect(detailsListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('DETAILS_LIST_SUCCESS', () => {
-      const stateBefore = {
-        ...detailsListInitialState,
+      const state = {
         isLoading: true,
-      };
-
-      const action = {
-        type: t.DETAILS_LIST_SUCCESS,
-        payload: {
+        data: {
           id: '',
           title: '',
           description: '',
@@ -213,8 +204,18 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(detailsListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      const action = {
+        type: t.DETAILS_LIST_SUCCESS,
+        payload: {
+          id: 'id',
+          title: 'title',
+          description: 'description',
+          results: [1, 2, 3],
+          total: 10,
+        },
+      };
+
+      expect(detailsListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           id: action.payload.id,
@@ -227,8 +228,7 @@ describe('MyLists - reducers', () => {
     });
 
     it('DETAILS_LIST_FAILURE', () => {
-      const stateBefore = {
-        ...detailsListInitialState,
+      const state = {
         isLoading: true,
         error: null,
       };
@@ -240,8 +240,7 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(detailsListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(detailsListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -250,54 +249,47 @@ describe('MyLists - reducers', () => {
 
   describe('MyLists - delete list reducers', () => {
     it('state is undefined', () => {
-      expect(deleteListReducer(undefined, {})).toEqual(deleteListInitialState);
-    });
-
-    it('DELETE_LIST_REQUEST after situation without error', () => {
-      const action = {
-        type: t.DELETE_LIST_REQUEST,
-      };
-
-      expect(deleteListReducer(deleteListInitialState, action)).toEqual({
-        ...deleteListInitialState,
-        isLoading: true,
+      expect(deleteListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          message: '',
+        },
         error: null,
       });
     });
 
-    it('DELETE_LIST_REQUEST after error', () => {
-      const deleteListInitialStateWithError = {
-        ...deleteListInitialState,
-        isLoading: true,
-        error: 'Unknown error',
+    it('DELETE_LIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
 
       const action = {
         type: t.DELETE_LIST_REQUEST,
       };
 
-      expect(deleteListReducer(deleteListInitialStateWithError, action)).toEqual({
-        ...deleteListInitialStateWithError,
+      expect(deleteListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('DELETE_LIST_SUCCESS', () => {
-      const stateBefore = {
-        ...deleteListInitialState,
+      const state = {
         isLoading: true,
+        data: {
+          message: '',
+        },
       };
 
       const action = {
         type: t.DELETE_LIST_SUCCESS,
         payload: {
-          message: '',
+          message: 'message success',
         },
       };
 
-      expect(deleteListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(deleteListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           message: action.payload.status_message,
@@ -306,8 +298,7 @@ describe('MyLists - reducers', () => {
     });
 
     it('DELETE_LIST_FAILURE', () => {
-      const stateBefore = {
-        ...deleteListInitialState,
+      const state = {
         isLoading: true,
         error: null,
       };
@@ -319,8 +310,7 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(deleteListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(deleteListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -329,54 +319,47 @@ describe('MyLists - reducers', () => {
 
   describe('MyLists - add movie to list reducers', () => {
     it('state is undefined', () => {
-      expect(addMovieListReducer(undefined, {})).toEqual(addMovieListInitialState);
-    });
-
-    it('ADD_MOVIE_LIST_REQUEST after situation without error', () => {
-      const action = {
-        type: t.ADD_MOVIE_LIST_REQUEST,
-      };
-
-      expect(addMovieListReducer(addMovieListInitialState, action)).toEqual({
-        ...addMovieListInitialState,
-        isLoading: true,
+      expect(addMovieListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          message: '',
+        },
         error: null,
       });
     });
 
-    it('ADD_MOVIE_LIST_REQUEST after error', () => {
-      const addMovieListInitialStateWithError = {
-        ...addMovieListInitialState,
-        isLoading: true,
-        error: 'Unknown error',
+    it('ADD_MOVIE_LIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
 
       const action = {
         type: t.ADD_MOVIE_LIST_REQUEST,
       };
 
-      expect(addMovieListReducer(addMovieListInitialStateWithError, action)).toEqual({
-        ...addMovieListInitialStateWithError,
+      expect(addMovieListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('ADD_MOVIE_LIST_SUCCESS', () => {
-      const stateBefore = {
-        ...addMovieListInitialState,
+      const state = {
         isLoading: true,
+        data: {
+          message: '',
+        },
       };
 
       const action = {
         type: t.ADD_MOVIE_LIST_SUCCESS,
         payload: {
-          message: '',
+          message: 'message success',
         },
       };
 
-      expect(addMovieListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addMovieListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           message: action.payload.status_message,
@@ -385,8 +368,7 @@ describe('MyLists - reducers', () => {
     });
 
     it('ADD_MOVIE_LIST_FAILURE', () => {
-      const stateBefore = {
-        ...addMovieListInitialState,
+      const state = {
         isLoading: true,
         error: null,
       };
@@ -398,8 +380,7 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(addMovieListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addMovieListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -408,54 +389,46 @@ describe('MyLists - reducers', () => {
 
   describe('MyLists - remove movie to list reducers', () => {
     it('state is undefined', () => {
-      expect(removeMovieListReducer(undefined, {})).toEqual(removeMovieListInitialState);
-    });
-
-    it('REMOVE_MOVIE_LIST_REQUEST after situation without error', () => {
-      const action = {
-        type: t.REMOVE_MOVIE_LIST_REQUEST,
-      };
-
-      expect(removeMovieListReducer(removeMovieListInitialState, action)).toEqual({
-        ...removeMovieListInitialState,
-        isLoading: true,
+      expect(removeMovieListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          message: '',
+        },
         error: null,
       });
     });
 
-    it('REMOVE_MOVIE_LIST_REQUEST after error', () => {
-      const removeMovieListInitialStateWithError = {
-        ...removeMovieListInitialState,
-        isLoading: true,
-        error: 'Unknown error',
+    it('REMOVE_MOVIE_LIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
-
       const action = {
         type: t.REMOVE_MOVIE_LIST_REQUEST,
       };
 
-      expect(removeMovieListReducer(removeMovieListInitialStateWithError, action)).toEqual({
-        ...removeMovieListInitialStateWithError,
+      expect(removeMovieListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('REMOVE_MOVIE_LIST_SUCCESS', () => {
-      const stateBefore = {
-        ...removeMovieListInitialState,
+      const state = {
         isLoading: true,
+        data: {
+          message: '',
+        },
       };
 
       const action = {
         type: t.REMOVE_MOVIE_LIST_SUCCESS,
         payload: {
-          message: '',
+          message: 'message success',
         },
       };
 
-      expect(removeMovieListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(removeMovieListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           message: action.payload.status_message,
@@ -464,8 +437,7 @@ describe('MyLists - reducers', () => {
     });
 
     it('REMOVE_MOVIE_LIST_FAILURE', () => {
-      const stateBefore = {
-        ...removeMovieListInitialState,
+      const state = {
         isLoading: true,
         error: null,
       };
@@ -473,12 +445,11 @@ describe('MyLists - reducers', () => {
       const action = {
         type: t.REMOVE_MOVIE_LIST_FAILURE,
         payload: {
-          message: 'error message',
+          message: 'message error',
         },
       };
 
-      expect(removeMovieListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(removeMovieListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
