@@ -23,6 +23,7 @@ const PrivateRouteComponent = ({ component: Component, isLogged, ...rest }) => {
 };
 
 PrivateRouteComponent.propTypes = {
+  component: PropTypes.func.isRequired,
   isLogged: PropTypes.string.isRequired,
 };
 

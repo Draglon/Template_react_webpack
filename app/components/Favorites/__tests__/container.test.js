@@ -38,14 +38,12 @@ describe('<FavoritesContainer />', () => {
     });
   });
 
-  // describe('getPage()', () => {
-  //   it('dispatches the getPage()', () => {
-  //     const page = 10;
-  //     const getPage = jest.fn(() => page);
-
-  //     expect(getPage(10)).toHaveBeenCalled();
-  //   });
-  // });
+  describe('getPage()', () => {
+    it('dispatches the getPage()', () => {
+      instance.getPage(10);
+      expect(store.dispatch).toHaveBeenCalledWith(favoriteRequest({ page: 10 }));
+    });
+  });
 
   it('Render snapshot - FavoritesContainer', () => {
     expect(wrapper).toMatchSnapshot();

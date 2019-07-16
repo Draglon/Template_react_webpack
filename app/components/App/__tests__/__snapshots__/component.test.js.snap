@@ -11,32 +11,32 @@ exports[`<AppComponent /> component Render snapshot - isLogged: false 1`] = `
         exact={true}
         path="/"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/mylists"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/watchlist"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/favorites"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/movie/:id"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/list/:id"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
       />
     </Switch>
@@ -56,32 +56,32 @@ exports[`<AppComponent /> component Render snapshot - isLogged: true 1`] = `
         exact={true}
         path="/"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/mylists"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/watchlist"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/favorites"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/movie/:id"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
         exact={true}
         path="/list/:id"
       />
-      <Connect(PrivateRouteComponent)
+      <withRouter(Connect(PrivateRouteComponent))
         component={[Function]}
       />
     </Switch>

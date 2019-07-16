@@ -33,8 +33,20 @@ exports[`<FavoritesContainer /> Render snapshot - FavoritesContainer 1`] = `
               "type": "FAVORITE_REQUEST",
             },
           ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 10,
+              },
+              "type": "FAVORITE_REQUEST",
+            },
+          ],
         ],
         "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
           Object {
             "type": "return",
             "value": undefined,
@@ -81,8 +93,20 @@ exports[`<FavoritesContainer /> Render snapshot - FavoritesContainer 1`] = `
                 "type": "FAVORITE_REQUEST",
               },
             ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 10,
+                },
+                "type": "FAVORITE_REQUEST",
+              },
+            ],
           ],
           "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
             Object {
               "type": "return",
               "value": undefined,
