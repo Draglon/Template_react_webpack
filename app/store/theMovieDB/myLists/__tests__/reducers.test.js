@@ -1,93 +1,71 @@
 import {
   createdListsReducer,
-  initialState,
   createListReducer,
-  createListInitialState,
   detailsListReducer,
-  detailsListInitialState,
   deleteListReducer,
-  deleteListInitialState,
   addMovieListReducer,
-  addMovieListInitialState,
   removeMovieListReducer,
-  removeMovieListInitialState,
 } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('MyLists - reducers', () => {
   describe('MyLists - create list reducers', () => {
     it('state is undefined', () => {
-      expect(createListReducer(undefined, {})).toEqual(createListInitialState);
-    });
-
-    it('CREATE_LIST_REQUEST after situation without error', () => {
-      const action = {
-        type: t.CREATE_LIST_REQUEST,
-      };
-
-      expect(createListReducer(createListInitialState, action)).toEqual({
-        ...createListInitialState,
-        isLoading: true,
+      expect(createListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          listId: '',
+          message: '',
+        },
         error: null,
       });
     });
 
-    it('CREATE_LIST_REQUEST after error', () => {
-      const createListInitialStateWithError = {
-        isLoading: true,
-        data: {
-          list_id: null,
-          message: null,
-        },
-        error: 'Unknown error',
+    it('CREATE_LIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
 
       const action = {
         type: t.CREATE_LIST_REQUEST,
       };
 
-      expect(createListReducer(createListInitialStateWithError, action)).toEqual({
-        ...createListInitialStateWithError,
+      expect(createListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('CREATE_LIST_SUCCESS', () => {
-      const stateBefore = {
+      const state = {
         isLoading: true,
         data: {
-          list_id: null,
-          message: null,
+          listId: '',
+          message: '',
         },
-        error: null,
       };
 
       const action = {
         type: t.CREATE_LIST_SUCCESS,
         payload: {
-          list_id: 'list_id',
-          status_message: 'success message',
+          listId: 'list_id',
+          message: 'success message',
         },
       };
 
-      expect(createListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(createListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
-          list_id: action.payload.list_id,
+          listId: action.payload.list_id,
           message: action.payload.status_message,
         },
       });
     });
 
     it('CREATE_LIST_FAILURE', () => {
-      const stateBefore = {
+      const state = {
         isLoading: true,
-        data: {
-          list_id: null,
-          message: null,
-        },
         error: null,
       };
 
@@ -98,8 +76,7 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(createListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(createListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -108,56 +85,53 @@ describe('MyLists - reducers', () => {
 
   describe('MyLists - createed lists reducers', () => {
     it('state is undefined', () => {
-      expect(createdListsReducer(undefined, {})).toEqual(initialState);
-    });
-
-    it('CREATED_LISTS_REQUEST after situation without error', () => {
-      const action = {
-        type: t.CREATED_LISTS_REQUEST,
-      };
-
-      expect(createdListsReducer(initialState, action)).toEqual({
-        ...initialState,
-        isLoading: true,
+      expect(createdListsReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          page: 1,
+          results: [],
+          totalPages: 0,
+        },
         error: null,
       });
     });
 
-    it('CREATED_LISTS_REQUEST after error', () => {
-      const initialStateWithError = {
-        ...initialState,
-        isLoading: true,
-        error: 'Unknown error',
+    it('CREATED_LISTS_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
       };
 
       const action = {
         type: t.CREATED_LISTS_REQUEST,
       };
 
-      expect(createdListsReducer(initialStateWithError, action)).toEqual({
-        ...initialStateWithError,
+      expect(createdListsReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('CREATED_LISTS_SUCCESS', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
-      };
-
-      const action = {
-        type: t.CREATED_LISTS_SUCCESS,
-        payload: {
+        data: {
           page: 1,
           results: [],
           totalPages: 0,
         },
       };
 
-      expect(createdListsReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      const action = {
+        type: t.CREATED_LISTS_SUCCESS,
+        payload: {
+          page: 1,
+          results: [1, 2, 3],
+          totalPages: 10,
+        },
+      };
+
+      expect(createdListsReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           page: action.payload.page,
@@ -168,8 +142,7 @@ describe('MyLists - reducers', () => {
     });
 
     it('CREATED_LISTS_FAILURE', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
         error: null,
       };
@@ -181,8 +154,7 @@ describe('MyLists - reducers', () => {
         },
       };
 
-      expect(createdListsReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(createdListsReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
