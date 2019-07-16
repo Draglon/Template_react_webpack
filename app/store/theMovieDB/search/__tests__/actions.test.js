@@ -3,12 +3,7 @@ import * as t from '../actionTypes';
 
 describe('Search movies - actions', () => {
   it('searchRequest', () => {
-    // const expectedAction = {
-    //   type: t.SEARCH_REQUEST,
-    //   payload: ['some data'],
-    // };
-
-    const payload = ['some data'];
+    const payload = { query: 'sarch string', page: 1 };
     expect(searchRequest(payload)).toEqual({
       type: t.SEARCH_REQUEST,
       payload,
@@ -16,18 +11,23 @@ describe('Search movies - actions', () => {
   });
 
   it('searchSuccess', () => {
-    const expectedAction = {
-      type: t.SEARCH_SUCCESS,
-      payload: ['some data'],
+    const payload = {
+      query: 'search string',
+      page: 1,
+      results: [1, 2, 3],
+      totalPages: 10,
     };
-    expect(searchSuccess(expectedAction.payload)).toEqual(expectedAction);
+    expect(searchSuccess(payload)).toEqual({
+      type: t.SEARCH_SUCCESS,
+      payload,
+    });
   });
 
   it('searchFailure', () => {
-    const expectedAction = {
+    const payload = 'message error';
+    expect(searchFailure(payload)).toEqual({
       type: t.SEARCH_FAILURE,
-      payload: ['some data'],
-    };
-    expect(searchFailure(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 });

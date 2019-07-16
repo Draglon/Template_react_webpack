@@ -3,7 +3,7 @@ import { normalize } from 'normalizr';
 import { schemaMovie } from '../../schema';
 import { getSessionId } from '../login/selectors';
 
-import { movieSuccess, movieFailure } from './actions';
+import { movieFailure } from './actions';
 import { addEntities } from '../data/actions';
 import * as t from './actionTypes';
 

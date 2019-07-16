@@ -1,7 +1,7 @@
-import { getWatchlistById } from '../selectors';
+import { getWatchlist } from '../selectors';
 
 describe('Watchlist selectors', () => {
-  it('getWatchlistById - get watchlist data from store', () => {
+  it('getWatchlist - get watchlist data from store', () => {
     const data = {
       page: 1,
       results: [1, 2, 3],
@@ -28,7 +28,7 @@ describe('Watchlist selectors', () => {
         },
       },
     };
-    expect(getWatchlistById(state)).toEqual({
+    expect(getWatchlist(state)).toEqual({
       ...data,
       results: [{ id: 1 }, { id: 2 }, { id: 3 }],
     });

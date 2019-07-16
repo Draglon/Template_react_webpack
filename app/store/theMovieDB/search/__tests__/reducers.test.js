@@ -1,4 +1,4 @@
-import { searchReducer, initialState } from '../reducers';
+import { searchReducer } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Search movies - reducer', () => {
@@ -18,7 +18,7 @@ describe('Search movies - reducer', () => {
   it('SEARCH_REQUEST', () => {
     const state = {
       isLoading: false,
-      error: 'Error',
+      error: 'some error',
     };
 
     const action = {
@@ -32,15 +32,9 @@ describe('Search movies - reducer', () => {
   });
 
   it('SEARCH_SUCCESS', () => {
-    const stateBefore = {
-      ...initialState,
+    const state = {
       isLoading: true,
-      error: null,
-    };
-
-    const action = {
-      type: t.SEARCH_SUCCESS,
-      payload: {
+      data: {
         query: '',
         page: 1,
         results: [],
@@ -48,8 +42,17 @@ describe('Search movies - reducer', () => {
       },
     };
 
-    expect(searchReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    const action = {
+      type: t.SEARCH_SUCCESS,
+      payload: {
+        query: 'search string',
+        page: 1,
+        results: [1, 2, 3],
+        totalPages: 10,
+      },
+    };
+
+    expect(searchReducer(state, action)).toEqual({
       isLoading: false,
       data: {
         query: action.payload.query,
@@ -61,9 +64,15 @@ describe('Search movies - reducer', () => {
   });
 
   it('SEARCH_FAILURE', () => {
-    const stateBefore = {
-      ...initialState,
+    const state = {
       isLoading: true,
+      data: {
+        query: '',
+        page: 1,
+        results: [],
+        totalPages: 0,
+      },
+      error: null,
     };
 
     const action = {
@@ -73,9 +82,14 @@ describe('Search movies - reducer', () => {
       },
     };
 
-    expect(searchReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    expect(searchReducer(state, action)).toEqual({
       isLoading: false,
+      data: {
+        query: '',
+        page: 1,
+        results: [],
+        totalPages: 0,
+      },
       error: action.payload.message,
     });
   });

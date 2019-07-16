@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { createdListsRequest as createdListsRequestAction } from '../../store/theMovieDB/myLists/actions';
-import { getCreatedListsById } from '../../store/theMovieDB/myLists/selectors';
+import { getCreatedLists } from '../../store/theMovieDB/myLists/selectors';
 
 import MyListsComponent from './component';
 
@@ -29,7 +29,7 @@ MyListsContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  myLists: getCreatedListsById(state),
+  myLists: getCreatedLists(state),
 });
 
 const mapDispatchToProps = {

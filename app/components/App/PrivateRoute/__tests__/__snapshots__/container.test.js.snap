@@ -3,7 +3,7 @@
 exports[`<PrivateRouteContainer /> Render snapshot - PrivateRouteContainer 1`] = `
 <PrivateRouteComponent
   dispatch={[Function]}
-  isLogged="some session id"
+  sessionId="some session id"
   store={
     Object {
       "clearActions": [Function],

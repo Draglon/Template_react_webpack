@@ -8,7 +8,7 @@ describe('<PrivateRouteComponent />', () => {
   const props = {
     component: () => <h1>Hyperspace tracker</h1>,
     path: location,
-    isLogged: '',
+    sessionId: '',
   };
 
   const wrapper = shallow(<PrivateRouteComponent {...props} />);
@@ -42,7 +42,7 @@ describe('<PrivateRouteComponent />', () => {
   describe('With sessionId', () => {
     const newProps = {
       ...props,
-      isLogged: 'some sessionId',
+      sessionId: 'some sessionId',
     };
 
     beforeEach(() => {

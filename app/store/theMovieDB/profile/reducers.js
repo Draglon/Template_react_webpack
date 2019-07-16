@@ -4,7 +4,7 @@ import * as t from './actionTypes';
 export const initialState = {
   isLoading: false,
   data: {
-    id: Cookies.get('accountId'),
+    id: Cookies.get('accountId') || '',
   },
   error: null,
 };

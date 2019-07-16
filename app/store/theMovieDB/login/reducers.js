@@ -3,7 +3,7 @@ import * as t from './actionTypes';
 
 export const loginInitialState = {
   isLoading: false,
-  sessionId: Cookies.get('sessionId'),
+  sessionId: Cookies.get('sessionId') || '',
   error: null,
 };
 

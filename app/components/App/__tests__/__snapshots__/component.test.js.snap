@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AppComponent /> component Render snapshot - isLogged: false 1`] = `
+exports[`<AppComponent /> component Render snapshot - sessionId: false 1`] = `
 <BrowserRouter>
   <Adapter
     className="page"
@@ -44,7 +44,7 @@ exports[`<AppComponent /> component Render snapshot - isLogged: false 1`] = `
 </BrowserRouter>
 `;
 
-exports[`<AppComponent /> component Render snapshot - isLogged: true 1`] = `
+exports[`<AppComponent /> component Render snapshot - sessionId: true 1`] = `
 <BrowserRouter>
   <Connect(HeaderContainer) />
   <Adapter

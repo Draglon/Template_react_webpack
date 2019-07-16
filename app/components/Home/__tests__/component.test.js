@@ -6,14 +6,14 @@ describe('<HomeComponent />', () => {
   let component;
   let props;
 
-  it('Render snapshot - isLogged: false', () => {
-    props = { isLogged: '' };
+  it('Render snapshot - sessionId: false', () => {
+    props = { sessionId: '' };
     component = shallow(<HomeComponent {...props} />);
     expect(component).toMatchSnapshot();
   });
 
-  it('Render snapshot - isLogged: true', () => {
-    props = { isLogged: 'some sessionId' };
+  it('Render snapshot - sessionId: true', () => {
+    props = { sessionId: 'some sessionId' };
     component = shallow(<HomeComponent {...props} />);
     expect(component).toMatchSnapshot();
   });

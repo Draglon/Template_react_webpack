@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
 
-const HomeComponent = ({ isLogged }) => <>{isLogged ? <Dashboard /> : <LoginForm />}</>;
+const HomeComponent = ({ sessionId }) => <>{sessionId ? <Dashboard /> : <LoginForm />}</>;
 
 HomeComponent.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  sessionId: PropTypes.string.isRequired,
 };
 
 export default HomeComponent;

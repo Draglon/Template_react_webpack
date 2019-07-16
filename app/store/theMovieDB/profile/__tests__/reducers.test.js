@@ -1,30 +1,37 @@
-import { profileReducer, initialState } from '../reducers';
+import { profileReducer } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Profile - reducer', () => {
   it('state is undefined', () => {
-    expect(profileReducer(undefined, {})).toEqual(initialState);
+    expect(profileReducer(undefined, {})).toEqual({
+      isLoading: false,
+      data: {
+        id: '',
+      },
+      error: null,
+    });
   });
 
   it('PROFILE_REQUEST after situation without error', () => {
+    const state = {
+      isLoading: false,
+      error: 'some error',
+    };
+
     const action = {
       type: t.PROFILE_REQUEST,
     };
 
-    expect(profileReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(profileReducer(state, action)).toEqual({
       isLoading: true,
       error: null,
     });
   });
 
   it('PROFILE_SUCCESS', () => {
-    const stateBefore = {
+    const state = {
       isLoading: true,
-      data: {
-        id: null,
-      },
-      error: null,
+      data: { id: '' },
     };
 
     const action = {
@@ -34,8 +41,7 @@ describe('Profile - reducer', () => {
       },
     };
 
-    expect(profileReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    expect(profileReducer(state, action)).toEqual({
       isLoading: false,
       data: {
         id: action.payload.id,
@@ -44,11 +50,8 @@ describe('Profile - reducer', () => {
   });
 
   it('PROFILE_FAILURE', () => {
-    const stateBefore = {
+    const state = {
       isLoading: true,
-      data: {
-        id: null,
-      },
       error: null,
     };
 
@@ -59,8 +62,7 @@ describe('Profile - reducer', () => {
       },
     };
 
-    expect(profileReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    expect(profileReducer(state, action)).toEqual({
       isLoading: false,
       error: action.payload.message,
     });

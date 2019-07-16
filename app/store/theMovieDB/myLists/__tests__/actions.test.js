@@ -23,157 +23,179 @@ import * as t from '../actionTypes';
 describe('MyLists - actions', () => {
   describe('MyLists - get created lists actions', () => {
     it('createdListsRequest', () => {
-      const expectedAction = {
+      const payload = { page: 1 };
+      expect(createdListsRequest(payload)).toEqual({
         type: t.CREATED_LISTS_REQUEST,
-        payload: ['some data'],
-      };
-      expect(createdListsRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('createdListsSuccess', () => {
-      const expectedAction = {
-        type: t.CREATED_LISTS_SUCCESS,
-        payload: ['some data'],
+      const payload = {
+        page: 1,
+        results: [],
+        totalPages: 0,
       };
-      expect(createdListsSuccess(expectedAction.payload)).toEqual(expectedAction);
+      expect(createdListsSuccess(payload)).toEqual({
+        type: t.CREATED_LISTS_SUCCESS,
+        payload,
+      });
     });
 
     it('createdListsFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(createdListsFailure(payload)).toEqual({
         type: t.CREATED_LISTS_FAILURE,
-        payload: ['some data'],
-      };
-      expect(createdListsFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('MyLists - create list actions', () => {
     it('createListRequest', () => {
-      const expectedAction = {
-        type: t.CREATE_LIST_REQUEST,
-        payload: ['some data'],
+      const payload = {
+        values: {
+          name: 'list name',
+          description: 'some description',
+        },
+        actions: {
+          isSubmitting: true,
+        },
+        hideModal: true,
       };
-      expect(createListRequest(expectedAction.payload)).toEqual(expectedAction);
+      expect(createListRequest(payload)).toEqual({
+        type: t.CREATE_LIST_REQUEST,
+        payload,
+      });
     });
 
     it('createListSuccess', () => {
-      const expectedAction = {
-        type: t.CREATE_LIST_SUCCESS,
-        payload: ['some data'],
+      const payload = {
+        list_id: 'list id',
+        message: 'message success',
       };
-      expect(createListSuccess(expectedAction.payload)).toEqual(expectedAction);
+      expect(createListSuccess(payload)).toEqual({
+        type: t.CREATE_LIST_SUCCESS,
+        payload,
+      });
     });
 
     it('createListFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(createListFailure(payload)).toEqual({
         type: t.CREATE_LIST_FAILURE,
-        payload: ['some data'],
-      };
-      expect(createListFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('MyLists - get details list actions', () => {
     it('detailsListRequest', () => {
-      const expectedAction = {
+      const payload = { listId: 999 };
+      expect(detailsListRequest(payload)).toEqual({
         type: t.DETAILS_LIST_REQUEST,
-        payload: ['some data'],
-      };
-      expect(detailsListRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('detailsListSuccess', () => {
-      const expectedAction = {
-        type: t.DETAILS_LIST_SUCCESS,
-        payload: ['some data'],
+      const payload = {
+        id: 'id',
+        title: 'title',
+        description: 'description',
+        results: [1, 2, 3],
+        total: 10,
       };
-      expect(detailsListSuccess(expectedAction.payload)).toEqual(expectedAction);
+      expect(detailsListSuccess(payload)).toEqual({
+        type: t.DETAILS_LIST_SUCCESS,
+        payload,
+      });
     });
 
     it('detailsListFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(detailsListFailure(payload)).toEqual({
         type: t.DETAILS_LIST_FAILURE,
-        payload: ['some data'],
-      };
-      expect(detailsListFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('MyLists - add movie list actions', () => {
     it('addMovieListRequest', () => {
-      const expectedAction = {
+      const payload = { listId: 999, movieId: 999 };
+      expect(addMovieListRequest(payload)).toEqual({
         type: t.ADD_MOVIE_LIST_REQUEST,
-        payload: ['some data'],
-      };
-      expect(addMovieListRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('addMovieListSuccess', () => {
-      const expectedAction = {
+      const payload = { message: 'message success' };
+      expect(addMovieListSuccess(payload)).toEqual({
         type: t.ADD_MOVIE_LIST_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(addMovieListSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('addMovieListFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(addMovieListFailure(payload)).toEqual({
         type: t.ADD_MOVIE_LIST_FAILURE,
-        payload: ['some data'],
-      };
-      expect(addMovieListFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('MyLists - remove movie list actions', () => {
     it('removeMovieListRequest', () => {
-      const expectedAction = {
+      const payload = { listId: 999, movieId: 999 };
+      expect(removeMovieListRequest(payload)).toEqual({
         type: t.REMOVE_MOVIE_LIST_REQUEST,
-        payload: ['some data'],
-      };
-      expect(removeMovieListRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('removeMovieListSuccess', () => {
-      const expectedAction = {
+      const payload = { message: 'message success' };
+      expect(removeMovieListSuccess(payload)).toEqual({
         type: t.REMOVE_MOVIE_LIST_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(removeMovieListSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('removeMovieListFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(removeMovieListFailure(payload)).toEqual({
         type: t.REMOVE_MOVIE_LIST_FAILURE,
-        payload: ['some data'],
-      };
-      expect(removeMovieListFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('MyLists - delete list actions', () => {
     it('deleteListRequest', () => {
-      const expectedAction = {
+      const payload = { listId: 999 };
+      expect(deleteListRequest(payload)).toEqual({
         type: t.DELETE_LIST_REQUEST,
-        payload: ['some data'],
-      };
-      expect(deleteListRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('deleteListSuccess', () => {
-      const expectedAction = {
+      const payload = { message: 'message success' };
+      expect(deleteListSuccess(payload)).toEqual({
         type: t.DELETE_LIST_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(deleteListSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('deleteListFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(deleteListFailure(payload)).toEqual({
         type: t.DELETE_LIST_FAILURE,
-        payload: ['some data'],
-      };
-      expect(deleteListFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 });

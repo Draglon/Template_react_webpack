@@ -3,7 +3,7 @@
 exports[`<AppContainer /> Render snapshot - AppContainer 1`] = `
 <AppComponent
   dispatch={[Function]}
-  isLogged="some session id"
+  sessionId="some session id"
   store={
     Object {
       "clearActions": [Function],

@@ -51,7 +51,7 @@ export const deleteSessionLogic = createLogic({
       .then(() => {
         Cookies.set('sessionId', '');
         Cookies.set('accountId', '');
-        dispatch(deleteSessionSuccess(null));
+        dispatch(deleteSessionSuccess(''));
       })
       .catch(error => dispatch(deleteSessionFailure(error)))
       .then(() => done());

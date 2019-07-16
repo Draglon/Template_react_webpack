@@ -1,49 +1,8 @@
-import {
-  getCreatedLists,
-  getCreateList,
-  getCreatedListsById,
-  getDetailsListById,
-} from '../selectors';
+import { getCreatedLists, getDetailsList } from '../selectors';
 
 describe('MyLists - selectors', () => {
   describe('MyLists - getCreatedLists()', () => {
     it('getCreatedLists', () => {
-      const data = {
-        page: 1,
-        results: [{ id: 1 }, { id: 2 }, { id: 3 }],
-        totalPages: 0,
-      };
-      const state = {
-        reducers: {
-          lists: {
-            data,
-          },
-        },
-      };
-      expect(getCreatedLists(state)).toEqual(data);
-    });
-  });
-
-  describe('MyLists - getCreateList()', () => {
-    it('getCreateList', () => {
-      const listId = 'some list_id';
-      const message = 'some message';
-      const state = {
-        reducers: {
-          list: {
-            data: {
-              list_id: listId,
-              message,
-            },
-          },
-        },
-      };
-      expect(getCreateList(state)).toEqual({ list_id: listId, message });
-    });
-  });
-
-  describe('MyLists - getCreatedListsById()', () => {
-    it('getCreatedListsById', () => {
       const data = {
         page: 1,
         results: [1, 2, 3],
@@ -64,15 +23,15 @@ describe('MyLists - selectors', () => {
           },
         },
       };
-      expect(getCreatedListsById(state)).toEqual({
+      expect(getCreatedLists(state)).toEqual({
         ...data,
         results: [{ id: 1 }, { id: 2 }, { id: 3 }],
       });
     });
   });
 
-  describe('MyLists - getDetailsListById()', () => {
-    it('getDetailsListById', () => {
+  describe('MyLists - getDetailsList()', () => {
+    it('getDetailsList', () => {
       const data = {
         id: '',
         title: '',
@@ -95,7 +54,7 @@ describe('MyLists - selectors', () => {
           },
         },
       };
-      expect(getDetailsListById(state)).toEqual({
+      expect(getDetailsList(state)).toEqual({
         ...data,
         results: [{ id: 1 }, { id: 2 }, { id: 3 }],
       });

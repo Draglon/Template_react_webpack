@@ -15,7 +15,6 @@ describe('API config', () => {
   it('should send request - apiConfig', () => {
     expect(axios.create).toHaveBeenCalledWith({
       baseURL: 'https://api.themoviedb.org/3/',
-      // timeout: 1000,
     });
   });
 });

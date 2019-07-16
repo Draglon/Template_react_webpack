@@ -3,7 +3,7 @@
 exports[`<HomeContainer /> Render snapshot - HomeContainer 1`] = `
 <HomeComponent
   dispatch={[Function]}
-  isLogged="some session id"
+  sessionId="some session id"
   store={
     Object {
       "clearActions": [Function],
