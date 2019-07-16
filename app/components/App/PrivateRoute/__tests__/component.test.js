@@ -4,44 +4,54 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import PrivateRouteComponent from '../component';
 
 describe('<PrivateRouteComponent />', () => {
-  let wrapper;
   const location = '/dashboard';
-  let props = {
+  const props = {
     component: () => <h1>Hyperspace tracker</h1>,
     path: location,
+    isLogged: '',
   };
 
-  it('Render snapshot - isLogged true and check redirect path', () => {
-    props = {
+  const wrapper = shallow(<PrivateRouteComponent {...props} />);
+
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('Without sessionId', () => {
+    beforeEach(() => {
+      wrapper.setProps(props);
+    });
+
+    it('should check redirect path', () => {
+      const rendered = wrapper.renderProp('render')({ location });
+      expect(rendered.find(Redirect).props()).toEqual({
+        push: false,
+        to: {
+          pathname: '/',
+          state: { from: location },
+        },
+      });
+    });
+
+    it('should match snapshot', () => {
+      const rendered = wrapper.renderProp('render')({ location });
+      expect(rendered).toMatchSnapshot();
+    });
+  });
+
+  describe('With sessionId', () => {
+    const newProps = {
       ...props,
       isLogged: 'some sessionId',
     };
-    wrapper = shallow(<PrivateRouteComponent {...props} />);
-    const ComponentToRender = wrapper.prop('render');
-    const componentWrapper = shallow(<ComponentToRender />);
 
-    expect(componentWrapper.props()).toEqual({});
-    expect(wrapper).toMatchSnapshot();
-    expect(componentWrapper).toMatchSnapshot();
-  });
-
-  it('Render snapshot - isLogged false and check redirect path', () => {
-    props = {
-      ...props,
-      isLogged: '',
-    };
-    wrapper = shallow(<PrivateRouteComponent {...props} />);
-    const ComponentToRender = wrapper.prop('render');
-    const redirectWrapper = shallow(<ComponentToRender location={location} />);
-
-    expect(redirectWrapper.find(Redirect).props()).toEqual({
-      push: false,
-      to: {
-        pathname: '/',
-        state: { from: location },
-      },
+    beforeEach(() => {
+      wrapper.setProps(newProps);
     });
-    expect(wrapper).toMatchSnapshot();
-    expect(redirectWrapper).toMatchSnapshot();
+
+    it('should match snapshot', () => {
+      const rendered = wrapper.renderProp('render')();
+      expect(rendered).toMatchSnapshot();
+    });
   });
 });
