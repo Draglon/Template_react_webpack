@@ -15,16 +15,13 @@ const LoginSchema = Yup.object().shape({
     .required('Should be required'),
 });
 
-const LoginFormComponent = ({ createSessionRequest, loginError }) => (
+const LoginFormComponent = ({ onSubmit, loginError }) => (
   <Layout className="login">
     <Typography.Title>The Movie DB</Typography.Title>
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
-      onSubmit={(values, actions) => {
-        actions.setSubmitting(true);
-        createSessionRequest({ values, actions });
-      }}
+      onSubmit={onSubmit}
       render={props => (
         <Form className="form login__form">
           <Field
@@ -62,7 +59,6 @@ LoginFormComponent.defaultProps = {
 };
 
 LoginFormComponent.propTypes = {
-  createSessionRequest: PropTypes.func.isRequired,
   loginError: PropTypes.string,
 };
 

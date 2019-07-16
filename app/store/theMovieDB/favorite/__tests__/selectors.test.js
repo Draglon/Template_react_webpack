@@ -1,7 +1,7 @@
-import { getFavoriteById } from '../selectors';
+import { getFavorite } from '../selectors';
 
 describe('Favorite - selectors', () => {
-  it('getFavoriteById - get favorite data from store', () => {
+  it('getFavorite - get favorite data from store', () => {
     const data = {
       page: 1,
       results: [1, 2, 3],
@@ -12,12 +12,7 @@ describe('Favorite - selectors', () => {
     const state = {
       reducers: {
         favoriteList: {
-          data: {
-            page: data.page,
-            results: data.results,
-            totalPages: data.totalPages,
-            totalResults: data.totalResults,
-          },
+          data,
         },
         data: {
           movies: {
@@ -28,7 +23,7 @@ describe('Favorite - selectors', () => {
         },
       },
     };
-    expect(getFavoriteById(state)).toEqual({
+    expect(getFavorite(state)).toEqual({
       ...data,
       results: [{ id: 1 }, { id: 2 }, { id: 3 }],
     });

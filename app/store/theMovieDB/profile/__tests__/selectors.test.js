@@ -1,4 +1,4 @@
-import { getAccountId, getProfileById } from '../selectors';
+import { getAccountId, getProfile } from '../selectors';
 
 describe('Profile - selectors', () => {
   it('getAccountId - get account id from store', () => {
@@ -15,7 +15,7 @@ describe('Profile - selectors', () => {
     expect(getAccountId(state)).toEqual(id);
   });
 
-  it('getProfileById - get profile data from store', () => {
+  it('getProfile - get profile data from store', () => {
     const id = 9999;
     const data = {
       id,
@@ -37,6 +37,6 @@ describe('Profile - selectors', () => {
         },
       },
     };
-    expect(getProfileById(state)).toEqual(data);
+    expect(getProfile(state)).toEqual(data);
   });
 });

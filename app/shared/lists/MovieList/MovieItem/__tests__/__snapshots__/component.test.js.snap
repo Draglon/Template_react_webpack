@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieItemComponent /> container Render property with card actions 1`] = `
+<Card
+  actions={
+    Array [
+      1,
+      2,
+      3,
+    ]
+  }
+  className="top-margin"
+  cover={
+    <ImageComponent
+      alt="some title"
+      className="movie__img"
+      path="path to image"
+    />
+  }
+  hoverable={true}
+>
+  <Link
+    replace={false}
+    to="/movie/some id"
+  >
+    <Meta
+      className="text-size"
+      description="some overview"
+      title="some title"
+    />
+  </Link>
+</Card>
+`;
+
+exports[`<MovieItemComponent /> container Render snapshot - without card actions 1`] = `
+<Card
+  actions={null}
+  className="top-margin"
+  cover={
+    <ImageComponent
+      alt="some title"
+      className="movie__img"
+      path="path to image"
+    />
+  }
+  hoverable={true}
+>
+  <Link
+    replace={false}
+    to="/movie/some id"
+  >
+    <Meta
+      className="text-size"
+      description="some overview"
+      title="some title"
+    />
+  </Link>
+</Card>
+`;

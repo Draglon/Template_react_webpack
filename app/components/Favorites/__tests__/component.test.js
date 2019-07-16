@@ -1,13 +1,21 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import FavoritesComponent from '../component';
 
-describe('<FavoritesComponent /> container', () => {
+describe('<FavoritesComponent />', () => {
   let component;
+  const props = {
+    favorites: {
+      results: [1, 2, 3],
+      page: 1,
+      totalPages: 100,
+    },
+    page: () => ({ page: 1 }),
+    modalParams: {},
+  };
 
-  it('render property', () => {
-    // component = shallow(<FavoritesComponent />);
-    // expect(toJson(component)).toMatchSnapshot();
+  it('Render snapshot - FavoritesComponent', () => {
+    component = shallow(<FavoritesComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

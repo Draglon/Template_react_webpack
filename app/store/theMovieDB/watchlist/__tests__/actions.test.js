@@ -10,50 +10,58 @@ import * as t from '../actionTypes';
 
 describe('Watchlist - actions', () => {
   it('watchlistRequest', () => {
-    const expectedAction = {
+    const payload = { page: 1 };
+    expect(watchlistRequest(payload)).toEqual({
       type: t.WATCHLIST_REQUEST,
-      payload: ['some data'],
-    };
-    expect(watchlistRequest(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('watchlistSuccess', () => {
-    const expectedAction = {
-      type: t.WATCHLIST_SUCCESS,
-      payload: ['some data'],
+    const payload = {
+      page: 1,
+      results: [],
+      totalPages: 0,
+      totalResults: 0,
     };
-    expect(watchlistSuccess(expectedAction.payload)).toEqual(expectedAction);
+    expect(watchlistSuccess(payload)).toEqual({
+      type: t.WATCHLIST_SUCCESS,
+      payload,
+    });
   });
 
   it('watchlistFailure', () => {
-    const expectedAction = {
+    const payload = { message: 'message error' };
+    expect(watchlistFailure(payload)).toEqual({
       type: t.WATCHLIST_FAILURE,
-      payload: ['some data'],
-    };
-    expect(watchlistFailure(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('addToWatchlistRequest', () => {
-    const expectedAction = {
-      type: t.ADD_TO_WATCHLIST_REQUEST,
-      payload: ['some data'],
+    const payload = {
+      movieId: 9999,
+      watchlist: true,
     };
-    expect(addToWatchlistRequest(expectedAction.payload)).toEqual(expectedAction);
+    expect(addToWatchlistRequest(payload)).toEqual({
+      type: t.ADD_TO_WATCHLIST_REQUEST,
+      payload,
+    });
   });
 
   it('addToWatchlistSuccess', () => {
-    const expectedAction = {
+    const payload = { message: 'message success' };
+    expect(addToWatchlistSuccess(payload)).toEqual({
       type: t.ADD_TO_WATCHLIST_SUCCESS,
-      payload: ['some data'],
-    };
-    expect(addToWatchlistSuccess(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('addToWatchlistFailure', () => {
-    const expectedAction = {
+    const payload = { message: 'message error' };
+    expect(addToWatchlistFailure(payload)).toEqual({
       type: t.ADD_TO_WATCHLIST_FAILURE,
-      payload: ['some data'],
-    };
-    expect(addToWatchlistFailure(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 });

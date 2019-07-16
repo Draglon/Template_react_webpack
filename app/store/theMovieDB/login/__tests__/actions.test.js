@@ -11,52 +11,58 @@ import * as t from '../actionTypes';
 describe('Authentication - actions', () => {
   describe('Authentication - create session actions', () => {
     it('createSessionRequest', () => {
-      const expectedAction = {
-        type: t.CREATE_SESSION_REQUEST,
-        payload: ['some data'],
+      const payload = {
+        values: {
+          username: 'login',
+          password: 'password',
+        },
+        actions: {
+          setSubmitting: true,
+        },
       };
-      expect(createSessionRequest(expectedAction.payload)).toEqual(expectedAction);
+      expect(createSessionRequest(payload)).toEqual({
+        type: t.CREATE_SESSION_REQUEST,
+        payload,
+      });
     });
 
     it('createSessionSuccess', () => {
-      const expectedAction = {
+      const payload = { sessionId: 'sessionId' };
+      expect(createSessionSuccess(payload)).toEqual({
         type: t.CREATE_SESSION_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(createSessionSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('createSessionFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(createSessionFailure(payload)).toEqual({
         type: t.CREATE_SESSION_FAILURE,
-        payload: ['some data'],
-      };
-      expect(createSessionFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('Authentication - delete session actions', () => {
     it('deleteSessionRequest', () => {
-      const expectedAction = {
+      expect(deleteSessionRequest()).toEqual({
         type: t.DELETE_SESSION_REQUEST,
-      };
-      expect(deleteSessionRequest()).toEqual(expectedAction);
+      });
     });
 
     it('deleteSessionSuccess', () => {
-      const expectedAction = {
+      expect(deleteSessionSuccess('')).toEqual({
         type: t.DELETE_SESSION_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(deleteSessionSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload: '',
+      });
     });
 
     it('deleteSessionFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(deleteSessionFailure(payload)).toEqual({
         type: t.DELETE_SESSION_FAILURE,
-        payload: ['some data'],
-      };
-      expect(deleteSessionFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 });

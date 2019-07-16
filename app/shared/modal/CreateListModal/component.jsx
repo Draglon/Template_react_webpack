@@ -10,14 +10,7 @@ const createListSchema = Yup.object().shape({
   description: Yup.string().required('Required description'),
 });
 
-const CreateListModalComponent = ({
-  modalVisible,
-  showModal,
-  hideModal,
-  onSubmit,
-  icon = '',
-  text = '',
-}) => (
+const CreateListModalComponent = ({ modalVisible, showModal, hideModal, onSubmit, icon, text }) => (
   <>
     {icon && <Icon type={icon} onClick={showModal} />}
     {text && (

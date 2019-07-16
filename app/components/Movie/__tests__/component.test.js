@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import MovieComponent from '../component';
 
@@ -25,6 +24,6 @@ describe('<MovieComponent />', () => {
       crew: [1, 2, 3],
     };
     component = shallow(<MovieComponent {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

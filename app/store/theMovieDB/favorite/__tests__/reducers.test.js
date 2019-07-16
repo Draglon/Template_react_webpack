@@ -1,38 +1,40 @@
-import {
-  createFavoriteListReducer,
-  initialState,
-  addToFavoriteReducer,
-  addFavoriteInitialState,
-} from '../reducers';
+import { createFavoriteListReducer, addToFavoriteReducer } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Favorite - reducers', () => {
   describe('Favorite - createFavoriteListReducer', () => {
     it('state is undefined', () => {
-      expect(createFavoriteListReducer(undefined, {})).toEqual(initialState);
+      expect(createFavoriteListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          page: 1,
+          results: [],
+          totalPages: 0,
+          totalResults: 0,
+        },
+        error: null,
+      });
     });
 
     it('FAVORITE_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
+      };
       const action = {
         type: t.FAVORITE_REQUEST,
       };
 
-      expect(createFavoriteListReducer(initialState, action)).toEqual({
-        ...initialState,
+      expect(createFavoriteListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('FAVORITE_SUCCESS', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
-      };
-
-      const action = {
-        type: t.FAVORITE_SUCCESS,
-        payload: {
+        data: {
           page: 1,
           results: [],
           totalPages: 0,
@@ -40,8 +42,17 @@ describe('Favorite - reducers', () => {
         },
       };
 
-      expect(createFavoriteListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      const action = {
+        type: t.FAVORITE_SUCCESS,
+        payload: {
+          page: 1,
+          results: [1, 2, 3],
+          totalPages: 10,
+          totalResults: 100,
+        },
+      };
+
+      expect(createFavoriteListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           page: action.payload.page,
@@ -53,9 +64,9 @@ describe('Favorite - reducers', () => {
     });
 
     it('FAVORITE_FAILURE', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
+        error: null,
       };
 
       const action = {
@@ -65,8 +76,7 @@ describe('Favorite - reducers', () => {
         },
       };
 
-      expect(createFavoriteListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(createFavoriteListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -75,25 +85,37 @@ describe('Favorite - reducers', () => {
 
   describe('Favorite - addToFavoriteReducer', () => {
     it('state is undefined', () => {
-      expect(addToFavoriteReducer(undefined, {})).toEqual(addFavoriteInitialState);
+      expect(addToFavoriteReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          message: '',
+        },
+        error: null,
+      });
     });
 
     it('ADD_TO_FAVORITE_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
+      };
+
       const action = {
         type: t.ADD_TO_FAVORITE_REQUEST,
       };
 
-      expect(addToFavoriteReducer(addFavoriteInitialState, action)).toEqual({
-        ...addFavoriteInitialState,
+      expect(addToFavoriteReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('ADD_TO_FAVORITE_SUCCESS', () => {
-      const stateBefore = {
-        ...addFavoriteInitialState,
+      const state = {
         isLoading: true,
+        data: {
+          message: '',
+        },
       };
 
       const action = {
@@ -103,8 +125,7 @@ describe('Favorite - reducers', () => {
         },
       };
 
-      expect(addToFavoriteReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addToFavoriteReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           message: action.payload.status_message,
@@ -113,9 +134,9 @@ describe('Favorite - reducers', () => {
     });
 
     it('ADD_TO_FAVORITE_FAILURE', () => {
-      const stateBefore = {
-        ...addFavoriteInitialState,
+      const state = {
         isLoading: true,
+        error: null,
       };
 
       const action = {
@@ -125,8 +146,7 @@ describe('Favorite - reducers', () => {
         },
       };
 
-      expect(addToFavoriteReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addToFavoriteReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getSearchById } from '../../../store/theMovieDB/search/selectors';
+import { getSearch } from '../../../store/theMovieDB/search/selectors';
 
 import DashboardComponent from './component';
 
@@ -17,7 +17,7 @@ DashboardContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  search: getSearchById(state),
+  search: getSearch(state),
 });
 
 export default connect(mapStateToProps)(DashboardContainer);

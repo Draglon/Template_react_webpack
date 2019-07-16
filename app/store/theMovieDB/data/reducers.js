@@ -7,6 +7,7 @@ export const initialState = {
   genres: {},
   cast: {},
   crew: {},
+  lists: {},
 };
 
 export const dataReducer = (state = initialState, action) => {
@@ -34,6 +35,10 @@ export const dataReducer = (state = initialState, action) => {
         crew: {
           ...state.crew,
           ...action.entities.crew,
+        },
+        lists: {
+          ...state.lists,
+          ...action.entities.lists,
         },
       };
     default:

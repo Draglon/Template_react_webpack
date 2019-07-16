@@ -6,7 +6,7 @@ import {
   detailsListRequest as detailsListRequestAction,
   removeMovieListRequest as removeMovieListRequestAction,
 } from '../../store/theMovieDB/myLists/actions';
-import { getDetailsListById } from '../../store/theMovieDB/myLists/selectors';
+import { getDetailsList } from '../../store/theMovieDB/myLists/selectors';
 
 import MyListComponent from './component';
 
@@ -48,7 +48,7 @@ MyListContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  myList: getDetailsListById(state),
+  myList: getDetailsList(state),
 });
 
 const mapDispatchToProps = {

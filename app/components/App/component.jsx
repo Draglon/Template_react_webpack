@@ -15,10 +15,10 @@ import NotFound from '../NotFound';
 
 import PrivateRoute from './PrivateRoute';
 
-const AppComponent = ({ isLogged }) => (
+const AppComponent = ({ sessionId }) => (
   <Router>
     <>
-      {isLogged && <Header />}
+      {sessionId && <Header />}
       <Layout.Content className="page">
         <Switch>
           <Route exact path="/" component={Home} />
@@ -34,12 +34,8 @@ const AppComponent = ({ isLogged }) => (
   </Router>
 );
 
-AppComponent.defaultProps = {
-  isLogged: '',
-};
-
 AppComponent.propTypes = {
-  isLogged: PropTypes.string,
+  sessionId: PropTypes.string.isRequired,
 };
 
 export default AppComponent;

@@ -23,6 +23,7 @@
     "formik": "^1.5.7",
     "fs-extra": "^8.0.1",
     "history": "^4.9.0",
+    "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "normalizr": "^3.4.0",
     "prop-types": "^15.7.2",

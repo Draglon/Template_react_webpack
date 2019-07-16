@@ -1,23 +1,20 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import HomeComponent from '../component';
 
-describe('<HomeComponent /> container', () => {
+describe('<HomeComponent />', () => {
   let component;
   let props;
 
-  it('render property - isLogged: false', () => {
-    // props = { isLogged: false };
-    // component = shallow(<HomeComponent {...props} />);
-
-    // expect(toJson(component)).toMatchSnapshot();
+  it('Render snapshot - sessionId: false', () => {
+    props = { sessionId: '' };
+    component = shallow(<HomeComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 
-  it('render property - isLogged: true', () => {
-    // props = { isLogged: true };
-    // component = shallow(<HomeComponent {...props} />);
-
-    // expect(toJson(component)).toMatchSnapshot();
+  it('Render snapshot - sessionId: true', () => {
+    props = { sessionId: 'some sessionId' };
+    component = shallow(<HomeComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

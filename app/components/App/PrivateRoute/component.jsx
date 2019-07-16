@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-const PrivateRouteComponent = ({ component: Component, isLogged, ...rest }) => {
+const PrivateRouteComponent = ({ component: Component, sessionId, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        (isLogged ? (
+        (sessionId ? (
           <Component {...props} />
         ) : (
           <Redirect
@@ -23,7 +23,7 @@ const PrivateRouteComponent = ({ component: Component, isLogged, ...rest }) => {
 };
 
 PrivateRouteComponent.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  sessionId: PropTypes.string.isRequired,
 };
 
 export default PrivateRouteComponent;

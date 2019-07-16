@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PaginationComponent /> Render snapshot - with totalPages 1`] = `
+<Fragment>
+  <Row
+    className="top-padding"
+    gutter={0}
+    justify="center"
+    type="flex"
+  >
+    <Col>
+      <Pagination
+        className="pagination"
+        current={10}
+        defaultCurrent={1}
+        onChange={[Function]}
+        total={100}
+      />
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`<PaginationComponent /> Render snapshot - without totalPages 1`] = `<Fragment />`;

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormButton /> component Render property - with icon 1`] = `
+<div
+  className="align-center"
+>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="submit"
+    icon="some icon name"
+    loading={false}
+    size="small"
+    type="sometype"
+  >
+    Submit
+  </Button>
+</div>
+`;
+
+exports[`<FormButton /> component Render property - without icon 1`] = `
+<div
+  className="align-center"
+>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="submit"
+    icon=""
+    loading={false}
+    size="small"
+    type="sometype"
+  >
+    Submit
+  </Button>
+</div>
+`;

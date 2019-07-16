@@ -1,38 +1,40 @@
-import {
-  createWatchlistListReducer,
-  initialState,
-  addToWatchlistReducer,
-  addWatchlistInitialState,
-} from '../reducers';
+import { createWatchlistListReducer, addToWatchlistReducer } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Watchlist - reducers', () => {
   describe('Watchlist - createWatchlistListReducer', () => {
     it('state is undefined', () => {
-      expect(createWatchlistListReducer(undefined, {})).toEqual(initialState);
+      expect(createWatchlistListReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          page: 1,
+          results: [],
+          totalPages: 0,
+          totalResults: 0,
+        },
+        error: null,
+      });
     });
 
     it('WATCHLIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
+      };
       const action = {
         type: t.WATCHLIST_REQUEST,
       };
 
-      expect(createWatchlistListReducer(initialState, action)).toEqual({
-        ...initialState,
+      expect(createWatchlistListReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('WATCHLIST_SUCCESS', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
-      };
-
-      const action = {
-        type: t.WATCHLIST_SUCCESS,
-        payload: {
+        data: {
           page: 1,
           results: [],
           totalPages: 0,
@@ -40,8 +42,17 @@ describe('Watchlist - reducers', () => {
         },
       };
 
-      expect(createWatchlistListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      const action = {
+        type: t.WATCHLIST_SUCCESS,
+        payload: {
+          page: 1,
+          results: [1, 2, 3],
+          totalPages: 10,
+          totalResults: 100,
+        },
+      };
+
+      expect(createWatchlistListReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           page: action.payload.page,
@@ -53,9 +64,9 @@ describe('Watchlist - reducers', () => {
     });
 
     it('WATCHLIST_FAILURE', () => {
-      const stateBefore = {
-        ...initialState,
+      const state = {
         isLoading: true,
+        error: null,
       };
 
       const action = {
@@ -65,8 +76,7 @@ describe('Watchlist - reducers', () => {
         },
       };
 
-      expect(createWatchlistListReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(createWatchlistListReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
@@ -75,36 +85,47 @@ describe('Watchlist - reducers', () => {
 
   describe('Watchlist - addToWatchlistReducer', () => {
     it('state is undefined', () => {
-      expect(addToWatchlistReducer(undefined, {})).toEqual(addWatchlistInitialState);
+      expect(addToWatchlistReducer(undefined, {})).toEqual({
+        isLoading: false,
+        data: {
+          message: '',
+        },
+        error: null,
+      });
     });
 
     it('ADD_TO_WATCHLIST_REQUEST', () => {
+      const state = {
+        isLoading: false,
+        error: 'some error',
+      };
+
       const action = {
         type: t.ADD_TO_WATCHLIST_REQUEST,
       };
 
-      expect(addToWatchlistReducer(addWatchlistInitialState, action)).toEqual({
-        ...addWatchlistInitialState,
+      expect(addToWatchlistReducer(state, action)).toEqual({
         isLoading: true,
         error: null,
       });
     });
 
     it('ADD_TO_WATCHLIST_SUCCESS', () => {
-      const stateBefore = {
-        ...addWatchlistInitialState,
+      const state = {
         isLoading: true,
+        data: {
+          message: '',
+        },
       };
 
       const action = {
         type: t.ADD_TO_WATCHLIST_SUCCESS,
         payload: {
-          message: '',
+          message: 'message success',
         },
       };
 
-      expect(addToWatchlistReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addToWatchlistReducer(state, action)).toEqual({
         isLoading: false,
         data: {
           message: action.payload.status_message,
@@ -113,9 +134,9 @@ describe('Watchlist - reducers', () => {
     });
 
     it('ADD_TO_WATCHLIST_FAILURE', () => {
-      const stateBefore = {
-        ...addWatchlistInitialState,
+      const state = {
         isLoading: true,
+        error: null,
       };
 
       const action = {
@@ -125,8 +146,7 @@ describe('Watchlist - reducers', () => {
         },
       };
 
-      expect(addToWatchlistReducer(stateBefore, action)).toEqual({
-        ...stateBefore,
+      expect(addToWatchlistReducer(state, action)).toEqual({
         isLoading: false,
         error: action.payload.message,
       });
