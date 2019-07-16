@@ -14,7 +14,7 @@ export const createdListsReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.CREATED_LISTS_REQUEST:
       return {
-        ...initialState,
+        ...state,
         isLoading: true,
         error: null,
       };
@@ -55,7 +55,7 @@ export const detailsListReducer = (state = detailsListInitialState, action) => {
   switch (action.type) {
     case t.DETAILS_LIST_REQUEST:
       return {
-        ...detailsListInitialState,
+        ...state,
         isLoading: true,
         error: null,
       };
