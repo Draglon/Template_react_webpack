@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `ShallowWrapper {}`;
-
-exports[`<FavoritesComponent /> container render property 1`] = `
+exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `
 <Fragment>
   <Row
     gutter={0}

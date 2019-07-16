@@ -1,22 +1,53 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import PrivateRouteContainer from '../container';
+import { favoriteRequest } from '../../../store/theMovieDB/favorite/actions';
+import FavoritesContainer from '../container';
 
-describe('<PrivateRouteContainer />', () => {
-  const sessionId = 'some session id';
+describe('<FavoritesContainer />', () => {
+  const id = 8493834;
+  const data = {
+    page: 1,
+    results: [1, 2, 3],
+    totalPages: 10,
+    totalResults: 100,
+  };
   const state = {
     reducers: {
-      login: {
-        sessionId,
+      favoriteList: {
+        data,
+      },
+      data: {
+        movies: {
+          id,
+        },
       },
     },
   };
 
   const store = configureStore()(state);
-  const container = shallow(<PrivateRouteContainer store={store} />);
+  store.dispatch = jest.fn();
+  const wrapper = shallow(<FavoritesContainer store={store} />);
+  const container = wrapper.dive();
+  const instance = container.instance();
 
-  it('Render snapshot - PrivateRouteContainer', () => {
-    expect(container).toMatchSnapshot();
+  describe('componentDidMount()', () => {
+    it('dispatches the favoriteRequest()', () => {
+      instance.componentDidMount();
+      expect(store.dispatch).toHaveBeenCalledWith(favoriteRequest({ page: 1 }));
+    });
+  });
+
+  // describe('getPage()', () => {
+  //   it('dispatches the getPage()', () => {
+  //     const page = 10;
+  //     const getPage = jest.fn(() => page);
+
+  //     expect(getPage(10)).toHaveBeenCalled();
+  //   });
+  // });
+
+  it('Render snapshot - FavoritesContainer', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });

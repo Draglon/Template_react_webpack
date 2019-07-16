@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PrivateRouteContainer /> Render property - PrivateRouteContainer 1`] = `
+exports[`<PrivateRouteContainer /> Render snapshot - PrivateRouteContainer 1`] = `
 <PrivateRouteComponent
   dispatch={[Function]}
   isLogged="some session id"
@@ -37,5 +37,3 @@ exports[`<PrivateRouteContainer /> Render property - PrivateRouteContainer 1`] =
   }
 />
 `;
-
-exports[`<PrivateRouteContainer /> Render snapshot - PrivateRouteContainer 1`] = `ShallowWrapper {}`;

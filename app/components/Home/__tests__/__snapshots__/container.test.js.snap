@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AppContainer /> Render snapshot - AppContainer 1`] = `
-<AppComponent
+exports[`<HomeContainer /> Render snapshot - HomeContainer 1`] = `
+<HomeComponent
   dispatch={[Function]}
   isLogged="some session id"
   store={

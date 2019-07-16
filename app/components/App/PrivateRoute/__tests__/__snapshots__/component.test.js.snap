@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PrivateRouteComponent /> Render snapshot - with isLogged false 1`] = `ShallowWrapper {}`;
-
-exports[`<PrivateRouteComponent /> Render snapshot - with isLogged true 1`] = `ShallowWrapper {}`;
-
-exports[`<PrivateRouteComponent /> component Render property - with isLogged false 1`] = `
+exports[`<PrivateRouteComponent /> Render snapshot - with isLogged false 1`] = `
 <Route
   path="/"
   render={[Function]}
 />
 `;
 
-exports[`<PrivateRouteComponent /> component Render property - with isLogged true 1`] = `
+exports[`<PrivateRouteComponent /> Render snapshot - with isLogged true 1`] = `
 <Route
   path="/"
   render={[Function]}

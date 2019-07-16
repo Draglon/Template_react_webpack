@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HeaderContainer /> Render snapshot HeaderContainer 1`] = `
-<HeaderContainer
-  profileRequest={[Function]}
+exports[`<FavoritesContainer /> Render snapshot - FavoritesContainer 1`] = `
+<FavoritesContainer
+  addToFavoriteRequest={[Function]}
+  favoriteRequest={[Function]}
+  favorites={
+    Object {
+      "page": 1,
+      "results": Array [],
+      "totalPages": 10,
+      "totalResults": 100,
+    }
+  }
   store={
     Object {
       "clearActions": [Function],
@@ -10,12 +19,18 @@ exports[`<HeaderContainer /> Render snapshot HeaderContainer 1`] = `
         "calls": Array [
           Array [
             Object {
-              "type": "PROFILE_REQUEST",
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "FAVORITE_REQUEST",
             },
           ],
           Array [
             Object {
-              "type": "PROFILE_REQUEST",
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "FAVORITE_REQUEST",
             },
           ],
         ],
@@ -52,12 +67,18 @@ exports[`<HeaderContainer /> Render snapshot HeaderContainer 1`] = `
           "calls": Array [
             Array [
               Object {
-                "type": "PROFILE_REQUEST",
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "FAVORITE_REQUEST",
               },
             ],
             Array [
               Object {
-                "type": "PROFILE_REQUEST",
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "FAVORITE_REQUEST",
               },
             ],
           ],
