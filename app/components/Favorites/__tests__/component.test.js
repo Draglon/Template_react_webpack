@@ -11,7 +11,7 @@ describe('<FavoritesComponent />', () => {
       totalPages: 100,
     },
     page: () => ({ page: 1 }),
-    modalParams: {},
+    modalParams: { favorite: false },
   };
 
   it('Render snapshot - FavoritesComponent', () => {

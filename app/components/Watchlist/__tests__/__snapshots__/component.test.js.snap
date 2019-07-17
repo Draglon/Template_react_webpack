@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `
+exports[`<WatchlistComponent /> should match snapshot 1`] = `
 <Fragment>
   <Row
     gutter={0}
@@ -13,7 +13,7 @@ exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `
         className="top-margin"
       >
         <Title>
-          Favorites
+          Watchlist
         </Title>
       </div>
     </Col>
@@ -21,7 +21,7 @@ exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `
   <MovieListComponent
     modalParams={
       Object {
-        "favorite": false,
+        "watchlist": false,
       }
     }
     movies={
