@@ -6,9 +6,9 @@ import { searchRequest as searchRequestAction } from '../../../../store/theMovie
 import { trendingRequest as trendingRequestAction } from '../../../../store/theMovieDB/trending/actions';
 import { getTrending } from '../../../../store/theMovieDB/trending/selectors';
 
-import DashboardComponent from './component';
+import DashboardPageComponent from './component';
 
-class DashboardContainer extends Component {
+class DashboardPageContainer extends Component {
   componentDidMount() {
     const { trendingRequest } = this.props;
     trendingRequest({ page: 1 });
@@ -26,11 +26,11 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    return <DashboardComponent {...this.props} onSearch={this.onSearch} page={this.getPage} />;
+    return <DashboardPageComponent {...this.props} onSearch={this.onSearch} page={this.getPage} />;
   }
 }
 
-DashboardContainer.propTypes = {
+DashboardPageContainer.propTypes = {
   searchRequest: PropTypes.func.isRequired,
   trendingRequest: PropTypes.func.isRequired,
   trending: PropTypes.object.isRequired,
@@ -48,4 +48,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(DashboardContainer);
+)(DashboardPageContainer);

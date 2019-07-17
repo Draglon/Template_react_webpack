@@ -1,3 +1,4 @@
+export const getSearchQuery = state => state.reducers.search.data.query;
 export const getSearch = state => {
   const search = state.reducers.search.data;
   const entities = state.reducers.data.movies;

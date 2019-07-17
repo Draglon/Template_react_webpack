@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HomeContainer /> should match snapshot 1`] = `
-<HomeComponent
+exports[`DashboardContainer should match snapshot 1`] = `
+<DashboardComponent
   dispatch={[Function]}
-  sessionId="some session id"
+  searchQuery="search string"
   store={
     Object {
       "clearActions": [Function],
