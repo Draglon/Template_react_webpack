@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieDetailsComponent /> should match snapshots should match snapshot - movieDetails (character) 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        some title
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      className="movie__details"
+      offset={2}
+      span={20}
+    >
+      <Col
+        key="1"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="top-margin"
+          cover={
+            <ImageComponent
+              alt="name_1"
+              className="movie-image"
+              path="path_1"
+            />
+          }
+        >
+          <Meta
+            description="character_1"
+            title="name_1"
+          />
+        </Card>
+      </Col>
+      <Col
+        key="2"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="top-margin"
+          cover={
+            <ImageComponent
+              alt="name_2"
+              className="movie-image"
+              path="path_2"
+            />
+          }
+        >
+          <Meta
+            description="character_2"
+            title="name_2"
+          />
+        </Card>
+      </Col>
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`<MovieDetailsComponent /> should match snapshots should match snapshot - movieDetails (job) 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        some title
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      className="movie__details"
+      offset={2}
+      span={20}
+    >
+      <Col
+        key="1"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="top-margin"
+          cover={
+            <ImageComponent
+              alt="name_1"
+              className="movie-image"
+              path="path_1"
+            />
+          }
+        >
+          <Meta
+            description="job_1"
+            title="name_1"
+          />
+        </Card>
+      </Col>
+      <Col
+        key="2"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="top-margin"
+          cover={
+            <ImageComponent
+              alt="name_2"
+              className="movie-image"
+              path="path_2"
+            />
+          }
+        >
+          <Meta
+            description="job_2"
+            title="name_2"
+          />
+        </Card>
+      </Col>
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`<MovieDetailsComponent /> should match snapshots should match snapshot - without movieDetails 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        some title
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      className="movie__details"
+      offset={2}
+      span={20}
+    />
+  </Row>
+</Fragment>
+`;
