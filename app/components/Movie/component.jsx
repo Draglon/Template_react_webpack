@@ -29,10 +29,10 @@ const MovieComponent = ({ movie, genres, cast, crew }) => (
 );
 
 MovieComponent.propTypes = {
-  movie: PropTypes.object,
-  genres: PropTypes.array,
-  cast: PropTypes.array,
-  crew: PropTypes.array,
+  movie: PropTypes.object.isRequired,
+  genres: PropTypes.array.isRequired,
+  cast: PropTypes.array.isRequired,
+  crew: PropTypes.array.isRequired,
 };
 
 export default MovieComponent;

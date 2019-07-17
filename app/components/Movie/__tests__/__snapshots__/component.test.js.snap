@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MovieComponent /> Render snapshot - movie 1`] = `
+exports[`<MovieComponent /> should match snapshot 1`] = `
 <Fragment>
   <MovieCarouselComponent
     backdrops={
