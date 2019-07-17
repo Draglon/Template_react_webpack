@@ -6,6 +6,7 @@ import PopoverNavLink from './PopoverNavLink';
 
 const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
   <nav className="popover__nav">
+    {console.log(myLists)}
     <ul>
       <li onClick={closePopover}>
         <CreateListModal text="Create new list ..." />
