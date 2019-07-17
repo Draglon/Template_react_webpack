@@ -1,13 +1,13 @@
 import React from 'react';
 
-import MovieTitleComponent from '../component';
+import FavoriteIconComponent from '../component';
 
-describe('<MovieTitleComponent />', () => {
+describe('<FavoriteIconComponent />', () => {
   const props = {
     favorite: false,
     handleFavorite: () => {},
   };
-  const component = shallow(<MovieTitleComponent {...props} />);
+  const component = shallow(<FavoriteIconComponent {...props} />);
 
   it('should match snapshot - favorite (false)', () => {
     expect(component).toMatchSnapshot();
