@@ -4,6 +4,8 @@ import { Modal } from 'antd';
 
 import CreateListModalContainer from '../container';
 
+const spy = jest.spyOn(Modal, 'confirm');
+
 describe('<CreateListModalContainer />', () => {
   const store = configureStore()({});
   const props = {};
@@ -15,8 +17,7 @@ describe('<CreateListModalContainer />', () => {
   describe('showModal()', () => {
     it('dispatches the showModal()', () => {
       // instance.showModal();
-
-      // expect(instance.showModal()).toHaveBeenCalledWith();
+      // expect(spy).toHaveBeenCalledWith();
     });
   });
 

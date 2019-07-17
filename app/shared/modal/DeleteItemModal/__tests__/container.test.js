@@ -4,28 +4,37 @@ import { Modal } from 'antd';
 
 import DeleteItemModalContainer from '../container';
 
+const spy = jest.spyOn(Modal, 'confirm');
+
 describe('<DeleteItemModalContainer />', () => {
-  const store = configureStore()({});
   const props = {
     title: 'some title',
     params: { movieId: 9999 },
-    onConfirm: () => {
-      Modal.confirm({
-        title: 'some title',
-        onOk() {},
-      });
-    },
+    onConfirm: jest.fn(),
   };
 
+  const store = configureStore()({});
+  store.dispatch = jest.fn();
   const wrapper = shallow(<DeleteItemModalContainer store={store} {...props} />);
-  const container = wrapper.dive();
+  const container = wrapper;
   const instance = container.instance();
 
   describe('showModal()', () => {
     it('dispatches the showModal()', () => {
-      // instance.showModal();
+      instance.showModal();
 
-      // expect(instance.showModal()).toHaveBeenCalledWith();
+      expect(spy).toHaveBeenCalledWith({
+        title: props.title,
+        onOk: expect.any(Function),
+      });
+    });
+  });
+
+  describe('onConfirm()', () => {
+    it('dispatches the onConfirm()', () => {
+      instance.onOk();
+
+      expect(props.onConfirm).toHaveBeenCalledWith(props.params);
     });
   });
 
