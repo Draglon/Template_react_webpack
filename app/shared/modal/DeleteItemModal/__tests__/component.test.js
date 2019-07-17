@@ -10,7 +10,7 @@ describe('<DeleteItemModalComponent />', () => {
     showModal: () => {
       Modal.confirm({
         title: 'some title',
-        onOk() {},
+        onOk: () => {},
       });
     },
   };

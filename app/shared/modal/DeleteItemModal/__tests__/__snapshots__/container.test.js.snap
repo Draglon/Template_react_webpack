@@ -2,7 +2,23 @@
 
 exports[`<DeleteItemModalContainer /> Render snapshot - DeleteItemModalContainer 1`] = `
 <DeleteItemModalComponent
-  onConfirm={[Function]}
+  onConfirm={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "movieId": 9999,
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   params={
     Object {
       "movieId": 9999,
@@ -12,7 +28,7 @@ exports[`<DeleteItemModalContainer /> Render snapshot - DeleteItemModalContainer
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction],
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
