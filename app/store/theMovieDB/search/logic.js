@@ -10,8 +10,10 @@ export default createLogic({
   type: t.SEARCH_REQUEST,
 
   process({ apiClient, action }, dispatch, done) {
+    const { query, page } = action.payload;
+
     apiClient
-      .get(`search/movie?query=${action.payload.query}&page=${action.payload.page}&language=en-US`)
+      .get(`search/movie?query=${query}&page=${page}&language=en-US`)
       .then(response => {
         const normalizeData = normalize(response.data.results, [movies]);
         dispatch(addEntities(normalizeData.entities));

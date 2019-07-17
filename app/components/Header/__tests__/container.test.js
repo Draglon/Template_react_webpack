@@ -30,8 +30,7 @@ describe('<HeaderContainer />', () => {
     profile: profileData,
   };
 
-  const mockStore = configureStore();
-  const store = mockStore(state);
+  const store = configureStore()(state);
   store.dispatch = jest.fn();
 
   const wrapper = shallow(<HeaderContainer store={store} {...props} />);
@@ -39,10 +38,16 @@ describe('<HeaderContainer />', () => {
   const instance = container.instance();
 
   describe('componentDidMount()', () => {
-    it('dispatches the `profileRequest()`', () => {
+    it('dispatches the profileRequest()', () => {
       instance.componentDidMount();
 
       expect(store.dispatch).toHaveBeenCalledWith(profileRequest());
+    });
+  });
+
+  describe('Render snapshot', () => {
+    it('HeaderContainer', () => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });

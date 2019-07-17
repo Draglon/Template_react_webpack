@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
-import { getProfileById } from '../../store/theMovieDB/profile/selectors';
+import { getProfile } from '../../store/theMovieDB/profile/selectors';
 
 import HeaderComponent from './component';
 
@@ -17,8 +18,17 @@ class HeaderContainer extends Component {
   }
 }
 
+HeaderComponent.defaultProps = {
+  profile: {},
+};
+
+HeaderContainer.propTypes = {
+  profileRequest: PropTypes.func.isRequired,
+  profile: PropTypes.object,
+};
+
 const mapStateToProps = state => ({
-  profile: getProfileById(state),
+  profile: getProfile(state),
 });
 
 const mapDispatchToProps = {

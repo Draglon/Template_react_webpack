@@ -1,15 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PrivateRouteComponent /> component Render property - with isLogged false 1`] = `
-<Route
-  path="/"
-  render={[Function]}
+exports[`<PrivateRouteComponent /> With sessionId should match snapshot 1`] = `<component />`;
+
+exports[`<PrivateRouteComponent /> Without sessionId should match snapshot 1`] = `
+<Redirect
+  push={false}
+  to={
+    Object {
+      "pathname": "/",
+      "state": Object {
+        "from": "/dashboard",
+      },
+    }
+  }
 />
 `;
 
-exports[`<PrivateRouteComponent /> component Render property - with isLogged true 1`] = `
+exports[`<PrivateRouteComponent /> should match snapshot 1`] = `
 <Route
-  path="/"
+  path="/dashboard"
   render={[Function]}
 />
 `;

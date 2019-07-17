@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HomeComponent /> container render property - isLogged: false 1`] = `
+exports[`<HomeComponent /> Render snapshot - sessionId: false 1`] = `
 <Fragment>
-  <Connect(LoginFormComponent) />
+  <Connect(LoginFormContainer) />
 </Fragment>
 `;
 
-exports[`<HomeComponent /> container render property - isLogged: true 1`] = `
+exports[`<HomeComponent /> Render snapshot - sessionId: true 1`] = `
 <Fragment>
   <Connect(DashboardContainer) />
 </Fragment>

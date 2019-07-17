@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import SearchComponent from '../component';
 
@@ -11,6 +10,6 @@ describe('<SearchComponent /> container', () => {
 
   it('render property - with search query', () => {
     component = shallow(<SearchComponent {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

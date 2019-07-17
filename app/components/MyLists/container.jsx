@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { createdListsRequest, createListRequest } from '../../store/theMovieDB/myLists/actions';
+import { createdListsRequest as createdListsRequestAction } from '../../store/theMovieDB/myLists/actions';
 import { getCreatedLists } from '../../store/theMovieDB/myLists/selectors';
 
 import MyListsComponent from './component';
 
 class MyListsContainer extends Component {
   componentDidMount() {
-    const { createdLists } = this.props;
-    createdLists({ page: 1 });
+    const { createdListsRequest } = this.props;
+    createdListsRequest({ page: 1 });
   }
 
   getPage = page => {
-    const { createdLists } = this.props;
-    createdLists({ page });
+    const { createdListsRequest } = this.props;
+    createdListsRequest({ page });
   };
 
   render() {
@@ -22,13 +23,17 @@ class MyListsContainer extends Component {
   }
 }
 
+MyListsContainer.propTypes = {
+  createdListsRequest: PropTypes.func.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
   myLists: getCreatedLists(state),
 });
 
 const mapDispatchToProps = {
-  createdLists: createdListsRequest,
-  createList: createListRequest,
+  createdListsRequest: createdListsRequestAction,
 };
 
 export default connect(

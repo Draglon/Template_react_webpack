@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Icon, Button } from 'antd';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -9,14 +10,7 @@ const createListSchema = Yup.object().shape({
   description: Yup.string().required('Required description'),
 });
 
-const CreateListModalComponent = ({
-  modalVisible,
-  showModal,
-  hideModal,
-  onSubmit,
-  icon = '',
-  text = '',
-}) => (
+const CreateListModalComponent = ({ modalVisible, showModal, hideModal, onSubmit, icon, text }) => (
   <>
     {icon && <Icon type={icon} onClick={showModal} />}
     {text && (
@@ -48,5 +42,19 @@ const CreateListModalComponent = ({
     </Formik>
   </>
 );
+
+CreateListModalComponent.defaultProps = {
+  icon: '',
+  text: '',
+};
+
+CreateListModalComponent.propTypes = {
+  modalVisible: PropTypes.bool.isRequired,
+  showModal: PropTypes.func.isRequired,
+  hideModal: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  icon: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default CreateListModalComponent;

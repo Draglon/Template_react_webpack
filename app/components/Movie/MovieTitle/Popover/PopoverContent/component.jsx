@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CreateListModal from '../../../../../shared/modal/CreateListModal';
-import PopoverNavItem from './PopoverNavItem';
+import PopoverNavLink from './PopoverNavLink';
 
 const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
   <nav className="popover__nav">
@@ -10,10 +11,18 @@ const PopoverContentComponent = ({ closePopover, myLists, movieId }) => (
         <CreateListModal text="Create new list ..." />
       </li>
       {myLists.results.map(item => (
-        <PopoverNavItem list={item} movieId={movieId} />
+        <li key={item.id}>
+          <PopoverNavLink list={item} movieId={movieId} closePopover={closePopover} />
+        </li>
       ))}
     </ul>
   </nav>
 );
+
+PopoverContentComponent.propTypes = {
+  closePopover: PropTypes.func.isRequired,
+  movieId: PropTypes.number.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
 
 export default PopoverContentComponent;

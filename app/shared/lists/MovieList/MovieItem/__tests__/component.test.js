@@ -1,33 +1,33 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import MovieItemComponent from '../component';
 
 describe('<MovieItemComponent /> container', () => {
   let component;
-  const props = {
+  let props = {
     item: {
       id: 'some id',
       title: 'some title',
       overview: 'some overview',
-      budget: 1000000,
-      genres: [],
-      revenue: 1000000,
-      runtime: 140,
-      language: 'English',
-      credits: {
-        cast: [],
-        crew: [],
-      },
-      images: {
-        backdrops: [],
-        posters: [],
-      },
+      poster_path: 'path to image',
     },
   };
 
-  it('render property', () => {
+  it('Render property with card actions', () => {
+    props = {
+      ...props,
+      actions: [1, 2, 3],
+    };
     component = shallow(<MovieItemComponent {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('Render snapshot - without card actions', () => {
+    props = {
+      ...props,
+      actions: null,
+    };
+    component = shallow(<MovieItemComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

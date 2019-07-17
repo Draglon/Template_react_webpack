@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   watchlistRequest as watchlistRequestAction,
   addToWatchlistRequest as addToWatchlistRequestAction,
 } from '../../store/theMovieDB/watchlist/actions';
-import { getWatchlistById } from '../../store/theMovieDB/watchlist/selectors';
+import { getWatchlist } from '../../store/theMovieDB/watchlist/selectors';
 
 import WatchlistComponent from './component';
 
@@ -36,8 +37,14 @@ class WatchlistContainer extends Component {
   }
 }
 
+WatchlistContainer.propTypes = {
+  addToWatchlistRequest: PropTypes.func.isRequired,
+  watchlistRequest: PropTypes.func.isRequired,
+  watchlist: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
-  watchlist: getWatchlistById(state),
+  watchlist: getWatchlist(state),
 });
 
 const mapDispatchToProps = {

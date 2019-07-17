@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Typography, Tag } from 'antd';
 
 const MovieGenresComponent = ({ title, genres }) => (
@@ -13,5 +14,10 @@ const MovieGenresComponent = ({ title, genres }) => (
     </Col>
   </Row>
 );
+
+MovieGenresComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
+};
 
 export default MovieGenresComponent;

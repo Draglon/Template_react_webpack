@@ -1,23 +1,30 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import PaginationComponent from '../component';
 
 describe('<PaginationComponent />', () => {
   let component;
-  const props = {
+  let props = {
+    page: (page = 1) => page,
     currentPage: 10,
     totalPages: 10,
-    getPage: jest.fn(),
   };
 
-  it('render property - with totalPages', () => {
+  it('Render snapshot - with totalPages', () => {
+    props = {
+      ...props,
+      totalPages: 10,
+    };
     component = shallow(<PaginationComponent {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
-  it('render property - without totalPages', () => {
-    component = shallow(<PaginationComponent {...props} totalPages={0} />);
-    expect(toJson(component)).toMatchSnapshot();
+  it('Render snapshot - without totalPages', () => {
+    props = {
+      ...props,
+      totalPages: 0,
+    };
+    component = shallow(<PaginationComponent {...props} />);
+    expect(component).toMatchSnapshot();
   });
 });

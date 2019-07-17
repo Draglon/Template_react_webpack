@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PaginationComponent /> render property - with totalPages 1`] = `
+exports[`<PaginationComponent /> Render snapshot - with totalPages 1`] = `
 <Fragment>
   <Row
     className="top-padding"
@@ -13,6 +13,7 @@ exports[`<PaginationComponent /> render property - with totalPages 1`] = `
         className="pagination"
         current={10}
         defaultCurrent={1}
+        onChange={[Function]}
         total={100}
       />
     </Col>
@@ -20,4 +21,4 @@ exports[`<PaginationComponent /> render property - with totalPages 1`] = `
 </Fragment>
 `;
 
-exports[`<PaginationComponent /> render property - without totalPages 1`] = `<Fragment />`;
+exports[`<PaginationComponent /> Render snapshot - without totalPages 1`] = `<Fragment />`;

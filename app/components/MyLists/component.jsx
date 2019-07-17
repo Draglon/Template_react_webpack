@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MyListsTitle from './MyListsTitle';
 import Lists from './Lists';
@@ -15,5 +16,10 @@ const MyListsComponent = ({ myLists, page }) => (
     )}
   </>
 );
+
+MyListsComponent.propTypes = {
+  page: PropTypes.func.isRequired,
+  myLists: PropTypes.object.isRequired,
+};
 
 export default MyListsComponent;

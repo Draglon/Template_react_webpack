@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Typography, Icon, Layout } from 'antd';
@@ -14,16 +15,13 @@ const LoginSchema = Yup.object().shape({
     .required('Should be required'),
 });
 
-const LoginFormComponent = ({ setAccess, loginError }) => (
+const LoginFormComponent = ({ onSubmit, loginError }) => (
   <Layout className="login">
     <Typography.Title>The Movie DB</Typography.Title>
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
-      onSubmit={(values, actions) => {
-        actions.setSubmitting(true);
-        setAccess({ values, actions });
-      }}
+      onSubmit={onSubmit}
       render={props => (
         <Form className="form login__form">
           <Field
@@ -55,5 +53,13 @@ const LoginFormComponent = ({ setAccess, loginError }) => (
     />
   </Layout>
 );
+
+LoginFormComponent.defaultProps = {
+  loginError: '',
+};
+
+LoginFormComponent.propTypes = {
+  loginError: PropTypes.string,
+};
 
 export default LoginFormComponent;

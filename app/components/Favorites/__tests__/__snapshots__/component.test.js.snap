@@ -1,3 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FavoritesComponent /> container render property 1`] = `<Fragment />`;
+exports[`<FavoritesComponent /> Render snapshot - FavoritesComponent 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <div
+        className="top-margin"
+      >
+        <Title>
+          Favorites
+        </Title>
+      </div>
+    </Col>
+  </Row>
+  <MovieListComponent
+    modalParams={Object {}}
+    movies={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  />
+  <PaginationComponent
+    currentPage={1}
+    page={[Function]}
+    totalPages={100}
+  />
+</Fragment>
+`;

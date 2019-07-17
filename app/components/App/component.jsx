@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
@@ -14,10 +15,10 @@ import NotFound from '../NotFound';
 
 import PrivateRoute from './PrivateRoute';
 
-const AppComponent = ({ isLogged }) => (
+const AppComponent = ({ sessionId }) => (
   <Router>
     <>
-      {isLogged && <Header />}
+      {sessionId && <Header />}
       <Layout.Content className="page">
         <Switch>
           <Route exact path="/" component={Home} />
@@ -32,5 +33,9 @@ const AppComponent = ({ isLogged }) => (
     </>
   </Router>
 );
+
+AppComponent.propTypes = {
+  sessionId: PropTypes.string.isRequired,
+};
 
 export default AppComponent;

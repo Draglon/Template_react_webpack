@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Empty } from 'antd';
 
 import MovieItem from './MovieItem';
@@ -45,5 +46,14 @@ const MovieListComponent = ({ movies, modalParams }) => (
     </Col>
   </Row>
 );
+
+MovieListComponent.defaultProps = {
+  modalParams: null,
+};
+
+MovieListComponent.propTypes = {
+  movies: PropTypes.array.isRequired,
+  modalParams: PropTypes.object,
+};
 
 export default MovieListComponent;

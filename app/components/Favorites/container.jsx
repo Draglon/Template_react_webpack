@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   favoriteRequest as favoriteRequestAction,
-  addToFvoriteRequest as addToFvoriteRequestAction,
+  addToFavoriteRequest as addToFavoriteRequestAction,
 } from '../../store/theMovieDB/favorite/actions';
-import { getFavoriteById } from '../../store/theMovieDB/favorite/selectors';
+import { getFavorite } from '../../store/theMovieDB/favorite/selectors';
 
 import FavoritesComponent from './component';
 
@@ -21,7 +22,7 @@ class FavoritesContainer extends Component {
   };
 
   render() {
-    const { addToFvoriteRequest } = this.props;
+    const { addToFavoriteRequest } = this.props;
     return (
       <FavoritesComponent
         {...this.props}
@@ -29,20 +30,26 @@ class FavoritesContainer extends Component {
         modalParams={{
           title: 'Do you want to delete movie from favorites?',
           params: { favorite: false },
-          onConfirm: addToFvoriteRequest,
+          onConfirm: addToFavoriteRequest,
         }}
       />
     );
   }
 }
 
+FavoritesContainer.propTypes = {
+  addToFavoriteRequest: PropTypes.func.isRequired,
+  favoriteRequest: PropTypes.func.isRequired,
+  favorites: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
-  favorites: getFavoriteById(state),
+  favorites: getFavorite(state),
 });
 
 const mapDispatchToProps = {
   favoriteRequest: favoriteRequestAction,
-  addToFvoriteRequest: addToFvoriteRequestAction,
+  addToFavoriteRequest: addToFavoriteRequestAction,
 };
 
 export default connect(

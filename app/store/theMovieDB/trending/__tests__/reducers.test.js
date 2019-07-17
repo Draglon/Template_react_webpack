@@ -1,40 +1,54 @@
-import { trendingReducer, trendingInitialState } from '../reducers';
+import { trendingReducer } from '../reducers';
 import * as t from '../actionTypes';
 
 describe('Trending reducer', () => {
   it('state is undefined', () => {
-    expect(trendingReducer(undefined, {})).toEqual(trendingInitialState);
+    expect(trendingReducer(undefined, {})).toEqual({
+      isLoading: false,
+      data: {
+        page: 1,
+        results: [],
+        totalPages: 0,
+      },
+      error: null,
+    });
   });
 
   it('TRENDING_REQUEST', () => {
+    const state = {
+      isLoading: false,
+      error: 'some error',
+    };
     const action = {
       type: t.TRENDING_REQUEST,
     };
 
-    expect(trendingReducer(trendingInitialState, action)).toEqual({
-      ...trendingInitialState,
+    expect(trendingReducer(state, action)).toEqual({
       isLoading: true,
       error: null,
     });
   });
 
   it('TRENDING_SUCCESS', () => {
-    const stateBefore = {
-      ...trendingInitialState,
+    const state = {
       isLoading: true,
-    };
-
-    const action = {
-      type: t.TRENDING_SUCCESS,
-      payload: {
+      data: {
         page: 1,
         results: [],
         totalPages: 0,
       },
     };
 
-    expect(trendingReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    const action = {
+      type: t.TRENDING_SUCCESS,
+      payload: {
+        page: 1,
+        results: [1, 2, 3],
+        totalPages: 10,
+      },
+    };
+
+    expect(trendingReducer(state, action)).toEqual({
       isLoading: false,
       data: {
         page: action.payload.page,
@@ -45,9 +59,9 @@ describe('Trending reducer', () => {
   });
 
   it('TRENDING_FAILURE', () => {
-    const stateBefore = {
-      ...trendingInitialState,
+    const state = {
       isLoading: true,
+      error: null,
     };
 
     const action = {
@@ -57,8 +71,7 @@ describe('Trending reducer', () => {
       },
     };
 
-    expect(trendingReducer(stateBefore, action)).toEqual({
-      ...stateBefore,
+    expect(trendingReducer(state, action)).toEqual({
       isLoading: false,
       error: action.payload.message,
     });

@@ -3,26 +3,30 @@ import * as t from '../actionTypes';
 
 describe('Trending - actions', () => {
   it('trendingRequest', () => {
-    const expectedAction = {
+    const payload = { page: 1 };
+    expect(trendingRequest(payload)).toEqual({
       type: t.TRENDING_REQUEST,
-      payload: ['some data'],
-    };
-    expect(trendingRequest(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('trendingSuccess', () => {
-    const expectedAction = {
-      type: t.TRENDING_SUCCESS,
-      payload: ['some data'],
+    const payload = {
+      page: 1,
+      results: [1, 2, 3],
+      totalPages: 10,
     };
-    expect(trendingSuccess(expectedAction.payload)).toEqual(expectedAction);
+    expect(trendingSuccess(payload)).toEqual({
+      type: t.TRENDING_SUCCESS,
+      payload,
+    });
   });
 
   it('trendingFailure', () => {
-    const expectedAction = {
+    const payload = { message: 'message error' };
+    expect(trendingFailure(payload)).toEqual({
       type: t.TRENDING_FAILURE,
-      payload: ['some data'],
-    };
-    expect(trendingFailure(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 });

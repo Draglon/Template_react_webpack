@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderComponent /> component Render property - with avatar 1`] = `
+<img
+  alt="Alt to image"
+  className="some class to image"
+  src="https://image.tmdb.org/t/p/original/some path to image"
+/>
+`;

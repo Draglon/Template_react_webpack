@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, Carousel } from 'antd';
 
 import Image from '../../../shared/images/Image';
@@ -16,5 +17,10 @@ const MovieCarouselComponent = ({ backdrops, title }) => (
     </Col>
   </Row>
 );
+
+MovieCarouselComponent.propTypes = {
+  backdrops: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default MovieCarouselComponent;

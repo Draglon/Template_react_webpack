@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MovieListComponent /> container render property - with movies 1`] = `
+exports[`<MovieListComponent /> container Render snapshot - with modal params 1`] = `
 <Row
   className="top-padding"
   gutter={16}
@@ -40,6 +40,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 9999,
+                }
+              }
+              title="some title"
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 1,
@@ -76,6 +90,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 9999,
+                }
+              }
+              title="some title"
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 2,
@@ -112,6 +140,20 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
       }
     >
       <MovieItemComponent
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "movieId": 9999,
+                }
+              }
+              title="some title"
+              type="delete"
+            />,
+          ]
+        }
         item={
           Object {
             "id": 3,
@@ -123,7 +165,133 @@ exports[`<MovieListComponent /> container render property - with movies 1`] = `
 </Row>
 `;
 
-exports[`<MovieListComponent /> container render property - without movies 1`] = `
+exports[`<MovieListComponent /> container Render snapshot - without modal params 1`] = `
+<Row
+  className="top-padding"
+  gutter={16}
+  type="flex"
+>
+  <Col
+    className="cards"
+    offset={2}
+    span={20}
+  >
+    <Col
+      key="1"
+      lg={
+        Object {
+          "span": 6,
+        }
+      }
+      md={
+        Object {
+          "span": 8,
+        }
+      }
+      sm={
+        Object {
+          "span": 12,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <MovieItemComponent
+        actions={null}
+        item={
+          Object {
+            "id": 1,
+          }
+        }
+      />
+    </Col>
+    <Col
+      key="2"
+      lg={
+        Object {
+          "span": 6,
+        }
+      }
+      md={
+        Object {
+          "span": 8,
+        }
+      }
+      sm={
+        Object {
+          "span": 12,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <MovieItemComponent
+        actions={null}
+        item={
+          Object {
+            "id": 2,
+          }
+        }
+      />
+    </Col>
+    <Col
+      key="3"
+      lg={
+        Object {
+          "span": 6,
+        }
+      }
+      md={
+        Object {
+          "span": 8,
+        }
+      }
+      sm={
+        Object {
+          "span": 12,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <MovieItemComponent
+        actions={null}
+        item={
+          Object {
+            "id": 3,
+          }
+        }
+      />
+    </Col>
+  </Col>
+</Row>
+`;
+
+exports[`<MovieListComponent /> container Render snapshot - without movies 1`] = `
 <Row
   className="top-padding"
   gutter={16}

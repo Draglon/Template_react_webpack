@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Card } from 'antd';
 
@@ -16,5 +17,14 @@ const MovieItemComponent = ({ item, actions }) => (
     </Link>
   </Card>
 );
+
+MovieItemComponent.defaultProps = {
+  actions: null,
+};
+
+MovieItemComponent.propTypes = {
+  item: PropTypes.object.isRequired,
+  actions: PropTypes.array,
+};
 
 export default MovieItemComponent;
