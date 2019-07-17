@@ -11,7 +11,7 @@ import MovieDetails from './MovieDetails';
 
 const MovieComponent = ({ movie, genres, cast, crew }) => (
   <>
-    {movie && genres && cast && crew && (
+    {movie && (
       <>
         <MovieCarousel backdrops={movie.backdrops} title={movie.title} />
         <MovieTitle movie={movie} />
@@ -28,11 +28,18 @@ const MovieComponent = ({ movie, genres, cast, crew }) => (
   </>
 );
 
+MovieComponent.defaultTypes = {
+  movie: null,
+  genres: [],
+  cast: [],
+  crew: [],
+};
+
 MovieComponent.propTypes = {
-  movie: PropTypes.object.isRequired,
-  genres: PropTypes.array.isRequired,
-  cast: PropTypes.array.isRequired,
-  crew: PropTypes.array.isRequired,
+  movie: PropTypes.object,
+  genres: PropTypes.array,
+  cast: PropTypes.array,
+  crew: PropTypes.array,
 };
 
 export default MovieComponent;

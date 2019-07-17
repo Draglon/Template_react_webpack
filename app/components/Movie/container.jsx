@@ -28,12 +28,19 @@ class MovieContainer extends Component {
   }
 }
 
+MovieContainer.defaultTypes = {
+  movie: null,
+  genres: [],
+  cast: [],
+  crew: [],
+};
+
 MovieContainer.propTypes = {
   movieRequest: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired,
-  genres: PropTypes.array.isRequired,
-  cast: PropTypes.array.isRequired,
-  crew: PropTypes.array.isRequired,
+  movie: PropTypes.object,
+  genres: PropTypes.array,
+  cast: PropTypes.array,
+  crew: PropTypes.array,
 };
 
 const mapStateToProps = (
