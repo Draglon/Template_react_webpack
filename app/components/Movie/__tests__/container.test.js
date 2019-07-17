@@ -52,4 +52,8 @@ describe('<MovieContainer />', () => {
       expect(store.dispatch).toHaveBeenCalledWith(movieRequest({ movieId: id }));
     });
   });
+
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
