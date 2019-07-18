@@ -4,8 +4,6 @@ import { createListRequest } from '../../../../store/theMovieDB/myLists/actions'
 
 import CreateListModalContainer from '../container';
 
-const spy = jest.spyOn(Modal, 'confirm');
-
 describe('<CreateListModalContainer />', () => {
   const store = configureStore()({});
   store.dispatch = jest.fn();
