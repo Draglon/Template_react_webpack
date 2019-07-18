@@ -14,13 +14,12 @@ describe('<DeleteItemModalContainer />', () => {
   };
 
   const store = configureStore()({});
-  store.dispatch = jest.fn();
   const wrapper = shallow(<DeleteItemModalContainer store={store} {...props} />);
   const container = wrapper;
   const instance = container.instance();
 
   describe('showModal()', () => {
-    it('dispatches the showModal()', () => {
+    it('should call showModal()', () => {
       instance.showModal();
 
       expect(spy).toHaveBeenCalledWith({
@@ -31,14 +30,14 @@ describe('<DeleteItemModalContainer />', () => {
   });
 
   describe('onConfirm()', () => {
-    it('dispatches the onConfirm()', () => {
+    it('should call onConfirm()', () => {
       instance.onOk();
 
       expect(props.onConfirm).toHaveBeenCalledWith(props.params);
     });
   });
 
-  it('Render snapshot - DeleteItemModalContainer', () => {
-    expect(wrapper).toMatchSnapshot();
+  it('should match snapshot', () => {
+    expect(container).toMatchSnapshot();
   });
 });

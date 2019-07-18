@@ -15,7 +15,7 @@ describe('<DeleteItemModalComponent />', () => {
     },
   };
 
-  it('Render snapshot', () => {
+  it('should match snapshot', () => {
     component = shallow(<DeleteItemModalComponent {...props} />);
     expect(component).toMatchSnapshot();
   });
