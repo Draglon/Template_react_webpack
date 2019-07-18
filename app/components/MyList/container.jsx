@@ -21,23 +21,23 @@ class MyListContainer extends Component {
     detailsListRequest({ listId: id });
   }
 
-  render() {
+  modalParams = () => {
     const {
       removeMovieListRequest,
       match: {
         params: { id },
       },
     } = this.props;
-    return (
-      <MyListComponent
-        {...this.props}
-        modalParams={{
-          title: 'Do you want to delete movie from this list?',
-          params: { listId: id },
-          onConfirm: removeMovieListRequest,
-        }}
-      />
-    );
+
+    return {
+      title: 'Do you want to delete movie from this list?',
+      params: { listId: id },
+      onConfirm: removeMovieListRequest,
+    };
+  };
+
+  render() {
+    return <MyListComponent {...this.props} modalParams={this.modalParams()} />;
   }
 }
 

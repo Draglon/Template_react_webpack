@@ -20,16 +20,13 @@ class MyListsTitleContainer extends Component {
     this.redirectToLists();
   };
 
+  modalParams = () => ({
+    title: 'Do you want to delete list?',
+    onConfirm: this.onConfirm,
+  });
+
   render() {
-    return (
-      <MyListsTitleComponent
-        {...this.props}
-        modalParams={{
-          title: 'Do you want to delete list?',
-          onConfirm: this.onConfirm,
-        }}
-      />
-    );
+    return <MyListsTitleComponent {...this.props} modalParams={this.modalParams} />;
   }
 }
 
