@@ -6,12 +6,16 @@ describe('<HomeComponent />', () => {
   const props = { sessionId: '' };
   const component = shallow(<HomeComponent {...props} />);
 
-  it('should match snapshot - sessionId: false', () => {
-    expect(component).toMatchSnapshot();
+  describe('sessionId: false', () => {
+    it('should match snapshot', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('should match snapshot - sessionId: true', () => {
-    component.setProps({ sessionId: 'some sessionId' });
-    expect(component).toMatchSnapshot();
+  describe('sessionId: true', () => {
+    it('should match snapshot', () => {
+      component.setProps({ sessionId: 'some sessionId' });
+      expect(component).toMatchSnapshot();
+    });
   });
 });

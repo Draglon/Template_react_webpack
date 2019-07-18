@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DashboardPageContainer should match snapshot 1`] = `
-<DashboardPageContainer
+<DashboardPageComponent
+  onSearch={[Function]}
+  page={[Function]}
   searchRequest={[Function]}
   store={
     Object {
