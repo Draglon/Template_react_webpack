@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateListModalComponent /> Render snapshot - with button and modalVisible false 1`] = `
+exports[`<CreateListModalComponent /> with button and modalVisible false should match snapshot 1`] = `
 <Fragment>
   <Icon
     onClick={[Function]}
@@ -124,7 +124,7 @@ exports[`<CreateListModalComponent /> Render snapshot - with button and modalVis
 </Fragment>
 `;
 
-exports[`<CreateListModalComponent /> Render snapshot - with button and modalVisible true 1`] = `
+exports[`<CreateListModalComponent /> with button and modalVisible true should match snapshot 1`] = `
 <Fragment>
   <Icon
     onClick={[Function]}
@@ -248,7 +248,7 @@ exports[`<CreateListModalComponent /> Render snapshot - with button and modalVis
 </Fragment>
 `;
 
-exports[`<CreateListModalComponent /> Render snapshot - with icon and modalVisible false 1`] = `
+exports[`<CreateListModalComponent /> with icon and modalVisible false should match snapshot 1`] = `
 <Fragment>
   <Icon
     onClick={[Function]}
@@ -362,7 +362,7 @@ exports[`<CreateListModalComponent /> Render snapshot - with icon and modalVisib
 </Fragment>
 `;
 
-exports[`<CreateListModalComponent /> Render snapshot - with icon and modalVisible true 1`] = `
+exports[`<CreateListModalComponent /> with icon and modalVisible true should match snapshot 1`] = `
 <Fragment>
   <Icon
     onClick={[Function]}

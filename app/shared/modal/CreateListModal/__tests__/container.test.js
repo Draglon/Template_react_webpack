@@ -1,27 +1,45 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { Modal } from 'antd';
+import { createListRequest } from '../../../../store/theMovieDB/myLists/actions';
 
 import CreateListModalContainer from '../container';
 
-const spy = jest.spyOn(Modal, 'confirm');
-
 describe('<CreateListModalContainer />', () => {
   const store = configureStore()({});
-  const props = {};
-
-  const wrapper = shallow(<CreateListModalContainer store={store} {...props} />);
+  store.dispatch = jest.fn();
+  const wrapper = shallow(<CreateListModalContainer store={store} />);
   const container = wrapper.dive();
   const instance = container.instance();
 
   describe('showModal()', () => {
-    it('dispatches the showModal()', () => {
-      // instance.showModal();
-      // expect(spy).toHaveBeenCalledWith();
+    it('should call showModal()', () => {
+      instance.showModal();
+      expect(container.state('modalVisible')).toEqual(true);
     });
   });
 
-  it('Render snapshot - CreateListModalContainer', () => {
-    expect(wrapper).toMatchSnapshot();
+  describe('hideModal()', () => {
+    it('should call hideModal()', () => {
+      instance.hideModal();
+      expect(container.state('modalVisible')).toEqual(false);
+    });
+  });
+
+  describe('onSubmit()', () => {
+    it('should call onSubmit()', () => {
+      const values = { name: 'listname', description: 'description' };
+      const actions = { setSubmitting: value => value };
+      const spy = jest.spyOn(instance, 'hideModal');
+      instance.onSubmit(values, actions);
+
+      // expect(actions.setSubmitting).toHaveBeenCalledWith(true);
+      expect(store.dispatch).toHaveBeenCalledWith(
+        createListRequest({ values, actions, hideModal: spy }),
+      );
+    });
+  });
+
+  it('should match snapshot', () => {
+    expect(container).toMatchSnapshot();
   });
 });
