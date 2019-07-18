@@ -12,18 +12,21 @@ describe('<PopoverContentComponent />', () => {
   };
   const component = shallow(<PopoverContentComponent {...props} />);
 
-  it('should match snapshot - without results', () => {
-    expect(component).toMatchSnapshot();
+  describe('without results', () => {
+    it('should match snapshot', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
-
-  it('should match snapshot - with results', () => {
-    const newProps = {
-      ...props,
-      myLists: {
-        results: [{ id: 1, name: 'List 1' }, { id: 1, name: 'List 1' }],
-      },
-    };
-    component.setProps(newProps);
-    expect(component).toMatchSnapshot();
+  describe('with results', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        myLists: {
+          results: [{ id: 1, name: 'List 1' }, { id: 1, name: 'List 1' }],
+        },
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

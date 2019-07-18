@@ -11,16 +11,20 @@ describe('<PopoverComponent />', () => {
   };
   const component = shallow(<PopoverComponent {...props} />);
 
-  it('should match snapshot - popoverVisible true', () => {
-    expect(component).toMatchSnapshot();
+  describe('popoverVisible true', () => {
+    it('should match snapshot', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('should match snapshot - popoverVisible false', () => {
-    const newProps = {
-      ...props,
-      popoverVisible: false,
-    };
-    component.setProps(newProps);
-    expect(component).toMatchSnapshot();
+  describe('popoverVisible false', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        popoverVisible: false,
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

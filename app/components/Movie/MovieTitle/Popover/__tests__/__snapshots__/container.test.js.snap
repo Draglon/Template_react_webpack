@@ -3,7 +3,21 @@
 exports[`<PopoverContainer /> should match snapshot 1`] = `
 <PopoverComponent
   closePopover={[Function]}
-  handleVisiblePopover={[Function]}
+  handleVisiblePopover={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          false,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   movieId={999}
   popoverVisible={false}
   store={

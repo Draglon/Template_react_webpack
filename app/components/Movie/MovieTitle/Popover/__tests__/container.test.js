@@ -18,12 +18,20 @@ describe('<PopoverContainer />', () => {
   const container = shallow(<PopoverContainer store={store} {...props} />);
   const instance = container.instance();
 
-  // describe('handleVisiblePopover()', () => {
-  //   it('dispatches the handleVisiblePopover()', () => {
-  //     instance.handleVisiblePopover(false);
-  //     expect(store.dispatch).toHaveBeenCalledWith(container.setState({ popoverVisible: false }));
-  //   });
-  // });
+  describe('handleVisiblePopover()', () => {
+    it('should call handleVisiblePopover()', () => {
+      instance.handleVisiblePopover(false);
+      expect(container.state('popoverVisible')).toEqual(false);
+    });
+  });
+
+  describe('closePopover()', () => {
+    it('should call closePopover()', () => {
+      const spy = jest.spyOn(instance, 'handleVisiblePopover');
+      instance.closePopover();
+      expect(spy).toHaveBeenCalledWith(false);
+    });
+  });
 
   it('should match snapshot', () => {
     expect(container).toMatchSnapshot();

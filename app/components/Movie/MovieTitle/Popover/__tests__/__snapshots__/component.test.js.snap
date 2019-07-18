@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PopoverComponent /> should match snapshot - popoverVisible false 1`] = `
+exports[`<PopoverComponent /> popoverVisible false should match snapshot 1`] = `
 <Popover
   content={
     <Connect(PopoverContentContainer)
@@ -24,7 +24,7 @@ exports[`<PopoverComponent /> should match snapshot - popoverVisible false 1`] =
 </Popover>
 `;
 
-exports[`<PopoverComponent /> should match snapshot - popoverVisible true 1`] = `
+exports[`<PopoverComponent /> popoverVisible true should match snapshot 1`] = `
 <Popover
   content={
     <Connect(PopoverContentContainer)

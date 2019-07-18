@@ -25,7 +25,7 @@ describe('<PopoverNavLinkContainer />', () => {
   const instance = container.instance();
 
   describe('onClick()', () => {
-    it('dispatches the onClick()', () => {
+    it('dispatches the addMovieListRequest()', () => {
       instance.onClick();
       expect(store.dispatch).toHaveBeenCalledWith(addMovieListRequest({ listId, movieId }));
     });

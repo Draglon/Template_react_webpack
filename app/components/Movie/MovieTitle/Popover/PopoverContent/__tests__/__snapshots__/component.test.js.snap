@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PopoverContentComponent /> should match snapshot - with results 1`] = `
+exports[`<PopoverContentComponent /> with results should match snapshot 1`] = `
 <nav
   className="popover__nav"
 >
@@ -44,7 +44,7 @@ exports[`<PopoverContentComponent /> should match snapshot - with results 1`] = 
 </nav>
 `;
 
-exports[`<PopoverContentComponent /> should match snapshot - without results 1`] = `
+exports[`<PopoverContentComponent /> without results should match snapshot 1`] = `
 <nav
   className="popover__nav"
 >
