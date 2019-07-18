@@ -1,54 +1,61 @@
 import React from 'react';
-import { Modal } from 'antd';
 
 import CreateListModalComponent from '../component';
 
 describe('<CreateListModalComponent />', () => {
-  let component;
-  let props = {
+  const props = {
     modalVisible: true,
     showModal: () => {},
     hideModal: () => {},
     onSubmit: () => {},
   };
 
-  it('Render snapshot - with icon and modalVisible true', () => {
-    props = {
-      ...props,
-      modalVisible: true,
-      icon: 'some icon text',
-    };
-    component = shallow(<CreateListModalComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  const component = shallow(<CreateListModalComponent {...props} />);
+
+  describe('with icon and modalVisible true', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        icon: 'some icon text',
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('Render snapshot - with icon and modalVisible false', () => {
-    props = {
-      ...props,
-      modalVisible: false,
-      icon: 'some icon text',
-    };
-    component = shallow(<CreateListModalComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  describe('with icon and modalVisible false', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        modalVisible: false,
+        icon: 'some icon text',
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('Render snapshot - with button and modalVisible true', () => {
-    props = {
-      ...props,
-      modalVisible: true,
-      text: 'some text',
-    };
-    component = shallow(<CreateListModalComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  describe('with button and modalVisible true', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        modalVisible: true,
+        text: 'some text',
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('Render snapshot - with button and modalVisible false', () => {
-    props = {
-      ...props,
-      modalVisible: false,
-      text: 'some text',
-    };
-    component = shallow(<CreateListModalComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  describe('with button and modalVisible false', () => {
+    it('should match snapshot', () => {
+      const newProps = {
+        ...props,
+        modalVisible: false,
+        text: 'some text',
+      };
+      component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

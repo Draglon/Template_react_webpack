@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DeleteItemModalContainer /> Render snapshot - DeleteItemModalContainer 1`] = `
+exports[`<DeleteItemModalContainer /> should match snapshot 1`] = `
 <DeleteItemModalComponent
   onConfirm={
     [MockFunction] {
@@ -28,7 +28,7 @@ exports[`<DeleteItemModalContainer /> Render snapshot - DeleteItemModalContainer
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [MockFunction],
+      "dispatch": [Function],
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
