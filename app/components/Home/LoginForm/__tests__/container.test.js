@@ -18,16 +18,14 @@ describe('<LoginFormContainer />', () => {
   const container = wrapper.dive();
   const instance = container.instance();
 
-  describe('<LoginFormContainer />', () => {
-    describe('onSubmit()', () => {
-      it('should call onSubmit()', () => {
-        const values = { login: 'login', password: 'password' };
-        const actions = { setSubmitting: jest.fn() };
-        instance.onSubmit(values, actions);
+  describe('onSubmit()', () => {
+    it('should call onSubmit()', () => {
+      const values = { login: 'login', password: 'password' };
+      const actions = { setSubmitting: jest.fn() };
+      instance.onSubmit(values, actions);
 
-        expect(actions.setSubmitting).toHaveBeenCalledWith(true);
-        expect(store.dispatch).toHaveBeenCalledWith(createSessionRequest({ values, actions }));
-      });
+      expect(actions.setSubmitting).toHaveBeenCalledWith(true);
+      expect(store.dispatch).toHaveBeenCalledWith(createSessionRequest({ values, actions }));
     });
   });
 
