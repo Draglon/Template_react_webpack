@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardPageContainer should match snapshot 1`] = `
+<DashboardPageComponent
+  onSearch={[Function]}
+  page={[Function]}
+  searchRequest={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "TRENDING_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "TRENDING_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 10,
+              },
+              "type": "TRENDING_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+                "query": "search string",
+              },
+              "type": "SEARCH_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "TRENDING_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "TRENDING_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "TRENDING_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 10,
+                },
+                "type": "TRENDING_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                  "query": "search string",
+                },
+                "type": "SEARCH_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "TRENDING_REQUEST",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  trending={
+    Object {
+      "page": 1,
+      "results": Array [],
+      "totalPages": 10,
+    }
+  }
+  trendingRequest={[Function]}
+/>
+`;

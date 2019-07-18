@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DashboardComponent /> should match snapshot - with search query 1`] = `
+<Fragment>
+  <Connect(SearchPageContainer) />
+</Fragment>
+`;
+
+exports[`<DashboardComponent /> should match snapshot - without search query 1`] = `
+<Fragment>
+  <Connect(DashboardPageContainer) />
+</Fragment>
+`;

@@ -31,7 +31,7 @@ exports[`<HeaderComponent /> component Render property - with avatar 1`] = `
           className="profile__dropdown"
           mouseEnterDelay={0.15}
           mouseLeaveDelay={0.1}
-          overlay={<Connect(DropdownMenuContainer) />}
+          overlay={<Connect(DropdownMenuComponent) />}
           placement="bottomLeft"
         >
           <Text>
@@ -78,7 +78,7 @@ exports[`<HeaderComponent /> component Render property - without avatar 1`] = `
           className="profile__dropdown"
           mouseEnterDelay={0.15}
           mouseLeaveDelay={0.1}
-          overlay={<Connect(DropdownMenuContainer) />}
+          overlay={<Connect(DropdownMenuComponent) />}
           placement="bottomLeft"
         >
           <Text>

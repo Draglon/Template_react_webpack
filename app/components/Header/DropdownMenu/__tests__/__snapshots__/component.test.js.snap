@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownMenuComponent /> Render snapshot - DropdownMenuComponent 1`] = `
+<Menu>
+  <MenuItem>
+    <Link
+      replace={false}
+      to="/"
+    >
+      Dashboard
+    </Link>
+  </MenuItem>
+  <Divider
+    className=""
+    disabled={true}
+    style={Object {}}
+  />
+  <MenuItem>
+    <Link
+      replace={false}
+      to="/mylists"
+    >
+      My Lists
+    </Link>
+  </MenuItem>
+  <MenuItem>
+    <Link
+      replace={false}
+      to="/watchlist"
+    >
+      Watchlist
+    </Link>
+  </MenuItem>
+  <MenuItem>
+    <Link
+      replace={false}
+      to="/favorites"
+    >
+      Favorites
+    </Link>
+  </MenuItem>
+  <Divider
+    className=""
+    disabled={true}
+    style={Object {}}
+  />
+  <MenuItem
+    onClick={[Function]}
+  >
+    Logout
+  </MenuItem>
+</Menu>
+`;

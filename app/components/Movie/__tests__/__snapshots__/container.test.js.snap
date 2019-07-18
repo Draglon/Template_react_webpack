@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieContainer /> should match snapshot 1`] = `
+<MovieComponent
+  cast={
+    Array [
+      Object {
+        "character": "character",
+        "id": 1,
+        "name": "name",
+      },
+      Object {
+        "character": "character",
+        "id": 2,
+        "name": "name",
+      },
+      undefined,
+    ]
+  }
+  crew={
+    Array [
+      Object {
+        "id": 1,
+        "job": "position",
+        "name": "name",
+      },
+      Object {
+        "id": 2,
+        "job": "position",
+        "name": "name",
+      },
+      undefined,
+    ]
+  }
+  genres={
+    Array [
+      Object {
+        "id": 1,
+        "name": "name",
+      },
+      Object {
+        "id": 2,
+        "name": "name",
+      },
+      undefined,
+    ]
+  }
+  match={
+    Object {
+      "params": Object {
+        "id": 9999,
+      },
+    }
+  }
+  movie={
+    Object {
+      "cast": Array [
+        1,
+        2,
+        3,
+      ],
+      "crew": Array [
+        1,
+        2,
+        3,
+      ],
+      "genres": Array [
+        1,
+        2,
+        3,
+      ],
+      "id": 9999,
+    }
+  }
+  movieRequest={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "movieId": 9999,
+              },
+              "type": "MOVIE_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "movieId": 9999,
+              },
+              "type": "MOVIE_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "payload": Object {
+                  "movieId": 9999,
+                },
+                "type": "MOVIE_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "movieId": 9999,
+                },
+                "type": "MOVIE_REQUEST",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;

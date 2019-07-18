@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SearchComponent /> container render property - with search query 1`] = `
+exports[`<SearchComponent /> should match snapshot 1`] = `
 <Row
   className="top-padding"
   gutter={0}

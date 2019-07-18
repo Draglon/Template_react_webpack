@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { profileRequest as profileRequestAction } from '../../store/theMovieDB/profile/actions';
-import { getProfileById } from '../../store/theMovieDB/profile/selectors';
+import { getProfile } from '../../store/theMovieDB/profile/selectors';
 
 import HeaderComponent from './component';
 
@@ -28,7 +28,7 @@ HeaderContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  profile: getProfileById(state),
+  profile: getProfile(state),
 });
 
 const mapDispatchToProps = {

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { getSessionId } from '../../../store/theMovieDB/login/selectors';
 
-import PrivateRouteContainer from './component';
+import PrivateRouteComponent from './component';
 
 const mapStateToProps = state => ({
-  isLogged: getSessionId(state),
+  sessionId: getSessionId(state),
 });
 
-export default connect(mapStateToProps)(PrivateRouteContainer);
+export default connect(mapStateToProps)(PrivateRouteComponent);

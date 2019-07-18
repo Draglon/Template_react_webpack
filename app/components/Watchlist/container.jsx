@@ -6,7 +6,7 @@ import {
   watchlistRequest as watchlistRequestAction,
   addToWatchlistRequest as addToWatchlistRequestAction,
 } from '../../store/theMovieDB/watchlist/actions';
-import { getWatchlistById } from '../../store/theMovieDB/watchlist/selectors';
+import { getWatchlist } from '../../store/theMovieDB/watchlist/selectors';
 
 import WatchlistComponent from './component';
 
@@ -44,7 +44,7 @@ WatchlistContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  watchlist: getWatchlistById(state),
+  watchlist: getWatchlist(state),
 });
 
 const mapDispatchToProps = {

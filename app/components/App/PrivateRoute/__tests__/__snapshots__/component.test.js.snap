@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrivateRouteComponent /> With sessionId should match snapshot 1`] = `<component />`;
+
+exports[`<PrivateRouteComponent /> Without sessionId should match snapshot 1`] = `
+<Redirect
+  push={false}
+  to={
+    Object {
+      "pathname": "/",
+      "state": Object {
+        "from": "/dashboard",
+      },
+    }
+  }
+/>
+`;
+
+exports[`<PrivateRouteComponent /> should match snapshot 1`] = `
+<Route
+  path="/dashboard"
+  render={[Function]}
+/>
+`;

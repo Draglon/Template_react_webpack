@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppComponent /> component Render snapshot - sessionId: false 1`] = `
+<BrowserRouter>
+  <Adapter
+    className="page"
+  >
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/mylists"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/watchlist"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/favorites"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/movie/:id"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/list/:id"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+      />
+    </Switch>
+  </Adapter>
+</BrowserRouter>
+`;
+
+exports[`<AppComponent /> component Render snapshot - sessionId: true 1`] = `
+<BrowserRouter>
+  <Connect(HeaderContainer) />
+  <Adapter
+    className="page"
+  >
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/mylists"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/watchlist"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/favorites"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/movie/:id"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+        exact={true}
+        path="/list/:id"
+      />
+      <Connect(PrivateRouteComponent)
+        component={[Function]}
+      />
+    </Switch>
+  </Adapter>
+</BrowserRouter>
+`;

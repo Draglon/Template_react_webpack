@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DeleteItemModalComponent /> Render snapshot 1`] = `
+<Icon
+  key="delete"
+  onClick={[Function]}
+  type="some type"
+/>
+`;

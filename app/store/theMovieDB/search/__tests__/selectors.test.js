@@ -1,9 +1,23 @@
-import { getSearchById } from '../selectors';
+import { getSearchQuery, getSearch } from '../selectors';
 
 describe('Search movies - selectors', () => {
-  it('getSearchById - get movie data from store', () => {
+  it('getSearchQuery - get search string', () => {
+    const query = 'search string';
+    const state = {
+      reducers: {
+        search: {
+          data: {
+            query,
+          },
+        },
+      },
+    };
+    expect(getSearchQuery(state)).toEqual(query);
+  });
+
+  it('getSearch - get movies from store', () => {
     const data = {
-      query: '',
+      query: 'search string',
       page: 1,
       results: [1, 2, 3],
       totalPages: 0,
@@ -28,7 +42,7 @@ describe('Search movies - selectors', () => {
         },
       },
     };
-    expect(getSearchById(state)).toEqual({
+    expect(getSearch(state)).toEqual({
       ...data,
       results: [{ id: 1 }, { id: 2 }, { id: 3 }],
     });

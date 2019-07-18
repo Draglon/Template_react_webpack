@@ -14,7 +14,7 @@ export const createdListsReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.CREATED_LISTS_REQUEST:
       return {
-        ...initialState,
+        ...state,
         isLoading: true,
         error: null,
       };
@@ -55,7 +55,7 @@ export const detailsListReducer = (state = detailsListInitialState, action) => {
   switch (action.type) {
     case t.DETAILS_LIST_REQUEST:
       return {
-        ...detailsListInitialState,
+        ...state,
         isLoading: true,
         error: null,
       };
@@ -85,8 +85,8 @@ export const detailsListReducer = (state = detailsListInitialState, action) => {
 export const createListInitialState = {
   isLoading: false,
   data: {
-    list_id: null,
-    message: null,
+    listId: '',
+    message: '',
   },
   error: null,
 };
@@ -104,7 +104,7 @@ export const createListReducer = (state = createListInitialState, action) => {
         ...state,
         isLoading: false,
         data: {
-          list_id: action.payload.list_id,
+          listId: action.payload.list_id,
           message: action.payload.status_message,
         },
       };
@@ -140,7 +140,7 @@ export const deleteListReducer = (state = deleteListInitialState, action) => {
         ...state,
         isLoading: false,
         data: {
-          message: action.payload.message,
+          message: action.payload.status_message,
         },
       };
     case t.DELETE_LIST_FAILURE:

@@ -28,21 +28,7 @@ class MovieContainer extends Component {
   }
 }
 
-const mapStateToProps = (
-  state,
-  {
-    match: {
-      params: { id },
-    },
-  },
-) => ({
-  movie: getMovieById(state, id),
-  genres: getGenresById(state, id),
-  cast: getCastById(state, id),
-  crew: getCrewById(state, id),
-});
-
-MovieContainer.defaultProps = {
+MovieContainer.defaultTypes = {
   movie: null,
   genres: [],
   cast: [],
@@ -56,6 +42,20 @@ MovieContainer.propTypes = {
   cast: PropTypes.array,
   crew: PropTypes.array,
 };
+
+const mapStateToProps = (
+  state,
+  {
+    match: {
+      params: { id },
+    },
+  },
+) => ({
+  movie: getMovieById(state, id),
+  genres: getGenresById(state, id),
+  cast: getCastById(state, id),
+  crew: getCrewById(state, id),
+});
 
 const mapDispatchToProps = {
   movieRequest: movieRequestAction,

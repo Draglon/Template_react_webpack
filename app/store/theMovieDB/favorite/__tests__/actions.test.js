@@ -11,53 +11,61 @@ import * as t from '../actionTypes';
 describe('Favorite - actions', () => {
   describe('Favorite - create favorite list actions', () => {
     it('favoriteRequest', () => {
-      const expectedAction = {
+      const payload = { page: 1 };
+      expect(favoriteRequest(payload)).toEqual({
         type: t.FAVORITE_REQUEST,
-        payload: ['some data'],
-      };
-      expect(favoriteRequest(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('favoriteSuccess', () => {
-      const expectedAction = {
-        type: t.FAVORITE_SUCCESS,
-        payload: ['some data'],
+      const payload = {
+        page: 1,
+        results: [1, 2, 3],
+        totalPages: 10,
+        totalResults: 100,
       };
-      expect(favoriteSuccess(expectedAction.payload)).toEqual(expectedAction);
+      expect(favoriteSuccess(payload)).toEqual({
+        type: t.FAVORITE_SUCCESS,
+        payload,
+      });
     });
 
     it('favoriteFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(favoriteFailure(payload)).toEqual({
         type: t.FAVORITE_FAILURE,
-        payload: ['some data'],
-      };
-      expect(favoriteFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 
   describe('Favorite - add to favorite list actions', () => {
     it('addToFavoriteRequest', () => {
-      const expectedAction = {
-        type: t.ADD_TO_FAVORITE_REQUEST,
-        payload: ['some data'],
+      const payload = {
+        movieId: 9999,
+        favorite: true,
       };
-      expect(addToFavoriteRequest(expectedAction.payload)).toEqual(expectedAction);
+      expect(addToFavoriteRequest(payload)).toEqual({
+        type: t.ADD_TO_FAVORITE_REQUEST,
+        payload,
+      });
     });
 
     it('addToFavoriteSuccess', () => {
-      const expectedAction = {
+      const payload = { message: 'message success' };
+      expect(addToFavoriteSuccess(payload)).toEqual({
         type: t.ADD_TO_FAVORITE_SUCCESS,
-        payload: ['some data'],
-      };
-      expect(addToFavoriteSuccess(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
 
     it('addToFavoriteFailure', () => {
-      const expectedAction = {
+      const payload = { message: 'message error' };
+      expect(addToFavoriteFailure(payload)).toEqual({
         type: t.ADD_TO_FAVORITE_FAILURE,
-        payload: ['some data'],
-      };
-      expect(addToFavoriteFailure(expectedAction.payload)).toEqual(expectedAction);
+        payload,
+      });
     });
   });
 });

@@ -1,16 +1,14 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import SearchComponent from '../component';
 
-describe('<SearchComponent /> container', () => {
+describe('<SearchComponent />', () => {
   const props = {
     onSearch: jest.fn({ query: 'some string', page: 1 }),
   };
-  let component;
+  const component = shallow(<SearchComponent {...props} />);
 
-  it('render property - with search query', () => {
-    component = shallow(<SearchComponent {...props} />);
-    expect(toJson(component)).toMatchSnapshot();
+  it('should match snapshot', () => {
+    expect(component).toMatchSnapshot();
   });
 });

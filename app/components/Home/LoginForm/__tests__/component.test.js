@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import LoginFormComponent from '../component';
 
@@ -12,6 +11,6 @@ describe('<LoginFormComponent /> component', () => {
   // });
 
   it('Render property', () => {
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 });

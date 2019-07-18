@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import MovieItemComponent from '../component';
 
@@ -12,7 +11,7 @@ describe('<MovieItemComponent />', () => {
     //   movieDetails: [{ id: 1 }, { id: 2 }, { id: 3 }],
     // };
     // component = shallow(<MovieItemComponent {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 
   it('Render property - movieDetails without data', () => {
@@ -20,6 +19,6 @@ describe('<MovieItemComponent />', () => {
     //   movieDetails: [],
     // };
     // component = shallow(<MovieItemComponent {...props} />);
-    // expect(toJson(component)).toMatchSnapshot();
+    // expect(component).toMatchSnapshot();
   });
 });

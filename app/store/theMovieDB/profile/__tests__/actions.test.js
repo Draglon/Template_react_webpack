@@ -3,25 +3,24 @@ import * as t from '../actionTypes';
 
 describe('Profile - actions', () => {
   it('profileRequest', () => {
-    const expectedAction = {
+    expect(profileRequest()).toEqual({
       type: t.PROFILE_REQUEST,
-    };
-    expect(profileRequest()).toEqual(expectedAction);
+    });
   });
 
   it('profileSuccess', () => {
-    const expectedAction = {
+    const payload = { id: 999 };
+    expect(profileSuccess(payload)).toEqual({
       type: t.PROFILE_SUCCESS,
-      payload: ['some data'],
-    };
-    expect(profileSuccess(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 
   it('profileFailure', () => {
-    const expectedAction = {
+    const payload = { message: 'message error' };
+    expect(profileFailure(payload)).toEqual({
       type: t.PROFILE_FAILURE,
-      payload: ['some data'],
-    };
-    expect(profileFailure(expectedAction.payload)).toEqual(expectedAction);
+      payload,
+    });
   });
 });

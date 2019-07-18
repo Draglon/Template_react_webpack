@@ -1,9 +1,9 @@
+import Cookies from 'js-cookie';
 import * as t from './actionTypes';
-import { getCookie } from '../../../helpers/cookie';
 
 export const loginInitialState = {
   isLoading: false,
-  sessionId: getCookie('sessionId'),
+  sessionId: Cookies.get('sessionId') || '',
   error: null,
 };
 
