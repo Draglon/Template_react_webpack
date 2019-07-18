@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieCarouselComponent /> should match snapshot 1`] = `
+<Row
+  gutter={0}
+  type="flex"
+>
+  <Col
+    span={24}
+  >
+    <Carousel
+      arrows={false}
+      autoplay={true}
+      dots={true}
+      draggable={false}
+    >
+      <div
+        key="0"
+      >
+        <ImageComponent
+          alt="title"
+          className="movie-image"
+          path="path_1"
+        />
+      </div>
+      <div
+        key="1"
+      >
+        <ImageComponent
+          alt="title"
+          className="movie-image"
+          path="path_2"
+        />
+      </div>
+      <div
+        key="2"
+      >
+        <ImageComponent
+          alt="title"
+          className="movie-image"
+          path="path_3"
+        />
+      </div>
+    </Carousel>
+  </Col>
+</Row>
+`;
