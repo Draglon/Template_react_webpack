@@ -28,13 +28,12 @@ describe('<CreateListModalContainer />', () => {
   describe('onSubmit()', () => {
     it('should call onSubmit()', () => {
       const values = { name: 'listname', description: 'description' };
-      const actions = { setSubmitting: value => value };
-      const spy = jest.spyOn(instance, 'hideModal');
+      const actions = { setSubmitting: jest.fn() };
       instance.onSubmit(values, actions);
 
-      // expect(actions.setSubmitting).toHaveBeenCalledWith(true);
+      expect(actions.setSubmitting).toHaveBeenCalledWith(true);
       expect(store.dispatch).toHaveBeenCalledWith(
-        createListRequest({ values, actions, hideModal: spy }),
+        createListRequest({ values, actions, hideModal: instance.hideModal }),
       );
     });
   });

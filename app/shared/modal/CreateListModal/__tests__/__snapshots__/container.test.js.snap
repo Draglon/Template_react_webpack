@@ -17,9 +17,21 @@ exports[`<CreateListModalContainer /> should match snapshot 1`] = `
             Object {
               "payload": Object {
                 "actions": Object {
-                  "setSubmitting": [Function],
+                  "setSubmitting": [MockFunction] {
+                    "calls": Array [
+                      Array [
+                        true,
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
                 },
-                "hideModal": [MockFunction],
+                "hideModal": [Function],
                 "values": Object {
                   "description": "description",
                   "name": "listname",
