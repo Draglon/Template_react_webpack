@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyListsComponent /> should match snapshot 1`] = `
+<Fragment>
+  <MyListsTitleComponent />
+  <Connect(ListsContainer)
+    lists={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  />
+  <PaginationComponent
+    currentPage={1}
+    page={[Function]}
+    totalPages={10}
+  />
+</Fragment>
+`;
