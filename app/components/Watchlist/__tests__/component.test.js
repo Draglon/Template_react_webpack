@@ -3,7 +3,6 @@ import React from 'react';
 import WatchlistComponent from '../component';
 
 describe('<WatchlistComponent />', () => {
-  let component;
   const props = {
     watchlist: {
       results: [1, 2, 3],
@@ -13,9 +12,9 @@ describe('<WatchlistComponent />', () => {
     page: () => ({ page: 1 }),
     modalParams: { watchlist: false },
   };
+  const component = shallow(<WatchlistComponent {...props} />);
 
   it('should match snapshot', () => {
-    component = shallow(<WatchlistComponent {...props} />);
     expect(component).toMatchSnapshot();
   });
 });

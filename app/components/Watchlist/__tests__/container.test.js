@@ -46,6 +46,6 @@ describe('<WatchlistContainer />', () => {
   });
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

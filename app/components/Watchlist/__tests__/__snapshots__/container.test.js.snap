@@ -1,8 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<WatchlistContainer /> should match snapshot 1`] = `
-<WatchlistContainer
+<WatchlistComponent
   addToWatchlistRequest={[Function]}
+  modalParams={
+    Object {
+      "onConfirm": [Function],
+      "params": Object {
+        "watchlist": false,
+      },
+      "title": "Do you want to delete movie from watchlist?",
+    }
+  }
+  page={[Function]}
   store={
     Object {
       "clearActions": [Function],
