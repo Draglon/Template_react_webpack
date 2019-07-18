@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
@@ -40,10 +39,7 @@ const mapDispatchToProps = {
   deleteListRequest: deleteListRequestAction,
 };
 
-export default compose(
-  connect(
-    null,
-    mapDispatchToProps,
-  ),
-  withRouter,
-)(MyListsTitleContainer);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withRouter(MyListsTitleContainer));

@@ -10,11 +10,6 @@ describe('<MyListContainer />', () => {
     match: {
       params: { id },
     },
-    modalParams: () => ({
-      title: 'Do you want to delete movie from this list?',
-      params: { listId: id },
-      onConfirm: jest.fn(),
-    }),
   };
   const state = {
     reducers: {
@@ -51,12 +46,12 @@ describe('<MyListContainer />', () => {
 
   describe('modalParams()', () => {
     it('should call modalParams()', () => {
-      instance.modalParams();
+      const modalParamsResult = instance.modalParams();
 
-      expect(props.modalParams).toHaveBeenCalledWith({
+      expect(modalParamsResult).toEqual({
         title: 'Do you want to delete movie from this list?',
         params: { listId: id },
-        onConfirm: jest.fn(),
+        onConfirm: expect.any(Function),
       });
     });
   });
