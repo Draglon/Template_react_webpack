@@ -16,7 +16,7 @@ describe('<HomeContainer />', () => {
   const store = configureStore()(state);
   const container = shallow(<HomeContainer store={store} />);
 
-  it('Render snapshot - HomeContainer', () => {
+  it('should match snapshot', () => {
     expect(container).toMatchSnapshot();
   });
 });

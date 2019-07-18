@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { searchRequest as searchRequestAction } from '../../../../store/theMovieDB/search/actions';
 import { getSearch } from '../../../../store/theMovieDB/search/selectors';
@@ -21,6 +22,11 @@ class SearchPageContainer extends Component {
     return <SearchPageComponent {...this.props} onSearch={this.onSearch} page={this.getPage} />;
   }
 }
+
+SearchPageComponent.propTypes = {
+  searchRequest: PropTypes.func.isRequired,
+  search: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   search: getSearch(state),

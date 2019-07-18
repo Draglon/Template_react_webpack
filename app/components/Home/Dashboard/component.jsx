@@ -8,8 +8,12 @@ const DashboardComponent = ({ searchQuery }) => (
   <>{searchQuery ? <SearchPage /> : <DashboardPage />}</>
 );
 
+DashboardComponent.defaultTypes = {
+  search: '',
+};
+
 DashboardComponent.propTypes = {
-  searchQuery: PropTypes.string.isRequired,
+  search: PropTypes.string,
 };
 
 export default DashboardComponent;

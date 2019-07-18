@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DashboardPageComponent /> should match snapshot 1`] = `
+<Fragment>
+  <SearchComponent
+    onSearch={[Function]}
+  />
+  <MovieListComponent
+    modalParams={null}
+    movies={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  />
+  <PaginationComponent
+    currentPage={1}
+    page={[Function]}
+    totalPages={100}
+  />
+</Fragment>
+`;

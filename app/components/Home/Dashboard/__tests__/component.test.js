@@ -2,40 +2,16 @@ import React from 'react';
 
 import DashboardComponent from '../component';
 
-describe('<DashboardComponent /> container', () => {
-  // let props = {
-  //   searchRequest: jest.fn(),
-  //   trendingRequest: jest.fn(),
-  //   trending: {
-  //     page: 1,
-  //     results: [],
-  //     totalPages: 100,
-  //   },
-  //   search: {
-  //     query: '',
-  //     page: 1,
-  //     results: [],
-  //     totalPages: 20,
-  //   },
-  // };
-  // let component;
+describe('<DashboardComponent />', () => {
+  const props = { searchQuery: '' };
+  const component = shallow(<DashboardComponent {...props} />);
 
-  it('render property - without search query', () => {
-    // component = shallow(<DashboardComponent {...props} />);
-    // expect(component).toMatchSnapshot();
+  it('should match snapshot - without search query', () => {
+    expect(component).toMatchSnapshot();
   });
 
-  it('render property - with search query', () => {
-    // props = {
-    //   ...props,
-    //   search: {
-    //     query: 'some string',
-    //     page: 1,
-    //     results: [],
-    //     totalPages: 20,
-    //   },
-    // };
-    // component = shallow(<DashboardComponent {...props} />);
-    // expect(component).toMatchSnapshot();
+  it('should match snapshot - with search query', () => {
+    component.setProps({ searchQuery: 'some string' });
+    expect(component).toMatchSnapshot();
   });
 });

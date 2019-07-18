@@ -3,18 +3,19 @@ import React from 'react';
 import HomeComponent from '../component';
 
 describe('<HomeComponent />', () => {
-  let component;
-  let props;
+  const props = { sessionId: '' };
+  const component = shallow(<HomeComponent {...props} />);
 
-  it('Render snapshot - sessionId: false', () => {
-    props = { sessionId: '' };
-    component = shallow(<HomeComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  describe('sessionId: false', () => {
+    it('should match snapshot', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('Render snapshot - sessionId: true', () => {
-    props = { sessionId: 'some sessionId' };
-    component = shallow(<HomeComponent {...props} />);
-    expect(component).toMatchSnapshot();
+  describe('sessionId: true', () => {
+    it('should match snapshot', () => {
+      component.setProps({ sessionId: 'some sessionId' });
+      expect(component).toMatchSnapshot();
+    });
   });
 });

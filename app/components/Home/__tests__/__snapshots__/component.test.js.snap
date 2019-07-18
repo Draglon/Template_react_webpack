@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HomeComponent /> Render snapshot - sessionId: false 1`] = `
+exports[`<HomeComponent /> sessionId: false should match snapshot 1`] = `
 <Fragment>
   <Connect(LoginFormContainer) />
 </Fragment>
 `;
 
-exports[`<HomeComponent /> Render snapshot - sessionId: true 1`] = `
+exports[`<HomeComponent /> sessionId: true should match snapshot 1`] = `
 <Fragment>
-  <Connect(DashboardContainer) />
+  <Connect(DashboardComponent) />
 </Fragment>
 `;
