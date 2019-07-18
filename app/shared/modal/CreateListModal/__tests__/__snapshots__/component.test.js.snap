@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateListModalComponent /> with button and modalVisible false should match snapshot 1`] = `
+exports[`<CreateListModalComponent /> reqiest is loading should match snapshot 1`] = `
 <Fragment>
   <Icon
     onClick={[Function]}
@@ -26,6 +26,7 @@ exports[`<CreateListModalComponent /> with button and modalVisible false should 
     }
     isInitialValid={false}
     onSubmit={[Function]}
+    render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -118,9 +119,253 @@ exports[`<CreateListModalComponent /> with button and modalVisible false should 
         ],
       }
     }
+  />
+</Fragment>
+`;
+
+exports[`<CreateListModalComponent /> reqiest was complete should match snapshot 1`] = `
+<Fragment>
+  <Icon
+    onClick={[Function]}
+    type="some icon text"
+  />
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="link"
   >
-    <Component />
-  </Formik>
+    some text
+  </Button>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "description": "",
+        "name": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "description",
+          "name",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "description": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          "name": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<CreateListModalComponent /> with button and modalVisible false should match snapshot 1`] = `
+<Fragment>
+  <Icon
+    onClick={[Function]}
+    type="some icon text"
+  />
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="link"
+  >
+    some text
+  </Button>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "description": "",
+        "name": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "description",
+          "name",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "description": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          "name": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+      }
+    }
+  />
 </Fragment>
 `;
 
@@ -150,6 +395,7 @@ exports[`<CreateListModalComponent /> with button and modalVisible true should m
     }
     isInitialValid={false}
     onSubmit={[Function]}
+    render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -242,9 +488,7 @@ exports[`<CreateListModalComponent /> with button and modalVisible true should m
         ],
       }
     }
-  >
-    <Component />
-  </Formik>
+  />
 </Fragment>
 `;
 
@@ -264,6 +508,7 @@ exports[`<CreateListModalComponent /> with icon and modalVisible false should ma
     }
     isInitialValid={false}
     onSubmit={[Function]}
+    render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -356,9 +601,7 @@ exports[`<CreateListModalComponent /> with icon and modalVisible false should ma
         ],
       }
     }
-  >
-    <Component />
-  </Formik>
+  />
 </Fragment>
 `;
 
@@ -378,6 +621,7 @@ exports[`<CreateListModalComponent /> with icon and modalVisible true should mat
     }
     isInitialValid={false}
     onSubmit={[Function]}
+    render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
     validationSchema={
@@ -470,8 +714,6 @@ exports[`<CreateListModalComponent /> with icon and modalVisible true should mat
         ],
       }
     }
-  >
-    <Component />
-  </Formik>
+  />
 </Fragment>
 `;

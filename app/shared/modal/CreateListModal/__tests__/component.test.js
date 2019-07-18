@@ -1,4 +1,5 @@
 import React from 'react';
+import { Formik } from 'formik';
 
 import CreateListModalComponent from '../component';
 
@@ -55,6 +56,22 @@ describe('<CreateListModalComponent />', () => {
         text: 'some text',
       };
       component.setProps(newProps);
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('reqiest is loading', () => {
+    it('should match snapshot', () => {
+      const propsFormik = { isSubmitting: true };
+      component.find(Formik).renderProp('render')(propsFormik);
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('reqiest was complete', () => {
+    it('should match snapshot', () => {
+      const propsFormik = { isSubmitting: false };
+      component.find(Formik).renderProp('render')(propsFormik);
       expect(component).toMatchSnapshot();
     });
   });
