@@ -25,7 +25,7 @@ class MyListsTitleContainer extends Component {
   });
 
   render() {
-    return <MyListsTitleComponent {...this.props} modalParams={this.modalParams} />;
+    return <MyListsTitleComponent {...this.props} modalParams={this.modalParams()} />;
   }
 }
 
