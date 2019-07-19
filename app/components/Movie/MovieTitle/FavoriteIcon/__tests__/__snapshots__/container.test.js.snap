@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FavoriteIconContainer /> should match snapshot 1`] = `
-<FavoriteIconContainer
+<FavoriteIconComponent
   addToFavoriteRequest={[Function]}
   favorite={false}
+  handleFavorite={[Function]}
   movieId={8493834}
   store={
     Object {

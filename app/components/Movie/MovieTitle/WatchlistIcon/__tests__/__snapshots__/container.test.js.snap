@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<WatchlistIconComponent /> should match snapshot 1`] = `
-<WatchlistIconContainer
+<WatchlistIconComponent
   addToWatchlistRequest={[Function]}
+  handleWatchlist={[Function]}
   movieId={8493834}
   store={
     Object {
