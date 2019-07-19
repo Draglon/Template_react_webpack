@@ -21,16 +21,16 @@ export const watchlistLogic = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const accountId = getAccountId(getState());
     const sessionId = getSessionId(getState());
-    const page = action.payload.page;
+    const { page } = action.payload;
     apiClient
       .get(`account/${accountId}/watchlist/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [movies]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.results, [movies]);
+        dispatch(addEntities(entities));
         dispatch(
           watchlistSuccess({
             ...response.data,
-            results: normalizeData.result,
+            results: result,
           }),
         );
       })
@@ -45,8 +45,7 @@ export const addToWatchlistLogic = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const accountId = getAccountId(getState());
     const sessionId = getSessionId(getState());
-    const movieId = action.payload.movieId;
-    const watchlist = action.payload.watchlist;
+    const { movieId, watchlist } = action.payload;
     apiClient
       .post(`account/${accountId}/watchlist?session_id=${sessionId}`, {
         media_type: 'movie',
