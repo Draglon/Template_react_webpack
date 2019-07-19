@@ -14,8 +14,7 @@ describe('<DeleteItemModalContainer />', () => {
   };
 
   const store = configureStore()({});
-  const wrapper = shallow(<DeleteItemModalContainer store={store} {...props} />);
-  const container = wrapper;
+  const container = shallow(<DeleteItemModalContainer store={store} {...props} />);
   const instance = container.instance();
 
   describe('showModal()', () => {
