@@ -11,8 +11,8 @@ jest.mock('axios', () => ({
   })),
 }));
 
-describe('API config', () => {
-  it('should send request - apiConfig', () => {
+describe('axios create', () => {
+  it('should send request', () => {
     expect(axios.create).toHaveBeenCalledWith({
       baseURL: 'https://api.themoviedb.org/3/',
     });
