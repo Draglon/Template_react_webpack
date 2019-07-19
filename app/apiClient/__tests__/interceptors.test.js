@@ -2,27 +2,28 @@ import axios from 'axios';
 import client from '../client';
 import qs from 'qs';
 
-// const interceptors = {
-//   interceptors: {
-//     request: {
-//       use: ,
-//     },
-//   },
-// };
+jest.mock('qs', () => ({
+  stringify: jest.fn(() => 'serialized'),
+}));
 
-// config => {
-//   config.params = {
-//     api_key: '373ab70129f36fd1f65b6d7b24ec2641',
-//   };
-//   config.paramsSerializer = params => qs.stringify(params);
-//   return config;
-// }
+describe('axios interceptor', () => {
+  it('check interceptor', () => {
+    const config = client.interceptors.request.handlers[0].fulfilled({});
 
-describe('API config', () => {
-  it('should send request - apiConfig', () => {
-    // expect(axios.create).toHaveBeenCalledWith({
-    //   baseURL: 'https://api.themoviedb.org/3/',
-    //   // timeout: 1000,
-    // });
+    expect(config).toEqual({
+      params: {
+        api_key: '373ab70129f36fd1f65b6d7b24ec2641',
+      },
+      paramsSerializer: expect.any(Function),
+    });
+  });
+
+  it('should interceptor request', () => {
+    const params = 'some params';
+    const config = client.interceptors.request.handlers[0].fulfilled({});
+    const result = config.paramsSerializer(params);
+
+    expect(result).toEqual('serialized');
+    expect(qs.stringify).toHaveBeenCalledWith(params);
   });
 });
