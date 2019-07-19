@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PopoverContentComponent /> should match snapshot 1`] = `
-<PopoverContentContainer
+<PopoverContentComponent
   closePopover={[Function]}
   createdListsRequest={[Function]}
   movieId={999}

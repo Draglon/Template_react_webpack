@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PopoverNavLinkContainer /> should match snapshot 1`] = `
-<PopoverNavLinkContainer
+<PopoverNavLinkComponent
   addMovieListRequest={[Function]}
   closePopover={[Function]}
   list={
@@ -11,6 +11,7 @@ exports[`<PopoverNavLinkContainer /> should match snapshot 1`] = `
     }
   }
   movieId={999}
+  onClick={[Function]}
   store={
     Object {
       "clearActions": [Function],

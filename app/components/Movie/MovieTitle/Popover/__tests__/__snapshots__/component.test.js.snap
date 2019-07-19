@@ -1,30 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PopoverComponent /> popoverVisible false should match snapshot 1`] = `
-<Popover
-  content={
-    <Connect(PopoverContentContainer)
-      closePopover={[Function]}
-      movieId={999}
-    />
-  }
-  mouseEnterDelay={0.1}
-  mouseLeaveDelay={0.1}
-  onVisibleChange={[Function]}
-  overlayStyle={Object {}}
-  placement="top"
-  title="Add movie to list"
-  transitionName="zoom-big"
-  trigger="click"
-  visible={false}
->
-  <Icon
-    type="plus-circle"
-  />
-</Popover>
-`;
-
-exports[`<PopoverComponent /> popoverVisible true should match snapshot 1`] = `
+exports[`<PopoverComponent /> should match snapshot 1`] = `
 <Popover
   content={
     <Connect(PopoverContentContainer)
