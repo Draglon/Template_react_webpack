@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListsContainer /> should match snapshot 1`] = `
+<ListsComponent
+  deleteListRequest={[Function]}
+  lists={
+    Array [
+      Object {
+        "description": "List 1 - description",
+        "id": 1,
+        "name": "List 1",
+      },
+      Object {
+        "description": "List 2 - description",
+        "id": 2,
+        "name": "List 2",
+      },
+    ]
+  }
+  onConfirm={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

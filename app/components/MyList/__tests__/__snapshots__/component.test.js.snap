@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyListComponent /> shound match snapshot 1`] = `
+<Fragment>
+  <Connect(withRouter(MyListsTitleContainer))
+    myList={
+      Object {
+        "id": 1,
+        "results": Array [
+          Object {
+            "id": 1,
+            "overview": "text",
+            "poster_path": "path",
+            "title": "title",
+          },
+          Object {
+            "id": 2,
+            "overview": "text",
+            "poster_path": "path",
+            "title": "title",
+          },
+        ],
+        "title": "title",
+        "total": 10,
+      }
+    }
+  />
+  <MovieListComponent
+    modalParams={
+      Object {
+        "onConfirm": [Function],
+        "params": Object {
+          "listId": 9999,
+        },
+        "title": "title",
+      }
+    }
+    movies={
+      Array [
+        Object {
+          "id": 1,
+          "overview": "text",
+          "poster_path": "path",
+          "title": "title",
+        },
+        Object {
+          "id": 2,
+          "overview": "text",
+          "poster_path": "path",
+          "title": "title",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;

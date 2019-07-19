@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyListContainer /> should match snapshot 1`] = `
+<MyListComponent
+  detailsListRequest={[Function]}
+  match={
+    Object {
+      "params": Object {
+        "id": 8493834,
+      },
+    }
+  }
+  modalParams={
+    Object {
+      "onConfirm": [Function],
+      "params": Object {
+        "listId": 8493834,
+      },
+      "title": "Do you want to delete movie from this list?",
+    }
+  }
+  myList={
+    Object {
+      "description": "description",
+      "id": 1,
+      "results": Array [
+        Object {
+          "id": 1,
+          "overview": "overview",
+          "poster_path": "path",
+          "title": "title",
+        },
+        Object {
+          "id": 2,
+          "overview": "overview",
+          "poster_path": "path",
+          "title": "title",
+        },
+      ],
+      "title": "List 1",
+      "total": 23,
+    }
+  }
+  removeMovieListRequest={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "listId": 8493834,
+              },
+              "type": "DETAILS_LIST_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "listId": 8493834,
+              },
+              "type": "DETAILS_LIST_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "payload": Object {
+                  "listId": 8493834,
+                },
+                "type": "DETAILS_LIST_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "listId": 8493834,
+                },
+                "type": "DETAILS_LIST_REQUEST",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;

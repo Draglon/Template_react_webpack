@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 import { deleteListRequest as deleteListRequestAction } from '../../../store/theMovieDB/myLists/actions';
@@ -20,16 +19,13 @@ class MyListsTitleContainer extends Component {
     this.redirectToLists();
   };
 
+  modalParams = () => ({
+    title: 'Do you want to delete list?',
+    onConfirm: this.onConfirm,
+  });
+
   render() {
-    return (
-      <MyListsTitleComponent
-        {...this.props}
-        modalParams={{
-          title: 'Do you want to delete list?',
-          onConfirm: this.onConfirm,
-        }}
-      />
-    );
+    return <MyListsTitleComponent {...this.props} modalParams={this.modalParams()} />;
   }
 }
 
@@ -43,10 +39,7 @@ const mapDispatchToProps = {
   deleteListRequest: deleteListRequestAction,
 };
 
-export default compose(
-  connect(
-    null,
-    mapDispatchToProps,
-  ),
-  withRouter,
-)(MyListsTitleContainer);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withRouter(MyListsTitleContainer));

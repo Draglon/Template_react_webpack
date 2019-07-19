@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyListsTitleComponent /> shound match snapshot 1`] = `
+<Row
+  gutter={0}
+>
+  <Col
+    offset={2}
+    span={20}
+  >
+    <div
+      className="top-margin"
+    >
+      <Title>
+        title
+         
+        <DeleteItemModalContainer
+          onConfirm={[Function]}
+          params={null}
+          title="title"
+          type="minus-circle"
+        />
+      </Title>
+    </div>
+  </Col>
+</Row>
+`;
