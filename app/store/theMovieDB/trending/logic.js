@@ -17,12 +17,12 @@ export default createLogic({
     apiClient
       .get(`trending/movie/week?session_id=${sessionId}&page=${page}&language=en-US`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [movies]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.results, [movies]);
+        dispatch(addEntities(entities));
         dispatch(
           trendingSuccess({
             ...response.data,
-            results: normalizeData.result,
+            results: result,
           }),
         );
       })
