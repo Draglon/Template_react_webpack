@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginFormComponent /> fields have error should match snapshot 1`] = `
+<Form
+  className="form login__form"
+>
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="user"
+      />
+    }
+    name="username"
+    placeholder="Username"
+    type="text"
+  />
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="lock"
+      />
+    }
+    name="password"
+    placeholder="Password"
+    type="password"
+  />
+  <FormButton
+    htmlType="submit"
+    icon=""
+    size="default"
+    type="primary"
+    value="Log in"
+  />
+  <div
+    className="login__error"
+  >
+    Pleace, check your login or password and try again
+  </div>
+</Form>
+`;
+
+exports[`<LoginFormComponent /> request is loading should match snapshot 1`] = `
+<Form
+  className="form login__form"
+>
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="user"
+      />
+    }
+    name="username"
+    placeholder="Username"
+    type="text"
+  />
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="lock"
+      />
+    }
+    name="password"
+    placeholder="Password"
+    type="password"
+  />
+  <FormButton
+    htmlType="submit"
+    icon="loading"
+    size="default"
+    type="primary"
+    value="Log in"
+  />
+</Form>
+`;
+
+exports[`<LoginFormComponent /> request was complited should match snapshot 1`] = `
+<Form
+  className="form login__form"
+>
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="user"
+      />
+    }
+    name="username"
+    placeholder="Username"
+    type="text"
+  />
+  <FormikConnect(FieldInner)
+    component={[Function]}
+    fieldPrefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="lock"
+      />
+    }
+    name="password"
+    placeholder="Password"
+    type="password"
+  />
+  <FormButton
+    htmlType="submit"
+    icon=""
+    size="default"
+    type="primary"
+    value="Log in"
+  />
+</Form>
+`;
+
+exports[`<LoginFormComponent /> should match snapshot 1`] = `
+<Adapter
+  className="login"
+>
+  <Title>
+    The Movie DB
+  </Title>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "password": "",
+        "username": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[MockFunction]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "password",
+          "username",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "password": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "min": true,
+              "required": true,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          "username": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+              "undefined": false,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+      }
+    }
+  />
+</Adapter>
+`;

@@ -59,6 +59,7 @@ LoginFormComponent.defaultProps = {
 };
 
 LoginFormComponent.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
   loginError: PropTypes.string,
 };
 
