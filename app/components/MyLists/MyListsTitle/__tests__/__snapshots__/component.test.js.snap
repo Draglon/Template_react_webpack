@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyListsComponent /> should match snapshot 1`] = `
+<Row
+  gutter={0}
+>
+  <Col
+    offset={2}
+    span={20}
+  >
+    <div
+      className="top-margin"
+    >
+      <Title>
+        My Lists 
+        <Connect(CreateListModalContainer)
+          icon="plus-circle"
+        />
+      </Title>
+    </div>
+  </Col>
+</Row>
+`;

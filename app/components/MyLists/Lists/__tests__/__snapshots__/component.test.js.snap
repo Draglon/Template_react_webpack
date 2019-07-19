@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListsComponent /> should match snapshot 1`] = `
+<Row
+  gutter={8}
+  type="flex"
+>
+  <Col
+    className="lists"
+    offset={2}
+    span={20}
+  >
+    <Col
+      key="1"
+      lg={
+        Object {
+          "span": 4,
+        }
+      }
+      md={
+        Object {
+          "span": 6,
+        }
+      }
+      sm={
+        Object {
+          "span": 8,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <Card
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "listId": 1,
+                }
+              }
+              title="Do you want to delete list?"
+              type="delete"
+            />,
+          ]
+        }
+        className="top-margin"
+        hoverable={true}
+      >
+        <Link
+          replace={false}
+          to="list/1"
+        >
+          <Title
+            level={4}
+          >
+            List 1
+          </Title>
+          List 1 - description
+        </Link>
+      </Card>
+    </Col>
+    <Col
+      key="2"
+      lg={
+        Object {
+          "span": 4,
+        }
+      }
+      md={
+        Object {
+          "span": 6,
+        }
+      }
+      sm={
+        Object {
+          "span": 8,
+        }
+      }
+      xl={
+        Object {
+          "span": 4,
+        }
+      }
+      xs={
+        Object {
+          "span": 12,
+        }
+      }
+    >
+      <Card
+        actions={
+          Array [
+            <DeleteItemModalContainer
+              onConfirm={[Function]}
+              params={
+                Object {
+                  "listId": 2,
+                }
+              }
+              title="Do you want to delete list?"
+              type="delete"
+            />,
+          ]
+        }
+        className="top-margin"
+        hoverable={true}
+      >
+        <Link
+          replace={false}
+          to="list/2"
+        >
+          <Title
+            level={4}
+          >
+            List 2
+          </Title>
+          List 2 - description
+        </Link>
+      </Card>
+    </Col>
+  </Col>
+</Row>
+`;
