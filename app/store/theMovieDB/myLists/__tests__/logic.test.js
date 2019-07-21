@@ -2,7 +2,14 @@ import { normalize } from 'normalizr';
 import { movies, lists } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
-import { myListsLogic, detailsListLogic, createListLogic } from '../logic';
+import {
+  myListsLogic,
+  detailsListLogic,
+  createListLogic,
+  deleteListLogic,
+  addMovieListLogic,
+  removeMovieListLogic,
+} from '../logic';
 import { addEntities } from '../../data/actions';
 import {
   createdListsRequest,
@@ -237,69 +244,179 @@ describe('Created lists - logic', () => {
     });
   });
 
+  describe('DELETE_LIST_REQUEST', () => {
+    const action = {
+      payload: {
+        listId: 3213,
+      },
+    };
 
+    describe('Delete list SUCCESS', () => {
+      const request = {
+        method: 'delete',
+        response: {
+          data: {
+            status_code: 12,
+            status_message: 'The item/record was updated successfully.',
+          },
+        },
+      };
+      const apiClient = httpClientMock(request);
+
+      deleteListLogic.process({ apiClient, getState, action }, dispatch, done);
+      const { data } = request.response;
+      const { listId } = action.payload;
+
+      it('Should return correct URL', () => {
+        expect(apiClient.delete).toHaveBeenCalledWith(`list/${listId}?session_id=${sessionId}`);
+      });
+
+      it('dispatches deleteListSuccess()', () => {
+        expect(dispatch).toHaveBeenCalledWith(deleteListSuccess(data));
+      });
+
+      it('dispatches createdListsRequest()', () => {
+        expect(dispatch).toHaveBeenCalledWith(createdListsRequest({ page: 1 }));
+      });
+
+      it('calls done', () => {
+        expect(done).toHaveBeenCalled();
+      });
+    });
+
+    describe('Delete list FAILURE', () => {
+      const apiClient = httpClientMock({
+        method: 'delete',
+        reject: true,
+      });
+
+      deleteListLogic.process({ apiClient, getState, action }, dispatch, done);
+
+      it('Should throw an Error', () => {
+        expect(() => {
+          throw new Error();
+        }).toThrow();
+      });
+    });
+  });
+
+  describe('ADD_MOVIE_LIST_REQUEST', () => {
+    const action = {
+      payload: {
+        listId: 3213,
+        movieId: 322325,
+      },
+    };
+
+    describe('Add movie to list SUCCESS', () => {
+      const request = {
+        method: 'post',
+        response: {
+          data: {
+            status_code: 12,
+            status_message: 'The item/record was updated successfully.',
+          },
+        },
+      };
+      const apiClient = httpClientMock(request);
+
+      addMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
+      const { data } = request.response;
+      const { listId, movieId } = action.payload;
+
+      it('Should return correct URL', () => {
+        expect(apiClient.post).toHaveBeenCalledWith(
+          `list/${listId}/add_item?session_id=${sessionId}`,
+          {
+            media_id: movieId,
+          },
+        );
+      });
+
+      it('dispatches addMovieListSuccess()', () => {
+        expect(dispatch).toHaveBeenCalledWith(addMovieListSuccess(data));
+      });
+
+      it('calls done', () => {
+        expect(done).toHaveBeenCalled();
+      });
+    });
+
+    describe('Add movie to list FAILURE', () => {
+      const apiClient = httpClientMock({
+        method: 'post',
+        reject: true,
+      });
+
+      addMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
+
+      it('Should throw an Error', () => {
+        expect(() => {
+          throw new Error();
+        }).toThrow();
+      });
+    });
+  });
+
+  describe('REMOVE_MOVIE_LIST_REQUEST', () => {
+    const action = {
+      payload: {
+        listId: 3213,
+        movieId: 322325,
+      },
+    };
+
+    describe('Remove movie to list SUCCESS', () => {
+      const request = {
+        method: 'post',
+        response: {
+          data: {
+            status_code: 13,
+            status_message: 'The item/record was deleted successfully.',
+          },
+        },
+      };
+      const apiClient = httpClientMock(request);
+
+      removeMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
+      const { data } = request.response;
+      const { listId, movieId } = action.payload;
+
+      it('Should return correct URL', () => {
+        expect(apiClient.post).toHaveBeenCalledWith(
+          `list/${listId}/remove_item?session_id=${sessionId}`,
+          {
+            media_id: movieId,
+          },
+        );
+      });
+
+      it('dispatches removeMovieListSuccess()', () => {
+        expect(dispatch).toHaveBeenCalledWith(removeMovieListSuccess(data));
+      });
+
+      it('dispatches detailsListRequest()', () => {
+        expect(dispatch).toHaveBeenCalledWith(detailsListRequest({ listId }));
+      });
+
+      it('calls done', () => {
+        expect(done).toHaveBeenCalled();
+      });
+    });
+
+    describe('Remove movie to list FAILURE', () => {
+      const apiClient = httpClientMock({
+        method: 'post',
+        reject: true,
+      });
+
+      removeMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
+
+      it('Should throw an Error', () => {
+        expect(() => {
+          throw new Error();
+        }).toThrow();
+      });
+    });
+  });
 });
-
-
-// export const deleteListLogic = createLogic({
-//   type: t.DELETE_LIST_REQUEST,
-
-//   process({ apiClient, getState, action }, dispatch, done) {
-//     const listId = action.payload.listId;
-//     const sessionId = getSessionId(getState());
-//     apiClient
-//       .delete(`list/${listId}?session_id=${sessionId}`)
-//       .then(response => {
-//         dispatch(deleteListSuccess(response.data));
-//         dispatch(createdListsRequest({ page: 1 }));
-//       })
-//       .catch(error => {
-//         dispatch(deleteListFailure(error));
-//         dispatch(createdListsRequest({ page: 1 }));
-//       })
-//       .then(() => done());
-//   },
-// });
-
-// export const addMovieListLogic = createLogic({
-//   type: t.ADD_MOVIE_LIST_REQUEST,
-
-//   process({ apiClient, getState, action }, dispatch, done) {
-//     const listId = action.payload.listId;
-//     const mediaId = action.payload.movieId;
-//     const sessionId = getSessionId(getState());
-//     apiClient
-//       .post(`list/${listId}/add_item?session_id=${sessionId}`, {
-//         media_id: mediaId,
-//       })
-//       .then(response => {
-//         dispatch(addMovieListSuccess(response.data));
-//       })
-//       .catch(error => {
-//         dispatch(addMovieListFailure(error));
-//       })
-//       .then(() => done());
-//   },
-// });
-
-// export const removeMovieListLogic = createLogic({
-//   type: t.REMOVE_MOVIE_LIST_REQUEST,
-
-//   process({ apiClient, getState, action }, dispatch, done) {
-//     const listId = action.payload.listId;
-//     const mediaId = action.payload.movieId;
-//     const sessionId = getSessionId(getState());
-//     apiClient
-//       .post(`list/${listId}/remove_item?session_id=${sessionId}`, {
-//         media_id: mediaId,
-//       })
-//       .then(response => {
-//         dispatch(removeMovieListSuccess(response.data));
-//         dispatch(detailsListRequest({ listId }));
-//       })
-//       .catch(error => {
-//         dispatch(removeMovieListFailure(error));
-//       })
-//       .then(() => done());
-//   },
-// });
