@@ -33,12 +33,12 @@ export const myListsLogic = createLogic({
     apiClient
       .get(`account/${accountId}/lists?session_id=${sessionId}&page=${page}&language=en-US`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [lists]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.results, [lists]);
+        dispatch(addEntities(entities));
         dispatch(
           createdListsSuccess({
             ...response.data,
-            results: normalizeData.result,
+            results: result,
           }),
         );
       })
@@ -55,12 +55,12 @@ export const detailsListLogic = createLogic({
     apiClient
       .get(`list/${listId}?language=en-US`)
       .then(response => {
-        const normalizeData = normalize(response.data.items, [movies]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.items, [movies]);
+        dispatch(addEntities(entities));
         dispatch(
           detailsListSuccess({
             ...response.data,
-            items: normalizeData.result,
+            items: result,
           }),
         );
       })
@@ -69,7 +69,7 @@ export const detailsListLogic = createLogic({
   },
 });
 
-export const createList = createLogic({
+export const createListLogic = createLogic({
   type: t.CREATE_LIST_REQUEST,
 
   process({ apiClient, getState, action }, dispatch, done) {

@@ -7,7 +7,7 @@ import { favoriteLogic, addToFavoriteLogic } from './favorite/logic';
 import { watchlistLogic, addToWatchlistLogic } from './watchlist/logic';
 import {
   myListsLogic,
-  createList,
+  createListLogic,
   detailsListLogic,
   deleteListLogic,
   addMovieListLogic,
@@ -26,7 +26,7 @@ export default [
   watchlistLogic,
   addToWatchlistLogic,
   myListsLogic,
-  createList,
+  createListLogic,
   detailsListLogic,
   deleteListLogic,
   addMovieListLogic,
