@@ -3,7 +3,13 @@ import { movies } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
 import { favoriteLogic, addToFavoriteLogic } from '../logic';
-import { favoriteRequest, favoriteSuccess, addToFavoriteSuccess } from '../actions';
+import {
+  favoriteRequest,
+  favoriteSuccess,
+  favoriteFailure,
+  addToFavoriteSuccess,
+  addToFavoriteFailure,
+} from '../actions';
 import { addEntities } from '../../data/actions';
 import { movieRequest } from '../../movie/actions';
 
@@ -21,6 +27,9 @@ describe('Favorite - logic', () => {
         sessionId,
       },
     },
+  };
+  const error = {
+    status_message: 'error message',
   };
 
   const dispatch = jest.fn();
@@ -80,15 +89,14 @@ describe('Favorite - logic', () => {
     describe('Favorite FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       favoriteLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches favoriteFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(favoriteFailure(error));
       });
     });
   });
@@ -147,15 +155,14 @@ describe('Favorite - logic', () => {
     describe('Add movie to favorite FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
+        response: error,
         reject: true,
       });
 
       addToFavoriteLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches addToFavoriteFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(addToFavoriteFailure(error));
       });
     });
   });
