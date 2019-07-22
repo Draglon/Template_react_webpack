@@ -19,18 +19,18 @@ export const movieLogic = createLogic({
     let states;
 
     apiClient
-      .get(`/movie/${movieId}`)
+      .get(`movie/${movieId}`)
       .then(response => {
         movie = response.data;
-        return apiClient.get(`/movie/${movieId}/credits`);
+        return apiClient.get(`movie/${movieId}/credits`);
       })
       .then(response => {
         credits = response.data;
-        return apiClient.get(`/movie/${movieId}/images`);
+        return apiClient.get(`movie/${movieId}/images`);
       })
       .then(response => {
         images = response.data;
-        return apiClient.get(`/movie/${movieId}/account_states?session_id=${sessionId}`);
+        return apiClient.get(`movie/${movieId}/account_states?session_id=${sessionId}`);
       })
       .then(response => {
         states = response.data;
@@ -41,8 +41,8 @@ export const movieLogic = createLogic({
           ...images,
           ...states,
         };
-        const normalizedData = normalize(data, schemaMovie);
-        dispatch(addEntities(normalizedData.entities));
+        const { entities } = normalize(data, schemaMovie);
+        dispatch(addEntities(entities));
       })
       .catch(error => dispatch(movieFailure(error)))
       .then(() => done());
