@@ -14,12 +14,18 @@ import { addEntities } from '../../data/actions';
 import {
   createdListsRequest,
   createdListsSuccess,
+  createdListsFailure,
   createListSuccess,
+  createListFailure,
   detailsListRequest,
   detailsListSuccess,
+  detailsListFailure,
   deleteListSuccess,
+  deleteListFailure,
   addMovieListSuccess,
+  addMovieListFailure,
   removeMovieListSuccess,
+  removeMovieListFailure,
 } from '../actions';
 
 describe('Created lists - logic', () => {
@@ -36,6 +42,9 @@ describe('Created lists - logic', () => {
         sessionId,
       },
     },
+  };
+  const error = {
+    status_message: 'error message',
   };
   const dispatch = jest.fn();
   const getState = jest.fn(() => state);
@@ -93,15 +102,14 @@ describe('Created lists - logic', () => {
     describe('Created lists FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       myListsLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches createdListsFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(createdListsFailure(error));
       });
     });
   });
@@ -158,15 +166,14 @@ describe('Created lists - logic', () => {
     describe('Details lists FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       detailsListLogic.process({ apiClient, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches detailsListFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(detailsListFailure(error));
       });
     });
   });
@@ -178,7 +185,9 @@ describe('Created lists - logic', () => {
           name: 'name',
           description: 'description',
         },
-        setSubmitting: jest.fn(),
+        actions: {
+          setSubmitting: jest.fn(),
+        },
         hideModal: jest.fn(),
       },
     };
@@ -215,13 +224,13 @@ describe('Created lists - logic', () => {
         expect(dispatch).toHaveBeenCalledWith(createdListsRequest({ page: 1 }));
       });
 
-      // it('should calls setSubmitting()', () => {
-      //   expect(action.payload.setSubmitting).toHaveBeenCalledWith(false);
-      // });
+      it('should calls setSubmitting()', () => {
+        expect(action.payload.actions.setSubmitting).toHaveBeenCalledWith(false);
+      });
 
-      // it('should calls hideModal()', () => {
-      //   expect(action.payload.hideModal).toHaveBeenCalled();
-      // });
+      it('should calls hideModal()', () => {
+        expect(action.payload.hideModal).toHaveBeenCalled();
+      });
 
       it('calls done', () => {
         expect(done).toHaveBeenCalled();
@@ -231,15 +240,14 @@ describe('Created lists - logic', () => {
     describe('Create list FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
+        response: error,
         reject: true,
       });
 
       createListLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches createListFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(createListFailure(error));
       });
     });
   });
@@ -287,15 +295,14 @@ describe('Created lists - logic', () => {
     describe('Delete list FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'delete',
+        response: error,
         reject: true,
       });
 
       deleteListLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches deleteListFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(deleteListFailure(error));
       });
     });
   });
@@ -345,15 +352,14 @@ describe('Created lists - logic', () => {
     describe('Add movie to list FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
+        response: error,
         reject: true,
       });
 
       addMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches addMovieListFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(addMovieListFailure(error));
       });
     });
   });
@@ -407,15 +413,14 @@ describe('Created lists - logic', () => {
     describe('Remove movie to list FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
+        response: error,
         reject: true,
       });
 
       removeMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches addMovieListFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(removeMovieListFailure(error));
       });
     });
   });
