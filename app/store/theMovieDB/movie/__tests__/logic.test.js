@@ -6,7 +6,7 @@ import { movieLogic } from '../logic';
 import { movieFailure } from '../actions';
 import { addEntities } from '../../data/actions';
 
-describe('Delete - logic', () => {
+describe('Movie - logic', () => {
   const sessionId = 9999;
   const state = {
     reducers: {
@@ -19,14 +19,14 @@ describe('Delete - logic', () => {
   const getState = jest.fn(() => state);
   const done = jest.fn();
 
-  describe('CREATE_SESSION_REQUEST', () => {
+  describe('MOVIE_REQUEST', () => {
     const action = {
       payload: {
         movieId: 999,
       },
     };
 
-    describe('Create Request Token SUCCESS', () => {
+    describe('MOVIE_SUCCESS', () => {
       const requests = [
         {
           method: 'get',
@@ -116,7 +116,7 @@ describe('Delete - logic', () => {
       });
     });
 
-    describe('CREATE_SESSION_FAILURE', () => {
+    describe('MOVIE_FAILURE', () => {
       const error = {
         status_message: 'error message',
       };
