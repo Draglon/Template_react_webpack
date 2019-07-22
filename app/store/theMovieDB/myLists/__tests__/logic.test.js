@@ -419,7 +419,7 @@ describe('Created lists - logic', () => {
 
       removeMovieListLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('dispatches addMovieListFailure()', () => {
+      it('dispatches removeMovieListFailure()', () => {
         expect(dispatch).toHaveBeenCalledWith(removeMovieListFailure(error));
       });
     });
