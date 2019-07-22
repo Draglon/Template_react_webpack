@@ -3,7 +3,7 @@ import { movies } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
 import trendingLogic from '../logic';
-import { trendingSuccess } from '../actions';
+import { trendingSuccess, trendingFailure } from '../actions';
 import { addEntities } from '../../data/actions';
 
 describe('Trending - logic', () => {
@@ -26,7 +26,7 @@ describe('Trending - logic', () => {
       },
     };
 
-    describe('trending SUCCESS', () => {
+    describe('Trending SUCCESS', () => {
       const request = {
         method: 'get',
         response: {
@@ -68,18 +68,20 @@ describe('Trending - logic', () => {
       });
     });
 
-    describe('trending FAILURE', () => {
+    describe('Trending FAILURE', () => {
+      const error = {
+        status_message: 'error message',
+      };
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       trendingLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches trendingFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(trendingFailure(error));
       });
     });
   });
