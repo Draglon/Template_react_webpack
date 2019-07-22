@@ -10,12 +10,12 @@ describe('<DeleteItemModalComponent />', () => {
     showModal: () => {
       Modal.confirm({
         title: 'some title',
-        onOk() {},
+        onOk: () => {},
       });
     },
   };
 
-  it('Render snapshot', () => {
+  it('should match snapshot', () => {
     component = shallow(<DeleteItemModalComponent {...props} />);
     expect(component).toMatchSnapshot();
   });

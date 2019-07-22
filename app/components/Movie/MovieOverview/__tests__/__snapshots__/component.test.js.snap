@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieOverviewComponent /> should match snapshot 1`] = `
+<Row
+  className="top-margin"
+  gutter={0}
+>
+  <Col
+    offset={2}
+    span={20}
+  >
+    <Title
+      level={3}
+    >
+      some title
+    </Title>
+    <Paragraph
+      className="movie__text"
+    >
+      some overview
+    </Paragraph>
+  </Col>
+</Row>
+`;

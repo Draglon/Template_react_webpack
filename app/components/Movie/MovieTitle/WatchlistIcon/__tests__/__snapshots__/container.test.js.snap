@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WatchlistIconComponent /> should match snapshot 1`] = `
+<WatchlistIconComponent
+  addToWatchlistRequest={[Function]}
+  handleWatchlist={[Function]}
+  movieId={8493834}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "movieId": 8493834,
+                "watchlist": true,
+              },
+              "type": "ADD_TO_WATCHLIST_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  watchlist={false}
+/>
+`;

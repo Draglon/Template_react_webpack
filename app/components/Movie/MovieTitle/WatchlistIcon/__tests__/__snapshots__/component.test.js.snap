@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WatchlistIconComponent /> should match snapshot - watchlist (false) 1`] = `
+<Icon
+  onClick={[Function]}
+  type="heart"
+/>
+`;
+
+exports[`<WatchlistIconComponent /> should match snapshot - watchlist (true) 1`] = `
+<Icon
+  onClick={[Function]}
+  theme="filled"
+  type="heart"
+/>
+`;

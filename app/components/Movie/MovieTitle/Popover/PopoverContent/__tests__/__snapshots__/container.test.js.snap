@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PopoverContentComponent /> should match snapshot 1`] = `
+<PopoverContentComponent
+  closePopover={[Function]}
+  createdListsRequest={[Function]}
+  movieId={999}
+  myLists={
+    Object {
+      "results": Array [
+        Object {
+          "id": 1,
+          "name": "List 1",
+        },
+        Object {
+          "id": 2,
+          "name": "List 2",
+        },
+      ],
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "CREATED_LISTS_REQUEST",
+            },
+          ],
+          Array [
+            Object {
+              "payload": Object {
+                "page": 1,
+              },
+              "type": "CREATED_LISTS_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "CREATED_LISTS_REQUEST",
+              },
+            ],
+            Array [
+              Object {
+                "payload": Object {
+                  "page": 1,
+                },
+                "type": "CREATED_LISTS_REQUEST",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
