@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PopoverContentComponent /> with results should match snapshot 1`] = `
+<nav
+  className="popover__nav"
+>
+  <ul>
+    <li
+      onClick={[Function]}
+    >
+      <Connect(CreateListModalContainer)
+        text="Create new list ..."
+      />
+    </li>
+    <li
+      key="1"
+    >
+      <Connect(PopoverNavLinkContainer)
+        closePopover={[Function]}
+        list={
+          Object {
+            "id": 1,
+            "name": "List 1",
+          }
+        }
+        movieId={999}
+      />
+    </li>
+    <li
+      key="1"
+    >
+      <Connect(PopoverNavLinkContainer)
+        closePopover={[Function]}
+        list={
+          Object {
+            "id": 1,
+            "name": "List 1",
+          }
+        }
+        movieId={999}
+      />
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`<PopoverContentComponent /> without results should match snapshot 1`] = `
+<nav
+  className="popover__nav"
+>
+  <ul>
+    <li
+      onClick={[Function]}
+    >
+      <Connect(CreateListModalContainer)
+        text="Create new list ..."
+      />
+    </li>
+  </ul>
+</nav>
+`;

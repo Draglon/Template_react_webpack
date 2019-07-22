@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PopoverNavLinkContainer /> should match snapshot 1`] = `
+<PopoverNavLinkComponent
+  addMovieListRequest={[Function]}
+  closePopover={[Function]}
+  list={
+    Object {
+      "id": 99,
+      "name": "List 1",
+    }
+  }
+  movieId={999}
+  onClick={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "listId": 99,
+                "movieId": 999,
+              },
+              "type": "ADD_MOVIE_LIST_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;
