@@ -3,7 +3,7 @@ import { httpClientMock } from '../../../../helpers/httpClientMock';
 import { profile } from '../../../schema';
 
 import profileLogic from '../logic';
-import { profileSuccess } from '../actions';
+import { profileSuccess, profileFailure } from '../actions';
 import { addEntities } from '../../data/actions';
 
 describe('Profile - logic', () => {
@@ -67,17 +67,19 @@ describe('Profile - logic', () => {
     });
 
     describe('Profile FAILURE', () => {
+      const error = {
+        status_message: 'error message',
+      };
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       profileLogic.process({ apiClient, getState }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches profileFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(profileFailure(error));
       });
     });
   });
