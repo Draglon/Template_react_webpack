@@ -3,7 +3,13 @@ import { movies } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
 import { watchlistLogic, addToWatchlistLogic } from '../logic';
-import { watchlistRequest, watchlistSuccess, addToWatchlistSuccess } from '../actions';
+import {
+  watchlistRequest,
+  watchlistSuccess,
+  watchlistFailure,
+  addToWatchlistSuccess,
+  addToWatchlistFailure,
+} from '../actions';
 import { addEntities } from '../../data/actions';
 import { movieRequest } from '../../movie/actions';
 
@@ -21,6 +27,9 @@ describe('Watchlist - logic', () => {
         sessionId,
       },
     },
+  };
+  const error = {
+    status_message: 'error message',
   };
 
   const dispatch = jest.fn();
@@ -80,15 +89,14 @@ describe('Watchlist - logic', () => {
     describe('Watchlist FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       watchlistLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches watchlistFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(watchlistFailure(error));
       });
     });
   });
@@ -147,15 +155,14 @@ describe('Watchlist - logic', () => {
     describe('Add movie to watchlist FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
+        response: error,
         reject: true,
       });
 
       addToWatchlistLogic.process({ apiClient, getState, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches addToWatchlistFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(addToWatchlistFailure(error));
       });
     });
   });
