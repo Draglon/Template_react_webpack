@@ -3,7 +3,6 @@ import { movies } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
 import { favoriteLogic, addToFavoriteLogic } from '../logic';
-<<<<<<< HEAD
 import {
   favoriteRequest,
   favoriteSuccess,
@@ -11,9 +10,6 @@ import {
   addToFavoriteSuccess,
   addToFavoriteFailure,
 } from '../actions';
-=======
-import { favoriteRequest, favoriteSuccess, addToFavoriteSuccess } from '../actions';
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
 import { addEntities } from '../../data/actions';
 import { movieRequest } from '../../movie/actions';
 
@@ -32,12 +28,9 @@ describe('Favorite - logic', () => {
       },
     },
   };
-<<<<<<< HEAD
   const error = {
     status_message: 'error message',
   };
-=======
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
 
   const dispatch = jest.fn();
   const getState = jest.fn(() => state);
@@ -96,24 +89,14 @@ describe('Favorite - logic', () => {
     describe('Favorite FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'get',
-<<<<<<< HEAD
         response: error,
-=======
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
         reject: true,
       });
 
       favoriteLogic.process({ apiClient, getState, action }, dispatch, done);
 
-<<<<<<< HEAD
       it('dispatches favoriteFailure()', () => {
         expect(dispatch).toHaveBeenCalledWith(favoriteFailure(error));
-=======
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
       });
     });
   });
@@ -172,24 +155,14 @@ describe('Favorite - logic', () => {
     describe('Add movie to favorite FAILURE', () => {
       const apiClient = httpClientMock({
         method: 'post',
-<<<<<<< HEAD
         response: error,
-=======
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
         reject: true,
       });
 
       addToFavoriteLogic.process({ apiClient, getState, action }, dispatch, done);
 
-<<<<<<< HEAD
       it('dispatches addToFavoriteFailure()', () => {
         expect(dispatch).toHaveBeenCalledWith(addToFavoriteFailure(error));
-=======
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
->>>>>>> 65fbb5e09ff83e9477b27fb23687ba526f011394
       });
     });
   });
