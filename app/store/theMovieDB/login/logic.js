@@ -33,7 +33,7 @@ export const createSessionLogic = createLogic({
         action.payload.actions.setSubmitting(false);
       })
       .catch(error => {
-        dispatch(createSessionFailure(error.message));
+        dispatch(createSessionFailure(error));
         action.payload.actions.setSubmitting(false);
       })
       .then(() => done());

@@ -25,7 +25,7 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       };
     case t.DELETE_SESSION_REQUEST:
       return {
@@ -43,7 +43,7 @@ export const loginReducer = (state = loginInitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       };
     default:
       return state;

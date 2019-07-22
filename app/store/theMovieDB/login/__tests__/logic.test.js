@@ -2,7 +2,12 @@ import Cookies from 'js-cookie';
 import { httpClientMock, multiHttpClientMock } from '../../../../helpers/httpClientMock';
 import { createSessionLogic, deleteSessionLogic } from '../logic';
 
-import { createSessionSuccess, deleteSessionSuccess } from '../actions';
+import {
+  createSessionSuccess,
+  createSessionFailure,
+  deleteSessionSuccess,
+  deleteSessionFailure,
+} from '../actions';
 
 describe('Delete - logic', () => {
   const dispatch = jest.fn();
@@ -35,54 +40,51 @@ describe('Delete - logic', () => {
       const requestTokenWithLogin = requests[1].response.data.request_token;
       const requestSessionId = requests[2].response.data.session_id;
 
-      it('Should return correct URL', () => {
+      it('Should return correct URL - create token', () => {
         expect(apiClient.get).toHaveBeenCalledWith('authentication/token/new');
       });
 
-      describe('Create session with login SUCCESS', () => {
-        it('Should return correct URL', () => {
-          expect(apiClient.post).toHaveBeenCalledWith('authentication/token/validate_with_login', {
-            username,
-            password,
-            request_token: requestToken,
-          });
+      it('Should return correct URL - create session with login', () => {
+        expect(apiClient.post).toHaveBeenCalledWith('authentication/token/validate_with_login', {
+          username,
+          password,
+          request_token: requestToken,
         });
+      });
 
-        describe('Create new session SUCCESS', () => {
-          it('Should return correct URL', () => {
-            expect(apiClient.post).toHaveBeenCalledWith('authentication/session/new', {
-              request_token: requestTokenWithLogin,
-            });
-          });
-
-          it('dispatches createSessionSuccess()', () => {
-            expect(dispatch).toHaveBeenCalledWith(createSessionSuccess(requestSessionId));
-          });
-
-          it('calls formik setSubmitting()', () => {
-            expect(action.payload.actions.setSubmitting).toHaveBeenCalledWith(false);
-          });
-
-          it('calls done', () => {
-            expect(done).toHaveBeenCalled();
-          });
+      it('Should return correct URL - create new session', () => {
+        expect(apiClient.post).toHaveBeenCalledWith('authentication/session/new', {
+          request_token: requestTokenWithLogin,
         });
+      });
+
+      it('dispatches createSessionSuccess()', () => {
+        expect(dispatch).toHaveBeenCalledWith(createSessionSuccess(requestSessionId));
+      });
+
+      it('calls formik setSubmitting()', () => {
+        expect(action.payload.actions.setSubmitting).toHaveBeenCalledWith(false);
+      });
+
+      it('calls done', () => {
+        expect(done).toHaveBeenCalled();
       });
     });
 
     describe('CREATE_SESSION_FAILURE', () => {
+      const error = {
+        status_message: 'error message',
+      };
       const apiClient = httpClientMock({
         method: 'get',
-        response: {},
+        response: error,
         reject: true,
       });
 
       createSessionLogic.process({ apiClient, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches createSessionFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(createSessionFailure(error));
       });
     });
   });
@@ -120,18 +122,19 @@ describe('Delete - logic', () => {
     });
 
     describe('Delete session FAILURE', () => {
+      const error = {
+        status_message: 'error message',
+      };
       const apiClient = httpClientMock({
         method: 'delete',
-        response: {},
+        response: error,
         reject: true,
       });
 
       deleteSessionLogic.process({ apiClient }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches deleteSessionFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(deleteSessionFailure(error));
       });
     });
   });
