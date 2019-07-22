@@ -5,13 +5,16 @@ import { Modal } from 'antd';
 import DeleteItemModalComponent from './component';
 
 class DeleteItemModalContainer extends Component {
+  onOk = () => {
+    const { params, onConfirm } = this.props;
+    onConfirm(params);
+  };
+
   showModal = () => {
-    const { title, params, onConfirm } = this.props;
+    const { title } = this.props;
     Modal.confirm({
       title,
-      onOk() {
-        onConfirm(params);
-      },
+      onOk: this.onOk,
     });
   };
 
