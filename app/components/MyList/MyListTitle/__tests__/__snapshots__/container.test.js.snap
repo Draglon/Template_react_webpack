@@ -15,11 +15,7 @@ exports[`<MyListsTitleContainer /> should match snapshot 1`] = `
       "listen": [Function],
       "location": Object {
         "hash": "",
-<<<<<<< HEAD
         "key": "xu01uf",
-=======
-        "key": "sqkqk0",
->>>>>>> 930721d... fix error messages for reducer
         "pathname": "/myLists",
         "search": "",
         "state": undefined,
