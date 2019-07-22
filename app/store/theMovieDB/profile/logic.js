@@ -26,9 +26,9 @@ export default createLogic({
           username,
         } = response.data;
         const data = { id, avatar: hash, name, username };
-        const normalizeData = normalize(data, profile);
+        const { entities } = normalize(data, profile);
         Cookies.set('accountId', id, { expires: 7 });
-        dispatch(addEntities(normalizeData.entities));
+        dispatch(addEntities(entities));
         dispatch(profileSuccess({ id }));
       })
       .catch(error => dispatch(profileFailure(error)))

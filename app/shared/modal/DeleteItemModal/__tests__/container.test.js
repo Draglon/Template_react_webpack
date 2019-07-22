@@ -4,32 +4,39 @@ import { Modal } from 'antd';
 
 import DeleteItemModalContainer from '../container';
 
+const spy = jest.spyOn(Modal, 'confirm');
+
 describe('<DeleteItemModalContainer />', () => {
-  const store = configureStore()({});
   const props = {
     title: 'some title',
     params: { movieId: 9999 },
-    onConfirm: () => {
-      Modal.confirm({
-        title: 'some title',
-        onOk() {},
-      });
-    },
+    onConfirm: jest.fn(),
   };
 
-  const wrapper = shallow(<DeleteItemModalContainer store={store} {...props} />);
-  const container = wrapper.dive();
+  const store = configureStore()({});
+  const container = shallow(<DeleteItemModalContainer store={store} {...props} />);
   const instance = container.instance();
 
   describe('showModal()', () => {
-    it('dispatches the showModal()', () => {
-      // instance.showModal();
+    it('should call showModal()', () => {
+      instance.showModal();
 
-      // expect(instance.showModal()).toHaveBeenCalledWith();
+      expect(spy).toHaveBeenCalledWith({
+        title: props.title,
+        onOk: expect.any(Function),
+      });
     });
   });
 
-  it('Render snapshot - DeleteItemModalContainer', () => {
-    expect(wrapper).toMatchSnapshot();
+  describe('onConfirm()', () => {
+    it('should call onConfirm()', () => {
+      instance.onOk();
+
+      expect(props.onConfirm).toHaveBeenCalledWith(props.params);
+    });
+  });
+
+  it('should match snapshot', () => {
+    expect(container).toMatchSnapshot();
   });
 });

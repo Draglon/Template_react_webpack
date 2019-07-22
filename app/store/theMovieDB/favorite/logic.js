@@ -21,16 +21,16 @@ export const favoriteLogic = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const accountId = getAccountId(getState());
     const sessionId = getSessionId(getState());
-    const page = action.payload.page;
+    const { page } = action.payload;
     apiClient
       .get(`account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [movies]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.results, [movies]);
+        dispatch(addEntities(entities));
         dispatch(
           favoriteSuccess({
             ...response.data,
-            results: normalizeData.result,
+            results: result,
           }),
         );
       })
@@ -45,8 +45,7 @@ export const addToFavoriteLogic = createLogic({
   process({ apiClient, getState, action }, dispatch, done) {
     const accountId = getAccountId(getState());
     const sessionId = getSessionId(getState());
-    const movieId = action.payload.movieId;
-    const favorite = action.payload.favorite;
+    const { movieId, favorite } = action.payload;
     apiClient
       .post(`account/${accountId}/favorite?session_id=${sessionId}`, {
         media_type: 'movie',

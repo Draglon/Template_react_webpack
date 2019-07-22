@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DeleteItemModalContainer /> should match snapshot 1`] = `
-<DeleteItemModalComponent
-  onConfirm={
+exports[`<PopoverContainer /> should match snapshot 1`] = `
+<PopoverComponent
+  closePopover={[Function]}
+  handleVisiblePopover={
     [MockFunction] {
       "calls": Array [
         Array [
-          Object {
-            "movieId": 9999,
-          },
+          false,
         ],
       ],
       "results": Array [
@@ -19,22 +18,17 @@ exports[`<DeleteItemModalContainer /> should match snapshot 1`] = `
       ],
     }
   }
-  params={
-    Object {
-      "movieId": 9999,
-    }
-  }
-  showModal={[Function]}
+  movieId={999}
+  popoverVisible={false}
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction],
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
     }
   }
-  title="some title"
 />
 `;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FavoriteIconContainer /> should match snapshot 1`] = `
+<FavoriteIconComponent
+  addToFavoriteRequest={[Function]}
+  favorite={false}
+  handleFavorite={[Function]}
+  movieId={8493834}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "payload": Object {
+                "favorite": true,
+                "movieId": 8493834,
+              },
+              "type": "ADD_TO_FAVORITE_REQUEST",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

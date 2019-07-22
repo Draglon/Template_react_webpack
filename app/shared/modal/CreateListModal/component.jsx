@@ -23,8 +23,7 @@ const CreateListModalComponent = ({ modalVisible, showModal, hideModal, onSubmit
       initialValues={{ name: '', description: '' }}
       validationSchema={createListSchema}
       onSubmit={onSubmit}
-    >
-      {props => (
+      render={props => (
         <Modal
           visible={modalVisible}
           onCancel={hideModal}
@@ -39,7 +38,7 @@ const CreateListModalComponent = ({ modalVisible, showModal, hideModal, onSubmit
           </Form>
         </Modal>
       )}
-    </Formik>
+    />
   </>
 );
 
