@@ -15,14 +15,14 @@ export default createLogic({
     apiClient
       .get(`search/movie?query=${query}&page=${page}&language=en-US`)
       .then(response => {
-        const normalizeData = normalize(response.data.results, [movies]);
-        dispatch(addEntities(normalizeData.entities));
+        const { entities, result } = normalize(response.data.results, [movies]);
+        dispatch(addEntities(entities));
         dispatch(
           searchSuccess({
             ...response.data,
-            query: action.payload.query,
-            page: action.payload.page,
-            results: normalizeData.result,
+            query,
+            page,
+            results: result,
           }),
         );
         return response;
