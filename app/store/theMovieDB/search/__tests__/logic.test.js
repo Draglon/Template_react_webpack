@@ -3,7 +3,7 @@ import { movies } from '../../../schema';
 import { httpClientMock } from '../../../../helpers/httpClientMock';
 
 import searchLogic from '../logic';
-import { searchSuccess } from '../actions';
+import { searchSuccess, searchFailure } from '../actions';
 import { addEntities } from '../../data/actions';
 
 describe('Search - logic', () => {
@@ -64,17 +64,19 @@ describe('Search - logic', () => {
     });
 
     describe('Search FAILURE', () => {
+      const error = {
+        status_message: 'error message',
+      };
       const apiClient = httpClientMock({
         method: 'get',
+        response: error,
         reject: true,
       });
 
       searchLogic.process({ apiClient, action }, dispatch, done);
 
-      it('Should throw an Error', () => {
-        expect(() => {
-          throw new Error();
-        }).toThrow();
+      it('dispatches searchFailure()', () => {
+        expect(dispatch).toHaveBeenCalledWith(searchFailure(error));
       });
     });
   });
