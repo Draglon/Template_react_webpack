@@ -59,7 +59,7 @@ describe('Authentication - reducers', () => {
 
       expect(loginReducer(state, action)).toEqual({
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       });
     });
   });
@@ -113,7 +113,7 @@ describe('Authentication - reducers', () => {
 
       expect(loginReducer(state, action)).toEqual({
         isLoading: false,
-        error: action.payload,
+        error: action.payload.message,
       });
     });
   });
