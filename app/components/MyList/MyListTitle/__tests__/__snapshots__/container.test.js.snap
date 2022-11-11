@@ -15,7 +15,7 @@ exports[`<MyListsTitleContainer /> should match snapshot 1`] = `
       "listen": [Function],
       "location": Object {
         "hash": "",
-        "key": "7esysu",
+        "key": "oklj4h",
         "pathname": "/myLists",
         "search": "",
         "state": undefined,
