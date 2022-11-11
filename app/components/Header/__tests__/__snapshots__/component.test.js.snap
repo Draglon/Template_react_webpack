@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HeaderComponent /> component Render property - with avatar 1`] = `
-<Adapter>
+<Header>
   <Row
     gutter={0}
     justify="space-between"
@@ -44,11 +44,11 @@ exports[`<HeaderComponent /> component Render property - with avatar 1`] = `
       </div>
     </Col>
   </Row>
-</Adapter>
+</Header>
 `;
 
 exports[`<HeaderComponent /> component Render property - without avatar 1`] = `
-<Adapter>
+<Header>
   <Row
     gutter={0}
     justify="space-between"
@@ -91,5 +91,5 @@ exports[`<HeaderComponent /> component Render property - without avatar 1`] = `
       </div>
     </Col>
   </Row>
-</Adapter>
+</Header>
 `;

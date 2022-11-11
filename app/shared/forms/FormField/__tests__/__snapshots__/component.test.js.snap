@@ -6,7 +6,6 @@ exports[`<FormField /> component Render snapshot - with error 1`] = `
 >
   <Input
     className="error"
-    disabled={false}
     name="name"
     placeholder="placeholder"
     prefix={false}
@@ -25,7 +24,6 @@ exports[`<FormField /> component Render snapshot - with field prefix and error 1
 >
   <Input
     className="error"
-    disabled={false}
     name="name"
     placeholder="placeholder"
     prefix={
@@ -48,7 +46,6 @@ exports[`<FormField /> component Render snapshot - with field prefix and without
 >
   <Input
     className="error"
-    disabled={false}
     name="name"
     placeholder="placeholder"
     prefix={
@@ -71,7 +68,6 @@ exports[`<FormField /> component Render snapshot - without error 1`] = `
 >
   <Input
     className="error"
-    disabled={false}
     name="name"
     placeholder="placeholder"
     prefix={false}

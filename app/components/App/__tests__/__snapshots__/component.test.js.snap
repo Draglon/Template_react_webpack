@@ -2,7 +2,7 @@
 
 exports[`<AppComponent /> component Render snapshot - sessionId: false 1`] = `
 <BrowserRouter>
-  <Adapter
+  <Content
     className="page"
   >
     <Switch>
@@ -40,14 +40,14 @@ exports[`<AppComponent /> component Render snapshot - sessionId: false 1`] = `
         component={[Function]}
       />
     </Switch>
-  </Adapter>
+  </Content>
 </BrowserRouter>
 `;
 
 exports[`<AppComponent /> component Render snapshot - sessionId: true 1`] = `
 <BrowserRouter>
   <Connect(HeaderContainer) />
-  <Adapter
+  <Content
     className="page"
   >
     <Switch>
@@ -85,6 +85,6 @@ exports[`<AppComponent /> component Render snapshot - sessionId: true 1`] = `
         component={[Function]}
       />
     </Switch>
-  </Adapter>
+  </Content>
 </BrowserRouter>
 `;
